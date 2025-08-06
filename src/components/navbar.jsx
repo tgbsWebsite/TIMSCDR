@@ -565,7 +565,7 @@ function Navbar() {
           )}
           {dropdownContent["Programs"] && (
             <div
-              className="nav-dropdown"
+              className="nav-dropdown dropdown-item"
               onMouseEnter={() => handleMouseEnter("Programs")}
               onMouseLeave={handleMouseLeave}
             >
@@ -593,11 +593,11 @@ function Navbar() {
           )}
           {dropdownContent["Admissions"] && (
             <div
-              className="nav-dropdown"
+              className="nav-dropdown dropdown-item"
               onMouseEnter={() => handleMouseEnter("Admissions")}
               onMouseLeave={handleMouseLeave}
             >
-              <a href="#" className="nav-link">
+              <a href="#" className="nav-link ">
                 <div
                   style={{
                     display: "flex",
@@ -626,7 +626,7 @@ function Navbar() {
                     <div className='nav-dropdown'><a href="/contact-us" className='nav-link'>Contact Us</a></div> */}
           {dropdownContent["Academics"] && (
             <div
-              className="nav-dropdown"
+              className="nav-dropdown dropdown-item"
               onMouseEnter={() => handleMouseEnter("Academics")}
               onMouseLeave={handleMouseLeave}
             >
@@ -733,7 +733,7 @@ function Navbar() {
           )}
           {dropdownContent["Placements"] && (
             <div
-              className="nav-dropdown"
+              className="nav-dropdown dropdown-item"
               onMouseEnter={() => handleMouseEnter("Placements")}
               onMouseLeave={handleMouseLeave}
             >
@@ -762,7 +762,7 @@ function Navbar() {
 
           {dropdownContent["IQAC"] && (
             <div
-              className="nav-dropdown"
+              className="nav-dropdown dropdown-item"
               onMouseEnter={() => handleMouseEnter("IQAC")}
               onMouseLeave={handleMouseLeave}
             >
@@ -872,7 +872,7 @@ function Navbar() {
 
           {dropdownContent["Alumni"] && (
             <div
-              className="nav-dropdown"
+              className="nav-dropdown dropdown-item"
               onMouseEnter={() => handleMouseEnter("Alumni")}
               onMouseLeave={handleMouseLeave}
             >
@@ -948,7 +948,7 @@ function Navbar() {
 
       {/* Mobile Menu Button */}
       <button className="menu-button" onClick={toggleMenu}>
-        <img src="/images/icons/menu.webp" alt="Menu TGBS" />
+        <img src="/images/icons/menu.webp" alt="Menu TIMSCDR" />
       </button>
 
       {/* Mobile Sliding Menu */}
@@ -967,7 +967,7 @@ function Navbar() {
             src="/images/icons/close.webp"
             className="close-button"
             onClick={toggleMenu}
-            alt="Close TGBS"
+            alt="Close TIMSCDR"
           />
         </div>
         <div className="mobile-dropdown-container">
@@ -978,7 +978,7 @@ function Navbar() {
                 className="menu-item"
               >
                 <p>{category}</p>
-                <img src="/images/icons/open.webp" alt="Open TGBS" />
+                <img src="/images/icons/open.webp" alt="Open TIMSCDR" />
               </div>
               {dropdownOpen === category && (
                 <div className="mobile-dropdown-content">
