@@ -1,0 +1,165 @@
+/* CTA Menu Container */
+.cta-container {
+    position: fixed;
+    right: 0;
+    top: 75%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 10;
+    align-items: flex-end; /* Align buttons to the right *//* Align buttons to the right */
+}
+
+/* Button Styling */
+.cta-button {
+    display: flex;
+    align-items: center;
+    color: white;
+    padding: 10px;
+    border-radius: 6px 0 0 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: width 0.3s ease-in-out;
+    width: 20px; /* Initially small */
+    overflow: hidden;
+    background-color: #233b77;
+    white-space: nowrap;
+    text-decoration: none;
+    justify-content: flex-start; /* Keep icon in place */
+    position: relative; /* Prevent shifting */
+}
+
+.icon{
+    display: flex;
+
+}
+
+.icon img{
+    width: 20px;
+    height: 20px;
+}
+
+/* Text should appear smoothly */
+.cta-button .text {
+    opacity: 0;
+    margin-left: 5px;
+    transition: opacity 0.2s ease-in-out;
+}
+
+/* Expand only hovered button */
+.cta-button.open {
+    width: 100%;
+}
+
+/* Show text when open */
+.cta-button.open .text {
+    opacity: 1;
+}
+
+/* Apply Now Button - Different Color */
+.cta-button.apply {
+    background-color: #027176;
+}
+
+.cta-button.apply:hover {
+    background-color: #027176;
+    color: #fffd00;
+}
+
+
+@media (max-width: 768px) {
+    .cta-button {
+        width: 40px !important; /* Force small size */
+        padding: 10px; /* Keep padding minimal */
+    }
+
+    .cta-button .text {
+        display: none; /* Hide text on mobile */
+    }
+}
+
+
+.mobile-static-buttons{
+    position: fixed;
+    right: -60px;
+    top: 35%;
+    transform: rotate(270deg);
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    z-index: 10;
+    align-items: flex-end;
+}
+
+.cta-static-button{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 6px 6px 0 0;
+    font-size: 14px;
+    transition: width 0.3s ease-in-out;
+    padding: 10px;
+    overflow: hidden;
+    text-decoration: none;
+    justify-content: center; /* Keep icon in place */
+    position: relative; 
+    border: none;
+    text-wrap: nowrap;
+}
+
+.cta-static-button:nth-child(2){
+    background-color: #233b77;
+    color: white;
+}
+
+.cta-static-button:nth-child(2):hover{
+    background-color: #f07c39;
+    color: black;
+}
+
+.cta-static-button:nth-child(1){
+    background-color: #027176;
+    color: #fffd00;
+}
+
+.cta-static-button:nth-child(1):hover{
+    background-color: #fffd00;
+    color: #027176;
+}
+
+.cta-button.phone {
+    background-color: #2196f3;
+}
+
+.cta-button.email {
+    background-color: #edeff1;
+    color: black;
+}
+
+.cta-button.whatsapp {
+    background-color: #4cb051;
+}
+
+.cta-button.apply {
+    background-color: #027176;
+}
+
+.cta-button.linkedin {
+    background-color: #0288d1;
+}
+
+.cta-button.instagram {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.cta-button.apply:hover {
+    background-color: #027176;
+    color: #fffd00;
+}
+
+.cta-button.instagram .text {
+    color: #000000;
+}
+

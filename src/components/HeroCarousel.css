@@ -1,0 +1,45 @@
+.hero-carousel {
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  /* margin-top: 80px; */
+  position: relative;
+}
+
+.slide-box {
+  height: 100vh; /* Match height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: bold;
+  color: white;
+  background-color: #027176; /* fallback background */
+}
+
+.scroll-image-wrapper {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+}
+
+.scroll-image-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+  transition: transform 0.3s;
+}
+
+.scroll-image-button img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  transition: transform 0.3s;
+}
+
+.scroll-image-button:hover img {
+  transform: scale(1.1);
+}

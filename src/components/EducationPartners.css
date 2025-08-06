@@ -1,0 +1,40 @@
+.edu-circle-logos {
+  padding: 3rem 1.5rem;
+  background: #fff;
+  text-align: center;
+}
+
+.section-heading{
+  color: #231f54;
+}
+
+.circle-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.circle-card {
+  background: #eef3fa;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* box-shadow: 0 6px 15px rgba(0,0,0,0.1); */
+  transition: transform 0.3s;
+  /* animation: float 3s ease-in-out infinite; */
+}
+
+.circle-card img {
+  max-width: 110%;
+  max-height: 110%;
+  object-fit: contain;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}

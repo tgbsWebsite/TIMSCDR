@@ -1,0 +1,68 @@
+.legacy-section {
+  padding: 48px 24px;
+  background-color: #f5f5f5;
+  text-align: center;
+}
+
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  padding: 3rem 2rem;
+}
+
+.card {
+  width: 240px;
+  height: 150px;
+  background-color: #ffffff;
+  padding: 1.25rem 1rem;
+  border-radius: 16px;
+  border: 1px solid #ddd; /* light edge for dimension */
+  border-bottom: 4px solid #0c2e73; /* strong bottom border */
+  
+  /* 3D Shadow Effect */
+  box-shadow:
+    4px 4px 8px rgba(0, 0, 0, 0.2),   /* right-bottom shadow */
+    -4px -4px 8px rgba(0, 0, 0, 0.05); /* top-left highlight */
+  
+  /* Slight perspective tilt */
+  transform: perspective(800px) rotateX(2deg);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Optional: On hover, push the 3D effect */
+.card:hover {
+  transform: perspective(800px) rotateX(0deg) translateY(-4px);
+  box-shadow:
+    6px 6px 16px rgba(0, 0, 0, 0.25),
+    -2px -2px 6px rgba(255, 255, 255, 0.5);
+}
+
+
+.card-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #231f54; /* strong red number */
+  margin-bottom: 0.25rem;
+}
+
+.card-label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: black; /* deep blue */
+}
+
+.section-heading {
+  font-size: 1.875rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  color: #231f54;
+}

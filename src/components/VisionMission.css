@@ -1,0 +1,88 @@
+.vision-mission-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 4rem 10rem;
+  gap: 4rem;
+  /* flex-wrap: wrap; */
+  flex-wrap: nowrap;
+}
+
+.vision, .mission {
+  flex: 1 1 45%;
+}
+
+.vision h2, .mission h2 {
+  font-size: 1.75rem;
+  color: #231f54;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.vision p, .mission p {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.6;
+  text-align: left;
+}
+
+/* Divider */
+.divider {
+  width: 4px;
+  background-color: #231f54;
+  min-height: 100%;
+  align-self: stretch;
+}
+
+/* Headings */
+.vision-heading,
+.programs-heading,
+.about-us-heading {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #231f54;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.vision-mission-section {
+  padding: 2rem;
+}
+
+/* ✅ Responsive Media Query */
+@media (max-width: 1024px) {
+  .vision-mission-wrapper {
+    padding: 2rem;
+    gap: 2rem;
+  }
+
+  .vision, .mission {
+    flex: 1 1 100%;
+  }
+
+  .divider {
+    display: none;
+  }
+
+  .vision h2, .mission h2 {
+    font-size: 1.5rem;
+  }
+
+  .vision p, .mission p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .vision h2, .mission h2 {
+    font-size: 1.3rem;
+  }
+
+  .vision p, .mission p {
+    font-size: 0.9rem;
+  }
+
+  .vision-mission-section {
+    padding: 1rem;
+  }
+}

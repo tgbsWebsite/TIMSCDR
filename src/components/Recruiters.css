@@ -1,0 +1,48 @@
+.recruiters-section {
+  /* background: #f5f7fa; */
+  text-align: center;
+  padding-bottom: 4rem;
+}
+
+.recruiters-heading {
+  font-size: 2rem;
+  color: #0c2e73;
+  margin-bottom: 3.5rem;  /* or try 4rem for more space */
+}
+
+.logo-slider {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.logo-track {
+  display: flex;
+  width: max-content;
+
+  animation: scroll-left 25s linear infinite;
+}
+
+.logo-slide.placeholder {
+  height: 80px;
+  width: 160px;
+  background-color: #e0e0e0;
+  color: #0c2e73;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 8px;
+  margin: 0 1rem;
+  white-space: nowrap;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
