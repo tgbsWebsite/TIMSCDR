@@ -495,7 +495,6 @@
   font-weight: 500;
   white-space: nowrap;
   justify-content: center;
-
 }
 
 /* Submenu inside a dropdown */
@@ -509,11 +508,14 @@
 
 .submenu a {
   font-size: 14px;
-   padding: 4px 6px;
+  padding: 4px 6px;
   color: #0c2e73;
   text-decoration: none;
   font-weight: 500;
   gap: 6px;
+  
+
+  word-break: break-word;
 }
 
 .submenu a:hover {

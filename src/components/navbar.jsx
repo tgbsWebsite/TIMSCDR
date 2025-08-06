@@ -56,7 +56,6 @@ function Navbar() {
   }, [menuOpen]);
 
   const dropdownContent = {
-   
     About: [
       { name: "Vission & Mission", link: "/VisionMission" },
       {
@@ -82,7 +81,12 @@ function Navbar() {
         submenu: [
           { name: "Divyangjan Policy", link: "/facilities/library-rules" },
           {
-            name: "Energy Conservation, Water Management And Waste Management Policy",
+            name: (
+              <>
+                Energy Conservation, <br />
+                Water Management And <br /> Waste Management Policy
+              </>
+            ),
             link: "/facilities/digital-resources",
           },
           { name: "IPR Policy", link: "/facilities/library-timings" },
@@ -456,11 +460,21 @@ function Navbar() {
             link: "/facilities/digital-resources",
           },
           {
-            name: "AICTE-Faculty Position Qualification And Experience Eligibility",
+            name: (
+              <>
+                AICTE-Faculty <br /> Position Qualification <br />
+                And Experience Eligibility
+              </>
+            ),
             link: "/facilities/library-timings",
           },
           {
-            name: "UoM-Faculty Position Qualification And Experience Eligibility CONCOL/ICC/04 Of 2012]",
+            name: (
+              <>
+                UoM-Faculty Position <br/> Qualification And <br/> Experience Eligibility<br/>
+                CONCOL/ICC/04 Of 2012
+              </>
+            ),
             link: "/facilities/library-timings",
           },
           {
@@ -516,11 +530,7 @@ function Navbar() {
         <div className="nav-links">
           {/* <div className='nav-dropdown'><a href="/activities/events" className='nav-link'>Events</a></div> */}
           <div className="nav-dropdown">
-            <a
-              href="/"
-              className="nav-link"
-              style={{ fontSize: "15px" }}
-            >
+            <a href="/" className="nav-link" style={{ fontSize: "15px" }}>
               Home
             </a>
           </div>
@@ -914,7 +924,7 @@ function Navbar() {
                     fontSize: "15px",
                   }}
                 >
-                  Examination
+                  Contact
                 </div>
               </a>
 
