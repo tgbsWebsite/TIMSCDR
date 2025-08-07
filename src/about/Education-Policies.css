@@ -1,0 +1,195 @@
+.Education-Policies-container {
+  padding: 40px 20px;
+  font-family: "Segoe UI", sans-serif;
+  max-width: 1200px;
+  margin: 150px auto 40px auto;
+}
+
+.page-title {
+  text-align: center;
+  font-weight: bold;
+  color: #231f54;
+  font-size: 35px;
+  margin-bottom: 35px;
+}
+
+.policy-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.policy-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+}
+
+/* .policy-content {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  align-items: flex-start;
+  
+} */
+
+.policy-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.policy-text {
+  flex: 1;
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.vision-box {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.values-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.values-box h3 {
+  font-size: 35px;
+  color: #231f54;
+  width: 100%;
+  margin: 25px 0 0 0;
+}
+
+.values {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.values p {
+  font-size: 16px;
+  color: white;
+  font-weight: 400;
+  background-color: #231f54;
+  padding: 45px;
+  width: 32%;
+  height: 30vh;
+  border-radius: 6px;
+}
+
+.values p span {
+  font-weight: 800;
+  font-size: 20px;
+}
+
+/* Modern Tick List for .timeline and .timeline-item */
+
+.timeline {
+  width: 100%;
+  margin: 40px auto;
+  /* padding: 24px 32px; */
+  background: #fff;
+  /* box-shadow: 0 6px 30px rgba(34, 60, 80, 0.07); */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 48px;
+  margin-bottom: 28px;
+  font-size: 1.13rem;
+  line-height: 1.5;
+  font-weight: 500;
+  color: #2c3e50;
+  cursor: default;
+  transition: background-color 0.22s ease, box-shadow 0.22s ease;
+  border-radius: 12px;
+}
+
+/* Last item spacing fix */
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Tick/check mark before each item */
+.timeline-item::before {
+  content: "✔";
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.7rem;
+  color: #231f54;
+  background: #e6f4ea;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  box-shadow: 0 2px 8px rgba(39, 174, 96, 0.25);
+}
+
+/* Slight hover effect */
+/* .timeline-item:hover {
+  background-color: #f6fbf7;
+  box-shadow: 0 4px 12px rgba(39, 174, 96, 0.18);
+} */
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .timeline {
+    padding: 16px 20px;
+    max-width: 95vw;
+  }
+  .timeline-item {
+    padding-left: 40px;
+    font-size: 1rem;
+  }
+  .timeline-item::before {
+    left: 8px;
+    width: 24px;
+    height: 24px;
+    font-size: 1.3rem;
+    line-height: 24px;
+  }
+}
+
+/* .timeline-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+} */
+
+.sub-page-title {
+  text-align: left;
+  font-weight: bold;
+  color: #231f54;
+  font-size: 35px;
+  margin-bottom: 35px;
+}
+
+hr {
+    width: 10%;
+  height: 6px;
+  margin: 0 0 15px 0;
+  border-radius: 32px;
+  background-color: #231f54;
+  border: none;
+  align-self: start;
+}

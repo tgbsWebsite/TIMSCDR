@@ -60,7 +60,7 @@ function Navbar() {
       { name: "Vission & Mission", link: "/VisionMission" },
       {
         name: "Educational Organization Policys",
-        link: "/activities/guest-sessions",
+        link: "/Education-Policies",
       },
       { name: "Chairman's Message", link: "/activities/workshops" },
       { name: "CEO's Message", link: "/activities/tcei" },

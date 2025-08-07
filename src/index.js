@@ -24,6 +24,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "./App";
 import VisionMissionPage from './about/VisionMission'; // Separate page component
 import "./index.css";
+import EducationPolicies from "./about/Education-Policies";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -32,6 +33,7 @@ root.render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/VisionMission" element={<VisionMissionPage />} />
+        <Route path="/Education-Policies" element={<EducationPolicies />} />
       </Routes>
     </BrowserRouter>
 );
