@@ -57,15 +57,15 @@ function Navbar() {
 
   const dropdownContent = {
     About: [
-      { name: "Vission & Mission", link: "/VisionMission" },
+      { name: "Vission & Mission", link: "/about/Vision-Mission" },
       {
         name: "Educational Organization Policys",
-        link: "/Education-Policies",
+        link: "/about/Education-Policies",
       },
-      { name: "Chairman's Message", link: "/activities/workshops" },
-      { name: "CEO's Message", link: "/activities/tcei" },
-      { name: "Director's Message", link: "/activities/samvedna" },
-      { name: "Governing Council", link: "/activities/industrial-visits" },
+      { name: "Chairman's Message", link: "/about/chairman-message" },
+      { name: "CEO's Message", link: "/about/ceo-message" },
+      { name: "Director's Message", link: "/about/director-message" },
+      { name: "Governing Council", link: "/about/governing-council" },
       { name: "Advisory Board", link: "/activities/guest-lectures" },
       { name: "Academic Council", link: "/activities/events" },
       {
@@ -854,7 +854,7 @@ function Navbar() {
                     fontSize: "15px",
                   }}
                 >
-                  Life
+                  Life @ TIMSCDR
                 </div>
               </a>
 

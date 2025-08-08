@@ -25,15 +25,22 @@ import App from "./App";
 import VisionMissionPage from './about/VisionMission'; // Separate page component
 import "./index.css";
 import EducationPolicies from "./about/Education-Policies";
-
+import ChairmanMessage from "./about/ChairmanMessage"; // Assuming this is the path to your ChairmanMessage component
+import CeoMessage from "./about/ceo";
+import DirectorMesage from "./about/director";
+import Governing from "./about/governing";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="/VisionMission" element={<VisionMissionPage />} />
-        <Route path="/Education-Policies" element={<EducationPolicies />} />
+        <Route path="/about/Vision-Mission" element={<VisionMissionPage />} />
+        <Route path="/about/Education-Policies" element={<EducationPolicies />} />
+        <Route path="/about/chairman-message" element={<ChairmanMessage/>}/>
+        <Route path="/about/ceo-message" element={<CeoMessage/>}/>
+        <Route path="/about/director-message" element={<DirectorMesage/>}/>
+        <Route path="/about/governing-council" element={<Governing/>} />
       </Routes>
     </BrowserRouter>
 );

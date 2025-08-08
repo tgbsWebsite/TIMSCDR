@@ -23,7 +23,6 @@
     transition: width 0.3s ease-in-out;
     width: 20px; /* Initially small */
     overflow: hidden;
-    background-color: #233b77;
     white-space: nowrap;
     text-decoration: none;
     justify-content: flex-start; /* Keep icon in place */
@@ -153,6 +152,15 @@
     background-color: #ffffff;
     color: #000000;
 }
+
+.cta-button.facebook .text {
+    color: #ffffff;
+}
+
+.cta-button.facebook {
+    background-color: #229cef;
+}
+
 
 .cta-button.apply:hover {
     background-color: #027176;

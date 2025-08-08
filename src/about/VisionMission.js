@@ -55,7 +55,7 @@ const VisionMission = () => {
 
 
 
-        <h2 className="section-title">Program Outcomes (PO's)</h2>
+        <h2 className="section-title">Program Educational Objectives (PEO's)</h2>
 
         <div className="po-grid">
           <div className="po-card">
@@ -91,7 +91,7 @@ const VisionMission = () => {
         </div>
 
         <h2 className="section-title">
-          Program Educational Objectives (PEO's)
+           Program Outcomes (PO's)
         </h2>
         <div className="peo-section">
           <div className="peo-item">

@@ -5,6 +5,7 @@ import EmailImg from "../assets/gmail.png";
 import WhatsappImg from "../assets/whatsapp.png";
 import LinkedInImg from "../assets/linkedin.png";
 import InstagramImg from "../assets/instagram.png";
+import FacebookImg from "../assets/facebook.png";
 import BrochureForm from "./EnquiryForm";
 
 // import BrochureForm from "./brochure-form";
@@ -53,8 +54,7 @@ const CTAButtons = () => {
           }`}
           onMouseEnter={() => !isMobile && setOpenButton("apply")}
           onMouseLeave={() => !isMobile && setOpenButton(null)}
-          onClick={() => setShowForm(true)
-}
+          onClick={() => setShowForm(true)}
         >
           <span className="icon">📝</span>
           <span className="text">Enquire Now</span>
@@ -130,9 +130,25 @@ const CTAButtons = () => {
           }
         >
           <span className="icon">
-            <img src={InstagramImg} alt="Instagram - TIMSCDR" />
+            <img src={InstagramImg} alt="FaceBook - TIMSCDR" />
           </span>
           <span className="text">Instagram</span>
+        </div>
+
+        <div
+          className={`cta-button facebook ${
+            !isMobile && openButton === "facebook" ? "open" : ""
+          }`}
+          onMouseEnter={() => !isMobile && setOpenButton("facebook")}
+          onMouseLeave={() => !isMobile && setOpenButton(null)}
+          onClick={() =>
+            handleClick("")
+          }
+        >
+          <span className="icon">
+            <img src={FacebookImg} alt="FaceBook - TIMSCDR" />
+          </span>
+          <span className="text">Facebook</span>
         </div>
       </div>
     </div>
