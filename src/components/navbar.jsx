@@ -102,7 +102,7 @@ function Navbar() {
       },
       {
         name: "MCA For Working Professionals",
-        link: "/post-graduate-diploma-management/business-analytics",
+        link: "/programs/mca-working-professionals",
       },
       {
         name: "Integrated MCA",

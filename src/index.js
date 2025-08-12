@@ -37,6 +37,7 @@ import CellCommittee from "./about/CellCommittee";
 import NispPolicy from "./about/NispPolicy";
 import MCAProgram from "./program/MCA";
 import IntegratedMCAProgram from "./program/IntegratedMCA";
+import ProfessionalMCAProgram from "./program/ProfessionalsMCA";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
@@ -57,6 +58,7 @@ root.render(
         <Route path="/about/nisp-policy" element={<NispPolicy/>} />
         <Route path="/programs/mca-program" element={<MCAProgram/>}/>
         <Route path="/programs/integrated-mca" element={<IntegratedMCAProgram/>} />
+        <Route path="/programs/mca-working-professionals/" element={<ProfessionalMCAProgram/>} />
       </Routes>
     </BrowserRouter>
 );

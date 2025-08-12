@@ -264,7 +264,7 @@
   font-size: 1.15rem;
   line-height: 1.6;
   font-weight: 500;
-  color: #1a284d;
+  color: black;
   padding: 10px 14px 10px 36px; /* space for icon */
   margin-bottom: 10px;
   overflow: hidden;
@@ -273,6 +273,9 @@
   transition: background-position 0.4s ease, color 0.3s ease;
 }
 
+.animated-list li strong{
+color: #174873;
+}
 /* Custom icon */
 .animated-list li::before {
   content: "✔";
