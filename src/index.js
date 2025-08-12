@@ -35,6 +35,8 @@ import DevelopmentCommittee from "./about/development-committee";
 import IqacCommittee from "./about/IqacCommittee";
 import CellCommittee from "./about/CellCommittee";
 import NispPolicy from "./about/NispPolicy";
+import MCAProgram from "./program/MCA";
+import IntegratedMCAProgram from "./program/IntegratedMCA";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
@@ -53,6 +55,8 @@ root.render(
         <Route path="/about/iqac-committee" element={<IqacCommittee/>} />
         <Route path="/about/cells-and-committees" element={<CellCommittee/>} />
         <Route path="/about/nisp-policy" element={<NispPolicy/>} />
+        <Route path="/programs/mca-program" element={<MCAProgram/>}/>
+        <Route path="/programs/integrated-mca" element={<IntegratedMCAProgram/>} />
       </Routes>
     </BrowserRouter>
 );

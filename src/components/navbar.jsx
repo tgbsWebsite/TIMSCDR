@@ -74,10 +74,10 @@ function Navbar() {
       },
       { name: "IQAC Committee", link: "/about/iqac-committee" },
       { name: " Cells And Committees", link: "/about/cells-and-committees" },
-      { name: "Organogram", link: "/activities/student-achievements" },
+      { name: "Organogram", link: "/pdf/about/TIMSCDR-Organization-Chart-Final-1" },
       {
         name: "Our Policies >>",
-        link: "/facilities/learning-resource-center",
+        link: "",
         submenu: [
           { name: "Divyangjan Policy", link: "/facilities/library-rules" },
           {
@@ -98,7 +98,7 @@ function Navbar() {
     Programs: [
       {
         name: "Master Of Computer Applications (MCA)",
-        link: "/post-graduate-diploma-management",
+        link: "/programs/mca-program",
       },
       {
         name: "MCA For Working Professionals",
@@ -106,7 +106,7 @@ function Navbar() {
       },
       {
         name: "Integrated MCA",
-        link: "/post-graduate-diploma-management/finance",
+        link: "/programs/integrated-mca",
       },
       {
         name: "Ph. D.(Technology)",

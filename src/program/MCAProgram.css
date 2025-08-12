@@ -1,0 +1,335 @@
+.common-section {
+  margin: 150px auto 40px auto;
+  padding: 30px;
+  background: #ffffff;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* FULL WIDTH HERO */
+.mca-hero {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  background: linear-gradient(135deg, #0078d4 0%, #00aaff 100%);
+  padding: 100px 20px;
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Optional animated background shapes for modern feel */
+.mca-hero::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.05) 0%,
+    transparent 70%
+  );
+  animation: rotateBackground 20s linear infinite;
+}
+
+@keyframes rotateBackground {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.mca-hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.mca-hero p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+/* Container for program text */
+.mca-text {
+  flex: 1;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #333;
+}
+
+/* Headings */
+.mca-text h3 {
+  color: #0078d4; /* Blue accent color */
+  margin-top: 30px;
+  font-weight: 600;
+  font-size: 1.3rem;
+  border-bottom: 2px solid #00aaff;
+  padding-bottom: 6px;
+  margin-bottom: 16px;
+}
+
+.btn-primary {
+  background: #ff9800;
+  color: white;
+  padding: 12px 24px;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+.btn-primary:hover {
+  background: #e68900;
+  transform: translateY(-2px);
+}
+
+/* CONTENT SECTION */
+.mca-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 3rem;
+  padding: 60px 20px;
+  align-items: center;
+}
+
+/* Grid layout for highlights and benefits */
+.highlights-grid,
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+/* Card style for each item */
+.highlight-card,
+.benefit-card {
+  background: white;
+  border: 1px solid #e0e7ef;
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-size: 1rem;
+  line-height: 1.5;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.highlight-card:hover,
+.benefit-card:hover {
+  background: #e6f2ff;
+  transform: translateY(-3px);
+}
+
+/* Icons inside text */
+.highlight-card::first-letter,
+.benefit-card::first-letter {
+  font-size: 1.3rem;
+}
+
+/* Bold emphasis inside cards */
+.benefit-card b {
+  color: #0078d4;
+}
+
+.mca-image img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+.mca-image img:hover {
+  transform: scale(1.03);
+}
+
+/* HIGHLIGHTS SECTION */
+.mca-highlights {
+  display: flex;
+  justify-content: center;
+  background: #f0f4f8;
+  padding: 40px 15px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.highlight-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  min-width: 180px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: default;
+}
+.highlight-card:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 900px) {
+  .mca-container {
+    flex-direction: column;
+  }
+  .mca-hero h1 {
+    font-size: 2.3rem;
+  }
+  .mca-hero p {
+    font-size: 1rem;
+  }
+}
+
+.animated-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 20px 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #1a284d;
+}
+
+.animated-list li {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  opacity: 0;
+  transform: translateY(15px);
+  animation: fadeSlideIn 0.6s forwards;
+  cursor: pointer;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.3s ease;
+}
+
+/* Staggered animation delay based on item index */
+.animated-list li:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.animated-list li:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.animated-list li:nth-child(3) {
+  animation-delay: 0.5s;
+}
+.animated-list li:nth-child(4) {
+  animation-delay: 0.7s;
+}
+.animated-list li:nth-child(5) {
+  animation-delay: 0.9s;
+}
+
+/* Underline effect on hover */
+/* .animated-list li:hover {
+  color: #0078d4;
+}
+.animated-list li::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 0;
+  background: linear-gradient(90deg, #0078d4, #00aaff);
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+.animated-list li:hover::after {
+  width: 100%;
+} */
+
+/* Fade and slide in animation */
+@keyframes fadeSlideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animated-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 20px 0;
+}
+
+.animated-list li {
+  position: relative;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  font-weight: 500;
+  color: #1a284d;
+  padding: 10px 14px 10px 36px; /* space for icon */
+  margin-bottom: 10px;
+  overflow: hidden;
+  background: linear-gradient(90deg, transparent, transparent);
+  background-size: 200% auto; /* for animation */
+  transition: background-position 0.4s ease, color 0.3s ease;
+}
+
+/* Custom icon */
+.animated-list li::before {
+  content: "✔";
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #0078d4;
+  font-size: 1.1rem;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+/* Hover effect – blue gradient sweep */
+/* .animated-list li:hover {
+  background: linear-gradient(90deg, #e6f3ff 0%, #ffffff 100%);
+  background-position: right center;
+  color: #005fa3;
+} */
+
+.animated-list li:hover::before {
+  color: #ff9800;
+}
+/* Target Program Highlights heading */
+
+.mca-text h3 {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 16px;
+  font-weight: 600;
+  font-size: 1.4rem;
+  color: #0078d4;
+}
+
+/* Bold, short dash/underline (matches reference image) */
+.mca-text h3::after {
+  content: "";
+  display: block;
+  width: 48px; /* Change width as needed */
+  height: 6px; /* Bolder (thicker) line */
+  background: #231f54; /* Match the referenced dash color */
+  border-radius: 3px;
+  margin-top: 4px; /* Spacing from heading text */
+}
+
+.mca-text hr {
+  height: 6px;
+  border: none;
+  background-color: rgba(8, 45, 126, 0.5);
+  border-radius: 6px;
+  width: 8%;
+  margin: 10px 0 0 0;
+}
+
+.mca-text h2 {
+  font-size: 30px;
+  color: #231f54;
+  width: 100%;
+}
+
