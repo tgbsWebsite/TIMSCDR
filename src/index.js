@@ -29,6 +29,12 @@ import ChairmanMessage from "./about/ChairmanMessage"; // Assuming this is the p
 import CeoMessage from "./about/ceo";
 import DirectorMesage from "./about/director";
 import Governing from "./about/governing";
+import Advisory from "./about/advisory";
+import AcademicCouncil from "./about/academic-council";
+import DevelopmentCommittee from "./about/development-committee";
+import IqacCommittee from "./about/IqacCommittee";
+import CellCommittee from "./about/CellCommittee";
+import NispPolicy from "./about/NispPolicy";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
@@ -41,6 +47,12 @@ root.render(
         <Route path="/about/ceo-message" element={<CeoMessage/>}/>
         <Route path="/about/director-message" element={<DirectorMesage/>}/>
         <Route path="/about/governing-council" element={<Governing/>} />
+        <Route path="/about/advisory" element={<Advisory/>} />
+        <Route path="/about/academic-council" element={<AcademicCouncil/>} />
+        <Route path="/about/development-committee" element={<DevelopmentCommittee/>} />
+        <Route path="/about/iqac-committee" element={<IqacCommittee/>} />
+        <Route path="/about/cells-and-committees" element={<CellCommittee/>} />
+        <Route path="/about/nisp-policy" element={<NispPolicy/>} />
       </Routes>
     </BrowserRouter>
 );

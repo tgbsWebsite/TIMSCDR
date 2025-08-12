@@ -866,7 +866,7 @@ function Governing() {
         </aside>
 
         <main className="table-area">
-          <h2 className="advisory-head">Meet the Governing Council</h2>
+          <h2 className="page-title">Meet the Governing Council</h2>
 
           <div className="tables-container">
             <h3 className="governing-title">
