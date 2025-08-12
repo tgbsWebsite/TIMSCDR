@@ -34,11 +34,11 @@ export default function NispPolicyPage() {
         <header className="policy-hero">
 
           <p>
-            The ‘National Innovation and Startup Policy (NISP) 2019’ is a guiding framework to envision an educational system oriented towards start-ups and entrepreneurship opportunities for student and faculties. The guidelines provide ways to Indian HEIs for developing entrepreneurial agenda, managing Intellectual Property Rights (IPR) ownership, technology licensing and equity sharing in Startups or enterprises established by faculty and students.
+            The ‘National Innovation and Startup Policy (NISP) 2019’ is a guiding framework to envision an educational system oriented towards start-ups and entrepreneurship opportunities for student and faculties. The guidelines provide ways to Indian HEIs for developing entrepreneurial agenda, managing Intellectual Property Rights (IPR) ownership, technology licensing and equity sharing in Startups or enterprises established by faculty and students.</p>
 
 
 
-            On the basis of NISP guidelines TIMSCDR constituted a committee to formulate detailed guidelines for various aspects related to innovation, Startup and entrepreneurship management. The Institution Innovation and Startup Committee at TIMSCDR comprising of people associated with delivering incubation and pre-incubation services and facilities, alumni, innovators, entrepreneurs, startup founders etc. The committee consists of the following members:        </p>
+           <p>On the basis of NISP guidelines TIMSCDR constituted a committee to formulate detailed guidelines for various aspects related to innovation, Startup and entrepreneurship management. The Institution Innovation and Startup Committee at TIMSCDR comprising of people associated with delivering incubation and pre-incubation services and facilities, alumni, innovators, entrepreneurs, startup founders etc. The committee consists of the following members:     </p>    
 
         </header>
 
@@ -67,7 +67,7 @@ export default function NispPolicyPage() {
         </section>
         {/* Download Button */}
         <a
-          href="https://timscdrmumbai.in/wp-content/uploads/2023/03/Timscdr-startup-policy.pdf"
+          href="/pdf/about/Timscdr-startup-policy.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="download-button"
