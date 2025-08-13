@@ -1,6 +1,6 @@
 .common-section {
   margin: 150px auto 40px auto;
-  padding: 20px; /* or whatever padding you want globally */
+
   max-width: 1200px; /* keeps it nicely centered */
   width: 90%;
 }

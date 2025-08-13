@@ -58,7 +58,7 @@ root.render(
         <Route path="/about/nisp-policy" element={<NispPolicy/>} />
         <Route path="/programs/mca-program" element={<MCAProgram/>}/>
         <Route path="/programs/integrated-mca" element={<IntegratedMCAProgram/>} />
-        <Route path="/programs/mca-working-professionals/" element={<ProfessionalMCAProgram/>} />
+        <Route path="/programs/mca-working-professionals" element={<ProfessionalMCAProgram/>} />
       </Routes>
     </BrowserRouter>
 );

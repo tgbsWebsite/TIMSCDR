@@ -1,0 +1,483 @@
+.mca-page {
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #333;
+  line-height: 1.7;
+  font-size: 16px;
+  background-color: #fafafa;
+  margin: 150px auto 40px auto;
+}
+
+button,
+.btn-primary,
+.btn-secondary {
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+/* HERO */
+.hero-text {
+  flex: 1;
+  min-width: 320px;
+}
+.hero-text h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #003366;
+}
+.hero-text .primary {
+  color: #ffb829;
+}
+.hero-text p {
+  font-size: 1.1rem;
+  margin-bottom: 1.8rem;
+  color: #555;
+}
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.hero-image {
+  flex: 1;
+  min-width: 320px;
+}
+.hero-image img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* HIGHLIGHTS */
+/* Highlights Section - Classy, Modern, Static */
+.highlights {
+  padding: 5rem 1.5rem;
+  background: linear-gradient(180deg, #fdfdfd 0%, #f7f9fc 100%);
+  position: relative;
+}
+
+.highlights::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(0, 86, 179, 0.05), transparent 70%);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.highlights h2 {
+  font-size: clamp(1.9rem, 3.2vw, 2.4rem);
+
+  margin-bottom: 3rem;
+  text-align: center;
+  color: #0d2b45;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Container */
+.highlight-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Card style - Static */
+.highlight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.4rem;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 1.8rem;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Icon styling */
+.highlight-icon {
+  font-size: 2.2rem;
+  flex-shrink: 0;
+  color: #ffffff;
+  background: linear-gradient(135deg, #0056b3, #007be5);
+  padding: 0.8rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 91, 204, 0.25);
+}
+
+/* Headings */
+.highlight-item h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+  color: #1e3a5f;
+}
+
+/* Description */
+.highlight-item p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.7;
+}
+
+.mca-text li strong {
+  color: #231f54; /* pick your desired color */
+}
+
+.mca-text ul {
+  list-style: none;
+  padding-left: 0;
+  text-align: left;
+}
+
+.mca-text li {
+  position: relative;
+  padding-left: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+.mca-text li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 12px;
+  height: 12px;
+  background: linear-gradient(135deg, #231f54, #3b3680, #615dcf, #8a82f0);
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+/* Mobile tweaks */
+@media (max-width: 600px) {
+  .highlight-item {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+  .highlight-icon {
+    margin-bottom: 0.8rem;
+  }
+}
+
+/* Responsive improvements */
+@media (max-width: 600px) {
+  .highlight-item {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .highlight-icon {
+    margin-bottom: 0.8rem;
+  }
+}
+
+/* WHY CHOOSE */
+.why-choose {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 4rem 1.5rem;
+  background: #f9f9f9;
+  gap: 2.5rem;
+  padding-left: 8rem;
+  padding-right: 8rem;
+}
+
+.choose-img,
+.choose-text {
+  flex: 1;
+  min-width: 320px;
+}
+.choose-img img {
+  width: 100%;
+  border-radius: 10px;
+}
+.choose-text ul {
+  list-style: disc;
+  color: #444;
+  padding-left: 1.2rem;
+}
+.choose-text li {
+  margin-bottom: 0.9rem;
+}
+
+/* ELIGIBILITY */
+/* Eligibility Section - Modern Side-by-Side */
+.eligibility {
+  background-color: #ffffff;
+  padding: 4rem 2rem;
+}
+
+/* Title area */
+.mca-text h2 {
+  margin-bottom: 0.5rem;
+}
+
+.mca-text hr {
+  margin-bottom: 2rem;
+}
+
+/* Side-by-side grid layout */
+.eligibility-list {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(280px, 1fr)
+  ); /* cards in a row */
+  gap: 2rem;
+}
+
+/* Individual card styling */
+.eligibility-list > div {
+  background: #f9f9ff;
+  border-radius: 10px;
+  border-left: 4px solid #231f89;
+
+  /* Reduced top & bottom padding */
+  padding: 0.8rem 1.5rem; /* top/bottom = 0.8rem, left/right = 1.5rem */
+}
+
+/* Titles inside cards */
+.eligibility-list h4 {
+  font-size: 1.35rem; /* Larger for emphasis */
+  font-weight: 700; /* Strong but clean */
+  color: #231f89; /* Brand color */
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.5px; /* More readability */
+  text-transform: capitalize;
+
+  /* Subtle depth */
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+/* Description text */
+.eligibility-list p {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 0.4rem;
+}
+
+/* Subpoints list */
+.eligibility-subpoints {
+  margin-top: 0.2rem;
+  margin-left: 1rem;
+  padding-left: 1rem;
+  font-size: 0.95rem;
+  color: #555;
+  list-style-type: disc;
+}
+
+.eligibility-subpoints li {
+  margin-bottom: 0.3rem;
+}
+
+/* CONTACT CTA */
+/* Outer card container */
+/***************
+ CONTACT CTA SECTION
+****************/
+/* ===== CTA Section ===== */
+.contact-cta {
+  background: #f8fafc;
+  padding: 3rem 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.cta-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.cta-subtitle {
+  font-size: 1.1rem;
+  color: #4b5563;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* ===== Contact Row ===== */
+.contact-row {
+  display: flex;
+  flex-wrap: nowrap; /* keep in one line */
+  justify-content: center; /* center them horizontally */
+  gap: 1.5rem;
+}
+
+.contact-block {
+  flex: 0 1 auto; /* allow shrinking if needed */
+}
+
+/* ===== Contact Card (block) ===== */
+.contact-block {
+  background: #F8FAFC;
+  border: 1px solid #e5e7eb;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 1px 3px #0000001a, 0 1px 2px #0000000f;
+  transition: all .3s cubic-bezier(.4,0,.2,1);
+  min-width: 260px;
+}
+
+.contact-block:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  transform: translateY(-2px);
+}
+
+/* ===== Icon Circle ===== */
+.icon-circle {
+  width: 48px;
+  height: 48px;
+  background: #2563eb;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ===== Name and Phone ===== */
+.contact-name {
+  display: block;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: #111827;
+}
+
+.contact-phone {
+  display: flex;
+  align-items: center;
+  font-size: 0.95rem;
+  color: #4b5563;
+  margin-top: 2px;
+}
+
+/* ===== CTA Button ===== */
+.btn-primary {
+  margin-top: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  background-color: #231f54;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-icon {
+  margin-right: 0.5rem;
+}
+
+
+
+
+/* FOOTER */
+.footer {
+  background: #192346;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.95rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero {
+    text-align: center;
+  }
+  .hero-buttons {
+    justify-content: center;
+  }
+  .why-choose {
+    text-align: center;
+  }
+}
+
+/* =========================
+   RESPONSIVE ENHANCEMENTS
+   ========================= */
+
+/* Tablets and below */
+@media (max-width: 992px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .why-choose {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .contact-row {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .contact-block {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
+/* Mobiles and small tablets */
+@media (max-width: 600px) {
+  .hero-buttons {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .highlight-list {
+    padding: 0 1rem;
+  }
+
+  .why-choose {
+    padding: 2rem 1rem;
+    gap: 1.5rem;
+  }
+
+  .eligibility {
+    padding: 2rem 1rem;
+  }
+
+  .eligibility-list {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-primary {
+    width: 100%;
+  }
+}
