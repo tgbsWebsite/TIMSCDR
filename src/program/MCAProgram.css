@@ -7,7 +7,7 @@
 }
 
 /* FULL WIDTH HERO */
-.mca-hero {
+/* .mca-hero {
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   background: linear-gradient(135deg, #0078d4 0%, #00aaff 100%);
@@ -16,7 +16,7 @@
   text-align: center;
   position: relative;
   overflow: hidden;
-}
+} */
 
 /* Optional animated background shapes for modern feel */
 .mca-hero::before {
@@ -60,6 +60,7 @@
   font-size: 1.05rem;
   line-height: 1.7;
   color: #333;
+  text-align: justify;
 }
 
 /* Headings */
@@ -301,34 +302,9 @@ color: #174873;
 }
 /* Target Program Highlights heading */
 
-.mca-text h3 {
-  position: relative;
-  display: inline-block;
-  margin-bottom: 16px;
-  font-weight: 600;
-  font-size: 1.4rem;
-  color: #0078d4;
-}
 
 /* Bold, short dash/underline (matches reference image) */
-.mca-text h3::after {
-  content: "";
-  display: block;
-  width: 48px; /* Change width as needed */
-  height: 6px; /* Bolder (thicker) line */
-  background: #231f54; /* Match the referenced dash color */
-  border-radius: 3px;
-  margin-top: 4px; /* Spacing from heading text */
-}
 
-.mca-text hr {
-  height: 6px;
-  border: none;
-  background-color: rgba(8, 45, 126, 0.5);
-  border-radius: 6px;
-  width: 8%;
-  margin: 10px 0 0 0;
-}
 
 .mca-text h2 {
   font-size: 30px;

@@ -1,86 +1,104 @@
 import React, { useState } from "react";
-import "./MCAProgram.css";
+import "./MCAProgram1.css";
 
-import Navbar from "../components/navbar";
 import Footer from "../components/Footer";
 import BrochureForm from "../components/EnquiryForm";
 import CTAButtons from "../components/sticky-button";
+import Navbar from "../components/navbar";
+import ContactCTA from "./ContactCTA";
 
-const IntegratedMCAProgram = () => {
+export default function IntegratedMCAProgram() {
     const [showForm, setShowForm] = useState(false);
+
+    const highlights = [
+        { title: "DURATION", desc: "5 Years (10 Semesters)" },
+        { title: "ELIGIBILITY", desc: "10+2 in any stream" },
+        { title: "DEGREE AWARDED", desc: "After 5 years successful completion – MCA (Master of Computer Applications)" },
+        { title: "CURRICULUM", desc: "A blend of theory, practical, projects, and industry exposure" }
+    ];
+    const benefits = [
+        { title: "EARLY SPECIALIZATION", desc: "Start your IT career path right after high school." },
+        { title: "INDUSTRY-ALIGNED CURRICULUM", desc: "Courses are regularly updated in line with current tech trends like AI, Data Science, Cybersecurity, Cloud Computing, and more." },
+        { title: "COST AND TIME EFFICIENT", desc: "One continuous program reduces the time and cost of pursuing separate degrees." },
+        { title: "INTERNSHIPS & PROJECTS", desc: "Hands-on training through real-world projects and internships in leading IT firms." },
+        { title: "CAREER-READY GRADUATES", desc: "Equips students with skills in software development, database management, system design, mobile and web applications, and more." }
+    ];
+
+    const contacts = [
+        { name: "Dr. Sonal Sharma", phone: "+91 9961686449" },
+        { name: "Prof. Sonal Gupta", phone: "+91 9305791496" },
+        { name: "Admissions Office", phone: "022-67308301/02" }
+    ];
 
     return (
         <>
-            {/* Navbar */}
             <Navbar setShowForm={setShowForm} />
-
-            {/* Brochure Form Modal */}
             {showForm && <BrochureForm setShowForm={setShowForm} />}
-
-            {/* Sticky CTA Buttons */}
             <CTAButtons />
 
-            {/* Main Section */}
-            <section className="common-section">
+            <div className="mca-page">
 
-                {/* Hero Banner */}
-                <div className="mca-hero">
-                    <div className="mca-hero-content">
+
+                {/* HERO */}
+                <section>
+                    <div className="mca-hero">
                         <h1>Integrated MCA</h1>
-                        {/* Optional subtitle */}
-                        {/* <p className="hero-sub">
-              5 Years (10 Semesters) • Direct after 10+2 • MCA Degree
-            </p> */}
                     </div>
-                </div>
+                </section>
 
-                {/* Program Details */}
-                <div id="program-details" className="mca-container">
+
+
+
+                {/* ABOUT PROGRAM */}
+                <section className="why-choose">
+                    <section>
+                        <div className="mca-text">
+                            <h2 className="center-heading">
+                                Integrated MCA (5 years Master of Computer Applications Program)
+                            </h2>
+
+                            <p>The Integrated MCA (Master of Computer Applications) is a comprehensive 5-year program designed for students who have completed their 10+2 education and are looking to build a strong foundation in computer science, software development, and IT management. This program combines the undergraduate and postgraduate curriculum into a streamlined and focused academic journey, eliminating the need for separate entrance procedures for a master’s degree.</p>
+                        </div>
+                    </section>
                     <div className="mca-text">
 
-                        <h2>Integrated MCA (5 years Master of Computer Applications Program)</h2>
-                        <hr />
-                        <p>
-                            The Integrated MCA (Master of Computer Applications) is a comprehensive 5-year program designed for students who have completed their 10+2 education and are looking to build a strong foundation in computer science, software development, and IT management. This program combines the undergraduate and postgraduate curriculum into a streamlined and focused academic journey, eliminating the need for separate entrance procedures for a master’s degree.
-                        </p>
-
-                        {/* Program Highlights */}
                         <h2>Program Highlights</h2>
                         <hr />
-                        <ul className="animated-list">
-                            <li>Duration: 5 Years (10 Semesters)</li>
-                            <li>Eligibility: 10+2 in any stream</li>
-                            <li>Degree Awarded: After 5 years successful completion – MCA (Master of Computer Applications)</li>
-                            <li>Curriculum: A blend of theory, practical, projects, and industry exposure</li>
+                        <ul>
+                            {highlights.map((item, i) => (
+                                <li key={i}>
+                                    <strong>{item.title}:</strong> {item.desc}
+                                </li>
+                            ))}
                         </ul>
-
-                        {/* Program Benefits */}
-                        <h2 >Benefits of Integrated MCA</h2>
-                        <hr />
-                        <ul className="animated-list">
-                            <li><b>Early Specialization:</b> Start your IT career path right after high school.</li>
-                            <li><b>Industry-Aligned Curriculum:</b> Courses are regularly updated in line with current tech trends like AI, Data Science, Cybersecurity, Cloud Computing, and more.</li>
-                            <li><b>Cost and Time Efficient:</b> One continuous program reduces the time and cost of pursuing separate degrees.</li>
-                            <li><b>Internships & Projects:</b> Hands-on training through real-world projects and internships in leading IT firms.</li>
-                            <li><b>Career-Ready Graduates:</b> Equips students with skills in software development, database management, system design, mobile and web applications, and more.</li>
-                        </ul>
-
                     </div>
+                    <div className="choose-img">
+                        <img src="/school-building.jpg" alt="Campus" />
+                    </div>
+                </section>
 
-                    {/* Image (optional) */}
-                    {/* <div className="mca-image">
-            <img
-              src="https://via.placeholder.com/500x350?text=Integrated+MCA+Students"
-              alt="Integrated MCA Students"
-            />
-          </div> */}
-                </div>
-            </section>
+                {/* BENEFITS */}
+                <section className="why-choose">
+                    <div className="choose-img">
+                        <img src="/school-building.jpg" alt="Campus" />
+                    </div>
+                    <div className="mca-text">
+                        <h2>Benefits of Integrated MCA</h2>
+                        <hr />
+                        <ul>
+                            {benefits.map((item, i) => (
+                                <li key={i}>
+                                    <strong>{item.title}:</strong> {item.desc}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </section>
 
-            {/* Footer */}
+                <ContactCTA contacts={contacts} />;
+            </div>
+
             <Footer />
         </>
     );
-};
-
-export default IntegratedMCAProgram;
+}

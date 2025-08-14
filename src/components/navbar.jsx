@@ -110,7 +110,7 @@ function Navbar() {
       },
       {
         name: "Ph. D.(Technology)",
-        link: "/post-graduate-diploma-management/marketing",
+        link: "/programs/ph-d-admission",
       },
     ],
     // About: [

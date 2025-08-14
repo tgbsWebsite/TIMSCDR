@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./MCAProgram1.css";
-import "./MCAProgram.css";
-import "./MCAProgram1.css"; // NEW CSS for contact section
+// import "./MCAProgram.css";
 import Footer from "../components/Footer";
 import BrochureForm from "../components/EnquiryForm";
 import CTAButtons from "../components/sticky-button";
