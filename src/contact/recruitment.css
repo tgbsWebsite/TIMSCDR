@@ -106,6 +106,13 @@ body {
 /* ========================
    Material Icons
 ======================== */
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialicons/v140/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+  font-display: swap;
+}
 .material-icons {
   font-family: "Material Icons";
   font-style: normal;
@@ -175,14 +182,3 @@ body {
   border: none;
 }
 
-.material-icons {
-  font-family: "Material Icons";
-  font-style: normal;
-  font-weight: normal;
-  display: inline-block;
-  line-height: 1;
-  text-transform: none;
-  letter-spacing: normal;
-  white-space: nowrap;
-  direction: ltr;
-}

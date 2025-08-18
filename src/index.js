@@ -43,6 +43,8 @@ import ContactPage from "./contact/ContactPage";
 import GrievanceForm from "./contact/GrievanceForm";
 import Recruitment from "./contact/Recruitment";
 import Employment from "./contact/Employment";
+import NoticeBoard from "./Examination/NoticeBoard";
+import MCAResults from "./Examination/MCAResults";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
@@ -69,6 +71,8 @@ root.render(
         <Route path="/contact/student-grievance-redressal" element={<GrievanceForm/>} />
         <Route path="/contact/recruitment" element={<Recruitment/>}/>
         <Route path="/contact/employee-handbook" element={<Employment/>} />
+        <Route path="/notice" element={<NoticeBoard/>}/>
+        <Route path="/examination/university-gazette" element={<MCAResults/>} />
       </Routes>
     </BrowserRouter>
 );

@@ -255,18 +255,20 @@ function Navbar() {
     ],
 
     Examination: [
-      { name: "Notice", link: "/iqac/overview" },
-      { name: "Result", link: "/iqac/meetings-reports" },
-      {
-        name: "Convocation >>",
-        link: "/facilities/learning-resource-center",
-        submenu: [
-          { name: "University Gazette", link: "/facilities/library-rules" },
+      { name: "Notice", link: "/notice" },
+      { name: "Result >>", link: "/iqac/meetings-reports",
+                submenu: [
+          { name: "University Gazette", link: "/examination/university-gazette" },
           {
             name: "Result Analysis",
             link: "/facilities/digital-resources",
           },
         ],
+       },
+      {
+        name: "Convocation ",
+        link: "/facilities/learning-resource-center",
+
       },
     ],
 
