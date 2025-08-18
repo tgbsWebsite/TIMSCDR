@@ -2,145 +2,198 @@ import React from 'react';
 import './MCAResults.css';
 
 const MCAResults = () => {
-  return (
-    <div className="page-bg">
-      <div className="container">
-        <header className="header">
-          <h1 className="title">MCA Exam Results</h1>
-          <p className="subtitle">Master of Computer Applications</p>
-        </header>
+    return (
+        <div className="mca-page">
 
-        <main className="main">
-          {/* First Half 2025 */}
-          <section>
-            <h2 className="section-heading primary">
-              <span className="material-icons heading-icon primary">calendar_month</span>
-              <span>First Half 2025</span>
-            </h2>
+            <h1 className="heading">University Gazette</h1>
+            <main className="mca-main">
+                {/* First Half 2025 */}
+                <section className="mca-section">
+                    <div className="mca-section-bar">
+                        <span className="material-icons mca-section-icon">event</span>
+                        <h2 className="mca-section-title">First Half 2025</h2>
+                    </div>
 
-            <div className="cards two-col">
-              {/* Regular */}
-              <div className="card">
-                <div className="card-body">
-                  <h3 className="card-title">Regular</h3>
-                  <ul className="list">
-                    <li className="list-item">
-                      <span className="material-icons list-icon primary-strong">article</span>
-                      <a href="#" className="list-link">
-                        MCA (Choice Based) (Two Years Course) Sem-III
-                      </a>
-                    </li>
-                    <li className="list-item">
-                      <span className="material-icons list-icon primary-strong">article</span>
-                      <a href="#" className="list-link">
-                        MCA (Choice Based) (Three Years Course) Sem-V
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+                    <div className="mca-cards">
+                        <div className="mca-card">
+                            <h3 className="mca-card-title">Regular</h3>
+                            <ul className="mca-list">
+                                <li>
+                                    <span className="mca-list-dot" />
+                                    <a href="#" className="mca-list-link">
+                                        MCA (Choice Based) (Two Years Course) Sem-III
+                                    </a>
+                                </li>
+                                <li>
+                                    <span className="mca-list-dot" />
+                                    <a href="#" className="mca-list-link">
+                                        MCA (Choice Based) (Three Years Course) Sem-V
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
 
-              {/* KT */}
-              <div className="card">
-                <div className="card-body">
-                  <h3 className="card-title">KT (Allowed To Keep Terms)</h3>
-                  <ul className="list">
-                    <li className="list-item">
-                      <span className="material-icons list-icon primary-strong">article</span>
-                      <a href="#" className="list-link">
-                        KT Examination MCA (Two Years) Sem-I &amp; II
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </section>
+                        <div className="mca-card">
+                            <h3 className="mca-card-title">KT (Allowed To Keep Terms)</h3>
+                            <ul className="mca-list">
+                                <li>
+                                    <span className="mca-list-dot" />
+                                    <a href="#" className="mca-list-link">
+                                        KT Examination MCA (Two Years) Sem-I &amp; II
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
 
-          {/* Second Half 2024 */}
-          <section>
-            <h2 className="section-heading gray">
-              <span className="material-icons heading-icon gray">calendar_month</span>
-              <span>Second Half 2024</span>
-            </h2>
+                {/* Second Half 2024 */}
+                <section className="mca-section">
+                    <div className="mca-section-bar mca-muted">
+                        <span className="material-icons mca-section-icon mca-muted">event</span>
+                        <h2 className="mca-section-title">Second Half 2024</h2>
+                    </div>
 
-            <div className="cards two-col">
-              {/* Regular */}
-              <div className="card">
-                <div className="card-body">
-                  <h3 className="card-title">Regular</h3>
-                  <ul className="list">
-                    <li className="list-item">
-                      <span className="material-icons list-icon gray-strong">article</span>
-                      <a href="#" className="list-link">
-                        MCA (Choice Based) (Two Years Course) Sem-II
-                      </a>
-                    </li>
-                    <li className="list-item">
-                      <span className="material-icons list-icon gray-strong">article</span>
-                      <a href="#" className="list-link">
-                        MCA (Choice Based) (Three Years Course) Sem-IV
-                      </a>
-                    </li>
-                    <li className="list-item">
-                      <span className="material-icons list-icon gray-strong">article</span>
-                      <a href="#" className="list-link">
-                        MCA (Revised Course) Sem-VI
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+                    <div className="mca-cards">
+                        <div className="mca-card">
+                            <h3 className="mca-card-title">Regular</h3>
+                            <ul className="mca-list">
+                                <li>
+                                    <span className="mca-list-dot" />
+                                    <a href="#" className="mca-list-link">
+                                        MCA (Choice Based) (Two Years Course) Sem-II
+                                    </a>
+                                </li>
+                                <li>
+                                    <span className="mca-list-dot" />
+                                    <a href="#" className="mca-list-link">
+                                        MCA (Choice Based) (Three Years Course) Sem-IV
+                                    </a>
+                                </li>
+                                <li>
+                                    <span className="mca-list-dot" />
+                                    <a href="#" className="mca-list-link">
+                                        MCA (Revised Course) Sem-VI
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
 
-              {/* KT */}
-              <div className="card">
-                <div className="card-body">
-                  <h3 className="card-title">KT (Allowed To Keep Terms)</h3>
-                  <ul className="list">
-                    <li className="list-item">
-                      <span className="material-icons list-icon gray-strong">article</span>
-                      <a href="#" className="list-link">
-                        KT Examination MCA (Three Years) Sem-I to V
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </section>
+                        <div className="mca-card">
+                            <h3 className="mca-card-title">KT (Allowed To Keep Terms)</h3>
+                            <ul className="mca-list">
+                                <li>
+                                    <span className="mca-list-dot" />
+                                    <a href="#" className="mca-list-link">
+                                        KT Examination MCA (Three Years) Sem-I to V
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
 
-          {/* Archived */}
-          <section className="archive">
-            <h3 className="archive-title">
-              <span className="material-icons archive-icon">inventory_2</span>
-              <span>Archived Results</span>
-            </h3>
-            <p className="archive-text">
-              Looking for older results?{' '}
-              <a href="#" className="archive-link">Visit the results archive</a>
-            </p>
-          </section>
-        </main>
-      </div>
+                {/* Archived Results */}
+                <section className="mca-archive">
+                    <div className="mca-archive-head">
+                        <div className="mca-archive-title-wrap">
+                            <span className="material-icons mca-archive-icon">inventory_2</span>
+                            <h3 className="mca-archive-title">Archived Results</h3>
+                        </div>
+                        <span className="material-icons mca-archive-toggle">expand_less</span>
+                    </div>
 
-      <footer className="footer">
-        <div className="container footer-inner">
-          <p className="footer-text">© 2024 University Name. All Rights Reserved.</p>
-          <div className="footer-icons">
-            <a href="#" className="footer-icon-link" aria-label="Facebook">
-              <i className="material-icons">facebook</i>
-            </a>
-            <a href="#" className="footer-icon-link" aria-label="Website">
-              <i className="material-icons">public</i>
-            </a>
-            <a href="#" className="footer-icon-link" aria-label="About">
-              <i className="material-icons">info</i>
-            </a>
-          </div>
+                    <div className="mca-archive-body">
+                        {/* First Half 2024 */}
+                        <div className="mca-archive-group">
+                            <div className="mca-archive-group-head">
+                                <span className="material-icons mca-group-icon">calendar_today</span>
+                                <h4 className="mca-archive-group-title">First Half 2024</h4>
+                            </div>
+
+                            <div className="mca-archive-grid">
+                                <div className="mca-archive-col mca-accent">
+                                    <h5 className="mca-archive-col-title">Regular</h5>
+                                    <ul className="mca-list mca-small">
+                                        <li>
+                                            <span className="mca-list-dot mca-small" />
+                                            <a href="#" className="mca-list-link">
+                                                MCA (Choice Based) (Two Years Course) Sem-I
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <span className="mca-list-dot mca-small" />
+                                            <a href="#" className="mca-list-link">
+                                                MCA (Choice Based) (Three Years Course) Sem-III
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div className="mca-archive-col">
+                                    <h5 className="mca-archive-col-title">KT</h5>
+                                    <ul className="mca-list mca-small">
+                                        <li>
+                                            <span className="mca-list-dot mca-small" />
+                                            <a href="#" className="mca-list-link">
+                                                KT Examination MCA (Two Years) Sem-I
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Second Half 2023 */}
+                        <div className="mca-archive-group">
+                            <div className="mca-archive-group-head">
+                                <span className="material-icons mca-group-icon">calendar_today</span>
+                                <h4 className="mca-archive-group-title">Second Half 2023</h4>
+                            </div>
+
+                            <div className="mca-archive-grid">
+                                <div className="mca-archive-col mca-accent">
+                                    <h5 className="mca-archive-col-title">Regular</h5>
+                                    <ul className="mca-list mca-small">
+                                        <li>
+                                            <span className="mca-list-dot mca-small" />
+                                            <a href="#" className="mca-list-link">
+                                                MCA (Choice Based) (Three Years Course) Sem-II
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <span className="mca-list-dot mca-small" />
+                                            <a href="#" className="mca-list-link">
+                                                MCA (Revised Course) Sem-V
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div className="mca-archive-col">
+                                    <h5 className="mca-archive-col-title">KT</h5>
+                                    <ul className="mca-list mca-small">
+                                        <li>
+                                            <span className="mca-list-dot mca-small" />
+                                            <a href="#" className="mca-list-link">
+                                                KT Examination MCA (Three Years) Sem-I to IV
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="mca-archive-footer">
+                            <a href="#" className="mca-archive-more">
+                                View all archived results...
+                            </a>
+                        </div>
+                    </div>
+                </section>
+            </main>
         </div>
-      </footer>
-    </div>
-  );
+    );
 };
 
 export default MCAResults;

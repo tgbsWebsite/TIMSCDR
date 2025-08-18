@@ -1,0 +1,341 @@
+:root {
+  --primary-50: #eff6ff;
+  --primary-100: #dbeafe;
+  --primary-600: #2563eb;
+  --primary-700: #1d4ed8;
+
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+
+  --white: #ffffff;
+
+  --radius-lg: 0.75rem;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -4px rgba(0, 0, 0, 0.1);
+}
+
+/* Base reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  color: var(--gray-800);
+  background-color: var(--gray-100);
+}
+
+/* Page + container */
+.mca-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.mca-main {
+  max-width: none;         /* remove cap */
+  width: 100%;
+  margin: 40px auto 40px auto;
+  padding: 0 24px;         /* gutters */
+  display: grid;
+  gap: 36px;
+}
+
+@media (min-width: 1024px) {
+  .mca-main { padding: 0 40px; }  /* wider gutters on desktop */
+}
+
+/* Header */
+.mca-header {
+  margin-top: 16px;
+}
+.mca-title {
+  margin: 0;
+  text-align: center;
+  font-size: 36px;
+  font-weight: 700;
+}
+.mca-subtitle {
+  margin: 8px 0 0;
+  text-align: center;
+  color: var(--gray-500);
+}
+
+/* Section bar */
+.mca-section {
+    
+}
+.mca-section-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 18px 0;
+  padding: 6px 2px 12px;
+  border-bottom: 2px solid var(--gray-300);
+}
+.mca-section-bar.mca-muted {
+  border-color: var(--gray-400);
+}
+.mca-section-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--gray-800);
+}
+.mca-section-icon {
+  font-size: 22px;
+  line-height: 1;
+  color: var(--primary-600);
+}
+.mca-section-icon.mca-muted {
+  color: var(--gray-600);
+}
+
+/* Cards grid */
+.mca-cards {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 768px) {
+  .mca-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Card */
+.mca-card {
+  background-color: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.mca-card-title {
+  margin: 18px 18px 12px 18px;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--gray-800);
+}
+
+/* Lists */
+.mca-list {
+  margin: 0;
+  padding: 0 18px 18px 18px;
+  list-style: none;
+}
+.mca-list.mca-small {
+  padding-bottom: 14px;
+}
+.mca-list li + li {
+  margin-top: 10px;
+}
+.mca-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.mca-list-dot {
+  width: 8px;
+  height: 8px;
+  margin-top: 6px;
+  border-radius: 2px;
+  background: var(--gray-400);
+  flex: 0 0 auto;
+  display: inline-block;
+}
+.mca-list-dot.mca-small {
+  width: 6px;
+  height: 6px;
+  margin-top: 7px;
+}
+.mca-list-link {
+  color: var(--gray-600);
+  text-decoration: none;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+.mca-list-link:hover {
+  color: var(--primary-700);
+  text-decoration: underline;
+}
+
+/* Archive panel */
+.mca-archive {
+  background-color: var(--white);
+  border: 1px solid var(--gray-300);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: box-shadow 0.2s ease;
+}
+.mca-archive:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+.mca-archive-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--gray-200);
+}
+.mca-archive-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.mca-archive-icon {
+  font-size: 22px;
+  color: var(--gray-700);
+}
+.mca-archive-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--gray-800);
+}
+.mca-archive-toggle {
+  margin-left: auto;
+  color: var(--gray-500);
+}
+
+.mca-archive-body {
+  padding: 16px;
+  display: grid;
+  gap: 18px;
+}
+
+/* Archive groups */
+.mca-archive-group {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.mca-archive-group-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--gray-200);
+  background: var(--gray-50);
+}
+.mca-group-icon {
+  font-size: 16px;
+  color: var(--gray-600);
+}
+.mca-archive-group-title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gray-700);
+}
+
+.mca-archive-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  padding: 12px;
+}
+@media (min-width: 900px) {
+  .mca-archive-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.mca-archive-col {
+  border-left: 4px solid var(--gray-200);
+  padding-left: 12px;
+}
+.mca-archive-col.mca-accent {
+  border-color: var(--primary-100);
+}
+.mca-archive-col-title {
+  margin: 0 0 6px 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gray-700);
+}
+
+.mca-archive-footer {
+  padding-top: 4px;
+  text-align: center;
+}
+.mca-archive-more {
+  color: var(--primary-600);
+  font-weight: 500;
+  text-decoration: none;
+}
+.mca-archive-more:hover {
+  color: var(--primary-700);
+  text-decoration: underline;
+}
+
+/* Footer */
+.mca-footer {
+  margin-top: auto;
+  background: var(--gray-900);
+  color: #fff;
+  padding: 28px 16px;
+}
+.mca-footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+.mca-footer-text {
+  margin: 0;
+  color: #9ca3af;
+}
+.mca-footer-icons {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 10px;
+}
+.mca-footer-icon-link {
+  color: #9ca3af;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.mca-footer-icon-link:hover {
+  color: #fff;
+}
+
+/* Material Icons fallback (if the link tag is missing) */
+@font-face {
+  font-family: "Material Icons";
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialicons/v140/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2)
+    format("woff2");
+  font-display: swap;
+}
+.material-icons {
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  display: inline-block;
+  letter-spacing: normal;
+  text-transform: none;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
