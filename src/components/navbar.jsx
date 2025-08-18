@@ -449,15 +449,15 @@ function Navbar() {
 
     Contact: [
       { name: "Contact Us", link: "/contact" },
-      { name: "Student Grievance Redressal", link: "/contact/location" },
+      { name: "Student Grievance Redressal", link: "/contact/student-grievance-redressal" },
       {
         name: "Careers >>",
-        link: "/contact/inquiry",
+        link: "#",
         submenu: [
-          { name: "Recruitment", link: "/facilities/library-rules" },
+          { name: "Recruitment", link: "/contact/recruitment" },
           {
             name: "Employee Handbook",
-            link: "/facilities/digital-resources",
+            link: "/contact/employee-handbook",
           },
           {
             name: (
