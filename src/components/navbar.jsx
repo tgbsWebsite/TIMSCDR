@@ -74,7 +74,10 @@ function Navbar() {
       },
       { name: "IQAC Committee", link: "/about/iqac-committee" },
       { name: " Cells And Committees", link: "/about/cells-and-committees" },
-      { name: "Organogram", link: "/pdf/about/TIMSCDR-Organization-Chart-Final-1" },
+      {
+        name: "Organogram",
+        link: "/pdf/about/TIMSCDR-Organization-Chart-Final-1",
+      },
       {
         name: "Our Policies >>",
         link: "",
@@ -256,19 +259,23 @@ function Navbar() {
 
     Examination: [
       { name: "Notice", link: "/notice" },
-      { name: "Result >>", link: "/iqac/meetings-reports",
-                submenu: [
-          { name: "University Gazette", link: "/examination/university-gazette" },
+      {
+        name: "Result >>",
+        link: "",
+        submenu: [
+          {
+            name: "University Gazette",
+            link: "/examination/university-gazette",
+          },
           {
             name: "Result Analysis",
-            link: "/facilities/digital-resources",
+            link: "/examination/result-analysis",
           },
         ],
-       },
+      },
       {
         name: "Convocation ",
-        link: "/facilities/learning-resource-center",
-
+        link: "/examination/convocation",
       },
     ],
 
@@ -451,7 +458,10 @@ function Navbar() {
 
     Contact: [
       { name: "Contact Us", link: "/contact" },
-      { name: "Student Grievance Redressal", link: "/contact/student-grievance-redressal" },
+      {
+        name: "Student Grievance Redressal",
+        link: "/contact/student-grievance-redressal",
+      },
       {
         name: "Careers >>",
         link: "#",
@@ -473,7 +483,9 @@ function Navbar() {
           {
             name: (
               <>
-                UoM-Faculty Position <br/> Qualification And <br/> Experience Eligibility<br/>
+                UoM-Faculty Position <br /> Qualification And <br /> Experience
+                Eligibility
+                <br />
                 CONCOL/ICC/04 Of 2012
               </>
             ),

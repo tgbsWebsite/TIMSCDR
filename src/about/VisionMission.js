@@ -27,9 +27,10 @@ const VisionMission = () => {
               </p>
             </div>
             <div>
-              <img 
-              // src="./images/icons/vision.webp" 
-              alt="vision - Thakur Institute of Management Studies, Career Development & Research" />
+              <img
+                // src="./images/icons/vision.webp"
+                alt="vision - Thakur Institute of Management Studies, Career Development & Research"
+              />
             </div>
           </div>
           <div className="mission-box">
@@ -53,9 +54,9 @@ const VisionMission = () => {
         </div>
         <hr className="full-width-hr" />
 
-
-
-        <h2 className="section-title">Program Educational Objectives (PEO's)</h2>
+        <h2 className="section-title-vs">
+          Program Educational Objectives (PEO's)
+        </h2>
 
         <div className="po-grid">
           <div className="po-card">
@@ -90,9 +91,7 @@ const VisionMission = () => {
           </div>
         </div>
 
-        <h2 className="section-title">
-           Program Outcomes (PO's)
-        </h2>
+        <h2 className="section-title-vs">Program Outcomes (PO's)</h2>
         <div className="peo-section">
           <div className="peo-item">
             <strong>PO-1: Foundation Knowledge</strong> Apply knowledge of

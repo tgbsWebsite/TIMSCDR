@@ -8,7 +8,7 @@
 // const root = ReactDOM.createRoot(document.getElementById('root'));
 // root.render(
 //    <BrowserRouter>
-    
+
 //    </BrowserRouter>
 // );
 
@@ -17,12 +17,11 @@
 // // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 // reportWebVitals();
 
-
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "./App";
-import VisionMissionPage from './about/VisionMission'; // Separate page component
+import VisionMissionPage from "./about/VisionMission"; // Separate page component
 import "./index.css";
 import EducationPolicies from "./about/Education-Policies";
 import ChairmanMessage from "./about/ChairmanMessage"; // Assuming this is the path to your ChairmanMessage component
@@ -44,35 +43,64 @@ import GrievanceForm from "./contact/GrievanceForm";
 import Recruitment from "./contact/Recruitment";
 import Employment from "./contact/Employment";
 import NoticeBoard from "./Examination/NoticeBoard";
-import MCAResults from "./Examination/MCAResults";
+import MCAResults from "./Examination/UniversityGazette";
+import ResultAnalysis from "./Examination/ResultAnalysis";
+import Convocation from "./Examination/Convocation";
+import Infrastructure from "./Facilities/Infrastructure";
+import InfrastructureGallery from "./Facilities/InfrastructureGallery";
+import DRC from "./Facilities/DRC";
+import InfrastructureDFC from "./Facilities/DRC";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/about/Vision-Mission" element={<VisionMissionPage />} />
-        <Route path="/about/Education-Policies" element={<EducationPolicies />} />
-        <Route path="/about/chairman-message" element={<ChairmanMessage/>}/>
-        <Route path="/about/ceo-message" element={<CeoMessage/>}/>
-        <Route path="/about/director-message" element={<DirectorMesage/>}/>
-        <Route path="/about/governing-council" element={<Governing/>} />
-        <Route path="/about/advisory" element={<Advisory/>} />
-        <Route path="/about/academic-council" element={<AcademicCouncil/>} />
-        <Route path="/about/development-committee" element={<DevelopmentCommittee/>} />
-        <Route path="/about/iqac-committee" element={<IqacCommittee/>} />
-        <Route path="/about/cells-and-committees" element={<CellCommittee/>} />
-        <Route path="/about/nisp-policy" element={<NispPolicy/>} />
-        <Route path="/programs/mca-program" element={<MCAProgram/>}/>
-        <Route path="/programs/integrated-mca" element={<IntegratedMCAProgram/>} />
-        <Route path="/programs/mca-working-professionals" element={<ProfessionalMCAProgram/>} />
-        <Route path="/programs/ph-d-admission"  element={<PhdAccordion/>}/>
-        <Route path="/contact" element={<ContactPage/>}/>
-        <Route path="/contact/student-grievance-redressal" element={<GrievanceForm/>} />
-        <Route path="/contact/recruitment" element={<Recruitment/>}/>
-        <Route path="/contact/employee-handbook" element={<Employment/>} />
-        <Route path="/notice" element={<NoticeBoard/>}/>
-        <Route path="/examination/university-gazette" element={<MCAResults/>} />
-      </Routes>
-    </BrowserRouter>
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<App />} />
+      <Route path="/about/Vision-Mission" element={<VisionMissionPage />} />
+      <Route path="/about/Education-Policies" element={<EducationPolicies />} />
+      <Route path="/about/chairman-message" element={<ChairmanMessage />} />
+      <Route path="/about/ceo-message" element={<CeoMessage />} />
+      <Route path="/about/director-message" element={<DirectorMesage />} />
+      <Route path="/about/governing-council" element={<Governing />} />
+      <Route path="/about/advisory" element={<Advisory />} />
+      <Route path="/about/academic-council" element={<AcademicCouncil />} />
+      <Route
+        path="/about/development-committee"
+        element={<DevelopmentCommittee />}
+      />
+      <Route path="/about/iqac-committee" element={<IqacCommittee />} />
+      <Route path="/about/cells-and-committees" element={<CellCommittee />} />
+      <Route path="/about/nisp-policy" element={<NispPolicy />} />
+      <Route path="/programs/mca-program" element={<MCAProgram />} />
+      <Route
+        path="/programs/integrated-mca"
+        element={<IntegratedMCAProgram />}
+      />
+      <Route
+        path="/programs/mca-working-professionals"
+        element={<ProfessionalMCAProgram />}
+      />
+      <Route path="/programs/ph-d-admission" element={<PhdAccordion />} />
+      <Route path="/contact" element={<ContactPage />} />
+      <Route
+        path="/contact/student-grievance-redressal"
+        element={<GrievanceForm />}
+      />
+      <Route path="/contact/recruitment" element={<Recruitment />} />
+      <Route path="/contact/employee-handbook" element={<Employment />} />
+      <Route path="/notice" element={<NoticeBoard />} />
+      <Route path="/examination/university-gazette" element={<MCAResults />} />
+      <Route path="/examination/result-analysis" element={<ResultAnalysis />} />
+      <Route path="/examination/convocation" element={<Convocation />} />
+      <Route path="/facilities/infrastructure" element={<Infrastructure />} />
+      <Route
+        path="/facilities/infrastructure-gallery"
+        element={<InfrastructureGallery />}
+      />
+      <Route
+        path="/facilities/disability-resource-center"
+        element={<InfrastructureDFC />}
+      />
+    </Routes>
+  </BrowserRouter>
 );
