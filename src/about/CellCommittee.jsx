@@ -762,7 +762,7 @@ export default function AccordionCommittees() {
 
             <h2 className="section-heading">Committee Panel</h2>
 
-            <div className="container">
+            <div className="container-cs">
                 <div className="sidebar">
                     {committeeData.map((section, index) => (
                         <div key={index} className="accordion-section">

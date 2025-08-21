@@ -50,6 +50,7 @@ import Infrastructure from "./Facilities/Infrastructure";
 import InfrastructureGallery from "./Facilities/InfrastructureGallery";
 import DRC from "./Facilities/DRC";
 import InfrastructureDFC from "./Facilities/DRC";
+import LibraryPage from "./Facilities/LibraryPage";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
@@ -101,6 +102,10 @@ root.render(
         path="/facilities/disability-resource-center"
         element={<InfrastructureDFC />}
       />
+      <Route
+        path="/about-library"
+        element={<LibraryPage />}
+      /> 
     </Routes>
   </BrowserRouter>
 );

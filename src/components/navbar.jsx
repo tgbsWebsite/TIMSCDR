@@ -170,9 +170,9 @@ function Navbar() {
       { name: "DRC", link: "/facilities/disability-resource-center" },
       {
         name: "Learning Resource Center (Library) >>",
-        link: "/facilities/learning-resource-center",
+        link: null,
         submenu: [
-          { name: "Library Rules", link: "/facilities/library-rules" },
+          { name: "Library Rules", link: "/about-library" },
           { name: "Digital Resources", link: "/facilities/digital-resources" },
           { name: "Timings", link: "/facilities/library-timings" },
         ],
@@ -259,6 +259,7 @@ function Navbar() {
 
     Examination: [
       { name: "Notice", link: "/notice" },
+
       {
         name: "Result >>",
         link: "",

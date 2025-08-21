@@ -523,3 +523,124 @@ section {
     justify-content: center;
   }
 }
+
+/*Library page*/
+.library-main {
+  background-color: #fff;
+  padding: 80px 0;
+  font-family: "Roboto", sans-serif;
+  color: #374151;
+  min-height: 100vh;
+}
+
+.library-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  margin: 150px auto 40px auto;
+}
+
+.library-title-wrapper {
+  margin-bottom: 48px;
+  text-align: center;
+}
+
+.library-title {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: 36px;
+  color: #1f2937;
+}
+
+.library-info-image-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 48px;
+  justify-content: center;
+  align-items: center;
+}
+
+.library-description-wrapper {
+  flex: 1 1 400px;
+  max-width: 600px;
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #4b5563;
+}
+@media (min-width: 1024px) {
+  .library-description-wrapper {
+    text-align: left;
+  }
+}
+
+.library-image-wrapper {
+  flex: 1 1 400px;
+  max-width: 600px;
+}
+
+.library-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+}
+
+.library-collection-section {
+  background-color: #f9fafb;
+  padding: 72px 24px 104px;
+}
+
+.collection-title {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: 22px; /* reduced from 28px */
+  color: #1f2937;
+  margin-bottom: 32px; /* reduced from 48px */
+}
+
+.collection-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* reduced min width */
+  gap: 20px; /* reduced from 32px */
+  max-width: 900px; /* reduced from 1100px */
+  margin: 0 auto;
+}
+
+.collection-card {
+  background: #fff;
+  padding: 16px 12px; /* reduced padding for smaller height */
+  border-radius: 12px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.04);
+  text-align: center;
+  transition: box-shadow 0.3s ease;
+  cursor: default;
+  min-height: 100px;  /* Optional: set a smaller min height if needed */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.collection-label {
+  font-weight: 600;
+  color: #374151;
+  font-size: 14px;
+  line-height: 1.2; /* tighter line height */
+  margin-bottom: 4px;
+}
+
+.collection-value {
+  font-weight: 700;
+  color: #2563eb;
+  font-size: 26px;
+  line-height: 1.2;
+  margin-top: 4px;
+}
+
+.collection-note {
+  font-size: 12px;
+  color: #6b7280;
+  margin-top: 4px;
+  line-height: 1.2;
+}

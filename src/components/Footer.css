@@ -120,6 +120,7 @@
     align-items: left;
     justify-content: space-between;
     background-color: white;
+    
 }
 
 .bottom-footer img{
@@ -130,7 +131,7 @@
     width: 100%;
     color: #233b77;
     font-size: 12px;
-    text-align: left;
+    text-align: center;
 }
 
 @media screen and (max-width: 768px) {

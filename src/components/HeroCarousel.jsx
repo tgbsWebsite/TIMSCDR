@@ -38,10 +38,16 @@ const HeroCarousel = () => {
         className="mySwiper"
       >
         <SwiperSlide>
-          <div className="slide-box" style={{ backgroundColor: "#1e90ff" }}>
-            <h2>Image 1</h2>
+          <div className="slide-box">
+            <img
+              src="/images/1.png"
+              alt="Hero 1"
+              className="slide-image"
+            />
+            {/* <h2>Image 1</h2> */}
           </div>
         </SwiperSlide>
+
         <SwiperSlide>
           <div className="slide-box" style={{ backgroundColor: "#28a745" }}>
             <h2>Image 2</h2>

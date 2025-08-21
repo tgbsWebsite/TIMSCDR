@@ -7,6 +7,18 @@
   padding: 20px;
   gap: 24px; /* space between sidebar & panel */
 }
+.container-cs {
+    max-width: 1600px;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding: 3rem 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
 
 /* --- Sidebar modern look --- */
 .sidebar {
