@@ -52,7 +52,7 @@ const VisionMission = () => {
             </div>
           </div>
         </div>
-        <hr className="full-width-hr" />
+         <div className="infra-divider" aria-hidden="true" />
 
         <h2 className="section-title-vs">
           Program Educational Objectives (PEO's)

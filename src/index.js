@@ -51,6 +51,7 @@ import InfrastructureGallery from "./Facilities/InfrastructureGallery";
 import DRC from "./Facilities/DRC";
 import InfrastructureDFC from "./Facilities/DRC";
 import LibraryPage from "./Facilities/LibraryPage";
+import LibraryInfrastructure from "./Facilities/LibraryInfrastructure";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
@@ -106,6 +107,7 @@ root.render(
         path="/about-library"
         element={<LibraryPage />}
       /> 
+      <Route path="/infrastructure-and-facilities" element={<LibraryInfrastructure/>} />
     </Routes>
   </BrowserRouter>
 );
