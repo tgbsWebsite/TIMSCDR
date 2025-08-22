@@ -14,7 +14,7 @@ export default function LibraryPage() {
       <CTAButtons />
     <main className="library-main">
       <section className="library-intro-section">
-        <div className="library-container">
+        <div className="library-container-one">
           <div className="library-title-wrapper">
             <h2 className="heading">Our Library</h2>
           </div>

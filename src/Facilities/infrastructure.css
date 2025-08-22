@@ -533,11 +533,18 @@ section {
   min-height: 100vh;
 }
 
-.library-container {
+.library-container-one{
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 24px;
-  margin: 150px auto 40px auto;
+    margin: 150px auto 40px auto;
+}
+
+.library-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+
 }
 
 .library-title-wrapper {
@@ -593,33 +600,37 @@ section {
 }
 
 .collection-title {
-  font-family: "Playfair Display", serif;
-  font-weight: 700;
-  font-size: 22px; /* reduced from 28px */
-  color: #1f2937;
-  margin-bottom: 32px; /* reduced from 48px */
+text-align: center;
+    font-weight: bold;
+    color: #231f54;
+    font-size: 35px;
+    /* margin-bottom: 35px;
+    margin-top: 50px; */
 }
 
 .collection-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* reduced min width */
-  gap: 20px; /* reduced from 32px */
-  max-width: 900px; /* reduced from 1100px */
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* wider min width */
+  gap: 20px;
+  max-width: 900px;
   margin: 0 auto;
 }
 
+
+
+
 .collection-card {
   background: #fff;
-  padding: 16px 12px; /* reduced padding for smaller height */
-  border-radius: 12px;
+  padding: 16px 12px;
+  border-radius: 20px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.04);
   text-align: center;
   transition: box-shadow 0.3s ease;
   cursor: default;
-  min-height: 100px;  /* Optional: set a smaller min height if needed */
   display: flex;
   flex-direction: column;
   justify-content: center;
+  min-height: auto; /* removes fixed 100px */
 }
 
 .collection-label {
