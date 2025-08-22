@@ -540,11 +540,26 @@ section {
   margin: 150px auto 40px auto;
 }
 
-.library-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0;
+.library-body {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
 }
+
+.library-container {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 1.25rem;  /* set to 0 for edge-to-edge */
+}
+
+@media (min-width: 1280px) {
+  .library-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
 
 .library-title-wrapper {
   margin-bottom: 48px;
@@ -742,7 +757,7 @@ body,
   gap: 1rem;
 }
 .infra-resource-item {
-  display: inline-flex;     /* shrink-wrap to content horizontally */
+  display: inline-flex; /* shrink-wrap to content horizontally */
   align-items: center;
   gap: 0.5rem;
 
@@ -751,9 +766,9 @@ body,
   padding: 0.5rem 0.75rem;
   box-sizing: border-box;
 
-width: auto;               /* expand based on text length */
-  min-width: max-content;    /* keep on one line until space runs out */
-  overflow: visible;         /* do not clip text */
+  width: auto; /* expand based on text length */
+  min-width: max-content; /* keep on one line until space runs out */
+  overflow: visible; /* do not clip text */
   /* optional: add a soft cap so very long labels wrap instead of growing forever */
   /* max-width: 22rem;  white-space: normal; overflow-wrap: anywhere; */
 }
@@ -809,7 +824,7 @@ width: auto;               /* expand based on text length */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   column-gap: 1.9rem; /* keep horizontal spacing */
-  row-gap: 1rem;  
+  row-gap: 1rem;
 }
 
 .infra-card-grid {
@@ -818,8 +833,6 @@ width: auto;               /* expand based on text length */
   gap: 1rem;
   margin-top: 2rem; /* adjust value as needed */
 }
-
-
 
 .infra-card {
   background: #fff;
@@ -897,4 +910,220 @@ width: auto;               /* expand based on text length */
   .infra-card-medium {
     width: 95%; /* almost full width */
   }
+}
+
+/*Library Holdings */
+.lib-body {
+  background: #f9fafb;
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #374151;
+}
+
+/* Header */
+
+/* Main */
+.lib-main {
+  width: 90%;
+  margin: auto;
+  padding: 1rem 2rem 3rem 2rem; /* top reduced to 1.5rem, sides 2rem, bottom 3rem */
+  box-sizing: border-box;
+}
+
+
+.lib-section {
+  margin-bottom: 3rem;
+}
+.lib-heading {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1f2937;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/*Library Rules*/
+:root {
+  --primary-color: #4f46e5;
+  --secondary-color: #10b981;
+  --background-color: #f8fafc;
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --card-background: #ffffff;
+  --border-color: #e5e7eb;
+}
+
+/* Base */
+.library-body {
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans";
+  background: var(--background-color);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+/* Header */
+.library-header {
+  background: var(--card-background);
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  box-shadow: 0 2px 10px rgba(17, 24, 39, 0.06);
+}
+.library-title {
+  margin: 0;
+  padding: 1rem 0;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  letter-spacing: 0.2px;
+}
+
+/* Container and main spacing */
+/* FLUID full-width container (updated) */
+.library-container {
+  width: 100%;
+  max-width: none;     /* removed 1200px cap */
+  margin: 0;           /* no centering margins */
+  padding: 0 1.25rem;  /* keep some side padding */
+}
+
+.library-main {
+  padding: 2.5rem 0 3rem;
+}
+
+/* Sections */
+.library-section {
+  margin-bottom: 1.75rem;
+}
+.library-heading {
+  margin: 0 0 1rem 0;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+.library-note {
+  margin-top: 0.6rem;
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+}
+
+/* Grid for rules/instructions */
+.library-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+@media (min-width: 768px) {
+  .library-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Lists */
+.library-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.library-list li {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  margin-bottom: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  font-size: 0.98rem;
+}
+.library-list .material-symbols-outlined {
+  font-size: 20px;
+  color: var(--primary-color);
+  margin-top: 2px;
+}
+
+/* Table + image block layout */
+/* UPDATED: Always stack table and image vertically */
+.library-block {
+  display: grid;
+  grid-template-columns: 1fr !important; /* override the 2-col at 960px */
+  gap: 1rem;
+  margin-bottom: 2.25rem;
+}
+
+/* Optional: if you prefer only some sections stacked, use a modifier:
+.library-block--stack { grid-template-columns: 1fr !important; }
+*/
+
+/* Image Card */
+.library-image-card {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  background: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(17, 24, 39, 0.06);
+  height: auto;
+  margin: 1rem auto 0;
+  width: 100%;
+  max-width: 520px; /* base */
+}
+
+@media (min-width: 640px) {
+  .library-image-card { max-width: 560px; }
+}
+@media (min-width: 768px) {
+  .library-image-card { max-width: 600px; }
+}
+@media (min-width: 1024px) {
+  .library-image-card { max-width: 640px; }
+}
+
+.library-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #eef2ff;
+  overflow: hidden;
+}
+.library-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.library-image-meta {
+  padding: 0.9rem 1rem 1.1rem;
+}
+.library-image-title {
+  margin: 0;
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.library-image-desc {
+  margin: 0.35rem 0 0;
+  font-size: 0.93rem;
+  color: var(--text-secondary);
+}
+
+/* Tables fill available width */
+.conv-table-wrapper { width: 100%; }
+.conv-table {
+  width: 100%;
+  table-layout: auto; /* or fixed if you want uniform columns */
+  border-collapse: collapse;
+}
+
+/* Footer */
+.library-footer {
+  background: #111827;
+  color: #9ca3af;
+  padding: 1rem 0;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* Helper for totals if not already in your table-style.css */
+.conv-total-row {
+  background: #e5e7eb;
+  font-weight: bold;
 }

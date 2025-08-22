@@ -174,8 +174,8 @@ function Navbar() {
         submenu: [
           {name: "About Library",  link: "/about-library" },
           { name: "Infrastructure and Facilities", link: "/infrastructure-and-facilities" },
-          {name : "TIMSCDR Library Holding", link:""},
-          {name: "Library Timing and Rules",link:""},
+          {name : "TIMSCDR Library Holding", link:"/timscdr-library-holding"},
+          {name: "Library Timing and Rules",link:"/library-timing-and-rules"},
           {name: "Library Committee", link:""},
           { name: "Virtual Reading Resource", link: "/facilities/digital-resources" },
         ],

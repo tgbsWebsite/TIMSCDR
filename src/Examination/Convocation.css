@@ -210,15 +210,17 @@
 /* Main batch cards */
 .conv-card {
   background: #fff;
-  padding: 1rem 1rem; /* or your preferred padding */
+  padding: 1rem 1rem;
   border-radius: 1.3rem;
   box-shadow: 0 4px 24px 0 rgba(60, 58, 89, 0.1);
   border: 1.5px solid #e5e7eb;
   margin-bottom: 2rem;
-
-  max-width: 1390px; /* increased max width */
+  
+  width: 99%;          /* responsive width */
+  /* max-width: 1390px;   */
   margin-left: auto;
-  margin-right: auto; /* centers card */
+  margin-right: auto;  /* centers card */
+  box-sizing: border-box;
 }
 
 .conv-batch-title {

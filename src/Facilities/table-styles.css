@@ -1,0 +1,40 @@
+/* ========================
+   Conversational Table Styles
+   ======================== */
+
+.conv-table-wrapper {
+  overflow-x: auto;
+  border-radius: 1rem;
+  border: 1.5px solid #e5e7eb;
+  margin-bottom: 1.3rem;
+  box-shadow: 0 1px 6px rgba(120, 120, 140, 0.1);
+}
+
+.conv-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
+}
+
+
+
+.conv-table th,
+.conv-table td {
+  padding: 0.85rem 1.1rem;
+  text-align: left;
+}
+
+.conv-table th {
+  background: #f3f4f6;
+  color: #374151;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.conv-table td {
+  color: #22223b;
+}
+
+.conv-table tbody tr:nth-child(even) {
+  background: #f8fafc;
+}

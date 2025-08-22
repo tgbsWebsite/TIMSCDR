@@ -52,6 +52,8 @@ import DRC from "./Facilities/DRC";
 import InfrastructureDFC from "./Facilities/DRC";
 import LibraryPage from "./Facilities/LibraryPage";
 import LibraryInfrastructure from "./Facilities/LibraryInfrastructure";
+import LibraryHolding from "./Facilities/LibraryHolding";
+import LibraryRules from "./Facilities/LibraryRules";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
@@ -108,6 +110,8 @@ root.render(
         element={<LibraryPage />}
       /> 
       <Route path="/infrastructure-and-facilities" element={<LibraryInfrastructure/>} />
+      <Route path="/timscdr-library-holding" element={<LibraryHolding/>} />
+      <Route path="/library-timing-and-rules" element={<LibraryRules/>} />
     </Routes>
   </BrowserRouter>
 );
