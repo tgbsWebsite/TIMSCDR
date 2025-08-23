@@ -54,7 +54,10 @@ import LibraryPage from "./Facilities/LibraryPage";
 import LibraryInfrastructure from "./Facilities/LibraryInfrastructure";
 import LibraryHolding from "./Facilities/LibraryHolding";
 import LibraryRules from "./Facilities/LibraryRules";
+import IMCA_Admission from "./Admissions/IMCA_Admission";
 import MCA_Admission from "./Admissions/MCA_Admission";
+import MCA_WorkingProfessional from "./Admissions/MCA_WorkingProfessional";
+import SeatDistribution from "./Admissions/SeatDistribution";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
@@ -113,7 +116,14 @@ root.render(
       <Route path="/infrastructure-and-facilities" element={<LibraryInfrastructure/>} />
       <Route path="/timscdr-library-holding" element={<LibraryHolding/>} />
       <Route path="/library-timing-and-rules" element={<LibraryRules/>} />
+      <Route path="/imca" element={<IMCA_Admission />} />
       <Route path="/master-of-computer-applications-mca" element={<MCA_Admission />} />
+      <Route path="/mca-working-professional" element={<MCA_WorkingProfessional />} />
+      <Route path="/seat-distribution" element={<SeatDistribution />} />
+
+
+      
+
     </Routes>
   </BrowserRouter>
 );
