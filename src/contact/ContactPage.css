@@ -1,5 +1,5 @@
 /* Container */
-.container {
+.phd-container {
   display: flex;
   font-family: "Inter", "Segoe UI", Arial, sans-serif;
   min-height: 80vh;

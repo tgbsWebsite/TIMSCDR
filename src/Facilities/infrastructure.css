@@ -981,20 +981,22 @@ body,
 
 /* Container and main spacing */
 /* FLUID full-width container (updated) */
-.library-container {
-  width: 100%;
+.library-container-rule {
+  margin-top: 4rem;
+  width: 80%;
   max-width: none;     /* removed 1200px cap */
-  margin: 0;           /* no centering margins */
+  margin: auto;           /* no centering margins */
   padding: 0 1.25rem;  /* keep some side padding */
 }
-
 .library-main {
   padding: 2.5rem 0 3rem;
+  margin-top: 4rem; /* adjust value as needed */
 }
 
 /* Sections */
 .library-section {
-  margin-bottom: 1.75rem;
+  margin-bottom: -3rem;
+  padding: 2rem;
 }
 .library-heading {
   margin: 0 0 1rem 0;
@@ -1013,12 +1015,21 @@ body,
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
+
+  /* centering the container */
+  width: 100%;
+  max-width: 1300px;    /* adjust as needed */
+  margin: auto;
+  padding-left: 1rem;  /* optional breathing room */
+  padding-right: 1rem; /* optional breathing room */
 }
+
 @media (min-width: 768px) {
   .library-grid {
     grid-template-columns: 1fr 1fr;
   }
 }
+
 
 /* Lists */
 .library-list {
@@ -1053,7 +1064,9 @@ body,
 /* Optional: if you prefer only some sections stacked, use a modifier:
 .library-block--stack { grid-template-columns: 1fr !important; }
 */
-
+.library-container-rules {
+    margin-top:12rem;
+}
 /* Image Card */
 .library-image-card {
   display: grid;

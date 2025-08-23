@@ -1,0 +1,384 @@
+/* Base reset scoped by unique prefix */
+.mcaPage-root * {
+  box-sizing: border-box;
+}
+
+.mcaPage-root {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.6;
+  color: #1a1a1a;
+  overflow-x: hidden;
+}
+
+/* Container */
+.mcaPage-container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Hero */
+.mcaPage-hero {
+  background: linear-gradient(135deg, #3a3578 0%, #231f54 100%);
+  color: #fff;
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.mcaPage-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  opacity: 0.3;
+}
+
+.mcaPage-heroContent {
+  text-align: center;
+}
+
+.mcaPage-heroTitle {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.mcaPage-heroSubtitle {
+  font-size: 1.3rem;
+  opacity: 0.9;
+  margin-bottom: 40px;
+}
+
+/* Stats */
+.mcaPage-programStats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  margin-top: 60px;
+}
+
+.mcaPage-statCard {
+  background: rgba(255, 255, 255, 0.15);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  padding: 30px 20px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+}
+
+.mcaPage-statNumber {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+/* Main */
+.mcaPage-section {
+  margin-bottom: 40px;
+}
+
+.mcaPage-sectionTitle {
+  font-size: 2.5rem;
+  color: #2d3748;
+  margin-bottom: 40px;
+  text-align: center;
+  position: relative;
+}
+.mcaPage-sectionTitle::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #3a3578, #231f54);
+  border-radius: 2px;
+}
+
+/* Overview */
+.mcaPage-programOverview {
+  background: #f8fafc;
+  padding: 40px 20px;
+  border-radius: 16px;
+  margin: 20px 0;
+}
+
+.mcaPage-overviewInner {
+  padding: 0;
+}
+
+.mcaPage-overviewGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.mcaPage-overviewText {
+  font-size: 1.1rem;
+  color: #4a5568;
+  line-height: 1.8;
+}
+
+.mcaPage-overviewHighlights {
+  background: #fff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.mcaPage-highlightItem {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 15px 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+.mcaPage-highlightItem:last-child {
+  border-bottom: 0;
+}
+
+.mcaPage-highlightIcon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #3a3578, #231f54);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* Tabs */
+.mcaPage-tabs {
+  display: flex;
+  margin-bottom: 40px;
+  background: #f1f5f9;
+  border-radius: 12px;
+  padding: 8px;
+  gap: 8px;
+}
+
+.mcaPage-tabBtn {
+  flex: 1;
+  padding: 15px 20px;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.mcaPage-tabBtn.is-active {
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  color: #231f54;
+  border-bottom: 2px solid #231f54;
+}
+
+.mcaPage-tabPanel {
+  display: none;
+}
+.mcaPage-tabPanel.is-active {
+  display: block;
+}
+
+/* Eligibility */
+.mcaPage-eligibilityCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+}
+
+.mcaPage-card {
+  background: #fff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+/* .mcaPage-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  border-color: #231f54;
+} */
+
+.mcaPage-cardHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.mcaPage-cardNumber {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #3a3578, #231f54);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: bold;
+  margin-right: 15px;
+}
+
+.mcaPage-card h3 {
+  color: #2d3748;
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+.mcaPage-card p {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  text-align: justify;
+}
+
+.mcaPage-reqList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.mcaPage-reqList li {
+  padding: 12px 0;
+  border-bottom: 1px solid #e2e8f0;
+  position: relative;
+  padding-left: 30px;
+}
+.mcaPage-reqList li:last-child {
+  border-bottom: 0;
+}
+.mcaPage-reqList li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #48bb78;
+  font-weight: bold;
+}
+
+/* Documents */
+.mcaPage-docsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 40px;
+}
+.mcaPage-docItem {
+  background: #f8fafc;
+  padding: 20px;
+  border-radius: 12px;
+  border-left: 4px solid #231f54;
+  transition: all 0.3s ease;
+}
+.mcaPage-docItem:hover {
+  background: #edf2f7;
+  transform: translateX(5px);
+}
+.mcaPage-docList {
+  margin: 10px 0 0;
+  padding-left: 20px;
+}
+
+/* Process flow */
+.mcaPage-processFlow {
+  background: linear-gradient(135deg, #f6f9fc 0%, #e9f3ff 100%);
+  padding: 60px 40px;
+  border-radius: 24px;
+  margin: 40px 0;
+  text-align: center;
+}
+.mcaPage-processTitle {
+  margin-bottom: 20px;
+  color: #2d3748;
+}
+.mcaPage-processIntro {
+  color: #4a5568;
+  margin-bottom: 40px;
+}
+
+.mcaPage-flowSteps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+.mcaPage-flowStep {
+  background: #fff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+.mcaPage-flowStepNum {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 20px;
+  background: linear-gradient(135deg, #3a3578, #231f54);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* CTA */
+.mcaPage-cta {
+  background: linear-gradient(135deg, #3a3578 0%, #231f54 100%);
+  padding: 80px 0;
+  text-align: center;
+  color: #fff;
+}
+.mcaPage-ctaTitle {
+  margin-bottom: 20px;
+}
+.mcaPage-ctaSubtitle {
+  margin-bottom: 30px;
+  font-size: 1.2rem;
+}
+.mcaPage-ctaButtons {
+  display: inline-flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.mcaPage-ctaBtn {
+  background: #fff;
+  color: #231f54;
+  padding: 15px 40px;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.mcaPage-ctaBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .mcaPage-heroTitle {
+    font-size: 2.5rem;
+  }
+  .mcaPage-overviewGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .mcaPage-tabs {
+    flex-direction: column;
+  }
+  .mcaPage-eligibilityCards {
+    grid-template-columns: 1fr;
+  }
+}

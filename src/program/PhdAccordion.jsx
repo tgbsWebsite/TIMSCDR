@@ -68,7 +68,7 @@ export default function PhdAccordion() {
         </div>
 
         {/* TWO-COLUMN LAYOUT */}
-        <div className="container">
+        <div className="phd-container">
           {/* LEFT SIDEBAR */}
           {/* LEFT SIDEBAR */}
           <div className="phd-sidebar">

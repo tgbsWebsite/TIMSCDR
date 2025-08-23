@@ -54,6 +54,7 @@ import LibraryPage from "./Facilities/LibraryPage";
 import LibraryInfrastructure from "./Facilities/LibraryInfrastructure";
 import LibraryHolding from "./Facilities/LibraryHolding";
 import LibraryRules from "./Facilities/LibraryRules";
+import MCA_Admission from "./Admissions/MCA_Admission";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
@@ -112,6 +113,7 @@ root.render(
       <Route path="/infrastructure-and-facilities" element={<LibraryInfrastructure/>} />
       <Route path="/timscdr-library-holding" element={<LibraryHolding/>} />
       <Route path="/library-timing-and-rules" element={<LibraryRules/>} />
+      <Route path="/master-of-computer-applications-mca" element={<MCA_Admission />} />
     </Routes>
   </BrowserRouter>
 );

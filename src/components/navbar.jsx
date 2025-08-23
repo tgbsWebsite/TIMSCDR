@@ -131,10 +131,10 @@ function Navbar() {
     //   { name: "Cells & Committee", link: "/about/cells-committee" },
     // ],
     Admissions: [
-      { name: "Ph.D. Admission", link: "/admission-process" },
+      { name: "Ph.D. Admission", link: "/programs/ph-d-admission" },
       {
         name: "Master Of Computer Applications (MCA)",
-        link: "/eligibility-criteria",
+        link: "/master-of-computer-applications-mca",
       },
       { name: "MCA Integrated", link: "/documents-required" },
       { name: "MCA Working Professional", link: "/scholarships" },
