@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import "../Facilities/table-styles.css";
 import Footer from "../components/Footer";
 import BrochureForm from "../components/EnquiryForm";
@@ -9,29 +9,30 @@ import Navbar from "../components/navbar";
 // for the rest of the page styles
 
 export default function SeatDistribution() {
-        const [showForm, setShowForm] = useState(false);
-    
+    const [showForm, setShowForm] = useState(false);
+
     return (
         <>
             <Navbar setShowForm={setShowForm} />
             {showForm && <BrochureForm setShowForm={setShowForm} />}
             <CTAButtons />
 
-        <div className="seatPage">
-            {/* Hero Section */}
+            <div className="seatPage">
+                {/* Hero Section */}
 
-            {/* Main Content */}
-            <section className="seatPage-main">
-                <div className="seatPage-container">
-                    <div className="seatPage-grid">
-                        {/* Left Side - Inspiration Card */}
+                {/* Main Content */}
+                <section className="seatPage-main">
+                    <div className="seatPage-container">
+                        <div className="seatPage-grid">
+                            {/* Left Side - Inspiration Card */}
 
-                        {/* Right Side - Table Section */}
-                        <div className="seatPage-tableSection">
+                            {/* Right Side - Table Section */}
                             <h1 className="heading">Seat Distribution</h1>
                             <h2 className="seatPage-title">
                                 Allocation of Seats Within Sanctioned Intake
                             </h2>
+
+
                             <div className="conv-table-wrapper">
                                 <table className="conv-table">
                                     <thead>
@@ -40,20 +41,17 @@ export default function SeatDistribution() {
                                             <th>Sanctioned Intake</th>
                                             <th>
                                                 CAP Quota
-                                                <br />
-                                                <small>
-                                                    Seats will be filled up through CAP only
-                                                    <br />(Centralized Admission Process)
-                                                </small>
+                                                <div className="th-subtext">
+                                                    Seats will be filled up through CAP only <br />
+                                                    (Centralized Admission Process)
+                                                </div>
                                             </th>
                                             <th>Minority Quota</th>
                                             <th>
                                                 Institute Level Seats
-                                                <br />
-                                                <small>
-                                                    Seats will be filled up
-                                                    <br /> Institute only
-                                                </small>
+                                                <div className="th-subtext">
+                                                    Seats will be filled up Institute only
+                                                </div>
                                             </th>
                                         </tr>
                                     </thead>
@@ -121,11 +119,10 @@ export default function SeatDistribution() {
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-        </div>
-        <Footer />
-           </>
+            </div>
+            <Footer />
+        </>
     );
 }

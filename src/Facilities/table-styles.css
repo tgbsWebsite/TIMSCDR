@@ -16,12 +16,10 @@
   font-size: 1rem;
 }
 
-
-
 .conv-table th,
 .conv-table td {
   padding: 0.85rem 1.1rem;
-  text-align: left;
+  text-align: center;
 }
 
 .conv-table th {
@@ -37,4 +35,20 @@
 
 .conv-table tbody tr:nth-child(even) {
   background: #f8fafc;
+}
+
+/* Optional hover effect */
+
+
+
+.conv-table .th-subtext {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.75rem;     /* smaller text */
+  font-weight: normal;
+  line-height: 1.3;
+  color: black;         /* slate-300 for softer look */
+}
+.conv-table tbody tr:nth-child(2n) {
+    background: #f3f4f6;
 }
