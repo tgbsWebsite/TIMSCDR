@@ -49,7 +49,6 @@ body {
 .grid-container {
   display: grid;
   grid-template-columns: 1fr; /* stacked on mobile */
-  gap: 2rem;
   align-items: stretch;
 }
 

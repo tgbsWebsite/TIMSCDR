@@ -58,6 +58,13 @@ import IMCA_Admission from "./Admissions/IMCA_Admission";
 import MCA_Admission from "./Admissions/MCA_Admission";
 import MCA_WorkingProfessional from "./Admissions/MCA_WorkingProfessional";
 import SeatDistribution from "./Admissions/SeatDistribution";
+import FeesStructure from "./Admissions/FeesStructure";
+import AdmissionNotifications from "./Admissions/AdmissionNotifications";
+import AICTEApproval from "./Admissions/AICTEApproval";
+import StudentHandbook from "./Admissions/StudentHandbook";
+import StudentMentoring from "./Admissions/StudentMentoring";
+import AntiRagging from "./Admissions/AntiRagging";
+import ResearchCell from "./RD/ResearchCell";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
@@ -109,21 +116,40 @@ root.render(
         path="/facilities/disability-resource-center"
         element={<InfrastructureDFC />}
       />
+      <Route path="/about-library" element={<LibraryPage />} />
       <Route
-        path="/about-library"
-        element={<LibraryPage />}
-      /> 
-      <Route path="/infrastructure-and-facilities" element={<LibraryInfrastructure/>} />
-      <Route path="/timscdr-library-holding" element={<LibraryHolding/>} />
-      <Route path="/library-timing-and-rules" element={<LibraryRules/>} />
+        path="/infrastructure-and-facilities"
+        element={<LibraryInfrastructure />}
+      />
+      <Route path="/timscdr-library-holding" element={<LibraryHolding />} />
+      <Route path="/library-timing-and-rules" element={<LibraryRules />} />
       <Route path="/imca" element={<IMCA_Admission />} />
-      <Route path="/master-of-computer-applications-mca" element={<MCA_Admission />} />
-      <Route path="/mca-working-professional" element={<MCA_WorkingProfessional />} />
+      <Route
+        path="/master-of-computer-applications-mca"
+        element={<MCA_Admission />}
+      />
+      <Route
+        path="/mca-working-professional"
+        element={<MCA_WorkingProfessional />}
+      />
       <Route path="/seat-distribution" element={<SeatDistribution />} />
-
-
-      
-
+      <Route path="/fees-structure" element={<FeesStructure />} />
+      <Route
+        path="/admission-notification"
+        element={<AdmissionNotifications />}
+      />
+          <Route
+        path="/admission-notification"
+        element={<AdmissionNotifications />}
+      />
+            <Route
+        path="/aicte-approval-2"
+        element={<AICTEApproval />}
+      />
+      <Route path="/student-handbook" element={<StudentHandbook/>}/>
+      <Route path="/student-mentoring-program" element={<StudentMentoring/>}/>
+      <Route path="/anti-ragging" element={<AntiRagging />} />
+      <Route path="/research-cell" element={<ResearchCell />} />
     </Routes>
   </BrowserRouter>
 );

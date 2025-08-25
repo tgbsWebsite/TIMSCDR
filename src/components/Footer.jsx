@@ -57,7 +57,7 @@ function Footer() {
                 </div>
             </div>
             <div className='bottom-footer'>
-                <p>Copyright © 2025 Thakur Institute of Management Studies, Career Development & Research (An Institute under Zagdusingh Charitable Trust )</p>
+                <p>Copyright © 2025 Thakur Institute of Management Studies, Career Development & Research (An Institute under Thakur Educational Trust)</p>
             </div>
         </div>
     )
