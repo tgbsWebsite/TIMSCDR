@@ -65,6 +65,8 @@ import StudentHandbook from "./Admissions/StudentHandbook";
 import StudentMentoring from "./Admissions/StudentMentoring";
 import AntiRagging from "./Admissions/AntiRagging";
 import ResearchCell from "./RD/ResearchCell";
+import IIC from "./RD/IIC";
+import ICAIM2025 from "./RD/ICAIMPage";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
@@ -150,6 +152,8 @@ root.render(
       <Route path="/student-mentoring-program" element={<StudentMentoring/>}/>
       <Route path="/anti-ragging" element={<AntiRagging />} />
       <Route path="/research-cell" element={<ResearchCell />} />
+      <Route path="/institution-innovation-council-iic" element={<IIC />} />
+      <Route path="/icaim-2025" element={<ICAIM2025 />} />
     </Routes>
   </BrowserRouter>
 );

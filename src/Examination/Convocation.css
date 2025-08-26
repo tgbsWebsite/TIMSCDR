@@ -288,6 +288,7 @@
   grid-template-columns: repeat(5, 1fr);
   gap: 1rem;
   text-align: center;
+  margin-top: 20px;
 }
 
 .conv-guest-green-name {

@@ -193,14 +193,14 @@ function Navbar() {
 
     "R&D": [
       { name: "Research Cell", link: "/research-cell" },
-      { name: "Institution Innovation Council (IIC)", link: "/research-cell" },
+      { name: "Institution Innovation Council (IIC)", link: null },
       {
         name: "International Conference >>",
-        link: "/facilities/learning-resource-center",
+        link: null,
         submenu: [
           {
             name: "International Conference (ICAIM) 2025",
-            link: "/facilities/library-rules",
+            link: "/icaim-2025",
           },
           {
             name: "International Conference (ICAIM) 2024",
