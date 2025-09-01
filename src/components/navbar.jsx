@@ -153,15 +153,16 @@ function Navbar() {
       },
     ],
     Academics: [
-      { name: "Faculty List", link: "/academic-calendar" },
-      { name: "Meet Our Faculty", link: "/syllabus" },
-      { name: "Non Teaching Staff", link: "/examination" },
+      { name: "Faculty List", link: "/faculty-list-2" },
+      { name: "Meet Our Faculty", link: "/staff" },
+      { name: "Non Teaching Staff", link: "/non-teaching-staff" },
       { name: "ERP Login", link: "/results" },
-      { name: "Student Downloads", link: "/research-development" },
-      { name: "NDML Academic", link: "/research-publications" },
-      { name: "Depository (NAD)", link: "/research-projects" },
+      { name: "Student Downloads", link: "/student-downloads" },
+      { name: "NDML Academic Depository (NAD)",
+        link: "https://timscdrmumbai.in/wp-content/uploads/2022/05/NDML-Academic-Depository-NAD.pdf" 
+      }
     ],
-    Facilities: [
+ Facilities: [
       { name: "Infrastructure", link: "/facilities/infrastructure" },
       {
         name: "Infrastructure Gallery",
@@ -185,15 +186,16 @@ function Navbar() {
           { name: "Library Committee", link: "" },
           {
             name: "Virtual Reading Resource",
-            link: "/facilities/digital-resources",
+            link: "/virtual-reading-resource",
           },
         ],
       },
     ],
 
-    "R&D": [
+
+"R&D": [
       { name: "Research Cell", link: "/research-cell" },
-      { name: "Institution Innovation Council (IIC)", link: null },
+      { name: "Institution Innovation Council (IIC)", link: "/institution-innovation-council-iic" },
       {
         name: "International Conference >>",
         link: null,
@@ -246,27 +248,27 @@ function Navbar() {
         ],
       },
       { name: "IPR", link: "/research/collaborations" },
-      { name: "TechTonics", link: "/research/publications" },
-      { name: "Consultancy", link: "/research/projects" },
-      { name: "IoT Excellence", link: "/research/collaborations" },
+      { name: "TechTonics", link: "/research/TechTonics" },
+      { name: "Consultancy", link: "/research/consultancy" },
+      { name: "IoT Excellence", link: "/research/iot-excellence" },
     ],
 
     Placements: [
-      { name: "About Placement", link: "/placement/overview" },
-      { name: "Training Programme", link: "/placement/training-developement" },
-      { name: "Placement Data", link: "/placement-cell" },
+      { name: "About Placement", link: "/best-mca-college-in-mumbai-for-placements-about-placement" },
+      { name: "Training Programme", link: "/training-programme" },
+      { name: "Placement Data", link: "/placement-data" },
       {
         name: "Training And Placement Policy",
-        link: "/placement/placement-cell",
+        link: "https://timscdrmumbai.in/wp-content/uploads/2022/10/Placement-Policy.pdf"
       },
     ],
 
     IQAC: [
-      { name: "NAAC-IIQA", link: "/iqac/overview" },
-      { name: "NAAC-SSR", link: "/iqac/meetings-reports" },
-      { name: "NAAC Certificate", link: "/iqac/aqar" },
-      { name: "NAAC AQAR - 2023", link: "/iqac/naac" },
-      { name: "NAAC AQAR - 2024", link: "/iqac/committee" },
+      { name: "NAAC-IIQA", link: "https://timscdrmumbai.in/wp-content/uploads/2022/09/Institutional-Information-for-Quality-AssessmentIIQA.pdf" },
+      { name: "NAAC-SSR", link: "https://timscdrmumbai.in/wp-content/uploads/2022/09/SELF-STUDY-REPORT-SSR.pdf" },
+      { name: "NAAC Certificate", link: "https://timscdrmumbai.in/wp-content/uploads/2023/01/NAAC-Certificate.pdf" },
+      { name: "NAAC AQAR - 2023", link: "https://timscdrmumbai.in/wp-content/uploads/2024/03/AQAR-2023-Submitted-to-NAAC-December-16-2023.pdf" },
+      { name: "NAAC AQAR - 2024", link: "https://www.timscdrmumbai.in/wp-content/uploads/2025/05/AQAR-SUBMITTED-2023-24-Dec-12-2024.pdf" },
     ],
 
     Examination: [
