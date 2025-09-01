@@ -183,7 +183,7 @@ function Navbar() {
             name: "Library Timing and Rules",
             link: "/library-timing-and-rules",
           },
-          { name: "Library Committee", link: "" },
+          { name: "Library Committee", link: "/library-committee" },
           {
             name: "Virtual Reading Resource",
             link: "/virtual-reading-resources",

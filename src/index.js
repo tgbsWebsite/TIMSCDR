@@ -89,6 +89,7 @@ import GuestLectureTable from "./Life/GuestLectureTable";
 import StudentDevelopmentProgram from "./Life/StudentDevelopmentProgram";
 import PrePlacementTraining from "./Life/PrePlacementTraining ";
 import VirtualReadingResource from "./Facilities/VirtualReadingResource ";
+import LibraryCommittee from "./Facilities/LibraryCommittee";
 
 // Optional Web Vitals (uncomment when needed)
 // import reportWebVitals from "./reportWebVitals";
@@ -145,6 +146,7 @@ root.render(
       <Route path="/library-timing-and-rules" element={<LibraryRules />} />
      
       <Route path="/virtual-reading-resources" element={<VirtualReadingResource />} />
+      <Route path="/library-committee" element={<LibraryCommittee />} />
 
       {/* Admissions */}
       <Route path="/imca" element={<IMCA_Admission />} />
