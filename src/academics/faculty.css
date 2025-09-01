@@ -1,0 +1,245 @@
+.faculty-main-container{
+    width: 100vw;
+    height: 100%;
+    margin: 28vh 0 0 0;
+}
+
+.faculty-header {
+    font-size: 35px;
+    color: #233b77;
+    text-align: -webkit-center;
+    padding: 0 0 0 35px;
+    width: 90%;
+    margin: auto;
+}
+
+.faculty-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 25px;
+    margin: 35px auto;
+    width: 80%;
+}
+
+.faculty-box{
+    width: 31%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 15px;
+    padding: 25px;
+    border-radius: 6px;
+    background-color: #ffffff4f;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.faculty-box img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 6px;
+    aspect-ratio: 1/1;
+    object-position: top;
+}
+
+.faculty-details{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
+
+.faculty-details h2{
+    font-size: 22px;
+    color: #233b77;
+    width: 100%;
+}
+
+.faculty-details p{
+    font-size: 16px;
+    color: #233b77;
+    width: 100%;
+}
+
+.faculty-details a{
+    font-size: 15px;
+    margin: 10px 0 0 0;
+    color: #233b77;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.faculty-details a:hover{
+    color: #f07c39;
+}
+
+.faculty-box1{
+    width: 30%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 15px;
+    padding: 25px;
+    border-radius: 6px;
+    background-color: #ffffff4f;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.faculty-box1 div{
+    width: 100%;
+}
+
+.faculty-box1 h2{
+    font-size: 22px;
+    color: #233b77;
+    text-align: left;
+    width: 100%;
+}
+
+.faculty-box1 p{
+    font-size: 16px;
+    color: #233b77;
+    text-align: left;
+    width: 100%;
+}
+
+.faculty-box1 h3{
+    color: #233b77;
+}
+
+.v-faculty-box{
+    text-align: left;
+}
+
+@media screen and (max-width: 1100px) {
+    .faculty-container{
+        gap: 15px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .faculty-box{
+        width: 45%;
+    }
+    .faculty-box1{
+        width: 45%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    
+    .faculty-container{
+        width: 100%;
+    }
+    .faculty-header{
+        font-size: 30px;
+        padding: 0;
+    }
+    .faculty-box{
+        padding: 15px;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .faculty-box, .faculty-box1{
+        width: 100%;
+        padding: 25px;
+    }
+    .faculty-container{
+        width: 96%;
+    }
+    .faculty-header{
+        font-size: 26px;
+        padding: 0;
+    }
+    
+}
+
+/* Faculty Details */
+
+.facultyd-main-container{
+    width: 100%;
+    height: 100%;
+    margin: 15vh 0 0 0;
+}
+
+.back-btn{
+    width: 30px;
+    height: 30px;
+    margin: 25px 0 0 45px;
+    cursor: pointer;
+    transform: rotate(180deg);
+}
+
+.facultyd-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 25px;
+    margin: 35px auto;
+    width: 80%;
+}
+
+.facultyd-details{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.facultyd-details h2{
+    color: #233b77;
+    font-size: 35px;
+    margin: 15px 0;
+}
+
+.facultyd-details p{
+    color: #233b77;
+    font-size: 15px;
+    margin: 0;
+}
+
+.faculty-image{
+    width: 70%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 6px;
+    aspect-ratio: 1/1;
+    object-position: top;
+}
+
+.linkedin-link{
+    width: 35px;
+    height: 35px;
+    margin: 10px 0;
+}
+
+.social-icon{
+    width: 100%;
+}
+
+@media screen and (max-width:900px) {
+    .faculty-main-container, .facultyd-main-container{
+        margin-top: 12vh;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .faculty-main-container, .facultyd-main-container{
+        margin-top: 6vh;
+    }
+}

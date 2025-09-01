@@ -31,6 +31,7 @@
 
 .conv-table td {
   color: #22223b;
+  width: 10%;
 }
 
 .conv-table tbody tr:nth-child(even) {

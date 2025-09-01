@@ -299,23 +299,27 @@ function Navbar() {
         submenu: [
           {
             name: "Faculty Development Program",
-            link: "/facilities/learning-resource-center",
+            link: "/faculty-development-programs",
           },
           {
             name: "Short Term Training Programme",
-            link: "/facilities/library-rules",
+            link: "/short-term-training-programme",
           },
           {
             name: "Parent Interaction Programme",
-            link: "/facilities/digital-resources",
+            link: "/parent-interaction-programme",
           },
           {
             name: "Guest Lecture",
-            link: "/facilities/library-timings",
+            link: "/guest-lecture-sdp-pre-placement-training",
+          },
+          {
+            name: "SDP – Workshops & Certifications",
+            link: "/student-development-program",
           },
           {
             name: "Pre Placement Training",
-            link: "/facilities/library-timings",
+            link: "/pre-placement-training",
           },
         ],
       },

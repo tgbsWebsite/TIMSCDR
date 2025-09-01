@@ -1,0 +1,107 @@
+.TechTonics-container {
+  max-width: 900px;
+  margin: 3rem auto 5rem;
+  padding: 10% 1rem;
+  font-family: 'Inter', sans-serif;
+  color: #2c3e50;
+  line-height: 1.6;
+  
+}
+
+.TechTonics-intro {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.TechTonics-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.TechTonics-description {
+  font-size: 1.2rem;
+  max-width: 650px;
+  margin: 0 auto;
+  opacity: 0.83;
+  line-height: 1.6;
+}
+
+.TechTonics-subtitle {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #4ecdc4;
+  border-bottom: 2px solid #4ecdc4;
+  padding-bottom: 0.25rem;
+}
+
+.TechTonics-volumes {
+  background: #f8fafc;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgb(102 126 234 / 0.1);
+}
+
+.TechTonics-volume-list {
+  list-style: none;
+  max-height: 600px;
+  overflow-y: auto;
+  padding-left: 0;
+  margin: 0;
+}
+
+.TechTonics-volume-item {
+  padding: 12px 0;
+  border-bottom: 1px solid #dde6f2;
+  font-size: 1.1rem;
+}
+
+.TechTonics-volume-item:last-child {
+  border-bottom: none;
+}
+
+.TechTonics-volume-link {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.TechTonics-volume-link:hover {
+  color: #ff6b6b;
+  text-decoration: underline;
+}
+
+.TechTonics-volume-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.TechTonics-volume-list::-webkit-scrollbar-thumb {
+  background-color: #667eea;
+  border-radius: 4px;
+}
+
+.TechTonics-volume-list::-webkit-scrollbar-track {
+  background-color: #f8fafc;
+}
+
+
+
+/* Responsive */
+@media (max-width: 480px) {
+  .TechTonics-container {
+    margin: 2rem 1rem 3rem;
+  }
+
+  .TechTonics-title {
+    font-size: 2rem;
+  }
+
+  .TechTonics-subtitle {
+    font-size: 1.5rem;
+  }
+}

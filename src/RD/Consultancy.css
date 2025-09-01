@@ -1,0 +1,135 @@
+.Consultancy-container {
+  max-width: 1200px;
+  margin: 176px auto 40px auto;
+  padding: 0 1.5rem;
+  color: #263142;
+  font-family: 'Inter', sans-serif;
+  background: #f7fafd;
+  max-width: max-content;
+}
+
+.Consultancy-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.Consultancy-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #4ecdc4;
+  margin-bottom: 10px;
+}
+
+.Consultancy-intro {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #222;
+  max-width: 900px;
+  margin: 0 auto;
+  opacity: 0.92;
+}
+
+.Consultancy-section-title {
+  font-size: 1.4rem;
+  color: #667eea;
+  font-weight: 600;
+  margin-bottom: 18px;
+  padding-top: 18px;
+  border-bottom: 1px solid #eee;
+}
+
+.Consultancy-list {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-bottom: 36px;
+}
+
+.Consultancy-project-card {
+  display: flex;
+  background: #fff;
+  box-shadow: 0 2px 16px rgba(102, 126, 234, 0.08);
+  border-radius: 10px;
+  overflow: hidden;
+  border-left: 6px solid #667eea;
+  min-height: 120px;
+  align-items: center;
+  transition: box-shadow 0.2s;
+}
+
+.Consultancy-project-card:hover {
+  box-shadow: 0 6px 28px rgba(78,205,196,0.12);
+}
+
+.Consultancy-project-image {
+  width: 140px;
+  height: 140px;
+  background: #eceef3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 12px;
+  margin-right: 18px;
+  flex-shrink: 0;
+  border-radius: 8px;
+}
+
+.Consultancy-project-image img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.Consultancy-placeholder-img {
+  height: 80px;
+  width: 80px;
+  background: #d4f6ed;
+  color: #4ecdc4;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+.Consultancy-project-content {
+  flex: 1;
+  padding: 14px 10px 14px 0;
+}
+
+.Consultancy-project-content h3 {
+  font-size: 1.1rem;
+  color: #667eea;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.Consultancy-project-content p {
+  margin-bottom: 6px;
+  font-size: 1rem;
+}
+
+.Consultancy-team {
+  font-size: 0.9rem;
+  color: #222;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .Consultancy-project-card {
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 80px;
+  }
+  .Consultancy-project-image {
+    margin: 18px 0 0 18px;
+    width: 90px;
+    height: 90px;
+  }
+  .Consultancy-project-content {
+    padding: 12px 0 12px 0;
+  }
+}

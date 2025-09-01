@@ -67,6 +67,12 @@ import AntiRagging from "./Admissions/AntiRagging";
 import ResearchCell from "./RD/ResearchCell";
 import IIC from "./RD/IIC";
 import ICAIM2025 from "./RD/ICAIMPage";
+import FacultyPrograms from "./Life/FacultyPrograms";
+import STTPPrograms from "./Life/STTPPrograms";
+import ParentInteractionProgramme from "./Life/ParentInteractionProgramme ";
+import GuestLectureTable from "./Life/GuestLectureTable";
+import StudentDevelopmentProgram from "./Life/StudentDevelopmentProgram";
+import PrePlacementTraining from "./Life/PrePlacementTraining ";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
@@ -140,20 +146,39 @@ root.render(
         path="/admission-notification"
         element={<AdmissionNotifications />}
       />
-          <Route
+      <Route
         path="/admission-notification"
         element={<AdmissionNotifications />}
       />
-            <Route
-        path="/aicte-approval-2"
-        element={<AICTEApproval />}
-      />
-      <Route path="/student-handbook" element={<StudentHandbook/>}/>
-      <Route path="/student-mentoring-program" element={<StudentMentoring/>}/>
+      <Route path="/aicte-approval-2" element={<AICTEApproval />} />
+      <Route path="/student-handbook" element={<StudentHandbook />} />
+      <Route path="/student-mentoring-program" element={<StudentMentoring />} />
       <Route path="/anti-ragging" element={<AntiRagging />} />
       <Route path="/research-cell" element={<ResearchCell />} />
       <Route path="/institution-innovation-council-iic" element={<IIC />} />
       <Route path="/icaim-2025" element={<ICAIM2025 />} />
+      
+      <Route
+        path="/faculty-development-programs"
+        element={<FacultyPrograms />}
+      />
+      <Route path="/short-term-training-programme" element={<STTPPrograms />} />
+      <Route
+        path="/parent-interaction-programme"
+        element={<ParentInteractionProgramme />}
+      />
+      <Route
+        path="/guest-lecture-sdp-pre-placement-training"
+        element={<GuestLectureTable />}
+      />
+      <Route
+        path="/student-development-program"
+        element={<StudentDevelopmentProgram />}
+      />
+      <Route
+        path="/pre-placement-training"
+        element={<PrePlacementTraining />}
+      />
     </Routes>
   </BrowserRouter>
 );

@@ -1,171 +1,675 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './ICAIMPage.css';
 
-const ICAIM2025 = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  const slides = [
-    {
-      image: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      title: 'Grand Inauguration',
-      description:
-        'Chief Guest Dr. Suresh Shan, Chairman of CSI, inaugurated ICAIM 2025 with distinguished guests from industry and academia.',
-    },
-    {
-      image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      title: 'AI in Agriculture',
-      description:
-        'Dr. Prakash Jha from Mississippi State University showcased transformative AI applications in precision farming and crop monitoring.',
-    },
-    {
-      image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      title: 'Healthcare Innovation',
-      description:
-        'Dr. Vivek Dwivedi, President of AMC, emphasized empowering doctors with latest AI innovations for better healthcare delivery.',
-    },
-    {
-      image: 'https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      title: 'Research Excellence',
-      description:
-        '100 research papers and 54 technical posters showcased cutting-edge innovations in AI applications across multiple domains.',
-    },
-  ];
-
-  const totalSlides = slides.length;
+const ICAIMPage = () => {
+  const headerRef = useRef(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState('day1');
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % totalSlides);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [totalSlides]);
+    const onScroll = () => {
+      if (!headerRef.current) return;
+      if (window.scrollY > 100) {
+        headerRef.current.classList.add('icaim25-header--scrolled');
+      } else {
+        headerRef.current.classList.remove('icaim25-header--scrolled');
+      }
+    };
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
-  const moveSlide = (direction) => {
-    setCurrentSlide((prev) => {
-      let next = prev + direction;
-      if (next >= totalSlides) next = 0;
-      if (next < 0) next = totalSlides - 1;
-      return next;
-    });
+  useEffect(() => {
+    const options = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('icaim25-fade-in--visible');
+      });
+    }, options);
+
+    document.querySelectorAll('.icaim25-fade-in').forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
+  const handleAnchorClick = (e, selector) => {
+    e.preventDefault();
+    const target = document.querySelector(selector);
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setMobileMenuOpen(false);
   };
 
-  const goToSlide = (index) => {
-    setCurrentSlide(index);
+  const navLink = (href, label) => (
+    <li>
+      <a href={href} className="icaim25-nav-link" onClick={(e) => handleAnchorClick(e, href)}>
+        {label}
+      </a>
+    </li>
+  );
+
+  const scheduleTab = (key, label) => (
+    <div
+      role="button"
+      tabIndex={0}
+      onClick={() => setActiveTab(key)}
+      onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && setActiveTab(key)}
+      className={`icaim25-schedule-tab ${activeTab === key ? 'icaim25-schedule-tab--active' : ''}`}
+    >
+      {label}
+    </div>
+  );
+
+  const onSubmitContact = (e) => {
+    e.preventDefault();
+    alert('Thank you for your message! We will get back to you soon.');
+    e.currentTarget.reset();
   };
 
   return (
     <>
-      <header className="icaim-header">
-        <div className="icaim-nav-container">
-          <div className="icaim-logo">ICAIM 2025</div>
-          <nav className="icaim-nav-menu">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#partners">Partners</a></li>
-            <li><a href="#sessions">Sessions</a></li>
-            <li><a href="#awards">Awards</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </nav>
-          <div className="icaim-mobile-toggle">☰</div>
-        </div>
+      <header className="icaim25-header" id="header" ref={headerRef}>
+        <nav className="icaim25-nav">
+          <a href="#home" className="icaim25-logo" onClick={(e) => handleAnchorClick(e, '#home')}>
+            <i className="fas fa-laptop-medical" />
+            <span>ICAIM 2025</span>
+          </a>
+
+          <ul className={`icaim25-nav-menu ${mobileMenuOpen ? 'icaim25-nav-menu--open' : ''}`} id="nav-menu">
+            {navLink('#home', 'Home')}
+            {navLink('#about', 'About')}
+            {navLink('#speakers', 'Speakers')}
+            {navLink('#schedule', 'Schedule')}
+            {navLink('#awards', 'Awards')}
+            {navLink('#contact', 'Contact')}
+          </ul>
+
+          <div
+            className="icaim25-mobile-toggle"
+            onClick={() => setMobileMenuOpen((v) => !v)}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ' ? setMobileMenuOpen((v) => !v) : null)}
+          >
+            <span />
+            <span />
+            <span />
+          </div>
+        </nav>
       </header>
 
-      <section className="icaim-hero" id="home">
-        <div className="icaim-floating-element icaim-floating-1"></div>
-        <div className="icaim-floating-element icaim-floating-2"></div>
-        <div className="icaim-floating-element icaim-floating-3"></div>
+      <section className="icaim25-hero" id="home">
+        <div className="icaim25-hero-content">
+          <div className="icaim25-hero-text">
+            <div className="icaim25-conference-date">February 8-9, 2025</div>
+            <h1>International Conference on Advances in Information Technology and Management</h1>
+            <p className="icaim25-hero-subtitle">
+              ICAIM 2025 - Leveraging Information for Sustainability in Agriculture &amp; Healthcare – Viksit Bharat
+            </p>
 
-        <div className="icaim-hero-content">
-          <div className="icaim-hero-badge">February 8-9, 2025 | TIMSCDR</div>
-          <h1>ICAIM 2025</h1>
-          <div className="icaim-hero-theme">"Leveraging Information for Sustainability in Agriculture &amp; Healthcare – Viksit Bharat"</div>
-          <div className="icaim-hero-subtitle">International Conference on Advances in Information Technology and Management</div>
-          <a href="#about" className="icaim-hero-cta">
-            <span>Explore Conference</span> <span>→</span>
-          </a>
+            <div className="icaim25-hero-stats">
+              <div className="icaim25-stat">
+                <span className="icaim25-stat-number">100+</span>
+                <span className="icaim25-stat-label">Research Papers</span>
+              </div>
+              <div className="icaim25-stat">
+                <span className="icaim25-stat-number">54</span>
+                <span className="icaim25-stat-label">Posters</span>
+              </div>
+              <div className="icaim25-stat">
+                <span className="icaim25-stat-number">2</span>
+                <span className="icaim25-stat-label">Days</span>
+              </div>
+              <div className="icaim25-stat">
+                <span className="icaim25-stat-number">5+</span>
+                <span className="icaim25-stat-label">Partners</span>
+              </div>
+            </div>
+
+            <div className="icaim25-hero-actions">
+              <a href="#about" className="icaim25-btn icaim25-btn--primary" onClick={(e) => handleAnchorClick(e, '#about')}>
+                <i className="fas fa-info-circle" />
+                Learn More
+              </a>
+              <a
+                href="#schedule"
+                className="icaim25-btn icaim25-btn--outline"
+                onClick={(e) => handleAnchorClick(e, '#schedule')}
+              >
+                <i className="fas fa-calendar" />
+                View Schedule
+              </a>
+            </div>
+          </div>
+
+          <div className="icaim25-hero-visual">
+            <div className="icaim25-conference-image">
+              <i className="fas fa-microchip" />
+            </div>
+          </div>
         </div>
       </section>
 
-      <main className="icaim-main-content">
-        <section className="icaim-section icaim-carousel-section">
-          <div className="icaim-container">
-            <div className="icaim-section-header">
-              <div className="icaim-section-badge">Conference Highlights</div>
-              <h2 className="icaim-section-title" style={{ color: 'white' }}>Experience ICAIM 2025</h2>
-              <p className="icaim-section-subtitle" style={{ color: 'rgba(255,255,255,0.9)' }}>
-                Witness groundbreaking presentations and collaborative discussions
-              </p>
-            </div>
+      <section className="icaim25-theme-banner">
+        <h2>Conference Theme</h2>
+        <p>"Leveraging Information for Sustainability in Agriculture &amp; Healthcare – Viksit Bharat"</p>
+      </section>
 
-            <div className="icaim-carousel-container">
-              <div
-                className="icaim-carousel-track"
-                style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-              >
-                {slides.map((slide, index) => (
-                  <div className="icaim-carousel-slide" key={index}>
-                    <img src={slide.image} alt={slide.title} />
-                    <div className="icaim-slide-overlay">
-                      <h3 className="icaim-slide-title">{slide.title}</h3>
-                      <p className="icaim-slide-description">{slide.description}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <button className="icaim-carousel-nav icaim-carousel-prev" onClick={() => moveSlide(-1)}>
-                ‹
-              </button>
-              <button className="icaim-carousel-nav icaim-carousel-next" onClick={() => moveSlide(1)}>
-                ›
-              </button>
-              <div className="icaim-carousel-dots">
-                {slides.map((_, idx) => (
-                  <div
-                    key={idx}
-                    className={`icaim-carousel-dot ${currentSlide === idx ? 'active' : ''}`}
-                    onClick={() => goToSlide(idx)}
-                  ></div>
-                ))}
-              </div>
-            </div>
+      <section className="icaim25-about icaim25-fade-in" id="about">
+        <div className="icaim25-about-container">
+          <div className="icaim25-about-content">
+            <h2>About ICAIM 2025</h2>
+            <p>
+              The Thakur Institute of Management Studies, Career Development and Research (TIMSCDR) organized ICAIM 2025, focusing
+              on leveraging information technology for sustainability in agriculture and healthcare, contributing to the vision of
+              Viksit Bharat.
+            </p>
+            <p>
+              The conference was held in a blended mode, bringing together experts from IT, agriculture, and medicine to explore
+              innovative solutions and drive transformative changes for a developed India.
+            </p>
           </div>
-        </section>
 
-        {/* Additional sections like About, Partners, Sessions, Awards to be similarly implemented with unique icaim- prefixes */}
-      </main>
-
-      <footer className="icaim-footer" id="contact">
-        <div className="icaim-container">
-          <div className="icaim-footer-grid">
-            <div className="icaim-footer-section">
-              <h3>TIMSCDR</h3>
-              <p>Thakur Institute of Management Studies, Career Development and Research</p>
-              <p>Organizing ICAIM 2025 - International Conference on Advances in Information Technology and Management</p>
+          <div className="icaim25-partners-section">
+            <h3>In Association With</h3>
+            <div className="icaim25-partners-grid">
+              <div className="icaim25-partner-card">
+                <strong>AMC</strong>
+                <p>Association of Medical Consultants</p>
+              </div>
+              <div className="icaim25-partner-card">
+                <strong>MACCIA</strong>
+                <p>Maharashtra Chamber of Commerce</p>
+              </div>
+              <div className="icaim25-partner-card">
+                <strong>MMA</strong>
+                <p>Malad Medical Association</p>
+              </div>
+              <div className="icaim25-partner-card">
+                <strong>GIST</strong>
+                <p>Global Indian Scientists &amp; Technocrats Forum</p>
+              </div>
+              <div className="icaim25-partner-card">
+                <strong>NCSH</strong>
+                <p>Nordic Center for Sustainable Healthcare</p>
+              </div>
             </div>
-            <div className="icaim-footer-section">
-              <h3>Conference Details</h3>
-              <p><strong>Dates:</strong> February 8-9, 2025</p>
-              <p><strong>Mode:</strong> Blended Conference</p>
-              <p><strong>Theme:</strong> "Leveraging Information for Sustainability in Agriculture &amp; Healthcare – Viksit Bharat"</p>
-            </div>
-            <div className="icaim-footer-section">
-              <h3>Key Partners</h3>
-              <ul className="icaim-footer-links">
-                <li>AMC - Association of Medical Consultants</li>
-                <li>MACCIA - Maharashtra Chamber of Commerce</li>
-                <li>MMA - Malad Medical Association</li>
-                <li>GIST - Global Indian Scientists &amp; Technocrats Forum</li>
-                <li>NCSH - Nordic Center for Sustainable Healthcare</li>
-              </ul>
-            </div>
-          </div>
-          <div className="icaim-footer-bottom">
-            <p>© 2025 ICAIM - TIMSCDR. All rights reserved.</p>
           </div>
         </div>
-      </footer>
+      </section>
+
+      <section className="icaim25-speakers icaim25-fade-in" id="speakers">
+        <div className="icaim25-section-header">
+          <h2>Distinguished Speakers</h2>
+          <p>Leading experts from academia and industry sharing insights on IT, agriculture, and healthcare</p>
+        </div>
+
+        <div className="icaim25-speakers-grid">
+          {[
+            {
+              icon: 'fas fa-user-tie',
+              name: 'Dr. Suresh Shan',
+              title: 'Chairman, CSI Mumbai Chapter',
+              desc:
+                'Chief Guest for Day 1 inauguration, leading expert in computer science and information systems.',
+            },
+            {
+              icon: 'fas fa-user-md',
+              name: 'Dr. Vivek Dwivedi',
+              title: 'President, AMC & Orthopaedic Surgeon',
+              desc: 'Chief Guest for Day 2, advocating for latest innovations in healthcare technology.',
+            },
+            {
+              icon: 'fas fa-seedling',
+              name: 'Dr. Prakash Jha',
+              title: 'Agriculture Climatology Professor, Mississippi State University',
+              desc: 'Expert in AI applications in agriculture, precision farming, and climate forecasting.',
+            },
+            {
+              icon: 'fas fa-robot',
+              name: 'Dr. Gopal Shinde',
+              title:
+                'Head, Mechanical Engineering Dept, Vasantrao Naik Marathwada Krishi Vidyapeeth',
+              desc: 'Specialist in agri-bots, drone components, and precision agriculture systems.',
+            },
+            {
+              icon: 'fas fa-stethoscope',
+              name: 'Dr. Shalin Soni',
+              title: 'President, MMA & Physician & Surgeon',
+              desc:
+                'Advocate for AI implementation in healthcare with focus on constructive impact.',
+            },
+            {
+              icon: 'fas fa-chart-bar',
+              name: 'Mr. Santosh Chapaneri',
+              title: 'Lead Data Scientist, UpToDate',
+              desc: 'Expert in AI healthcare applications, emphasizing clinician integration and ethics.',
+            },
+            {
+              icon: 'fas fa-globe',
+              name: 'Mr. Johannes Brundin',
+              title: 'Nordic Center for Sustainable Healthcare',
+              desc: 'International speaker on sustainable healthcare practices and digital transformation.',
+            },
+            {
+              icon: 'fas fa-laptop-code',
+              name: 'Mr. Jyotish Kumar Ghosh',
+              title: 'Chief Sales Officer, 3i Infotech Ltd',
+              desc: 'Technology leader with expertise in enterprise IT solutions and digital innovation.',
+            },
+            {
+              icon: 'fas fa-microscope',
+              name: 'Dr. Anand Rao',
+              title: 'Healthcare Technology Expert',
+              desc:
+                'Specialist in AI and blockchain applications in healthcare and secure health records.',
+            },
+          ].map((s) => (
+            <div className="icaim25-speaker-card" key={s.name}>
+              <div className="icaim25-speaker-image">
+                <i className={s.icon} />
+              </div>
+              <div className="icaim25-speaker-info">
+                <h3>{s.name}</h3>
+                <p className="icaim25-speaker-title">{s.title}</p>
+                <p>{s.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="icaim25-schedule icaim25-fade-in" id="schedule">
+        <div className="icaim25-section-header">
+          <h2>Conference Schedule</h2>
+          <p>Two days of insightful sessions, workshops, and networking opportunities</p>
+        </div>
+
+        <div className="icaim25-schedule-wrap">
+          <div className="icaim25-schedule-tabs">
+            {scheduleTab('day1', 'Day 1 - Feb 8')}
+            {scheduleTab('day2', 'Day 2 - Feb 9')}
+            {scheduleTab('pre', 'Pre-Conference')}
+          </div>
+
+          <div className="icaim25-schedule-content">
+            {activeTab === 'day1' && (
+              <div className="icaim25-tab-panel">
+                <div className="icaim25-schedule-item">
+                  <div className="icaim25-schedule-time">Opening</div>
+                  <div className="icaim25-schedule-details">
+                    <h4>Inauguration Ceremony</h4>
+                    <div className="icaim25-schedule-speaker">
+                      Chief Guest: Dr. Suresh Shan, Chairman CSI
+                    </div>
+                    <p>
+                      Welcome address by Dr. Vinita Gaikwad, Director TIMSCDR. Highlighting significance of AI in agriculture and
+                      healthcare.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="icaim25-schedule-item">
+                  <div className="icaim25-schedule-time">Session 1</div>
+                  <div className="icaim25-schedule-details">
+                    <h4>AI in Agriculture</h4>
+                    <div className="icaim25-schedule-speaker">
+                      Dr. Prakash Jha, Mississippi State University
+                    </div>
+                    <p>
+                      Transforming precision farming, pest detection, climate forecasting, and crop monitoring with live project
+                      examples.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="icaim25-schedule-item">
+                  <div className="icaim25-schedule-time">Session 2</div>
+                  <div className="icaim25-schedule-details">
+                    <h4>Agri-bots and Precision Agriculture</h4>
+                    <div className="icaim25-schedule-speaker">
+                      Dr. Gopal Shinde, Vasantrao Naik Marathwada Krishi Vidyapeeth
+                    </div>
+                    <p>
+                      Designing agri-bots, drone components, AGVs, and RFID-based livestock health management systems.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="icaim25-schedule-item">
+                  <div className="icaim25-schedule-time">Panel</div>
+                  <div className="icaim25-schedule-details">
+                    <h4>Leveraging IT for Sustainability in Agriculture – Viksit Bharat</h4>
+                    <div className="icaim25-schedule-speaker">
+                      Moderated by Mr. Dinesh Singh, TCS Digital Farming Initiative
+                    </div>
+                    <p>
+                      Discussion on climate change, agricultural automation, AI, Blockchain, and IoT solutions for sustainable
+                      agriculture.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {activeTab === 'day2' && (
+              <div className="icaim25-tab-panel">
+                <div className="icaim25-schedule-item">
+                  <div className="icaim25-schedule-time">Opening</div>
+                  <div className="icaim25-schedule-details">
+                    <h4>Day 2 Inauguration</h4>
+                    <div className="icaim25-schedule-speaker">
+                      Chief Guest: Dr. Vivek Dwivedi, President AMC
+                    </div>
+                    <p>Focus on empowering doctors with latest innovations for better healthcare delivery.</p>
+                  </div>
+                </div>
+
+                <div className="icaim25-schedule-item">
+                  <div className="icaim25-schedule-time">Session 1</div>
+                  <div className="icaim25-schedule-details">
+                    <h4>AI in Healthcare</h4>
+                    <div className="icaim25-schedule-speaker">
+                      Mr. Santosh Chapaneri, Lead Data Scientist, UpToDate
+                    </div>
+                    <p>
+                      Role of clinicians in AI integration, ensuring accuracy, ethics, and effectiveness in healthcare solutions.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="icaim25-schedule-item">
+                  <div className="icaim25-schedule-time">International</div>
+                  <div className="icaim25-schedule-details">
+                    <h4>Sustainable Healthcare Practices</h4>
+                    <div className="icaim25-schedule-speaker">
+                      Mr. Johannes Brundin &amp; Mr. Diego Angelino, NCSH
+                    </div>
+                    <p>
+                      Online international speaker session on sustainable healthcare practices and digital transformation.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="icaim25-schedule-item">
+                  <div className="icaim25-schedule-time">Panel</div>
+                  <div className="icaim25-schedule-details">
+                    <h4>Digital Public Infrastructure in Healthcare</h4>
+                    <div className="icaim25-schedule-speaker">
+                      Moderated by Dr. Mukesh Gupta, AMC
+                    </div>
+                    <p>
+                      Discussion on transformative role of digital infrastructure, technological advancements, and interdisciplinary
+                      collaboration.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="icaim25-schedule-item">
+                  <div className="icaim25-schedule-time">Workshop</div>
+                  <div className="icaim25-schedule-details">
+                    <h4>Personalized Patient Engagement with AI</h4>
+                    <div className="icaim25-schedule-speaker">TIMSCDR Faculty</div>
+                    <p>
+                      Hands-on workshop covering AI-assisted videos, chatbots, data management, and digital visiting cards for
+                      doctors.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {activeTab === 'pre' && (
+              <div className="icaim25-tab-panel">
+                <div className="icaim25-awards-table-container icaim25-awards-table-container--flush">
+                  <table className="icaim25-awards-table">
+                    <thead>
+                      <tr>
+                        <th style={{ width: '15%' }}>Date</th>
+                        <th style={{ width: '20%' }}>Time</th>
+                        <th style={{ width: '40%' }}>Topics</th>
+                        <th style={{ width: '25%' }}>Speaker/Judges Details</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>06-02-2025</strong></td>
+                        <td>10:00 AM - 11:00 AM</td>
+                        <td><div className="icaim25-paper-title">AI and blockchain in healthcare</div></td>
+                        <td><div className="icaim25-speaker-emph">Dr. Anand Rao</div></td>
+                      </tr>
+                      <tr>
+                        <td><strong>06-02-2025</strong></td>
+                        <td>11:00 AM - 12:00 PM</td>
+                        <td><div className="icaim25-paper-title">AI's role in medicine</div></td>
+                        <td><div className="icaim25-speaker-emph">Dr. Sabhyasachi Sengupta</div></td>
+                      </tr>
+                      <tr>
+                        <td><strong>06-02-2025</strong></td>
+                        <td>1:00 PM - 5:00 PM</td>
+                        <td>
+                          <div className="icaim25-paper-title">
+                            Hackathon on "Driving Changes in Education, Health, and Agriculture Using AI with MATLAB"
+                          </div>
+                        </td>
+                        <td>
+                          <ul className="icaim25-author-list">
+                            <li>Mr. Kunal Khandelwal</li>
+                            <li>Mr. Shrikant Manihar</li>
+                          </ul>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <div className="icaim25-pre-note">
+                    <h4>Additional Pre-Conference Activities</h4>
+                    <div className="icaim25-pre-line">
+                      <strong>February 3-4, 2025:</strong>
+                      <span>MATLAB App Development Workshop</span>
+                      <br />
+                      <em>
+                        Conducted by Ms. Kinjal Doshi, Ms. Anamika Dhawan, Ms. Alifiya Shaikh (TIMSCDR Faculty)
+                      </em>
+                    </div>
+                    <p>
+                      The workshop introduced students to app development basics using MATLAB&apos;s powerful features for creating
+                      functional applications.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      <section className="icaim25-awards icaim25-fade-in" id="awards">
+        <div className="icaim25-section-header">
+          <h2>Awards &amp; Recognition</h2>
+          <p>Celebrating excellence in research papers, technical posters, and hackathon innovations</p>
+        </div>
+
+        <div className="icaim25-awards-container">
+          <div className="icaim25-awards-table-container">
+            <div className="icaim25-table-category">Research Papers Awards</div>
+            <table className="icaim25-awards-table">
+              <thead>
+                <tr>
+                  <th style={{ width: '20%' }}>Award Category</th>
+                  <th style={{ width: '45%' }}>Research Paper</th>
+                  <th style={{ width: '35%' }}>Authors</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><div className="icaim25-award-pos icaim25-award-pos--winner">Faculty-First Winner</div></td>
+                  <td><div className="icaim25-paper-title">Using AI for Early Detection of CNS (Central Nervous System) anomalies in Fetus in the First Trimester through Sonography Scans to Assist Rural Doctors in India</div></td>
+                  <td>
+                    <ul className="icaim25-author-list">
+                      <li>1. Dr Vinita Gaikwad</li>
+                      <li>2. Ms. Anamika Dhawan</li>
+                      <li>3. Dr Padma Mishra</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td><div className="icaim25-award-pos icaim25-award-pos--runner">Faculty-First Runner up</div></td>
+                  <td><div className="icaim25-paper-title">AI- Deep Learning Algorithm Based Prediction Model for Heart Disease using ECG images</div></td>
+                  <td>
+                    <ul className="icaim25-author-list">
+                      <li>1. Dr. Ashwini Renavikar</li>
+                      <li>2. Dr. Sonal Sharma</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td><div className="icaim25-award-pos icaim25-award-pos--runner">Faculty-First Runner up</div></td>
+                  <td><div className="icaim25-paper-title">Machine Learning based Disease Prediction &amp; Drug Recommender System</div></td>
+                  <td>
+                    <ul className="icaim25-author-list">
+                      <li>1. Dr. Shiksha Dubey</li>
+                      <li>2. Mr. Brijesh Pandey</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td><div className="icaim25-award-pos icaim25-award-pos--runner">Faculty-First Runner up</div></td>
+                  <td><div className="icaim25-paper-title">Aspect based Sentiment Analysis of Drug Reviews</div></td>
+                  <td>
+                    <ul className="icaim25-author-list">
+                      <li>1. Ms. Kinjal Doshi</li>
+                      <li>2. Dr. Falguni Parsana</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td><div className="icaim25-award-pos icaim25-award-pos--winner">Student-First Winner</div></td>
+                  <td><div className="icaim25-paper-title">Enhancing LLMs with Human-Behavior-Inspired Data</div></td>
+                  <td>
+                    <ul className="icaim25-author-list">
+                      <li>1. Gaud Sonal Sanjay Tarawati</li>
+                      <li>2. Mojawat Devendra Mohan Sita</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td><div className="icaim25-award-pos icaim25-award-pos--runner">Student–First Runner up</div></td>
+                  <td><div className="icaim25-paper-title">Digital Technology and Social Isolation: A Machine Learning Study of Wellbeing Patterns</div></td>
+                  <td>
+                    <ul className="icaim25-author-list">
+                      <li>1. Panda Sanjana Sidhartha Sasmita</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td><div className="icaim25-award-pos icaim25-award-pos--runner">Student-Second Runner up</div></td>
+                  <td><div className="icaim25-paper-title">Transforming Primary History Education: Development and Implementation of HistBot, an AI-Powered, Curriculum-Aligned Chatbot</div></td>
+                  <td>
+                    <ul className="icaim25-author-list">
+                      <li>1. Ansari Tahera Kausar Mohd Khurdus Hasina</li>
+                      <li>2. Choudhary Akash Anil Kiran</li>
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div className="icaim25-table-category">Technical Research Poster Awards</div>
+            <table className="icaim25-awards-table">
+              <thead>
+                <tr>
+                  <th style={{ width: '20%' }}>Award Category</th>
+                  <th style={{ width: '45%' }}>Technical Research Poster</th>
+                  <th style={{ width: '35%' }}>Authors</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><div className="icaim25-award-pos icaim25-award-pos--winner">Student-First Winner</div></td>
+                  <td><div className="icaim25-paper-title">AgriVanni: Preserving and Transforming Farmer Knowledge Through AI</div></td>
+                  <td>
+                    <ul className="icaim25-author-list">
+                      <li>1. Pundkar Hrishikesh Prakash Vimal</li>
+                      <li>2. Reddy Karthik Jaganath Shanta</li>
+                      <li>3. Redkar Sanjana Jaysing Shobha</li>
+                      <li>4. Rodrigues Royal Albert Anamarie</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td><div className="icaim25-award-pos icaim25-award-pos--runner">Student-First Runner up</div></td>
+                  <td><div className="icaim25-paper-title">Harnessing AI for Sustainable Agriculture in India</div></td>
+                  <td>
+                    <ul className="icaim25-author-list">
+                      <li>1. Mishra Rachana Amrendra Anjali</li>
+                      <li>2. Mistry Samay Ashish Aruna</li>
+                      <li>3. Mishra Rushabh Dilip Aruna</li>
+                      <li>4. Mishra Soni Ganesh Mamta</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td><div className="icaim25-award-pos icaim25-award-pos--runner">Student-Second Runner up</div></td>
+                  <td><div className="icaim25-paper-title">YourLamp</div></td>
+                  <td>
+                    <ul className="icaim25-author-list">
+                      <li>1. Shelar Vikas Balaji</li>
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div className="icaim25-table-category">🏆 Hackathon Champions</div>
+            <div className="icaim25-podium-layout">
+              <div className="icaim25-podium-step icaim25-podium-step--first">
+                <div className="icaim25-hack-card icaim25-hack-card--first">
+                  <div className="icaim25-hack-pos icaim25-hack-pos--first">
+                    <span className="icaim25-hack-trophy">🏆</span>
+                    Champion
+                  </div>
+                  <div className="icaim25-hack-project">Sign Language Recognition</div>
+                  <div className="icaim25-hack-desc">
+                    Revolutionary AI solution bridging communication gaps for the hearing-impaired community through advanced
+                    computer vision and machine learning.
+                  </div>
+                </div>
+              </div>
+
+              <div className="icaim25-podium-step icaim25-podium-step--second">
+                <div className="icaim25-hack-card icaim25-hack-card--second">
+                  <div className="icaim25-hack-pos icaim25-hack-pos--second">
+                    <span className="icaim25-hack-trophy">🥈</span>
+                    First Runner Up
+                  </div>
+                  <div className="icaim25-hack-project">AgroShield</div>
+                  <div className="icaim25-hack-desc">
+                    Innovative agricultural protection system using AI to safeguard crops and optimize farming practices for
+                    sustainable agriculture.
+                  </div>
+                </div>
+              </div>
+
+              <div className="icaim25-podium-step icaim25-podium-step--third">
+                <div className="icaim25-hack-card icaim25-hack-card--third">
+                  <div className="icaim25-hack-pos icaim25-hack-pos--third">
+                    <span className="icaim25-hack-trophy">🥉</span>
+                    Second Runner Up
+                  </div>
+                  <div className="icaim25-hack-project">Plant Disease Detection</div>
+                  <div className="icaim25-hack-desc">
+                    Advanced CNN-based system for identifying plant diseases from leaf images, enabling early intervention and crop
+                    preservation.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+     
     </>
   );
 };
 
-export default ICAIM2025;
+export default ICAIMPage;
