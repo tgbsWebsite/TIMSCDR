@@ -186,7 +186,7 @@ function Navbar() {
           { name: "Library Committee", link: "" },
           {
             name: "Virtual Reading Resource",
-            link: "/virtual-reading-resource",
+            link: "/virtual-reading-resources",
           },
         ],
       },
@@ -325,14 +325,17 @@ function Navbar() {
           },
         ],
       },
-
       {
         name: "Professional Bodies >>",
-        link: "/life/cultural-events",
+        link: "#",
         submenu: [
-          { name: "University Gazette", link: "/facilities/library-rules" },
+          { name: "CSI-TIMSCDR", link: "/facilities/library-rules" },
           {
-            name: "Result Analysis",
+            name: "IEEE-TIMSCDR",
+            link: "/facilities/digital-resources",
+          },
+                 {
+            name: "D-Link Academy Lab",
             link: "/facilities/digital-resources",
           },
         ],

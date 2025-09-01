@@ -88,6 +88,7 @@ import ParentInteractionProgramme from "./Life/ParentInteractionProgramme ";
 import GuestLectureTable from "./Life/GuestLectureTable";
 import StudentDevelopmentProgram from "./Life/StudentDevelopmentProgram";
 import PrePlacementTraining from "./Life/PrePlacementTraining ";
+import VirtualReadingResource from "./Facilities/VirtualReadingResource ";
 
 // Optional Web Vitals (uncomment when needed)
 // import reportWebVitals from "./reportWebVitals";
@@ -142,6 +143,8 @@ root.render(
       <Route path="/infrastructure-and-facilities" element={<LibraryInfrastructure />} />
       <Route path="/timscdr-library-holding" element={<LibraryHolding />} />
       <Route path="/library-timing-and-rules" element={<LibraryRules />} />
+     
+      <Route path="/virtual-reading-resources" element={<VirtualReadingResource />} />
 
       {/* Admissions */}
       <Route path="/imca" element={<IMCA_Admission />} />
