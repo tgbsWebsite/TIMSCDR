@@ -1,0 +1,118 @@
+.pdf-viewer-container {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.pdf-fullscreen {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.pdf-list-container{
+  margin: 25vh auto 40px auto;
+  width: 80%;
+}
+
+.pdf-list-section h2{
+    font-size: 35px;
+    color: #233b77;
+    text-align: center;
+}
+
+.pdf-list {
+  max-height: 65vh;  /* Limit height to viewport height */
+  overflow-y: auto;  /* Enable vertical scroll */
+  overflow-x: hidden;
+  margin: 25px 0 0 0;
+  padding-right: 10px; /* To avoid content hiding behind scrollbar */
+}
+
+/* Optional: Customize scrollbar for Webkit browsers (Chrome, Safari) */
+.pdf-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.pdf-list::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.pdf-list::-webkit-scrollbar-thumb {
+  background: #233b77;
+  border-radius: 4px;
+}
+
+.pdf-list::-webkit-scrollbar-thumb:hover {
+  background: #1a2b55;
+}
+
+/* Firefox scrollbar styling */
+@-moz-document url-prefix() {
+  .pdf-list {
+    scrollbar-width: thin;
+    scrollbar-color: #233b77 #f1f1f1;
+  }
+}
+
+.pdf-list p {
+    padding: 18px 0;
+    color: #233b77;
+    cursor: pointer;
+    font-size: 18px;
+    border-bottom: 1px solid #e2e8f0;
+    transition: all 0.2s ease;
+}
+
+.pdf-list p:hover {
+    background-color: #f8fafc;
+    padding-left: 15px;
+    border-left: 3px solid #233b77;
+}
+
+.pdf-list p:last-child {
+    border-bottom: none;
+}
+
+.pdf-viewer-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.pdf-viewer-section img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    margin-bottom: 25px;
+}
+
+.pdf-view {
+    width: 95%;
+    max-width: 1000px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .pdf-list-container {
+        width: 95%;
+        margin: 8vh auto 25px auto;
+    }
+    
+    .pdf-list-section h2 {
+        font-size: 28px;
+    }
+    
+    .pdf-list {
+        height: 65vh;
+    }
+    
+    .pdf-list p {
+        font-size: 16px;
+        padding: 15px 0;
+    }
+}

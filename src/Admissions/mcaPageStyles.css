@@ -1631,7 +1631,7 @@ body {
 .conv-table th,
 .conv-table td {
   padding: 0.85rem 1.1rem;
-  text-align: center;
+  text-align: left;
 }
 
 .conv-table th {

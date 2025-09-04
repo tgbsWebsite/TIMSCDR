@@ -158,11 +158,12 @@ function Navbar() {
       { name: "Non Teaching Staff", link: "/non-teaching-staff" },
       { name: "ERP Login", link: "/results" },
       { name: "Student Downloads", link: "/student-downloads" },
-      { name: "NDML Academic Depository (NAD)",
-        link: "https://timscdrmumbai.in/wp-content/uploads/2022/05/NDML-Academic-Depository-NAD.pdf" 
+      {
+        name: "NDML Academic Depository (NAD)",
+        link: "https://timscdrmumbai.in/wp-content/uploads/2022/05/NDML-Academic-Depository-NAD.pdf"
       }
     ],
- Facilities: [
+    Facilities: [
       { name: "Infrastructure", link: "/facilities/infrastructure" },
       {
         name: "Infrastructure Gallery",
@@ -193,7 +194,7 @@ function Navbar() {
     ],
 
 
-"R&D": [
+    "R&D": [
       { name: "Research Cell", link: "/research-cell" },
       { name: "Institution Innovation Council (IIC)", link: "/institution-innovation-council-iic" },
       {
@@ -329,14 +330,14 @@ function Navbar() {
         name: "Professional Bodies >>",
         link: "#",
         submenu: [
-          { name: "CSI-TIMSCDR", link: "/facilities/library-rules" },
+          { name: "CSI-TIMSCDR", link: "/csi-timscdr" },
           {
             name: "IEEE-TIMSCDR",
-            link: "/facilities/digital-resources",
+            link: "/ieee-timscdr",
           },
-                 {
+          {
             name: "D-Link Academy Lab",
-            link: "/facilities/digital-resources",
+            link: "/d-link-academy-lab",
           },
         ],
       },
@@ -344,21 +345,18 @@ function Navbar() {
         name: "Students Activity >>",
         link: "/life/clubs",
         submenu: [
-          { name: "University Gazette", link: "/facilities/library-rules" },
-          {
-            name: "CSI-TIMSCDR",
-            link: "/facilities/digital-resources",
-          },
-          {
-            name: "IEEE-TIMSCDR",
-            link: "/facilities/library-timings",
-          },
-          {
-            name: "D-Link Academy Lab",
-            link: "/facilities/library-timings",
-          },
-        ],
+          { name: "E‑Cell Ayan", link: "/life/e-cell-ayan" },
+          { name: "Industrial Visit", link: "/life/industrial-visit" },
+          { name: "Synapse", link: "/life/synapse" },
+          { name: "VISTA", link: "/life/vista" },
+          { name: "DLLE", link: "/life/dlle" },
+          { name: "Green Club", link: "/life/green-club" },
+          { name: "CSI‑TIMSCDR", link: "/life/csi-timscdr" },
+          { name: "IEEE‑TIMSCDR", link: "/life/ieee-timscdr" },
+          { name: "D‑Link Academy Lab", link: "/life/dlink-academy-lab" }
+        ]
       },
+
       {
         name: "Events >>",
         link: "/life/facilities",
@@ -382,16 +380,16 @@ function Navbar() {
       { name: "Dasvidaniya", link: "/life/gallery" },
       {
         name: "Publications >>",
-        link: "/life/student-clubs",
+        link: "",
         submenu: [
-          { name: "Magazine-Eminence", link: "/facilities/library-rules" },
+          { name: "Magazine-Eminence", link: "/life/magazine-eminence" },
           {
             name: "News Letter",
-            link: "/facilities/digital-resources",
+            link: "/life/newsletter",
           },
           {
             name: "Doctor Booklet",
-            link: "/facilities/library-timings",
+            link: "/life/doctors-booklet",
           },
         ],
       },

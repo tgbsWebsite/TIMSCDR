@@ -90,6 +90,15 @@ import StudentDevelopmentProgram from "./Life/StudentDevelopmentProgram";
 import PrePlacementTraining from "./Life/PrePlacementTraining ";
 import VirtualReadingResource from "./Facilities/VirtualReadingResource ";
 import LibraryCommittee from "./Facilities/LibraryCommittee";
+import CSITimsCdr from "./Life/CSITimsCdr";
+import IEEEPage from "./Life/IEEEPage";
+import DLinkLab from "./Life/DLinkLab";
+import MagazineEminence from "./Life/MagazineEminence";
+import Newsletter from "./Life/Newsletter";
+import DoctorsBooklet from "./Life/DoctorsBooklet";
+
+
+// import MagazineEminence from "./Life/MagazineEminence";
 
 // Optional Web Vitals (uncomment when needed)
 // import reportWebVitals from "./reportWebVitals";
@@ -186,6 +195,12 @@ root.render(
       <Route path="/guest-lecture-sdp-pre-placement-training" element={<GuestLectureTable />} />
       <Route path="/student-development-program" element={<StudentDevelopmentProgram />} />
       <Route path="/pre-placement-training" element={<PrePlacementTraining />} />
+      <Route path="/csi-timscdr" element={<CSITimsCdr />} />
+      <Route path="/ieee-timscdr" element={<IEEEPage/>} />
+      <Route path="/d-link-academy-lab" element={<DLinkLab />} />
+      <Route path="/life/magazine-eminence" element={<MagazineEminence />} />
+      <Route path="/life/newsletter" element={<Newsletter />} />
+      <Route path="/life/doctors-booklet" element={<DoctorsBooklet />} />
     </Routes>
   </BrowserRouter>
 );
