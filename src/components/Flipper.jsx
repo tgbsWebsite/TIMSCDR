@@ -1,20 +1,35 @@
 import React, { useState, useEffect } from "react";
 import "./flipper-pair.css";
 
-function FlipperCard({ messages = [], direction = "up", active }) {
+function FlipperCard({ messages = [], direction = "up", active, label = "updates" }) {
   const [index, setIndex] = useState(0);
   const [flipping, setFlipping] = useState(false);
+  const [flipCount, setFlipCount] = useState(0);
 
-  // Handle flipping when active toggles on
+  const [remaining, setRemaining] = useState(Math.max(0, messages.length)); // total at mount
+
+  // When the active flag turns on for a cycle, trigger a flip and decrement remaining
   useEffect(() => {
     if (!active || messages.length === 0) return;
     setFlipping(true);
+
     const flipTimeout = setTimeout(() => {
       setIndex((prev) => (prev + 1) % messages.length);
+      setFlipCount((c) => (c + 1) % 4); // advance dot forward 0→1→2→3→0
       setFlipping(false);
+
+      setRemaining((r) => (r > 0 ? r - 1 : 0)); // keep existing decrement if still used elsewhere
     }, 600);
+
+
     return () => clearTimeout(flipTimeout);
   }, [active, messages.length]);
+
+  // Reset remaining if the messages array changes length
+  useEffect(() => {
+    setRemaining(Math.max(0, messages.length));
+    setIndex(0);
+  }, [messages.length]);
 
   if (!messages.length) {
     return (
@@ -22,12 +37,33 @@ function FlipperCard({ messages = [], direction = "up", active }) {
         <div className="fp-card">
           <div className="fp-card-content">
             <div className="fp-message-header">
-              <div className="fp-type-badge">
-                <div className="fp-badge-icon">ℹ️</div>
-                <span className="fp-message-type">Updates</span>
+              <div className="fp-type-badge" aria-hidden="true">
+                <div className="fp-badge-icon">
+                  {current.type === "Bulletin Board" ? "📢" : "💼"}
+                </div>
               </div>
               <div className="fp-pulse-indicator" aria-hidden="true"></div>
             </div>
+
+            {/* New line: forward-moving dots below header */}
+            <div
+              className="fp-dot-indicator fp-dot-row"
+              aria-label={`${label} progress`}
+              role="img"
+              aria-live="polite"
+            >
+              {Array.from({ length: 4 }).map((_, i) => {
+                const activeDot = flipCount % 4; // forward progression
+                return (
+                  <span
+                    key={i}
+                    className={`fp-dot ${i === activeDot ? "fp-dot-active" : ""}`}
+                    aria-hidden="true"
+                  />
+                );
+              })}
+            </div>
+
             <div className="fp-message-text-link" aria-disabled="true">
               No messages available
               <div className="fp-link-arrow">→</div>
@@ -35,6 +71,23 @@ function FlipperCard({ messages = [], direction = "up", active }) {
           </div>
           <div className="fp-card-glow"></div>
         </div>
+           <div
+              className="fp-dot-indicator fp-dot-row"
+              aria-label={`${label} progress`}
+              role="img"
+              aria-live="polite"
+            >
+              {Array.from({ length: 4 }).map((_, i) => {
+                const activeDot = flipCount % 4; // forward progression
+                return (
+                  <span
+                    key={i}
+                    className={`fp-dot ${i === activeDot ? "fp-dot-active" : ""}`}
+                    aria-hidden="true"
+                  />
+                );
+              })}
+            </div>
       </div>
     );
   }
@@ -50,13 +103,20 @@ function FlipperCard({ messages = [], direction = "up", active }) {
       >
         <div className="fp-card-content">
           <div className="fp-message-header">
-            <div className="fp-type-badge">
+            {/* Icon preserved; no visible type text */}
+            <div className="fp-type-badge" aria-hidden="true">
               <div className="fp-badge-icon">
                 {current.type === "Bulletin Board" ? "📢" : "💼"}
               </div>
-              <span className="fp-message-type">{current.type}</span>
             </div>
+
+            {/* Live decreasing count */}
+            {/* Dot indicator replaces numeric count */}
+
+
+
             <div className="fp-pulse-indicator" aria-hidden="true"></div>
+            
           </div>
 
           {current.url ? (
@@ -65,7 +125,7 @@ function FlipperCard({ messages = [], direction = "up", active }) {
               className="fp-message-text-link"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={`${current.type}: ${current.text}`}
+              aria-label={current.text}
             >
               {current.text}
               <div className="fp-link-arrow">→</div>
@@ -73,15 +133,34 @@ function FlipperCard({ messages = [], direction = "up", active }) {
           ) : (
             <div className="fp-message-text-link" role="note">
               {current.text}
-              <div className="fp-link-arrow" aria-hidden="true">
-                →
-              </div>
+              <div className="fp-link-arrow" aria-hidden="true">→</div>
             </div>
           )}
         </div>
+
         <div className="fp-card-glow"></div>
+        
+            <div
+              className="fp-dot-indicator fp-dot-row"
+              aria-label={`${label} progress`}
+              role="img"
+              aria-live="polite"
+            >
+              {Array.from({ length: 4 }).map((_, i) => {
+                const activeDot = flipCount % 4; // forward progression
+                return (
+                  <span
+                    key={i}
+                    className={`fp-dot ${i === activeDot ? "fp-dot-active" : ""}`}
+                    aria-hidden="true"
+                  />
+                );
+              })}
+            </div>
       </div>
+
     </div>
+
   );
 }
 
@@ -109,7 +188,7 @@ export default function FlipperPair() {
   }, []);
 
   return (
-    <div className="fp-pair-container">
+    <div className="fp-pair-container" style={{ marginTop: "var(--navbar-height)" }}>
       <div className="fp-animated-bg" aria-hidden="true">
         <div className="fp-gradient-orb fp-orb-1"></div>
         <div className="fp-gradient-orb fp-orb-2"></div>
@@ -117,24 +196,23 @@ export default function FlipperPair() {
       </div>
 
       <div className="fp-section">
-        <div className="fp-section-title">
-          {/* <div className="fp-title-icon" aria-hidden="true">📋</div> */}
-          {/* <h3 className="fp-title-text">Latest Updates</h3> */}
-        </div>
-        <FlipperCard messages={leftMessages} direction="up" active={activeSide === "left"} />
+        <div className="fp-section-title"></div>
+        <FlipperCard
+          messages={leftMessages}
+          direction="up"
+          active={activeSide === "left"}
+          label="left updates"
+        />
       </div>
-{/* 
-      <div className="fp-divider" aria-hidden="true">
-        <div className="fp-divider-line"></div>
-        <div className="fp-divider-icon">⚡</div>
-      </div> */}
 
       <div className="fp-section">
-        <div className="fp-section-title">
-          {/* <div className="fp-title-icon" aria-hidden="true">🎯</div>
-          <h3 className="fp-title-text">Career Hub</h3> */}
-        </div>
-        <FlipperCard messages={rightMessages} direction="down" active={activeSide === "right"} />
+        <div className="fp-section-title"></div>
+        <FlipperCard
+          messages={rightMessages}
+          direction="down"
+          active={activeSide === "right"}
+          label="right updates"
+        />
       </div>
     </div>
   );

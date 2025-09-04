@@ -24,9 +24,10 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <div style={{ marginTop: "87px" }}>
-        <Flipper />
-      </div>
+    <div style={{ marginTop: "var(--navbar-height)" }}>
+  <Flipper />
+</div>
+
       {/* <BrochureForm/> */}
       <CTAButton />
       <HeroCarousel />
