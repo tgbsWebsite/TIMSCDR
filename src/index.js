@@ -41,8 +41,8 @@ import Convocation from "./Examination/Convocation";
 // Facilities
 import Infrastructure from "./Facilities/Infrastructure";
 import InfrastructureGallery from "./Facilities/InfrastructureGallery";
-import DRC from "./Facilities/DRC";                 // If DRC and InfrastructureDFC are the same, keep only one import
-import InfrastructureDFC from "./Facilities/DRC";    // Duplicates DRC import; consider removing one if unintended
+import DRC from "./Facilities/DRC"; // If DRC and InfrastructureDFC are the same, keep only one import
+import InfrastructureDFC from "./Facilities/DRC"; // Duplicates DRC import; consider removing one if unintended
 
 // Academics
 import FacultyTable from "./academics/facultytable";
@@ -96,7 +96,8 @@ import DLinkLab from "./Life/DLinkLab";
 import MagazineEminence from "./Life/MagazineEminence";
 import Newsletter from "./Life/Newsletter";
 import DoctorsBooklet from "./Life/DoctorsBooklet";
-
+import Admin from "./admin/Admin";
+import AdminLogin from "./admin/AdminLogin";
 
 // import MagazineEminence from "./Life/MagazineEminence";
 
@@ -110,6 +111,8 @@ root.render(
     <Routes>
       {/* Home */}
       <Route path="/" element={<App />} />
+      <Route path="/admin-login-timscdr" element={<AdminLogin />} />
+      <Route path="/admin-timscdr" element={<Admin />} />
 
       {/* About */}
       <Route path="/about/Vision-Mission" element={<VisionMissionPage />} />
@@ -120,20 +123,32 @@ root.render(
       <Route path="/about/governing-council" element={<Governing />} />
       <Route path="/about/advisory" element={<Advisory />} />
       <Route path="/about/academic-council" element={<AcademicCouncil />} />
-      <Route path="/about/development-committee" element={<DevelopmentCommittee />} />
+      <Route
+        path="/about/development-committee"
+        element={<DevelopmentCommittee />}
+      />
       <Route path="/about/iqac-committee" element={<IqacCommittee />} />
       <Route path="/about/cells-and-committees" element={<CellCommittee />} />
       <Route path="/about/nisp-policy" element={<NispPolicy />} />
 
       {/* Programs */}
       <Route path="/programs/mca-program" element={<MCAProgram />} />
-      <Route path="/programs/integrated-mca" element={<IntegratedMCAProgram />} />
-      <Route path="/programs/mca-working-professionals" element={<ProfessionalMCAProgram />} />
+      <Route
+        path="/programs/integrated-mca"
+        element={<IntegratedMCAProgram />}
+      />
+      <Route
+        path="/programs/mca-working-professionals"
+        element={<ProfessionalMCAProgram />}
+      />
       <Route path="/programs/ph-d-admission" element={<PhdAccordion />} />
 
       {/* Contact */}
       <Route path="/contact" element={<ContactPage />} />
-      <Route path="/contact/student-grievance-redressal" element={<GrievanceForm />} />
+      <Route
+        path="/contact/student-grievance-redressal"
+        element={<GrievanceForm />}
+      />
       <Route path="/contact/recruitment" element={<Recruitment />} />
       <Route path="/contact/employee-handbook" element={<Employment />} />
 
@@ -145,25 +160,46 @@ root.render(
 
       {/* Facilities */}
       <Route path="/facilities/infrastructure" element={<Infrastructure />} />
-      <Route path="/facilities/infrastructure-gallery" element={<InfrastructureGallery />} />
-      <Route path="/facilities/disability-resource-center" element={<InfrastructureDFC />} />
+      <Route
+        path="/facilities/infrastructure-gallery"
+        element={<InfrastructureGallery />}
+      />
+      <Route
+        path="/facilities/disability-resource-center"
+        element={<InfrastructureDFC />}
+      />
 
       {/* Library */}
       <Route path="/about-library" element={<LibraryPage />} />
-      <Route path="/infrastructure-and-facilities" element={<LibraryInfrastructure />} />
+      <Route
+        path="/infrastructure-and-facilities"
+        element={<LibraryInfrastructure />}
+      />
       <Route path="/timscdr-library-holding" element={<LibraryHolding />} />
       <Route path="/library-timing-and-rules" element={<LibraryRules />} />
-     
-      <Route path="/virtual-reading-resources" element={<VirtualReadingResource />} />
+
+      <Route
+        path="/virtual-reading-resources"
+        element={<VirtualReadingResource />}
+      />
       <Route path="/library-committee" element={<LibraryCommittee />} />
 
       {/* Admissions */}
       <Route path="/imca" element={<IMCA_Admission />} />
-      <Route path="/master-of-computer-applications-mca" element={<MCA_Admission />} />
-      <Route path="/mca-working-professional" element={<MCA_WorkingProfessional />} />
+      <Route
+        path="/master-of-computer-applications-mca"
+        element={<MCA_Admission />}
+      />
+      <Route
+        path="/mca-working-professional"
+        element={<MCA_WorkingProfessional />}
+      />
       <Route path="/seat-distribution" element={<SeatDistribution />} />
       <Route path="/fees-structure" element={<FeesStructure />} />
-      <Route path="/admission-notification" element={<AdmissionNotifications />} />
+      <Route
+        path="/admission-notification"
+        element={<AdmissionNotifications />}
+      />
       <Route path="/aicte-approval-2" element={<AICTEApproval />} />
       <Route path="/student-handbook" element={<StudentHandbook />} />
       <Route path="/student-mentoring-program" element={<StudentMentoring />} />
@@ -184,19 +220,37 @@ root.render(
       <Route path="/student-downloads" element={<Studentdownload />} />
 
       {/* Placement */}
-      <Route path="/best-mca-college-in-mumbai-for-placements-about-placement" element={<AboutPlacement />} />
+      <Route
+        path="/best-mca-college-in-mumbai-for-placements-about-placement"
+        element={<AboutPlacement />}
+      />
       <Route path="/training-programme" element={<TrainingProgramme />} />
       <Route path="/placement-data" element={<PlacementData />} />
 
       {/* Life @ */}
-      <Route path="/faculty-development-programs" element={<FacultyPrograms />} />
+      <Route
+        path="/faculty-development-programs"
+        element={<FacultyPrograms />}
+      />
       <Route path="/short-term-training-programme" element={<STTPPrograms />} />
-      <Route path="/parent-interaction-programme" element={<ParentInteractionProgramme />} />
-      <Route path="/guest-lecture-sdp-pre-placement-training" element={<GuestLectureTable />} />
-      <Route path="/student-development-program" element={<StudentDevelopmentProgram />} />
-      <Route path="/pre-placement-training" element={<PrePlacementTraining />} />
+      <Route
+        path="/parent-interaction-programme"
+        element={<ParentInteractionProgramme />}
+      />
+      <Route
+        path="/guest-lecture-sdp-pre-placement-training"
+        element={<GuestLectureTable />}
+      />
+      <Route
+        path="/student-development-program"
+        element={<StudentDevelopmentProgram />}
+      />
+      <Route
+        path="/pre-placement-training"
+        element={<PrePlacementTraining />}
+      />
       <Route path="/csi-timscdr" element={<CSITimsCdr />} />
-      <Route path="/ieee-timscdr" element={<IEEEPage/>} />
+      <Route path="/ieee-timscdr" element={<IEEEPage />} />
       <Route path="/d-link-academy-lab" element={<DLinkLab />} />
       <Route path="/life/magazine-eminence" element={<MagazineEminence />} />
       <Route path="/life/newsletter" element={<Newsletter />} />
