@@ -91,11 +91,11 @@ const ICAIM2025 = () => {
           <section id="about" className="ic-icaim-section">
             <div className="ic-icaim-container">
               <h2 className="ic-icaim-section-title ic-icaim-icaim ic-icaim-icaim"></h2>
-              <h2 className="ic-icaim-section-title ic-icaim-scroll-reveal">About ICAIM 2025</h2>
+              <h2 className="ic-icaim-section-title ic-icaim-scroll-reveal">ICAIM 2025</h2>
 
               {/* Carousel */}
               <section id="carousel" className="ic-icaim-carousel-section">
-                <h2 className="ic-icaim-section-title ic-icaim-scroll-reveal">About ICAIM 2025</h2>
+                <h2 className="ic-icaim-section-title ic-icaim-scroll-reveal">ICAIM 2025</h2>
                 <div className="ic-icaim-container">
                   <div className="ic-icaim-carousel-wrap">
                     <div
