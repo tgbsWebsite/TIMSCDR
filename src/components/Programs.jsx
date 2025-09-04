@@ -58,14 +58,14 @@ return (
       </div>
 
       {/* Info panels */}
-      <div className="ap-info ap-info1">
+      {/* <div className="ap-info ap-info1">
         <strong>500+</strong><br />
         Graduates Successfully Placed
       </div>
       <div className="ap-info ap-info2">
         <strong>95%</strong><br />
         Industry Placement Rate
-      </div>
+      </div> */}
     </div>
   </div>
 </div>
