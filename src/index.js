@@ -98,6 +98,7 @@ import Newsletter from "./Life/Newsletter";
 import DoctorsBooklet from "./Life/DoctorsBooklet";
 import Admin from "./admin/Admin";
 import AdminLogin from "./admin/AdminLogin";
+import PEOPage from "./program/PEOPage";
 
 // import MagazineEminence from "./Life/MagazineEminence";
 
@@ -132,6 +133,7 @@ root.render(
       <Route path="/about/nisp-policy" element={<NispPolicy />} />
 
       {/* Programs */}
+      <Route path="/peo-Page" element={<PEOPage/>}/>
       <Route path="/programs/mca-program" element={<MCAProgram />} />
       <Route
         path="/programs/integrated-mca"

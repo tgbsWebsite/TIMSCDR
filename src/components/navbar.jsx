@@ -100,6 +100,10 @@ function Navbar() {
     ],
     Programs: [
       {
+        name: "Program Educational Objectives(PEO's)",
+        link: "/peo-Page",
+      },
+      {
         name: "Master Of Computer Applications (MCA)",
         link: "/programs/mca-program",
       },

@@ -2,11 +2,18 @@
 
 /* Declare navbar height and push container below it */
 :root {
-  --navbar-height: 112px;
+  --navbar-height: 60px;   /* default for desktop/larger screens */
 }
+
+@media (max-width: 1024px) {
+  :root {
+    --navbar-height: 80px;  /* tablets/smaller laptops */
+  }
+}
+
 @media (max-width: 768px) {
   :root {
-    --navbar-height: 128px;
+    --navbar-height: 128px; /* mobile */
   }
 }
 
@@ -17,11 +24,13 @@
   align-items: flex-start;
   padding: 0;
   flex-wrap: wrap;
-  position: relative;
+  position: fixed;   /* change from relative to sticky */
+
   width: 100%;
   font-family: "Inter", sans-serif;
   overflow: hidden;
   margin-top: var(--navbar-height);
+  z-index: 100;  /* ensure it stays above other content */
 }
 
 /* Counter pill (if still used anywhere) */
@@ -220,7 +229,7 @@
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 0;
-  padding: 1rem;
+  padding: 0.5rem;
   transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275),
     box-shadow 0.3s ease;
   backface-visibility: hidden;
@@ -413,3 +422,4 @@
   margin-inline: calc(var(--parent-pad, 0px) * -1);
   width: auto;
 }
+
