@@ -1,61 +1,27 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./navbar.css";
-import BrochureForm from "./EnquiryForm";
-import BrochureForm1 from "./brochure-form";
 
 function Navbar() {
-  const [hoveredItem, setHoveredItem] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(null);
-  const [showForm, setShowForm] = useState(false);
-  const [showModal, setShowModal] = useState(false);
+  const [openMobileItem, setOpenMobileItem] = useState(null);
 
-  const handleDownloadClick = () => setShowModal(true);
-  const handleCloseModal = () => setShowModal(false);
+  // Example logo sources. Replace with actual.
+  const logoSrc = "/logo.svg";
+  const menuIcon = "/icons/menu.svg";
+  const closeIcon = "/icons/close.svg";
+  const chevronIcon = "/icons/chevron-down.svg";
 
-  const handleEnquireClick = () => {
-    setShowForm(true);
-  };
-
-  let timeoutId;
-
-  const handleMouseEnter = (item) => {
-    clearTimeout(timeoutId);
-    setHoveredItem(item);
-  };
-
-  const handleMouseLeave = () => {
-    timeoutId = setTimeout(() => {
-      setHoveredItem(null);
-    }, 200);
-  };
-
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
-
-  const toggleDropdown = (item) => {
-    setDropdownOpen(dropdownOpen === item ? null : item);
-  };
-
+  // Lock body scroll when drawer open
   useEffect(() => {
-    const handleOutsideClick = (event) => {
-      if (
-        !event.target.closest(".mobile-menu") &&
-        !event.target.closest(".menu-button")
-      ) {
-        setMenuOpen(false);
-      }
-    };
-    if (menuOpen) {
-      document.addEventListener("click", handleOutsideClick);
-    } else {
-      document.removeEventListener("click", handleOutsideClick);
-    }
-    return () => document.removeEventListener("click", handleOutsideClick);
+    const original = document.body.style.overflow;
+    if (menuOpen) document.body.style.overflow = "hidden";
+    else document.body.style.overflow = original || "";
+    return () => (document.body.style.overflow = original || "");
   }, [menuOpen]);
 
+  // Sample menu data (replace with your existing dropdownContent)
   const dropdownContent = {
+    Home : [],
     About: [
       { name: "Vission & Mission", link: "/about/Vision-Mission" },
       {
@@ -524,542 +490,129 @@ function Navbar() {
     ],
   };
 
+  const categories = Object.keys(dropdownContent);
+
   return (
-    <div className="main-container-navbar">
+    <header className="main-container-navbar" role="banner">
       <div className="navbar-wrapper">
-        {/* Top section: Logo + Buttons */}
         <div className="navbar-top">
-          {/* Logo */}
           <div className="nav-logo">
-            <a href="/">
-              <img
-                className="logo"
-                src="/images/logo.svg"
-                alt="Thakur Institute of Management Studies, Career Development & Research logo"
-              />
-            </a>
+            <img src={logoSrc} alt="TIMSCDR" />
           </div>
-          <div className="nav-buttons-container">
-            <div className="nav-button2">
-              <button onClick={handleDownloadClick}>Download Brochure</button>
+
+          <div className="nav-buttons" aria-hidden={false}>
+            <div className="nav-button1 button ">
+              <a href="/apply">Enquire Now</a>
             </div>
-            <div className="nav-button1">
-              <button onClick={handleEnquireClick}>Enquire Now</button>
+            <div className="nav-button2 button">
+              <a href="/download-brochure">Download Brochure</a>
             </div>
-            {showForm && <BrochureForm setShowForm={setShowForm} />}
-            {showModal && (
-              <div className="modal-overlay" onClick={handleCloseModal}>
-                <div
-                  className="modal-content"
-                  onClick={(e) => e.stopPropagation()} // prevent modal close when clicking inside
-                >
-                  <button className="close-button" onClick={handleCloseModal}>
-                    &times;
-                  </button>
-                  <BrochureForm1 onClose={handleCloseModal} />
-                </div>
-              </div>
-            )}
           </div>
+
+          <button
+            className="menu-button"
+            aria-label="Open menu"
+            aria-expanded={menuOpen}
+            aria-controls="mobileMenu"
+            onClick={() => setMenuOpen((s) => !s)}
+          >
+            <img src={menuOpen ? closeIcon : menuIcon} alt="" />
+          </button>
         </div>
-      </div>
-      {/* Desktop Navigation */}
-      <div className="nav-links-container">
-        <div className="nav-links">
-          {/* <div className='nav-dropdown'><a href="/activities/events" className='nav-link'>Events</a></div> */}
-          <div className="nav-dropdown">
-            <a href="/" className="nav-link" style={{ fontSize: "15px" }}>
-              Home
-            </a>
-          </div>
-          {dropdownContent["About"] && (
-            <div
-              className="nav-dropdown"
-              onMouseEnter={() => handleMouseEnter("About")}
-              onMouseLeave={handleMouseLeave}
-            >
-              <a href="#" className="nav-link">
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    fontSize: "15px",
-                  }}
-                >
-                  About Us
-                </div>
-              </a>
 
-              {hoveredItem === "About" && (
-                <div className="dropdown">
-                  {dropdownContent["About"].map((option, index) => (
-                    <div key={index} className="dropdown-item">
-                      <a href={option.link}>{option.name}</a>
+        {/* Desktop primary menu */}
+        <nav className="navbar-menu" aria-label="Primary">
+          <ul className="nav-menu">
+            {categories.map((cat) => (
+              <li key={cat} tabIndex={0}>
+                <a href="#" onClick={(e) => e.preventDefault()}>
+                  {cat}
+                </a>
 
-                      {option.submenu && (
-                        <div className="submenu">
-                          {option.submenu.map((sub, subIndex) => (
-                            <a key={subIndex} href={sub.link}>
+                <div className="dropdown" role="menu" aria-label={`${cat} menu`}>
+                  {dropdownContent[cat].map((item, idx) =>
+                    item.submenu ? (
+                      <div className="dropdown-item" key={`${cat}-sub-${idx}`} tabIndex={0}>
+                        <a href={item.link || "#"} onClick={(e) => e.preventDefault()}>
+                          {item.name}
+                        </a>
+                        <div className="submenu" role="menu">
+                          {item.submenu.map((sub, sidx) => (
+                            <a key={`${cat}-subitem-${sidx}`} href={sub.link}>
                               {sub.name}
                             </a>
                           ))}
                         </div>
-                      )}
-                    </div>
-                  ))}
+                      </div>
+                    ) : (
+                      <a key={`${cat}-item-${idx}`} href={item.link}>
+                        {item.name}
+                      </a>
+                    )
+                  )}
                 </div>
-              )}
-            </div>
-          )}
-          {dropdownContent["Programs"] && (
-            <div
-              className="nav-dropdown dropdown-item"
-              onMouseEnter={() => handleMouseEnter("Programs")}
-              onMouseLeave={handleMouseLeave}
-            >
-              <a href="#" className="nav-link">
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    fontSize: "15px",
-                  }}
-                >
-                  Program
-                </div>
-              </a>
-              {hoveredItem === "Programs" && (
-                <div className="dropdown">
-                  {dropdownContent["Programs"].map((option, index) => (
-                    <a key={index} href={option.link}>
-                      {option.name}
-                    </a>
-                  ))}
-                </div>
-              )}
-            </div>
-          )}
-          {dropdownContent["Admissions"] && (
-            <div
-              className="nav-dropdown dropdown-item"
-              onMouseEnter={() => handleMouseEnter("Admissions")}
-              onMouseLeave={handleMouseLeave}
-            >
-              <a href="#" className="nav-link ">
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    fontSize: "15px",
-                  }}
-                >
-                  Admissions
-                </div>
-              </a>
-              {hoveredItem === "Admissions" && (
-                <div className="dropdown">
-                  {dropdownContent["Admissions"].map((option, index) => (
-                    <a key={index} href={option.link}>
-                      {option.name}
-                    </a>
-                  ))}
-                </div>
-              )}
-            </div>
-          )}
-
-          {/* <div className='nav-dropdown'><a href="/internationalisation" className='nav-link'>Internationalisation</a></div> 
-                    <div className='nav-dropdown'><a href="/career" className='nav-link'>Career</a></div>
-                    <div className='nav-dropdown'><a href="/blog" className='nav-link'>Blogs</a></div>
-                    <div className='nav-dropdown'><a href="/contact-us" className='nav-link'>Contact Us</a></div> */}
-          {dropdownContent["Academics"] && (
-            <div
-              className="nav-dropdown dropdown-item"
-              onMouseEnter={() => handleMouseEnter("Academics")}
-              onMouseLeave={handleMouseLeave}
-            >
-              <a href="#" className="nav-link">
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    fontSize: "15px",
-                  }}
-                >
-                  Academics
-                </div>
-              </a>
-              {hoveredItem === "Academics" && (
-                <div className="dropdown">
-                  {dropdownContent["Academics"].map((option, index) => (
-                    <a key={index} href={option.link}>
-                      {option.name}
-                    </a>
-                  ))}
-                </div>
-              )}
-            </div>
-          )}
-          {dropdownContent["Facilities"] && (
-            <div
-              className="nav-dropdown"
-              onMouseEnter={() => handleMouseEnter("Facilities")}
-              onMouseLeave={handleMouseLeave}
-            >
-              <a href="#" className="nav-link">
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    fontSize: "15px",
-                  }}
-                >
-                  Facilities
-                </div>
-              </a>
-
-              {hoveredItem === "Facilities" && (
-                <div className="dropdown">
-                  {dropdownContent["Facilities"].map((option, index) => (
-                    <div key={index} className="dropdown-item">
-                      <a href={option.link}>{option.name}</a>
-
-                      {option.submenu && (
-                        <div className="submenu">
-                          {option.submenu.map((sub, subIndex) => (
-                            <a key={subIndex} href={sub.link}>
-                              {sub.name}
-                            </a>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-          )}
-
-          {dropdownContent["R&D"] && (
-            <div
-              className="nav-dropdown"
-              onMouseEnter={() => handleMouseEnter("R&D")}
-              onMouseLeave={handleMouseLeave}
-            >
-              <a href="#" className="nav-link">
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    fontSize: "15px",
-                  }}
-                >
-                  R & D
-                </div>
-              </a>
-
-              {hoveredItem === "R&D" && (
-                <div className="dropdown">
-                  {dropdownContent["R&D"].map((option, index) => (
-                    <div key={index} className="dropdown-item">
-                      <a href={option.link}>{option.name}</a>
-
-                      {option.submenu && (
-                        <div className="submenu">
-                          {option.submenu.map((sub, subIndex) => (
-                            <a key={subIndex} href={sub.link}>
-                              {sub.name}
-                            </a>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-          )}
-          {dropdownContent["Placements"] && (
-            <div
-              className="nav-dropdown dropdown-item"
-              onMouseEnter={() => handleMouseEnter("Placements")}
-              onMouseLeave={handleMouseLeave}
-            >
-              <a href="#" className="nav-link">
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    fontSize: "15px",
-                  }}
-                >
-                  Placements
-                </div>
-              </a>
-              {hoveredItem === "Placements" && (
-                <div className="dropdown">
-                  {dropdownContent["Placements"].map((option, index) => (
-                    <a key={index} href={option.link}>
-                      {option.name}
-                    </a>
-                  ))}
-                </div>
-              )}
-            </div>
-          )}
-
-          {dropdownContent["IQAC"] && (
-            <div
-              className="nav-dropdown dropdown-item"
-              onMouseEnter={() => handleMouseEnter("IQAC")}
-              onMouseLeave={handleMouseLeave}
-            >
-              <a href="#" className="nav-link">
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    fontSize: "15px",
-                  }}
-                >
-                  IQAC
-                  {/* <img src='/images/icons/open.webp' style={{ width: "15px", height: "15px" }} alt='Open TGBS'/> */}
-                </div>
-              </a>
-              {hoveredItem === "IQAC" && (
-                <div className="dropdown">
-                  {dropdownContent["IQAC"].map((option, index) => (
-                    <a key={index} href={option.link}>
-                      {option.name}
-                    </a>
-                  ))}
-                </div>
-              )}
-            </div>
-          )}
-
-          {dropdownContent["Examination"] && (
-            <div
-              className="nav-dropdown"
-              onMouseEnter={() => handleMouseEnter("Examination")}
-              onMouseLeave={handleMouseLeave}
-            >
-              <a href="#" className="nav-link">
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    fontSize: "15px",
-                  }}
-                >
-                  Examination
-                </div>
-              </a>
-
-              {hoveredItem === "Examination" && (
-                <div className="dropdown">
-                  {dropdownContent["Examination"].map((option, index) => (
-                    <div key={index} className="dropdown-item">
-                      <a href={option.link}>{option.name}</a>
-
-                      {option.submenu && (
-                        <div className="submenu">
-                          {option.submenu.map((sub, subIndex) => (
-                            <a key={subIndex} href={sub.link}>
-                              {sub.name}
-                            </a>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-          )}
-
-          {dropdownContent["Life"] && (
-            <div
-              className="nav-dropdown"
-              onMouseEnter={() => handleMouseEnter("Life")}
-              onMouseLeave={handleMouseLeave}
-            >
-              <a href="#" className="nav-link">
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    fontSize: "15px",
-                  }}
-                >
-                  Life @ TIMSCDR
-                </div>
-              </a>
-
-              {hoveredItem === "Life" && (
-                <div className="dropdown">
-                  {dropdownContent["Life"].map((option, index) => (
-                    <div key={index} className="dropdown-item">
-                      <a href={option.link}>{option.name}</a>
-
-                      {option.submenu && (
-                        <div className="submenu">
-                          {option.submenu.map((sub, subIndex) => (
-                            <a key={subIndex} href={sub.link}>
-                              {sub.name}
-                            </a>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-          )}
-
-          {dropdownContent["Alumni"] && (
-            <div
-              className="nav-dropdown dropdown-item"
-              onMouseEnter={() => handleMouseEnter("Alumni")}
-              onMouseLeave={handleMouseLeave}
-            >
-              <a href="#" className="nav-link">
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    fontSize: "15px",
-                  }}
-                >
-                  Alumni
-                  {/* <img src='/images/icons/open.webp' style={{ width: "15px", height: "15px" }} alt='Open TGBS'/> */}
-                </div>
-              </a>
-              {hoveredItem === "Alumni" && (
-                <div className="dropdown">
-                  {dropdownContent["Alumni"].map((option, index) => (
-                    <a key={index} href={option.link}>
-                      {option.name}
-                    </a>
-                  ))}
-                </div>
-              )}
-            </div>
-          )}
-
-          {dropdownContent["Contact"] && (
-            <div
-              className="nav-dropdown"
-              onMouseEnter={() => handleMouseEnter("Contact")}
-              onMouseLeave={handleMouseLeave}
-            >
-              <a href="#" className="nav-link">
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    fontSize: "15px",
-                  }}
-                >
-                  Contact
-                </div>
-              </a>
-
-              {hoveredItem === "Contact" && (
-                <div className="dropdown">
-                  {dropdownContent["Contact"].map((option, index) => (
-                    <div key={index} className="dropdown-item">
-                      <a href={option.link}>{option.name}</a>
-
-                      {option.submenu && (
-                        <div className="submenu">
-                          {option.submenu.map((sub, subIndex) => (
-                            <a key={subIndex} href={sub.link}>
-                              {sub.name}
-                            </a>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-          )}
-        </div>
-        <div className="nav-links">
-          {/* <div className='nav-dropdown'><a href="/faq" className='nav-link'>FAQs</a></div> */}
-          {/* <div className='nav-button1'><a href="https://admissions.tgbsmumbai.in/">Apply Now!</a></div> */}
-        </div>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </div>
 
-      {/* Mobile Menu Button */}
-      <button className="menu-button" onClick={toggleMenu}>
-        <img src="/images/icons/menu.webp" alt="Menu TIMSCDR" />
-      </button>
-
-      {/* Mobile Sliding Menu */}
-      <div className={`mobile-menu ${menuOpen ? "open" : ""}`} id="style-1">
-        {/* Mobile Menu Header with Logo & Close Button */}
+      {/* Mobile drawer */}
+      <aside
+        id="mobileMenu"
+        className={`mobile-menu ${menuOpen ? "open" : ""}`}
+        aria-hidden={!menuOpen}
+      >
         <div className="mobile-menu-header">
           <div className="menu-logo">
-            <a href="/">
-              <img
-                src="/images/logo.webp"
-                alt="Thakur Global Business School"
-              />
-            </a>
+            <img src={logoSrc} alt="TIMSCDR" />
           </div>
           <img
-            src="/images/icons/close.webp"
             className="close-button"
-            onClick={toggleMenu}
-            alt="Close TIMSCDR"
+            src={closeIcon}
+            alt="Close"
+            onClick={() => setMenuOpen(false)}
           />
         </div>
+
         <div className="mobile-dropdown-container">
-          {Object.keys(dropdownContent).map((category) => (
-            <div key={category} className="mobile-dropdown">
-              <div
-                onClick={() => toggleDropdown(category)}
-                className="menu-item"
-              >
-                <p>{category}</p>
-                <img src="/images/icons/open.webp" alt="Open TIMSCDR" />
-              </div>
-              {dropdownOpen === category && (
-                <div className="mobile-dropdown-content">
-                  {dropdownContent[category].map((option, index) => (
-                    <a key={index} href={option.link}>
-                      {option.name}
-                    </a>
-                  ))}
+          {categories.map((cat) => {
+            const isOpen = openMobileItem === cat;
+            return (
+              <React.Fragment key={`m-${cat}`}>
+                <button
+                  className={`menu-item ${isOpen ? "open" : ""}`}
+                  onClick={() => setOpenMobileItem(isOpen ? null : cat)}
+                  aria-expanded={isOpen}
+                >
+                  <span>{cat}</span>
+                  <img className="arrow" src={chevronIcon} alt="" />
+                </button>
+
+                <div className="mobile-dropdown-content" hidden={!isOpen}>
+                  {dropdownContent[cat].map((item, idx) =>
+                    item.submenu ? (
+                      <React.Fragment key={`m-${cat}-grp-${idx}`}>
+                        <div style={{ fontWeight: 700, padding: "8px 0" }}>{item.name}</div>
+                        {item.submenu.map((sub, sidx) => (
+                          <a key={`m-${cat}-sub-${sidx}`} href={sub.link} onClick={() => setMenuOpen(false)}>
+                            {sub.name}
+                          </a>
+                        ))}
+                      </React.Fragment>
+                    ) : (
+                      <a key={`m-${cat}-link-${idx}`} href={item.link} onClick={() => setMenuOpen(false)}>
+                        {item.name}
+                      </a>
+                    )
+                  )}
                 </div>
-              )}
-            </div>
-          ))}
-          <a href="/internationalisation" className="menu-item1">
-            Internationalisation
-          </a>
-          <a href="/activities/events" className="menu-item1">
-            Events
-          </a>
-          <a href="/career" className="menu-item1">
-            Career
-          </a>
-          <a href="/faq" className="menu-item1">
-            FAQs
-          </a>
-          <a href="/blog" className="menu-item1">
-            Blogs
-          </a>
-          <a href="/contact" className="menu-item1">
-            Contact
-          </a>
+              </React.Fragment>
+            );
+          })}
         </div>
-      </div>
-    </div>
+      </aside>
+    </header>
   );
 }
 

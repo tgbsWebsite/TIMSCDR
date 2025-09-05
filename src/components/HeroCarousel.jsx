@@ -40,7 +40,7 @@ const HeroCarousel = () => {
         <SwiperSlide>
           <div className="slide-box">
             <img
-              src="/images/1.png"
+              src="/images/TIMSCDR head banner-1.webp "
               alt="Hero 1"
               className="slide-image"
             />
