@@ -1,68 +1,248 @@
-.legacy-section {
-  padding: 48px 24px;
-  background-color: #f5f5f5;
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.card-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  justify-content: center;
-  padding: 3rem 2rem;
-}
-
-.card {
-  width: 240px;
-  height: 150px;
-  background-color: #ffffff;
-  padding: 1.25rem 1rem;
-  border-radius: 16px;
-  border: 1px solid #ddd; /* light edge for dimension */
-  border-bottom: 4px solid #0c2e73; /* strong bottom border */
-  
-  /* 3D Shadow Effect */
-  box-shadow:
-    4px 4px 8px rgba(0, 0, 0, 0.2),   /* right-bottom shadow */
-    -4px -4px 8px rgba(0, 0, 0, 0.05); /* top-left highlight */
-  
-  /* Slight perspective tilt */
-  transform: perspective(800px) rotateX(2deg);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-
+.fs-root {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
+  background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  position: relative;
+}
+
+.fs-container {
+  max-width: 1400px;
+  width: 100%;
+  position: relative;
+}
+
+.fs-hero {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.fs-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 300;
+  color: #374151;
+  margin-bottom: 15px;
+  line-height: 1.2;
+}
+
+.fs-subtitle {
+  font-size: clamp(1rem, 3vw, 1.3rem);
+  font-weight: 300;
+  color: #6b7280;
+  line-height: 1.4;
+}
+
+/* Grid */
+/* 4 columns by default */
+.fs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* force 4 cards per row */
+  gap: 30px;
+  margin: 0 auto;
+}
+
+/* Down to 2 columns on tablets */
+@media (max-width: 1024px) {
+  .fs-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
+  }
+}
+
+/* Single column on phones */
+@media (max-width: 640px) {
+  .fs-grid {
+    grid-template-columns: 1fr; /* 1 card per row */
+  }
+}
+
+/* Card */
+.fs-card {
+background: #fff;
+border-radius: 12px;
+box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+padding: 18px 22px; /* reduced from 30px 30px */
+position: relative;
+overflow: hidden;
+transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+cursor: pointer;
+}
+
+.fs-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.fs-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, #6366f1, #8b5cf6);
+}
+
+.fs-card--highlight::before {
+  background: linear-gradient(90deg, #ec4899, #f43f5e);
+}
+
+.fs-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #6366f1, #8b5cf6);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.fs-card--highlight::after {
+  background: linear-gradient(90deg, #ec4899, #f43f5e);
+}
+
+.fs-card:hover::after {
+  transform: scaleX(1);
+}
+
+.fs-card-content {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.fs-number {
+  font-size: clamp(4rem, 8vw, 6rem);
+  font-weight: 900;
+  color: #6366f1;
+  line-height: 1;
+  text-shadow: 0 4px 8px rgba(99, 102, 241, 0.1);
+  flex-shrink: 0;
+}
+
+.fs-card--highlight .fs-number {
+  color: #ec4899;
+  background: linear-gradient(45deg, #ec4899, #f43f5e);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.fs-text {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  text-align: left;
+}
+
+.fs-card-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #6366f1;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.fs-card--highlight .fs-card-title {
+  color: #ec4899;
+}
+
+.fs-desc {
+  font-size: 0.95rem;
+  color: #6b7280;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.fs-icon {
+  width: 50px;
+  height: 50px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
+  opacity: 0.6;
+  color: #6366f1;
+  flex-shrink: 0;
 }
 
-/* Optional: On hover, push the 3D effect */
-.card:hover {
-  transform: perspective(800px) rotateX(0deg) translateY(-4px);
-  box-shadow:
-    6px 6px 16px rgba(0, 0, 0, 0.25),
-    -2px -2px 6px rgba(255, 255, 255, 0.5);
+.fs-card--highlight .fs-icon {
+  color: #ec4899;
 }
 
-
-.card-number {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #231f54; /* strong red number */
-  margin-bottom: 0.25rem;
+/* Decorative shapes */
+.fs-shape {
+  position: absolute;
+  opacity: 0.03;
+  z-index: 0;
+}
+.fs-shape-1 {
+  width: 200px;
+  height: 200px;
+  background: #6366f1;
+  border-radius: 50%;
+  top: -100px;
+  left: -100px;
+}
+.fs-shape-2 {
+  width: 150px;
+  height: 150px;
+  background: #ec4899;
+  transform: rotate(45deg);
+  bottom: -75px;
+  right: -75px;
+}
+.fs-shape-3 {
+  width: 120px;
+  height: 120px;
+  background: #8b5cf6;
+  border-radius: 50%;
+  top: 50%;
+  right: 10%;
+  transform: translateY(-50%);
 }
 
-.card-label {
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: black; /* deep blue */
+/* Responsive */
+@media (max-width: 768px) {
+  .fs-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 400px;
+  }
+  .fs-card {
+    padding: 30px 25px;
+  }
+  .fs-card-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+  .fs-number {
+    font-size: clamp(5rem, 18vw, 8rem);
+  }
+  .fs-text {
+    text-align: center;
+  }
 }
 
-.section-heading {
-  font-size: 1.875rem;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 2.5rem;
-  color: #231f54;
+@media (max-width: 480px) {
+  .fs-hero {
+    margin-bottom: 40px;
+  }
+  .fs-badge {
+    padding: 10px 25px;
+    font-size: 0.9rem;
+  }
 }

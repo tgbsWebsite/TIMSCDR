@@ -3,6 +3,7 @@ import "./Programs.css";
 
 export default function Programs() {
 return (
+  <div className= "ap-fit">
 <div className="ap-root">
 <div className="ap-container">
 <header className="ap-header">
@@ -69,5 +70,7 @@ return (
     </div>
   </div>
 </div>
+</div>
+
 );
 }
