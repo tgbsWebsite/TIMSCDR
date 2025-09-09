@@ -57,7 +57,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: clamp(10px, 1.8vw, 16px) clamp(16px, 4vw, 40px);
+  padding: 0 clamp(16px, 4vw, 40px);
   gap: 16px;
 }
 /* Logo styling */
@@ -68,10 +68,12 @@ button {
   min-width: 0; /* allow shrink */
 }
 .nav-logo img {
-  width: clamp(120px, 16vw, 220px);
-  height: auto;
+  width: clamp(220px, 26vw, 420px);
+  height: clamp(64px, 8vw, 132px); /* raise max to 132px */
+  object-fit: contain; /* no cropping */
   display: block;
 }
+
 /* Right controls */
 .nav-buttons {
   display: flex;
@@ -137,6 +139,7 @@ button {
   width: 100%;
   text-align: center;
 }
+
 /* ===== Secondary strip with quick links ===== */
 .nav-links-container {
   width: 100%;
@@ -164,48 +167,51 @@ button {
 .nav-link:hover {
   color: var(--nav-accent);
 }
+
 /* ===== Main menu row ===== */
+/* Center items in the menu strip and remove right borders */
 .navbar-menu {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #f7f7f7;
+  justify-content: center; /* center list horizontally */
+  align-items: center; /* center items vertically */
+  min-height: 48px; /* taller strip for visual balance */
   padding: 0;
-  border-top: 1px solid #e9e9e9;
-  min-height: 30px;
+  background: #f7f7f7;
+  border-top: 1px solid #e0e0e0; /* full-width top line */
+  border-bottom: 1px solid #e0e0e0; /* full-width bottom line */
 }
-/* Main menu list */
+/* Make list items match strip height and center content */
 .nav-menu {
   list-style: none;
   display: flex;
   margin: 0;
   padding: 0;
-  gap: clamp(8px, 1.6vw, 16px);
+  gap: clamp(4px, 0.6vw, 8px);
+  height: 100%;
+  align-items: center; /* vertical centering of li content */
 }
-/* Style main menu links similar to submenus */
+/* Remove per-item right border */
+.nav-menu li {
+  border-right: none;
+}
+
+/* Make each link a centered clickable box */
 .nav-menu li > a {
-  display: block;
+  display: flex;
+  align-items: center; /* vertical centering of text/icon */
+  gap: 6px;
+  padding: 0 12px; /* horizontal padding only */
+  height: 40px; /* box height inside 48px strip */
+  line-height: 1;
+  border: none; /* no borders on links */
   width: 100%;
-  padding: 8px 10px;
   border-radius: 6px;
   color: #0c2e73;
   font-size: 14px;
   font-weight: 500;
-  line-height: 1.3;
   white-space: nowrap;
   transition: background-color 0.3s ease, color 0.3s ease;
-  border: none;
   text-decoration: none;
-  gap: 6px;
-  align-items: center;
-  display: flex;
-}
-/* Border right between menu items except last */
-.nav-menu li {
-  border-right: 1px solid #ddd;
-}
-.nav-menu li:last-child {
-  border-right: none;
 }
 /* Main menu link hover/focus */
 .nav-menu li > a:hover,
@@ -214,10 +220,45 @@ button {
   color: #f07c39;
   outline: none;
 }
+
+/* Honors/awards strip inside navbar */
+.nav-honors {
+  width: 100%; /* or use var(--btn2-bg) / var(--nav-bg) */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 0; /* compact vertical padding */
+}
+
+.nav-honors__track {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(8px, 1.2vw, 20px); /* space between badges */
+  padding-inline: clamp(8px, 4vw, 40px);
+}
+
+.nav-honors__track img {
+  height: clamp(22px, 3.5vw, 36px); /* keep badges small and consistent */
+  width: auto;
+  display: block;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.15));
+  object-fit: contain;
+}
+
+/* Optional: on very narrow screens, wrap to two rows */
+@media (max-width: 480px) {
+  .nav-honors__track {
+    flex-wrap: wrap;
+    row-gap: 8px;
+  }
+}
+
 /* Position relative for dropdown items */
 .dropdown-item {
   position: relative;
 }
+
 /* Dropdown (desktop) */
 .dropdown {
   position: absolute;
@@ -253,14 +294,15 @@ button {
   background: #fafafa;
   color: #f07c39;
 }
+
 .nav-menu li:hover > .dropdown,
 .nav-menu li:focus-within > .dropdown {
   opacity: 1;
   visibility: visible;
   transform: translate(-50%, 0);
 }
+
 /* Submenu styling */
-/* Existing submenu defaults */
 .submenu {
   position: absolute;
   left: 100%;
@@ -279,7 +321,6 @@ button {
   transform: translateX(10px);
   transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
 }
-
 /* Show submenu */
 .dropdown-item:hover > .submenu,
 .dropdown-item:focus-within > .submenu {
@@ -288,21 +329,18 @@ button {
   visibility: visible;
   transform: translateX(0);
 }
-
 /* Flip submenu upward */
 .submenu.submenu-up {
   top: auto !important;
   bottom: 0 !important;
   transform: translateY(-10px) !important;
 }
-
 /* Flip submenu left if overflowing right side */
 .submenu.submenu-left {
   left: auto !important;
   right: 100% !important;
   transform: translateX(-10px) !important;
 }
-
 /* Show flipped submenu with transition */
 .dropdown-item:hover > .submenu.submenu-up,
 .dropdown-item:focus-within > .submenu.submenu-up,
@@ -311,24 +349,6 @@ button {
   transform: translateX(0) translateY(0) !important;
 }
 
-/* Show submenu */
-.dropdown-item:hover > .submenu,
-.dropdown-item:focus-within > .submenu {
-  display: flex;
-  opacity: 1;
-  visibility: visible;
-  transform: translateX(0);
-}
-/* Left flip: open submenu to the left if overflow */
-.submenu.submenu-left {
-  left: auto !important;
-  right: 100% !important;
-  transform: translateX(-10px) !important;
-}
-.dropdown-item:hover > .submenu.submenu-left,
-.dropdown-item:focus-within > .submenu.submenu-left {
-  transform: translateX(0) !important;
-}
 /* Submenu link styling */
 .submenu a {
   display: block;
@@ -346,8 +366,8 @@ button {
   background: #fafafa;
   color: #f07c39;
 }
+
 /* Mobile menu button */
-/* Existing menu button styles */
 .menu-button {
   display: none;
   width: 40px;
@@ -439,7 +459,6 @@ button {
   overflow: hidden;
   background: #fff;
 }
-
 /* Show submenu when open */
 .mobile-dropdown-content.open {
   display: flex;

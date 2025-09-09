@@ -4,5 +4,18 @@
 
 html, body, #root {
   width: 100%;
-  overflow-x: hidden; /* temporary guard */
+  overflow-y: scroll; /* Keep scrolling enabled */
+
+  /* Hide scrollbar for IE, Edge */
+  -ms-overflow-style: none;
+
+  /* Hide scrollbar for Firefox */
+  scrollbar-width: none;
+}
+
+/* Hide scrollbar for Chrome, Safari, Opera */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+#root::-webkit-scrollbar {
+  display: none;
 }

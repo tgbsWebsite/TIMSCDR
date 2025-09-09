@@ -134,7 +134,7 @@ const CTAButton = () => {
 
       <div className="tims-particles" id="tims-particles"></div>
 
-      <div className="tims-demo-container">
+      <div className="">
         <div className="tims-mobile-static-buttons">
           <button className="tims-cta-static-button tims-pulse">
             📥 Download Brochure

@@ -176,3 +176,36 @@
     font-size: 1.2rem;
   }
 }
+
+@media (max-width: 768px) {
+  .flipper-wrapper,
+  .navbar-wrapper {
+    margin-bottom: 0;            /* avoid stacking margins */
+    padding-bottom: 0;
+  }
+
+  .modern-carousel-container {
+    margin-block-start: clamp(8px, 4vh, 64px);
+    height: 600px;               /* keep your mobile height */
+  }
+}
+
+
+
+:root{
+  /* Safety defaults in case file order changes */
+  --navbar-height: 176px;
+  --flipper-height: 105px;
+}
+
+/* In flipper-pair.css (preferred) or at the very top of HeroCarousel.css */
+
+
+/* Mobile overrides – use your actual values */
+@media (max-width: 768px) {
+  :root {
+    --navbar-height: 143px;
+    --flipper-height: 243px;
+  }
+}
+

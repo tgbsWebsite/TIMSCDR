@@ -540,8 +540,23 @@ function Navbar() {
       <div className="navbar-wrapper">
         <div className="navbar-top">
           <div className="nav-logo">
-            <img src={logoSrc} alt="TIMSCDR" />
+            <img src="/Website_Assets/Asset 53@4x.webp" alt="TIMSCDR" />
           </div>
+          {/* Honors strip inside navbar */}
+          {/* Honors strip inside navbar */}
+          <div className="nav-honors">
+            <div className="nav-honors__track">
+              <img src="/Website_Assets/Asset 17@4x.webp" alt="NAAC A+ accreditation" />
+              <img src="/Website_Assets/Asset 19@4x.webp" alt="ISO certified" />
+              <img src="/Website_Assets/Asset 20@4x.webp" alt="Maharashtra State Emblem" />
+              <img src="/Website_Assets/Asset 21@4x.webp" alt="AICTE approved" />
+              <img src="/Website_Assets/Asset 22@4x.webp" alt="University of Mumbai" />
+              <img src="/Website_Assets/Asset 23@4x.webp" alt="UGC autonomous" />
+            </div>
+          </div>
+
+
+
           <div className="nav-buttons" aria-hidden={false}>
             <div className="nav-button1 button ">
               <a href="/apply">Enquire Now</a>
@@ -563,53 +578,55 @@ function Navbar() {
 
         {/* Desktop Navbar */}
         <nav className="navbar-menu" aria-label="Primary">
+
           <ul className="nav-menu">
- {categories.map((cat) =>
-  cat === "Home" ? (
-    <li key="Home" tabIndex={0}>
-      <a href="/">Home</a>
-    </li>
-  ) : (
-    <li key={cat} tabIndex={0}>
-      <a href="#" onClick={(e) => e.preventDefault()}>
-        {cat}
-      </a>
-      <div
-        className="dropdown"
-        role="menu"
-        aria-label={`${cat} menu`}
-      >
-        {dropdownContent[cat].map((item, idx) =>
-          item.submenu ? (
-            <div
-              className="dropdown-item"
-              key={`${cat}-sub-${idx}`}
-              tabIndex={0}
-            >
-              <a
-                href={item.link || "#"}
-                onClick={(e) => e.preventDefault()}
-              >
-                {item.name}
-              </a>
-              <div className="submenu" role="menu">
-                {item.submenu.map((sub, sidx) => (
-                  <a key={`${cat}-subitem-${sidx}`} href={sub.link}>
-                    {sub.name}
+
+            {categories.map((cat) =>
+              cat === "Home" ? (
+                <li key="Home" tabIndex={0}>
+                  <a href="/">Home</a>
+                </li>
+              ) : (
+                <li key={cat} tabIndex={0}>
+                  <a href="#" onClick={(e) => e.preventDefault()}>
+                    {cat}
                   </a>
-                ))}
-              </div>
-            </div>
-          ) : (
-            <a key={`${cat}-item-${idx}`} href={item.link}>
-              {item.name}
-            </a>
-          )
-        )}
-      </div>
-    </li>
-  )
-)}
+                  <div
+                    className="dropdown"
+                    role="menu"
+                    aria-label={`${cat} menu`}
+                  >
+                    {dropdownContent[cat].map((item, idx) =>
+                      item.submenu ? (
+                        <div
+                          className="dropdown-item"
+                          key={`${cat}-sub-${idx}`}
+                          tabIndex={0}
+                        >
+                          <a
+                            href={item.link || "#"}
+                            onClick={(e) => e.preventDefault()}
+                          >
+                            {item.name}
+                          </a>
+                          <div className="submenu" role="menu">
+                            {item.submenu.map((sub, sidx) => (
+                              <a key={`${cat}-subitem-${sidx}`} href={sub.link}>
+                                {sub.name}
+                              </a>
+                            ))}
+                          </div>
+                        </div>
+                      ) : (
+                        <a key={`${cat}-item-${idx}`} href={item.link}>
+                          {item.name}
+                        </a>
+                      )
+                    )}
+                  </div>
+                </li>
+              )
+            )}
 
           </ul>
         </nav>
@@ -635,91 +652,91 @@ function Navbar() {
         </div>
 
         <div className="mobile-dropdown-container">
-{categories.map((cat) =>
-  cat === "Home" ? (
-    <a
-      key="Home"
-      className="menu-item"
-      href="/"
-      onClick={() => setMenuOpen(false)}
-      style={{ padding: "12px 0", fontWeight: 700, display: "block" }}
-    >
-      Home
-    </a>
-  ) : (
-    <React.Fragment key={cat}>
-      <button
-        className={`menu-item${openMobileItem === cat ? " open" : ""}`}
-        onClick={() =>
-          setOpenMobileItem(openMobileItem === cat ? null : cat)
-        }
-        aria-expanded={openMobileItem === cat}
-      >
-        <span>{cat}</span>
-        <img className="arrow" src={chevronIcon} alt="" />
-      </button>
-      <div
-        className={`mobile-dropdown-content${openMobileItem === cat ? " open" : ""}`}
-      >
-        {dropdownContent[cat].map((item, idx) =>
-          item.submenu ? (
-            <div key={`submenu-${cat}-${idx}`}>
-              <button
-                className={`submenu-toggle${(openSubmenu[cat] ?? null) === idx ? " open" : ""}`}
-                onClick={() =>
-                  setOpenSubmenu((prev) => ({
-                    ...prev,
-                    [cat]: (prev[cat] ?? null) === idx ? null : idx,
-                  }))
-                }
-                aria-expanded={(openSubmenu[cat] ?? null) === idx}
-                style={{
-                  fontWeight: "700",
-                  padding: "8px 0",
-                  background: "none",
-                  border: "none",
-                  width: "100%",
-                  textAlign: "left",
-                  cursor: "pointer",
-                  marginBottom: "6px",
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                }}
+          {categories.map((cat) =>
+            cat === "Home" ? (
+              <a
+                key="Home"
+                className="menu-item"
+                href="/"
+                onClick={() => setMenuOpen(false)}
+                style={{ padding: "12px 0", fontWeight: 700, display: "block" }}
               >
-                {item.name}
-              </button>
-              {(openSubmenu[cat] ?? null) === idx && (
-                <div
-                  className="mobile-dropdown-content open"
-                  style={{ paddingLeft: "12px" }}
+                Home
+              </a>
+            ) : (
+              <React.Fragment key={cat}>
+                <button
+                  className={`menu-item${openMobileItem === cat ? " open" : ""}`}
+                  onClick={() =>
+                    setOpenMobileItem(openMobileItem === cat ? null : cat)
+                  }
+                  aria-expanded={openMobileItem === cat}
                 >
-                  {item.submenu.map((sub, sidx) => (
-                    <a
-                      key={`subitem-${cat}-${idx}-${sidx}`}
-                      href={sub.link}
-                      onClick={() => setMenuOpen(false)}
-                    >
-                      {sub.name}
-                    </a>
-                  ))}
+                  <span>{cat}</span>
+                  <img className="arrow" src={chevronIcon} alt="" />
+                </button>
+                <div
+                  className={`mobile-dropdown-content${openMobileItem === cat ? " open" : ""}`}
+                >
+                  {dropdownContent[cat].map((item, idx) =>
+                    item.submenu ? (
+                      <div key={`submenu-${cat}-${idx}`}>
+                        <button
+                          className={`submenu-toggle${(openSubmenu[cat] ?? null) === idx ? " open" : ""}`}
+                          onClick={() =>
+                            setOpenSubmenu((prev) => ({
+                              ...prev,
+                              [cat]: (prev[cat] ?? null) === idx ? null : idx,
+                            }))
+                          }
+                          aria-expanded={(openSubmenu[cat] ?? null) === idx}
+                          style={{
+                            fontWeight: "700",
+                            padding: "8px 0",
+                            background: "none",
+                            border: "none",
+                            width: "100%",
+                            textAlign: "left",
+                            cursor: "pointer",
+                            marginBottom: "6px",
+                            display: "flex",
+                            justifyContent: "space-between",
+                            alignItems: "center",
+                          }}
+                        >
+                          {item.name}
+                        </button>
+                        {(openSubmenu[cat] ?? null) === idx && (
+                          <div
+                            className="mobile-dropdown-content open"
+                            style={{ paddingLeft: "12px" }}
+                          >
+                            {item.submenu.map((sub, sidx) => (
+                              <a
+                                key={`subitem-${cat}-${idx}-${sidx}`}
+                                href={sub.link}
+                                onClick={() => setMenuOpen(false)}
+                              >
+                                {sub.name}
+                              </a>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    ) : (
+                      <a
+                        key={`item-${cat}-${idx}`}
+                        href={item.link}
+                        onClick={() => setMenuOpen(false)}
+                      >
+                        {item.name}
+                      </a>
+                    )
+                  )}
                 </div>
-              )}
-            </div>
-          ) : (
-            <a
-              key={`item-${cat}-${idx}`}
-              href={item.link}
-              onClick={() => setMenuOpen(false)}
-            >
-              {item.name}
-            </a>
-          )
-        )}
-      </div>
-    </React.Fragment>
-  )
-)}
+              </React.Fragment>
+            )
+          )}
 
         </div>
       </aside>
