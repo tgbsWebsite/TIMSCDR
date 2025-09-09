@@ -2,3 +2,7 @@
   margin-top: calc(var(--navbar-height) + var(--flipper-height));
 }
 
+html, body, #root {
+  width: 100%;
+  overflow-x: hidden; /* temporary guard */
+}
