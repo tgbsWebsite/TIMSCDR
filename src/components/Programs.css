@@ -65,18 +65,16 @@
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 } */
 
-
-
 :root {
   --ap-indigo: #667eea;
   --ap-purple: #764ba2;
   --ap-dark: #1a1a2e;
-  --base-h:1000px;    ; /* px */
+  --base-h: 1000px; /* px */
 }
 .ap-fit {
-/* available viewport budgets */
+  /* available viewport budgets */
   --avail-w: 100vw;
-  --avail-h: 90dvh;                /* dynamic viewport height handles mobile UI */
+  --avail-h: 90dvh; /* dynamic viewport height handles mobile UI */
 
   /* compute a uniform scale to fit both width and height */
   --scale-x: calc(var(--avail-w) / var(--base-w));
@@ -85,19 +83,18 @@
 
   width: calc(var(--base-w) * 1px);
   height: calc(var(--base-h) * 1px);
-  transform: scale(var(--scale));  /* uniformly shrink if needed */
-  transform-origin: top center;    /* anchor at the top to avoid vertical drift */
+  transform: scale(var(--scale)); /* uniformly shrink if needed */
+  transform-origin: top center; /* anchor at the top to avoid vertical drift */
   margin: 0 auto;
-  overflow: hidden;          
+  overflow: hidden;
 }
 
 .ap-root {
-
   width: calc(var(--base-w) * 1px);
   height: calc(var(--base-h) * 1px);
 
   font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-  overflow: clip;                  /* no scroll, no accidental overflow */
+  overflow: clip; /* no scroll, no accidental overflow */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -130,14 +127,13 @@
 
 /* Diagram stage */
 .ap-radial {
-    position: relative;
-    width: 800px;
-    height: 600px;
-    margin: 0 auto;
-    display: flex
-;
-    align-items: center;
-    justify-content: center;
+  position: relative;
+  width: 800px;
+  height: 600px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .ap-circle {
@@ -181,7 +177,6 @@
   background: rgba(255, 255, 255, 0.02);
   animation-delay: 3s;
 }
-
 
 @keyframes ap-pulse {
   0%,
@@ -310,18 +305,18 @@
 
 /* PhD */
 .ap-phd {
-    position: absolute;
-    top: 48px;
-    right: -50px;
-    width: 220px;
-    height: 146px;
-    cursor: pointer;
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-    border-radius: 20px;
-    padding: 2rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 0 2px rgba(255, 215, 0, 0.3);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  position: absolute;
+  top: 48px;
+  right: -50px;
+  width: 220px;
+  height: 146px;
+  cursor: pointer;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  border-radius: 20px;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 0 2px rgba(255, 215, 0, 0.3);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 .ap-phd:hover {
   transform: scale(1.05) translateY(-5px);

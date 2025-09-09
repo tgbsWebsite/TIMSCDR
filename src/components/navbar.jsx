@@ -349,7 +349,7 @@ function Navbar() {
       },
       {
         name: "Professional Bodies >>",
-        link: "#",
+        link: null,
         submenu: [
           { name: "CSI-TIMSCDR", link: "/csi-timscdr" },
           {
@@ -372,9 +372,6 @@ function Navbar() {
           { name: "VISTA", link: "/life/vista" },
           { name: "DLLE", link: "/life/dlle" },
           { name: "Green Club", link: "/life/green-club" },
-          { name: "CSI‑TIMSCDR", link: "/life/csi-timscdr" },
-          { name: "IEEE‑TIMSCDR", link: "/life/ieee-timscdr" },
-          { name: "D‑Link Academy Lab", link: "/life/dlink-academy-lab" },
         ],
       },
       {
@@ -567,46 +564,53 @@ function Navbar() {
         {/* Desktop Navbar */}
         <nav className="navbar-menu" aria-label="Primary">
           <ul className="nav-menu">
-            {categories.map((cat) => (
-              <li key={cat} tabIndex={0}>
-                <a href="#" onClick={(e) => e.preventDefault()}>
-                  {cat}
-                </a>
-                <div
-                  className="dropdown"
-                  role="menu"
-                  aria-label={`${cat} menu`}
-                >
-                  {dropdownContent[cat].map((item, idx) =>
-                    item.submenu ? (
-                      <div
-                        className="dropdown-item"
-                        key={`${cat}-sub-${idx}`}
-                        tabIndex={0}
-                      >
-                        <a
-                          href={item.link || "#"}
-                          onClick={(e) => e.preventDefault()}
-                        >
-                          {item.name}
-                        </a>
-                        <div className="submenu" role="menu">
-                          {item.submenu.map((sub, sidx) => (
-                            <a key={`${cat}-subitem-${sidx}`} href={sub.link}>
-                              {sub.name}
-                            </a>
-                          ))}
-                        </div>
-                      </div>
-                    ) : (
-                      <a key={`${cat}-item-${idx}`} href={item.link}>
-                        {item.name}
-                      </a>
-                    )
-                  )}
-                </div>
-              </li>
-            ))}
+ {categories.map((cat) =>
+  cat === "Home" ? (
+    <li key="Home" tabIndex={0}>
+      <a href="/">Home</a>
+    </li>
+  ) : (
+    <li key={cat} tabIndex={0}>
+      <a href="#" onClick={(e) => e.preventDefault()}>
+        {cat}
+      </a>
+      <div
+        className="dropdown"
+        role="menu"
+        aria-label={`${cat} menu`}
+      >
+        {dropdownContent[cat].map((item, idx) =>
+          item.submenu ? (
+            <div
+              className="dropdown-item"
+              key={`${cat}-sub-${idx}`}
+              tabIndex={0}
+            >
+              <a
+                href={item.link || "#"}
+                onClick={(e) => e.preventDefault()}
+              >
+                {item.name}
+              </a>
+              <div className="submenu" role="menu">
+                {item.submenu.map((sub, sidx) => (
+                  <a key={`${cat}-subitem-${sidx}`} href={sub.link}>
+                    {sub.name}
+                  </a>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <a key={`${cat}-item-${idx}`} href={item.link}>
+              {item.name}
+            </a>
+          )
+        )}
+      </div>
+    </li>
+  )
+)}
+
           </ul>
         </nav>
       </div>
@@ -631,100 +635,92 @@ function Navbar() {
         </div>
 
         <div className="mobile-dropdown-container">
-          {categories.map((cat) => {
-            const isOpen = openMobileItem === cat;
-            const toggleCategoryOpen = () =>
-              setOpenMobileItem(isOpen ? null : cat);
-
-            const toggleSubmenu = (idx) => {
-              setOpenSubmenu((prev) => ({
-                ...prev,
-                [cat]: prev[cat] === idx ? null : idx,
-              }));
-            };
-
-            const catOpenSubmenu = openSubmenu[cat] ?? null;
-
-            return (
-              <React.Fragment key={cat}>
-                <button
-                  className={`menu-item${isOpen ? " open" : ""}`}
-                  onClick={toggleCategoryOpen}
-                  aria-expanded={isOpen}
-                >
-                  <span>{cat}</span>
-                  <img className="arrow" src={chevronIcon} alt="" />
-                </button>
+{categories.map((cat) =>
+  cat === "Home" ? (
+    <a
+      key="Home"
+      className="menu-item"
+      href="/"
+      onClick={() => setMenuOpen(false)}
+      style={{ padding: "12px 0", fontWeight: 700, display: "block" }}
+    >
+      Home
+    </a>
+  ) : (
+    <React.Fragment key={cat}>
+      <button
+        className={`menu-item${openMobileItem === cat ? " open" : ""}`}
+        onClick={() =>
+          setOpenMobileItem(openMobileItem === cat ? null : cat)
+        }
+        aria-expanded={openMobileItem === cat}
+      >
+        <span>{cat}</span>
+        <img className="arrow" src={chevronIcon} alt="" />
+      </button>
+      <div
+        className={`mobile-dropdown-content${openMobileItem === cat ? " open" : ""}`}
+      >
+        {dropdownContent[cat].map((item, idx) =>
+          item.submenu ? (
+            <div key={`submenu-${cat}-${idx}`}>
+              <button
+                className={`submenu-toggle${(openSubmenu[cat] ?? null) === idx ? " open" : ""}`}
+                onClick={() =>
+                  setOpenSubmenu((prev) => ({
+                    ...prev,
+                    [cat]: (prev[cat] ?? null) === idx ? null : idx,
+                  }))
+                }
+                aria-expanded={(openSubmenu[cat] ?? null) === idx}
+                style={{
+                  fontWeight: "700",
+                  padding: "8px 0",
+                  background: "none",
+                  border: "none",
+                  width: "100%",
+                  textAlign: "left",
+                  cursor: "pointer",
+                  marginBottom: "6px",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                }}
+              >
+                {item.name}
+              </button>
+              {(openSubmenu[cat] ?? null) === idx && (
                 <div
-                  className={`mobile-dropdown-content${isOpen ? " open" : ""}`}
+                  className="mobile-dropdown-content open"
+                  style={{ paddingLeft: "12px" }}
                 >
-                  {dropdownContent[cat].map((item, idx) =>
-                    item.submenu ? (
-                      <div key={`submenu-${cat}-${idx}`}>
-                        <button
-                          className={`submenu-toggle${
-                            catOpenSubmenu === idx ? " open" : ""
-                          }`}
-                          onClick={() => toggleSubmenu(idx)}
-                          aria-expanded={catOpenSubmenu === idx}
-                          style={{
-                            fontWeight: "700",
-                            padding: "8px 0",
-                            background: "none",
-                            border: "none",
-                            width: "100%",
-                            textAlign: "left",
-                            cursor: "pointer",
-                            marginBottom: "6px",
-                            display: "flex",
-                            justifyContent: "space-between",
-                            alignItems: "center",
-                          }}
-                        >
-                          {item.name}
-                          {/* <img
-                            className="arrow"
-                            src={chevronIcon}
-                            alt="toggle submenu"
-                            style={{
-                              transform:
-                                catOpenSubmenu === idx
-                                  ? "rotate(180deg)"
-                                  : "rotate(0deg)",
-                            }}
-                          /> */}
-                        </button>
-                        {catOpenSubmenu === idx && (
-                          <div
-                            className="mobile-dropdown-content open"
-                            style={{ paddingLeft: "12px" }}
-                          >
-                            {item.submenu.map((sub, sidx) => (
-                              <a
-                                key={`subitem-${cat}-${idx}-${sidx}`}
-                                href={sub.link}
-                                onClick={() => setMenuOpen(false)}
-                              >
-                                {sub.name}
-                              </a>
-                            ))}
-                          </div>
-                        )}
-                      </div>
-                    ) : (
-                      <a
-                        key={`item-${cat}-${idx}`}
-                        href={item.link}
-                        onClick={() => setMenuOpen(false)}
-                      >
-                        {item.name}
-                      </a>
-                    )
-                  )}
+                  {item.submenu.map((sub, sidx) => (
+                    <a
+                      key={`subitem-${cat}-${idx}-${sidx}`}
+                      href={sub.link}
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      {sub.name}
+                    </a>
+                  ))}
                 </div>
-              </React.Fragment>
-            );
-          })}
+              )}
+            </div>
+          ) : (
+            <a
+              key={`item-${cat}-${idx}`}
+              href={item.link}
+              onClick={() => setMenuOpen(false)}
+            >
+              {item.name}
+            </a>
+          )
+        )}
+      </div>
+    </React.Fragment>
+  )
+)}
+
         </div>
       </aside>
     </header>

@@ -1,46 +1,178 @@
-/* Keep your existing styles */
-.hero-carousel {
+/* Global styles unique to ModernCarousel */
+.modern-carousel-container {
   width: 100%;
-  height: 100vh; /* full viewport */
+  height: calc(767px - 256px); /* subtract margin-top height */
+  margin: 0 auto;
+  margin-top: 256px; /* push below flipper/navbar */
   position: relative;
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  background: #111;
 }
 
-.slide-box {
-  position: relative;          /* ensure absolute children position correctly */
-  height: 100vh;               /* full viewport height per slide */
-  width: 100%;                 /* full width */
+.modern-carousel-wrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.modern-carousel-track {
+  display: flex;
+  width: 500%;
+  height: 100%;
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Slides with solid backgrounds */
+.modern-carousel-slide {
+  width: 20%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 32px;
-  font-weight: bold;
   color: white;
-  background-color: #027176;   /* fallback color */
-  overflow: hidden;            /* hide any overflow from the image */
+}
+.modern-carousel-slide:nth-child(1) {
+  background: #2c3e50; /* Dark Blue */
+}
+.modern-carousel-slide:nth-child(2) {
+  background: #e74c3c; /* Red */
+}
+.modern-carousel-slide:nth-child(3) {
+  background: #27ae60; /* Green */
+}
+.modern-carousel-slide:nth-child(4) {
+  background: #2980b9; /* Blue */
+}
+.modern-carousel-slide:nth-child(5) {
+  background: #f39c12; /* Orange */
 }
 
-/* The image fills the slide fully and responsively */
-.slide-box > img {
+.modern-slide-content {
+  text-align: center;
+  padding: 40px;
+  max-width: 600px;
+}
+.modern-slide-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+  line-height: 1.1;
+}
+.modern-slide-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 32px;
+}
+.modern-slide-description {
+  font-size: 1.1rem;
+  opacity: 0.85;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+.modern-cta-button {
+  display: inline-block;
+  padding: 16px 32px;
+  border-radius: 50px;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  transition: all 0.3s ease;
+}
+.modern-cta-button:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: translateY(-2px);
+}
+
+/* Arrows */
+.modern-carousel-arrow {
   position: absolute;
-  inset: 0;            /* top:0; right:0; bottom:0; left:0 */
-  width: 100%;
-  height: 100%;
-  object-fit: cover;   /* fill area while preserving aspect ratio */
-  object-position: center; /* keep focal point centered */
-  z-index: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 45px;
+  height: 45px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.modern-carousel-arrow.prev {
+  left: 20px;
+}
+.modern-carousel-arrow.next {
+  right: 20px;
+}
+.modern-arrow-icon {
+  width: 20px;
+  height: 20px;
+  fill: white;
 }
 
-/* Keep slide text/overlays above the image */
-.slide-box > *:not(img) {
-  position: relative;
-  z-index: 1;
-}
-
-/* Scroll icon styles you already have */
-.scroll-image-wrapper {
+/* Dots */
+.modern-carousel-nav {
   position: absolute;
-  bottom: 40px;
+  bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 20;
+  display: flex;
+  gap: 12px;
+}
+.modern-nav-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+}
+.modern-nav-dot.active {
+  background: white;
+  transform: scale(1.2);
+}
+
+/* Progress */
+.modern-progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.3);
+}
+.modern-progress-fill {
+  height: 100%;
+  background: white;
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Animations */
+@keyframes modernSlideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.modern-carousel-slide.active .modern-slide-content {
+  animation: modernSlideInUp 0.6s ease-out 0.2s both;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .modern-carousel-container {
+    border-radius: 0;
+    height: 600px;
+  }
+  .modern-slide-title {
+    font-size: 2.5rem;
+  }
+  .modern-slide-subtitle {
+    font-size: 1.2rem;
+  }
 }

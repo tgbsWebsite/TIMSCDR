@@ -1,3 +1,4 @@
 .main-content {
   margin-top: calc(var(--navbar-height) + var(--flipper-height));
 }
+

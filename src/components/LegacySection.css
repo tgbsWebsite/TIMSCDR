@@ -5,8 +5,7 @@
 }
 
 .fs-root {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    sans-serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
   min-height: 100vh;
   display: flex;
@@ -44,7 +43,6 @@
 }
 
 /* Grid */
-/* 4 columns by default */
 .fs-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* force 4 cards per row */
@@ -68,14 +66,14 @@
 
 /* Card */
 .fs-card {
-background: #fff;
-border-radius: 12px;
-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-padding: 18px 22px; /* reduced from 30px 30px */
-position: relative;
-overflow: hidden;
-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-cursor: pointer;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  padding: 18px 22px; /* reduced from 30px 30px */
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
 }
 
 .fs-card:hover {
@@ -246,3 +244,41 @@ cursor: pointer;
     font-size: 0.9rem;
   }
 }
+
+/* ========= Zoom-robust spacing overrides ========= */
+/* Section vertical breathing room that resists zoom-out collapse */
+.fs-root {
+  padding-block: clamp(32px, 6vw, 80px); /* replaces fixed 40px top/bottom */
+  padding-inline: clamp(16px, 3.5vw, 32px);
+  min-height: clamp(560px, 80vh, 1000px); /* optional: keep section tall */
+} /* clamp + vh prevents excessive compression on zoom-out */ /* [10][11] */
+
+.fs-container {
+  margin-block: clamp(16px, 3vw, 48px);
+} /* [12] */
+
+.fs-hero {
+  margin-bottom: clamp(24px, 4.5vw, 64px);
+} /* [13] */
+
+/* Grid spacing scales smoothly instead of snapping smaller */
+.fs-grid {
+  gap: clamp(18px, 3vw, 30px);
+} /* [12] */
+
+/* Card internal spacing: make block (top/bottom) responsive */
+.fs-card {
+  padding-block: clamp(16px, 3.5vw, 28px);
+  padding-inline: clamp(18px, 3vw, 24px);
+} /* [12] */
+
+/* Extra guard so rows don’t “touch” when zoomed far out */
+.fs-card + .fs-card {
+  margin-block-start: clamp(0px, 1vw, 6px);
+} /* [12] */
+
+/* Mobile refinements remain fluid */
+@media (max-width: 768px) {
+  .fs-grid { gap: clamp(16px, 5vw, 20px); }
+  .fs-card { padding-block: clamp(18px, 6vw, 30px); }
+} /* [12] */
