@@ -239,7 +239,7 @@ button {
 }
 
 .nav-honors__track img {
-  height: clamp(22px, 3.5vw, 36px); /* keep badges small and consistent */
+  height: clamp(22px, 3.5vw, 71px); /* keep badges small and consistent */
   width: auto;
   display: block;
   filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.15));
