@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "./flipper-pair.css";
 
-function FlipperCard({ messages = [], direction = "up", active, label = "updates" }) {
+function FlipperCard({
+  messages = [],
+  direction = "up",
+  active,
+  label = "updates",
+}) {
   const [index, setIndex] = useState(0);
   const [flipping, setFlipping] = useState(false);
   const [flipCount, setFlipCount] = useState(0);
@@ -20,7 +25,6 @@ function FlipperCard({ messages = [], direction = "up", active, label = "updates
 
       setRemaining((r) => (r > 0 ? r - 1 : 0)); // keep existing decrement if still used elsewhere
     }, 600);
-
 
     return () => clearTimeout(flipTimeout);
   }, [active, messages.length]);
@@ -57,7 +61,9 @@ function FlipperCard({ messages = [], direction = "up", active, label = "updates
                 return (
                   <span
                     key={i}
-                    className={`fp-dot ${i === activeDot ? "fp-dot-active" : ""}`}
+                    className={`fp-dot ${
+                      i === activeDot ? "fp-dot-active" : ""
+                    }`}
                     aria-hidden="true"
                   />
                 );
@@ -71,23 +77,23 @@ function FlipperCard({ messages = [], direction = "up", active, label = "updates
           </div>
           <div className="fp-card-glow"></div>
         </div>
-           <div
-              className="fp-dot-indicator fp-dot-row"
-              aria-label={`${label} progress`}
-              role="img"
-              aria-live="polite"
-            >
-              {Array.from({ length: 4 }).map((_, i) => {
-                const activeDot = flipCount % 4; // forward progression
-                return (
-                  <span
-                    key={i}
-                    className={`fp-dot ${i === activeDot ? "fp-dot-active" : ""}`}
-                    aria-hidden="true"
-                  />
-                );
-              })}
-            </div>
+        <div
+          className="fp-dot-indicator fp-dot-row"
+          aria-label={`${label} progress`}
+          role="img"
+          aria-live="polite"
+        >
+          {Array.from({ length: 4 }).map((_, i) => {
+            const activeDot = flipCount % 4; // forward progression
+            return (
+              <span
+                key={i}
+                className={`fp-dot ${i === activeDot ? "fp-dot-active" : ""}`}
+                aria-hidden="true"
+              />
+            );
+          })}
+        </div>
       </div>
     );
   }
@@ -113,10 +119,7 @@ function FlipperCard({ messages = [], direction = "up", active, label = "updates
             {/* Live decreasing count */}
             {/* Dot indicator replaces numeric count */}
 
-
-
             <div className="fp-pulse-indicator" aria-hidden="true"></div>
-            
           </div>
 
           {current.url ? (
@@ -133,48 +136,72 @@ function FlipperCard({ messages = [], direction = "up", active, label = "updates
           ) : (
             <div className="fp-message-text-link" role="note">
               {current.text}
-              <div className="fp-link-arrow" aria-hidden="true">→</div>
+              <div className="fp-link-arrow" aria-hidden="true">
+                →
+              </div>
             </div>
           )}
         </div>
 
         <div className="fp-card-glow"></div>
-        
-            <div
-              className="fp-dot-indicator fp-dot-row"
-              aria-label={`${label} progress`}
-              role="img"
-              aria-live="polite"
-            >
-              {Array.from({ length: 4 }).map((_, i) => {
-                const activeDot = flipCount % 4; // forward progression
-                return (
-                  <span
-                    key={i}
-                    className={`fp-dot ${i === activeDot ? "fp-dot-active" : ""}`}
-                    aria-hidden="true"
-                  />
-                );
-              })}
-            </div>
+
+        <div
+          className="fp-dot-indicator fp-dot-row"
+          aria-label={`${label} progress`}
+          role="img"
+          aria-live="polite"
+        >
+          {Array.from({ length: 4 }).map((_, i) => {
+            const activeDot = flipCount % 4; // forward progression
+            return (
+              <span
+                key={i}
+                className={`fp-dot ${i === activeDot ? "fp-dot-active" : ""}`}
+                aria-hidden="true"
+              />
+            );
+          })}
+        </div>
       </div>
-
     </div>
-
   );
 }
 
 export default function FlipperPair() {
   const leftMessages = [
-    { type: "Bulletin Board", text: "Admissions open till Aug 10", url: "/admissions" },
-    { type: "Bulletin Board", text: "Scholarships available for top scorers", url: "/scholarships" },
-    { type: "Bulletin Board", text: "AI & Data Science course launched", url: "/courses/ai-data-science" },
+    {
+      type: "Bulletin Board",
+      text: "Admissions open till Aug 10",
+      url: "/admissions",
+    },
+    {
+      type: "Bulletin Board",
+      text: "Scholarships available for top scorers ",
+      url: "/scholarships",
+    },
+    {
+      type: "Bulletin Board",
+      text: "AI & Data Science course launched",
+      url: "/courses/ai-data-science",
+    },
   ];
 
   const rightMessages = [
-    { type: "Message Board", text: "Placement stats 2025 released", url: "/placements" },
-    { type: "Message Board", text: "100+ top recruiters onboard", url: "/recruiters" },
-    { type: "Message Board", text: "Campus hiring starts Sept 5", url: "/campus-hiring" },
+    {
+      type: "Message Board",
+      text: "Placement stats 2025 released",
+      url: "/placements",
+    },
+    {
+      type: "Message Board",
+      text: "100+ top recruiters onboard",
+      url: "/recruiters",
+    },
+    {
+      type: "Message Board",
+      text: "Campus hiring starts Sept 5",
+      url: "/campus-hiring",
+    },
   ];
 
   const [activeSide, setActiveSide] = useState("left");
@@ -188,7 +215,7 @@ export default function FlipperPair() {
   }, []);
 
   return (
-    <div className="fp-pair-container" style={{ marginTop: "var(--navbar-height)" }}>
+    <div className="fp-pair-container">
       <div className="fp-animated-bg" aria-hidden="true">
         <div className="fp-gradient-orb fp-orb-1"></div>
         <div className="fp-gradient-orb fp-orb-2"></div>
@@ -196,7 +223,6 @@ export default function FlipperPair() {
       </div>
 
       <div className="fp-section">
-        <div className="fp-section-title"></div>
         <FlipperCard
           messages={leftMessages}
           direction="up"
@@ -206,7 +232,6 @@ export default function FlipperPair() {
       </div>
 
       <div className="fp-section">
-        <div className="fp-section-title"></div>
         <FlipperCard
           messages={rightMessages}
           direction="down"

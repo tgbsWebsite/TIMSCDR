@@ -8,6 +8,8 @@ import VisionMission from "./components/VisionMission";
 import WelcomeSection from "./components/WelcomeSection";
 import Recruiters from "./components/Recruiters";
 import Flipper from "./components/Flipper";
+// import NavbarWithFlipper from "./components/NavbarWithFlipper";
+
 import Testimonials from "./components/Testimonials";
 import Footer from "./components/Footer";
 import LatestHappenings from "./components/LatestHappenings";
@@ -24,9 +26,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-    <div style={{ marginTop: "var(--navbar-height)" }}>
-  <Flipper />
-</div>
+      <Flipper />
 
       {/* <BrochureForm/> */}
       <CTAButton />

@@ -4,6 +4,7 @@ import "./navbar.css";
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [openMobileItem, setOpenMobileItem] = useState(null);
+  const [openSubmenu, setOpenSubmenu] = useState({});
 
   // Example logo sources. Replace with actual.
   const logoSrc = "/logo.svg";
@@ -19,9 +20,60 @@ function Navbar() {
     return () => (document.body.style.overflow = original || "");
   }, [menuOpen]);
 
-  // Sample menu data (replace with your existing dropdownContent)
+  // Auto flip submenu for desktop dropdown (existing logic)
+  useEffect(() => {
+    const dropdownItems = document.querySelectorAll(".dropdown-item");
+    const adjustDirection = (item) => {
+      const submenu = item.querySelector(".submenu");
+      if (!submenu) return;
+
+      submenu.classList.remove("submenu-up", "submenu-left");
+
+      submenu.style.display = "flex";
+      submenu.style.opacity = "0";
+      submenu.style.visibility = "hidden";
+      submenu.style.pointerEvents = "none";
+
+      const rect = submenu.getBoundingClientRect();
+      const viewportWidth = window.innerWidth;
+      const viewportHeight = window.innerHeight;
+
+      submenu.style.display = "";
+      submenu.style.opacity = "";
+      submenu.style.visibility = "";
+      submenu.style.pointerEvents = "";
+
+      const spaceRight = viewportWidth - rect.right;
+      const spaceBottom = viewportHeight - rect.bottom;
+
+      if (spaceBottom < 0 && rect.top > rect.height) {
+        submenu.classList.add("submenu-up");
+      }
+      if (spaceRight < 0) {
+        submenu.classList.add("submenu-left");
+      }
+    };
+
+    const listeners = [];
+
+    dropdownItems.forEach((item) => {
+      const listener = () => adjustDirection(item);
+      item.addEventListener("mouseenter", listener);
+      item.addEventListener("focusin", listener);
+      listeners.push({ item, listener });
+    });
+
+    return () => {
+      listeners.forEach(({ item, listener }) => {
+        item.removeEventListener("mouseenter", listener);
+        item.removeEventListener("focusin", listener);
+      });
+    };
+  }, []);
+
+  // Dropdown content structure (same as you provided)
   const dropdownContent = {
-    Home : [],
+    Home: [],
     About: [
       { name: "Vission & Mission", link: "/about/Vision-Mission" },
       {
@@ -53,7 +105,7 @@ function Navbar() {
             name: (
               <>
                 Energy Conservation, <br />
-                Water Management And <br /> Waste Management Policy
+                Water Management And <br /> Waste Management Policy{" "}
               </>
             ),
             link: "/facilities/digital-resources",
@@ -85,21 +137,7 @@ function Navbar() {
         name: "Ph. D.(Technology)",
         link: "/programs/ph-d-admission",
       },
-    ],
-    // About: [
-    //   { name: "About US", link: "/about-us" },
-    //   { name: "Chairman's Message", link: "/about/chairman-message" },
-    //   { name: "CEO's Message", link: "/about/ceo-message" },
-    //   { name: "CFO's Message", link: "/about/cfo-message" },
-    //   { name: "Director's Message", link: "/about/director-message" },
-    //   {
-    //     name: "Deputy Director's Message",
-    //     link: "/about/deputy-director-message",
-    //   },
-    //   { name: "Advisory Board", link: "/about/advisory-board" },
-    //   { name: "Governing Council", link: "/about/governing-council" },
-    //   { name: "Cells & Committee", link: "/about/cells-committee" },
-    // ],
+    ], // About: [ //   { name: "About US", link: "/about-us" }, //   { name: "Chairman's Message", link: "/about/chairman-message" }, //   { name: "CEO's Message", link: "/about/ceo-message" }, //   { name: "CFO's Message", link: "/about/cfo-message" }, //   { name: "Director's Message", link: "/about/director-message" }, //   { //     name: "Deputy Director's Message", //     link: "/about/deputy-director-message", //   }, //   { name: "Advisory Board", link: "/about/advisory-board" }, //   { name: "Governing Council", link: "/about/governing-council" }, //   { name: "Cells & Committee", link: "/about/cells-committee" }, // ],
     Admissions: [
       { name: "Ph.D. Admission", link: "/programs/ph-d-admission" },
       {
@@ -130,8 +168,8 @@ function Navbar() {
       { name: "Student Downloads", link: "/student-downloads" },
       {
         name: "NDML Academic Depository (NAD)",
-        link: "https://timscdrmumbai.in/wp-content/uploads/2022/05/NDML-Academic-Depository-NAD.pdf"
-      }
+        link: "https://timscdrmumbai.in/wp-content/uploads/2022/05/NDML-Academic-Depository-NAD.pdf",
+      },
     ],
     Facilities: [
       { name: "Infrastructure", link: "/facilities/infrastructure" },
@@ -162,11 +200,12 @@ function Navbar() {
         ],
       },
     ],
-
-
     "R&D": [
       { name: "Research Cell", link: "/research-cell" },
-      { name: "Institution Innovation Council (IIC)", link: "/institution-innovation-council-iic" },
+      {
+        name: "Institution Innovation Council (IIC)",
+        link: "/institution-innovation-council-iic",
+      },
       {
         name: "International Conference >>",
         link: null,
@@ -179,7 +218,6 @@ function Navbar() {
             name: "International Conference (ICAIM) 2024",
             link: "/facilities/digital-resources",
           },
-
           {
             name: "International Conference (ICAIM) 2023",
             link: "/facilities/library-timings",
@@ -223,28 +261,42 @@ function Navbar() {
       { name: "Consultancy", link: "/research/consultancy" },
       { name: "IoT Excellence", link: "/research/iot-excellence" },
     ],
-
     Placements: [
-      { name: "About Placement", link: "/best-mca-college-in-mumbai-for-placements-about-placement" },
+      {
+        name: "About Placement",
+        link: "/best-mca-college-in-mumbai-for-placements-about-placement",
+      },
       { name: "Training Programme", link: "/training-programme" },
       { name: "Placement Data", link: "/placement-data" },
       {
         name: "Training And Placement Policy",
-        link: "https://timscdrmumbai.in/wp-content/uploads/2022/10/Placement-Policy.pdf"
+        link: "https://timscdrmumbai.in/wp-content/uploads/2022/10/Placement-Policy.pdf",
       },
     ],
-
     IQAC: [
-      { name: "NAAC-IIQA", link: "https://timscdrmumbai.in/wp-content/uploads/2022/09/Institutional-Information-for-Quality-AssessmentIIQA.pdf" },
-      { name: "NAAC-SSR", link: "https://timscdrmumbai.in/wp-content/uploads/2022/09/SELF-STUDY-REPORT-SSR.pdf" },
-      { name: "NAAC Certificate", link: "https://timscdrmumbai.in/wp-content/uploads/2023/01/NAAC-Certificate.pdf" },
-      { name: "NAAC AQAR - 2023", link: "https://timscdrmumbai.in/wp-content/uploads/2024/03/AQAR-2023-Submitted-to-NAAC-December-16-2023.pdf" },
-      { name: "NAAC AQAR - 2024", link: "https://www.timscdrmumbai.in/wp-content/uploads/2025/05/AQAR-SUBMITTED-2023-24-Dec-12-2024.pdf" },
+      {
+        name: "NAAC-IIQA",
+        link: "https://timscdrmumbai.in/wp-content/uploads/2022/09/Institutional-Information-for-Quality-AssessmentIIQA.pdf",
+      },
+      {
+        name: "NAAC-SSR",
+        link: "https://timscdrmumbai.in/wp-content/uploads/2022/09/SELF-STUDY-REPORT-SSR.pdf",
+      },
+      {
+        name: "NAAC Certificate",
+        link: "https://timscdrmumbai.in/wp-content/uploads/2023/01/NAAC-Certificate.pdf",
+      },
+      {
+        name: "NAAC AQAR - 2023",
+        link: "https://timscdrmumbai.in/wp-content/uploads/2024/03/AQAR-2023-Submitted-to-NAAC-December-16-2023.pdf",
+      },
+      {
+        name: "NAAC AQAR - 2024",
+        link: "https://www.timscdrmumbai.in/wp-content/uploads/2025/05/AQAR-SUBMITTED-2023-24-Dec-12-2024.pdf",
+      },
     ],
-
     Examination: [
       { name: "Notice", link: "/notice" },
-
       {
         name: "Result >>",
         link: "",
@@ -264,8 +316,7 @@ function Navbar() {
         link: "/examination/convocation",
       },
     ],
-
-    Life: [
+    "Life@TIMSCDR": [
       {
         name: "Development Program >>",
         link: "/life/activities",
@@ -323,10 +374,9 @@ function Navbar() {
           { name: "Green Club", link: "/life/green-club" },
           { name: "CSI‑TIMSCDR", link: "/life/csi-timscdr" },
           { name: "IEEE‑TIMSCDR", link: "/life/ieee-timscdr" },
-          { name: "D‑Link Academy Lab", link: "/life/dlink-academy-lab" }
-        ]
+          { name: "D‑Link Academy Lab", link: "/life/dlink-academy-lab" },
+        ],
       },
-
       {
         name: "Events >>",
         link: "/life/facilities",
@@ -437,7 +487,6 @@ function Navbar() {
         ],
       },
     ],
-
     Alumni: [
       { name: "Alumni Portal", link: "/alumni-simulation" },
       { name: "Alumni Association", link: "/alumni-talk" },
@@ -445,7 +494,6 @@ function Navbar() {
       { name: "Our Distinguished Alumni", link: "/alumni/testimonials" },
       { name: "Alumni Testimonials", link: "/alumni/achievements" },
     ],
-
     Contact: [
       { name: "Contact Us", link: "/contact" },
       {
@@ -464,8 +512,8 @@ function Navbar() {
           {
             name: (
               <>
-                AICTE-Faculty <br /> Position Qualification <br />
-                And Experience Eligibility
+                AICTE-Faculty <br /> Position Qualification <br /> And
+                Experience Eligibility{" "}
               </>
             ),
             link: "/facilities/library-timings",
@@ -474,9 +522,7 @@ function Navbar() {
             name: (
               <>
                 UoM-Faculty Position <br /> Qualification And <br /> Experience
-                Eligibility
-                <br />
-                CONCOL/ICC/04 Of 2012
+                Eligibility <br /> CONCOL/ICC/04 Of 2012{" "}
               </>
             ),
             link: "/facilities/library-timings",
@@ -499,7 +545,6 @@ function Navbar() {
           <div className="nav-logo">
             <img src={logoSrc} alt="TIMSCDR" />
           </div>
-
           <div className="nav-buttons" aria-hidden={false}>
             <div className="nav-button1 button ">
               <a href="/apply">Enquire Now</a>
@@ -508,7 +553,6 @@ function Navbar() {
               <a href="/download-brochure">Download Brochure</a>
             </div>
           </div>
-
           <button
             className="menu-button"
             aria-label="Open menu"
@@ -520,7 +564,7 @@ function Navbar() {
           </button>
         </div>
 
-        {/* Desktop primary menu */}
+        {/* Desktop Navbar */}
         <nav className="navbar-menu" aria-label="Primary">
           <ul className="nav-menu">
             {categories.map((cat) => (
@@ -528,12 +572,22 @@ function Navbar() {
                 <a href="#" onClick={(e) => e.preventDefault()}>
                   {cat}
                 </a>
-
-                <div className="dropdown" role="menu" aria-label={`${cat} menu`}>
+                <div
+                  className="dropdown"
+                  role="menu"
+                  aria-label={`${cat} menu`}
+                >
                   {dropdownContent[cat].map((item, idx) =>
                     item.submenu ? (
-                      <div className="dropdown-item" key={`${cat}-sub-${idx}`} tabIndex={0}>
-                        <a href={item.link || "#"} onClick={(e) => e.preventDefault()}>
+                      <div
+                        className="dropdown-item"
+                        key={`${cat}-sub-${idx}`}
+                        tabIndex={0}
+                      >
+                        <a
+                          href={item.link || "#"}
+                          onClick={(e) => e.preventDefault()}
+                        >
                           {item.name}
                         </a>
                         <div className="submenu" role="menu">
@@ -557,7 +611,8 @@ function Navbar() {
         </nav>
       </div>
 
-      {/* Mobile drawer */}
+      {/* Mobile Navbar */}
+      {/* Mobile Navbar */}
       <aside
         id="mobileMenu"
         className={`mobile-menu ${menuOpen ? "open" : ""}`}
@@ -565,12 +620,12 @@ function Navbar() {
       >
         <div className="mobile-menu-header">
           <div className="menu-logo">
-            <img src={logoSrc} alt="TIMSCDR" />
+            <img src={logoSrc} alt="TIMSCR" />
           </div>
           <img
             className="close-button"
             src={closeIcon}
-            alt="Close"
+            alt="Close menu"
             onClick={() => setMenuOpen(false)}
           />
         </div>
@@ -578,30 +633,90 @@ function Navbar() {
         <div className="mobile-dropdown-container">
           {categories.map((cat) => {
             const isOpen = openMobileItem === cat;
+            const toggleCategoryOpen = () =>
+              setOpenMobileItem(isOpen ? null : cat);
+
+            const toggleSubmenu = (idx) => {
+              setOpenSubmenu((prev) => ({
+                ...prev,
+                [cat]: prev[cat] === idx ? null : idx,
+              }));
+            };
+
+            const catOpenSubmenu = openSubmenu[cat] ?? null;
+
             return (
-              <React.Fragment key={`m-${cat}`}>
+              <React.Fragment key={cat}>
                 <button
-                  className={`menu-item ${isOpen ? "open" : ""}`}
-                  onClick={() => setOpenMobileItem(isOpen ? null : cat)}
+                  className={`menu-item${isOpen ? " open" : ""}`}
+                  onClick={toggleCategoryOpen}
                   aria-expanded={isOpen}
                 >
                   <span>{cat}</span>
                   <img className="arrow" src={chevronIcon} alt="" />
                 </button>
-
-                <div className="mobile-dropdown-content" hidden={!isOpen}>
+                <div
+                  className={`mobile-dropdown-content${isOpen ? " open" : ""}`}
+                >
                   {dropdownContent[cat].map((item, idx) =>
                     item.submenu ? (
-                      <React.Fragment key={`m-${cat}-grp-${idx}`}>
-                        <div style={{ fontWeight: 700, padding: "8px 0" }}>{item.name}</div>
-                        {item.submenu.map((sub, sidx) => (
-                          <a key={`m-${cat}-sub-${sidx}`} href={sub.link} onClick={() => setMenuOpen(false)}>
-                            {sub.name}
-                          </a>
-                        ))}
-                      </React.Fragment>
+                      <div key={`submenu-${cat}-${idx}`}>
+                        <button
+                          className={`submenu-toggle${
+                            catOpenSubmenu === idx ? " open" : ""
+                          }`}
+                          onClick={() => toggleSubmenu(idx)}
+                          aria-expanded={catOpenSubmenu === idx}
+                          style={{
+                            fontWeight: "700",
+                            padding: "8px 0",
+                            background: "none",
+                            border: "none",
+                            width: "100%",
+                            textAlign: "left",
+                            cursor: "pointer",
+                            marginBottom: "6px",
+                            display: "flex",
+                            justifyContent: "space-between",
+                            alignItems: "center",
+                          }}
+                        >
+                          {item.name}
+                          {/* <img
+                            className="arrow"
+                            src={chevronIcon}
+                            alt="toggle submenu"
+                            style={{
+                              transform:
+                                catOpenSubmenu === idx
+                                  ? "rotate(180deg)"
+                                  : "rotate(0deg)",
+                            }}
+                          /> */}
+                        </button>
+                        {catOpenSubmenu === idx && (
+                          <div
+                            className="mobile-dropdown-content open"
+                            style={{ paddingLeft: "12px" }}
+                          >
+                            {item.submenu.map((sub, sidx) => (
+                              <a
+                                key={`subitem-${cat}-${idx}-${sidx}`}
+                                href={sub.link}
+                                onClick={() => setMenuOpen(false)}
+                              >
+                                {sub.name}
+                              </a>
+                            ))}
+                          </div>
+                        )}
+                      </div>
                     ) : (
-                      <a key={`m-${cat}-link-${idx}`} href={item.link} onClick={() => setMenuOpen(false)}>
+                      <a
+                        key={`item-${cat}-${idx}`}
+                        href={item.link}
+                        onClick={() => setMenuOpen(false)}
+                      >
                         {item.name}
                       </a>
                     )
