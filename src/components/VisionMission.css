@@ -1,88 +1,75 @@
+/* Section shell */
+.vision-mission-section {
+  padding: clamp(16px, 4vw, 48px);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Responsive wrapper: grid with fluid gaps and paddings */
 .vision-mission-wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 4rem 10rem;
-  gap: 4rem;
-  /* flex-wrap: wrap; */
-  flex-wrap: nowrap;
-}
+  display: grid;
+  grid-template-columns: 1fr 4px 1fr;        /* vision | divider | mission */
+  gap: clamp(16px, 4vw, 48px);
+  padding-inline: clamp(16px, 6vw, 160px);   /* replaces 10rem with fluid value */
+  padding-block: clamp(24px, 5vw, 64px);
+  align-items: start;
+} /* grid adapts more smoothly than nowrap flex */ /* [1] */
 
-.vision, .mission {
-  flex: 1 1 45%;
-}
+/* Columns */
+.vision, .mission { min-width: 0; } /* prevent overflow with long words */ /* [4] */
 
-.vision h2, .mission h2 {
-  font-size: 1.75rem;
-  color: #231f54;
-  margin-bottom: 1rem;
-  text-align: center;
-}
-
-.vision p, .mission p {
-  font-size: 1rem;
-  color: #333;
-  line-height: 1.6;
-  text-align: left;
-}
-
-/* Divider */
+/* Divider stays full height between columns */
 .divider {
   width: 4px;
   background-color: #231f54;
   min-height: 100%;
-  align-self: stretch;
+  justify-self: center;
 }
 
-/* Headings */
+/* Headings and text with fluid sizes */
 .vision-heading,
 .programs-heading,
 .about-us-heading {
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 3.2vw, 2rem);
   font-weight: 700;
   color: #231f54;
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: clamp(16px, 3vw, 32px);
+} /* [3] */
+
+.vision h2, .mission h2 {
+  font-size: clamp(1.25rem, 2.6vw, 1.75rem);
+  color: #231f54;
+  margin-bottom: clamp(10px, 2vw, 16px);
+  text-align: center;
+} /* [3] */
+
+.vision p, .mission p {
+  font-size: clamp(0.95rem, 1.5vw, 1rem);
+  color: #333;
+  line-height: 1.65;
+  text-align: left;
 }
 
-.vision-mission-section {
-  padding: 2rem;
-}
-
-/* ✅ Responsive Media Query */
+/* Large tablet and below: collapse to single column, hide divider */
 @media (max-width: 1024px) {
   .vision-mission-wrapper {
-    padding: 2rem;
-    gap: 2rem;
+    grid-template-columns: 1fr;  /* single column */
+    padding-inline: clamp(16px, 5vw, 32px);
+    gap: clamp(14px, 4vw, 24px);
   }
-
-  .vision, .mission {
-    flex: 1 1 100%;
-  }
-
-  .divider {
-    display: none;
-  }
-
-  .vision h2, .mission h2 {
-    font-size: 1.5rem;
-  }
-
-  .vision p, .mission p {
-    font-size: 0.95rem;
-  }
+  .divider { display: none; }
 }
 
+/* Narrow phones: slightly tighter typography and padding */
 @media (max-width: 600px) {
-  .vision h2, .mission h2 {
-    font-size: 1.3rem;
-  }
-
-  .vision p, .mission p {
-    font-size: 0.9rem;
-  }
-
   .vision-mission-section {
-    padding: 1rem;
+    padding: clamp(12px, 4.5vw, 20px);
+  }
+  .vision h2, .mission h2 {
+    font-size: clamp(1.1rem, 5vw, 1.3rem);
+  }
+  .vision p, .mission p {
+    font-size: clamp(0.9rem, 4.2vw, 0.95rem);
   }
 }
