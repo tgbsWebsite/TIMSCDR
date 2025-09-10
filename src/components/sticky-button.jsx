@@ -51,9 +51,8 @@ const CTAButton = () => {
         const x = e.clientX - rect.left - rect.width / 2;
         const y = e.clientY - rect.top - rect.height / 2;
 
-        this.style.transform = `scale(1.05) rotateX(${y / 10}deg) rotateY(${
-          x / 10
-        }deg)`;
+        this.style.transform = `scale(1.05) rotateX(${y / 10}deg) rotateY(${x / 10
+          }deg)`;
       });
 
       button.addEventListener("mouseleave", function () {
@@ -62,13 +61,13 @@ const CTAButton = () => {
     });
 
     // Mobile static button interaction
-    const mobileButton = document.querySelector(".tims-cta-static-button");
-    if (mobileButton) {
-      mobileButton.addEventListener("click", (e) => {
-        e.preventDefault();
-        showNotification("📥 Brochure download initiated!");
-      });
-    }
+    // const mobileButton = document.querySelector(".tims-cta-static-button");
+    // if (mobileButton) {
+    //   mobileButton.addEventListener("click", (e) => {
+    //     e.preventDefault();
+    //     showNotification("📥 Brochure download initiated!");
+    //   });
+    // }
 
     // Notification function
     function showNotification(message) {
@@ -149,47 +148,47 @@ const CTAButton = () => {
             <span className="tims-text">Enquire Now</span>
           </div>
 
-          <div className="tims-cta-button tims-phone" tabIndex={0}>
-            <span className="tims-icon">
-              <div className="tims-icon-placeholder">📞</div>
+          <div className="tims-cta-button tims-phone" role="button" tabIndex={0} aria-label="Call Us">
+            <span className="tims-icon" aria-hidden="true">
+              <img src="/Website_Assets/call_3735213.png" alt="" width="30" height="30" />
             </span>
             <span className="tims-text">Call Us</span>
           </div>
 
+
           <div className="tims-cta-button tims-email" tabIndex={0}>
             <span className="tims-icon">
-              <div className="tims-icon-placeholder">✉️</div>
-            </span>
+              <img src="/Website_Assets/mail_4175251.png" alt="" width="30" height="30" />            </span>
             <span className="tims-text">Email Us</span>
           </div>
-
+          {/* 
           <div className="tims-cta-button tims-whatsapp" tabIndex={0}>
             <span className="tims-icon">
               <div className="tims-icon-placeholder">💬</div>
             </span>
             <span className="tims-text">WhatsApp</span>
-          </div>
+          </div> */}
 
-          <div className="tims-cta-button tims-linkedin" tabIndex={0}>
+          {/* <div className="tims-cta-button tims-linkedin" tabIndex={0}>
             <span className="tims-icon">
               <div className="tims-icon-placeholder">💼</div>
             </span>
             <span className="tims-text">LinkedIn</span>
-          </div>
+          </div> */}
 
-          <div className="tims-cta-button tims-instagram" tabIndex={0}>
+          {/* <div className="tims-cta-button tims-instagram" tabIndex={0}>
             <span className="tims-icon">
               <div className="tims-icon-placeholder">📷</div>
             </span>
             <span className="tims-text">Instagram</span>
-          </div>
-
+          </div> */}
+          {/* 
           <div className="tims-cta-button tims-facebook" tabIndex={0}>
             <span className="tims-icon">
               <div className="tims-icon-placeholder">👍</div>
             </span>
             <span className="tims-text">Facebook</span>
-          </div>
+          </div> */}
         </div>
       </div>
     </>

@@ -406,6 +406,7 @@
 /* ---------- Global ---------- */
 .seatPage {
   line-height: 1.6;
+  margin: 150px auto 40px auto;
 }
 
 /* ---------- Layout ---------- */
@@ -851,8 +852,9 @@
 
 .intro-text {
   color: #666;
-  font-style: italic;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
+
+  
 }
 
 /* AdmissionNotifications*/
@@ -1426,7 +1428,7 @@ body {
   }
 
   .smp-content-card {
-    padding: 2rem;
+    padding: 40px;
   }
 }
 

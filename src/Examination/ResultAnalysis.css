@@ -10,8 +10,8 @@
   max-width: 100%; /* remove width limit */
   width: 100%; /* full width */
   box-sizing: border-box; /* include padding */
-      margin: 168px auto 40px auto;
-}
+margin: 150px auto 40px auto;
+padding: 40px 20px}
 
 .main-card {
   padding: 32px;

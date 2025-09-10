@@ -43,7 +43,7 @@ const TechTonics = () => {
       <CTAButtons />
       <main className="TechTonics-container">
         <section className="TechTonics-intro">
-          <h1 className="TechTonics-title">Research Journal – TechTonics</h1>
+          <h1 className="heading">Research Journal – TechTonics</h1>
           <p className="TechTonics-description">
             TechTonics is a biannual research journal which publishes a collection of scholarly research papers written by students of MCA on various advanced technologies.
             TechTonics is allocated the ISSN 2455-071X by National Science Library (NSL). The research journal aims to inculcate the ability to think and elaborate new ideas amongst the students in the dynamic field of Information Technology.

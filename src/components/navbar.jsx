@@ -75,9 +75,9 @@ function Navbar() {
   const dropdownContent = {
     Home: [],
     About: [
-      { name: "Vission & Mission", link: "/about/Vision-Mission" },
+      { name: "Vision & Mission", link: "/about/Vision-Mission" },
       {
-        name: "Educational Organization Policys",
+        name: "Educational Organization Policies",
         link: "/about/Education-Policies",
       },
       { name: "Chairman's Message", link: "/about/chairman-message" },
@@ -96,23 +96,23 @@ function Navbar() {
         name: "Organogram",
         link: "/pdf/about/TIMSCDR-Organization-Chart-Final-1",
       },
-      {
+            {
         name: "Our Policies >>",
         link: "",
         submenu: [
-          { name: "Divyangjan Policy", link: "/facilities/library-rules" },
+          { name: "Divyangjan Policy", link: "https://timscdrmumbai.in/wp-content/uploads/2022/09/TIMSCDR-DRC-Notice.pdf" },
           {
             name: (
               <>
                 Energy Conservation, <br />
-                Water Management And <br /> Waste Management Policy{" "}
+                Water Management And <br /> Waste Management Policy
               </>
             ),
-            link: "/facilities/digital-resources",
+            link: "https://timscdrmumbai.in/wp-content/uploads/2022/09/TIMSCDR-Energy-Water-Waste-Notice.pdf",
           },
-          { name: "IPR Policy", link: "/facilities/library-timings" },
-          { name: "NISP Policy", link: "/about/nisp-policy" },
-          { name: "QIP Policy", link: "/facilities/library-timings" },
+          { name: "IPR Policy", link: "https://timscdrmumbai.in/wp-content/uploads/2022/10/IPR-Policy.pdf" },
+          { name: "NISP Policy", link: "https://timscdrmumbai.in/national-innovation-and-startup-policy-2019-for-students-and-faculty/" },
+          { name: "QIP Policy", link: "https://www.timscdrmumbai.in/wp-content/uploads/2025/04/TIMSCDR-QIP-Policy.pdf" },
         ],
       },
     ],

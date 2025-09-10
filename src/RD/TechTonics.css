@@ -1,10 +1,10 @@
 .TechTonics-container {
-  max-width: 900px;
-  margin: 3rem auto 5rem;
-  padding: 10% 1rem;
-  font-family: 'Inter', sans-serif;
+  max-width: 95%;
+  padding: 40px 20px;
   color: #2c3e50;
   line-height: 1.6;
+    margin: 150px auto 40px auto;
+
   
 }
 
@@ -24,7 +24,8 @@
 
 .TechTonics-description {
   font-size: 1.2rem;
-  max-width: 650px;
+  align-items: justify;
+  text-align: left;
   margin: 0 auto;
   opacity: 0.83;
   line-height: 1.6;
@@ -40,10 +41,10 @@
 }
 
 .TechTonics-volumes {
-  background: #f8fafc;
+  /* background: #f8fafc; */
   padding: 1rem 2rem;
   border-radius: 12px;
-  box-shadow: 0 6px 20px rgb(102 126 234 / 0.1);
+  /* box-shadow: 0 6px 20px rgb(102 126 234 / 0.1); */
 }
 
 .TechTonics-volume-list {
@@ -65,14 +66,14 @@
 }
 
 .TechTonics-volume-link {
-  color: #667eea;
+  color:#3f3d9b;
   text-decoration: none;
   font-weight: 600;
   transition: color 0.3s ease;
 }
 
 .TechTonics-volume-link:hover {
-  color: #ff6b6b;
+  color: #3f3d9b;
   text-decoration: underline;
 }
 

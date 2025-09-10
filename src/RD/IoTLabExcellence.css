@@ -5,9 +5,10 @@
   box-sizing: border-box;
 }
 .IoTLabExcellence-container {
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
-  margin-top: 9%;
+    margin: 150px auto 40px auto;
+
   padding: 0 20px;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   line-height: 1.6;
@@ -17,7 +18,7 @@
 
 /* HERO */
 .IoTLabExcellence-hero {
-  background: linear-gradient(135deg, rgba(102,126,234,0.1), rgba(118,75,162,0.1));
+  background:white;
   padding: 80px 0;
   text-align: center;
   position: relative;
@@ -30,13 +31,9 @@
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(102,126,234,0.1), transparent 70%);
   animation: IoTLabExcellence-float 20s ease-in-out infinite;
 }
-@keyframes IoTLabExcellence-float {
-  0%,100% { transform: translateY(0) rotate(0);}
-  50% { transform: translateY(-20px) rotate(180deg);}
-}
+
 .IoTLabExcellence-hero h2 {
   font-size: 3rem;
   text-align: center;

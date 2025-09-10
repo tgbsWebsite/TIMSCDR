@@ -1,7 +1,7 @@
 .Consultancy-container {
   max-width: 1200px;
-  margin: 176px auto 40px auto;
-  padding: 0 1.5rem;
+  margin: 150px auto 40px auto;
+ padding: 40px 20px;
   color: #263142;
   font-family: 'Inter', sans-serif;
   background: #f7fafd;
@@ -24,9 +24,11 @@
   font-size: 1.1rem;
   line-height: 1.7;
   color: #222;
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
   opacity: 0.92;
+  align-items: justify;
+  text-align: center;
 }
 
 .Consultancy-section-title {

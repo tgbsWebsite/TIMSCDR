@@ -184,6 +184,7 @@ body {
 .training-content {
   max-width: 1400px;
   margin: 0 auto;
+  margin: 150px auto 40px auto;
   
   gap: 80px;
   align-items: start;

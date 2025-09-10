@@ -44,9 +44,10 @@
 .section-padding {
   margin: 150px auto 40px auto;
   width: 100%;
+  padding: 40px 20px;
 }
 .intro-text {
-  max-width: 960px;
+  max-width: 1200px;
   margin: 0 auto 3rem auto;
   color: #374151; /* gray-700 */
   font-size: 1.125rem;
@@ -700,10 +701,10 @@ body,
 /* MAIN */
 .infra-main {
   width: 100%;
-  padding: 2rem 1rem; /* content padding */
+  padding: 40px 20px; /* content padding */
   margin: 0;
   box-sizing: border-box;
-  margin-top: 8rem; /* pushes main down, adjust as needed */
+  margin: 150px auto 40px auto; /* pushes main down, adjust as needed */
 }
 
 .infra-heading {

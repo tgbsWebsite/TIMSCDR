@@ -2,12 +2,12 @@ import './LatestHappenings.css';
 
 function LatestHappenings() {
   const events = [
-    { id: 1, image: '/images/event1.png', alt: 'Annual Fest' },
-    { id: 2, image: '/images/event2.png', alt: 'Tech Seminar' },
-    { id: 3, image: '/images/event3.png', alt: 'Cultural Day' },
-    { id: 4, image: '/images/event4.png', alt: 'Sports Week' },
-    { id: 5, image: '/images/event5.png', alt: 'Hackathon' },
-    { id: 6, image: '/images/event6.png', alt: 'Guest Lecture' }
+    { id: 1, image: '/Events/image00108.jpeg', alt: 'Annual Fest' },
+    { id: 2, image: '/Seminar/00002.jpeg', alt: 'Tech Seminar' },
+    { id: 3, image: '/Events/IMG_0649.jpeg', alt: 'Cultural Day' },
+    { id: 4, image: '/Events/IMG20250317111126.jpg', alt: 'Sports Week' },
+    { id: 5, image: '/Events/image00060.jpeg', alt: 'Hackathon' },
+    { id: 6, image: '/Seminar/IMG_9612.jpeg', alt: 'Guest Lecture' }
   ];
 
   // Prefix: lh- (Latest Happenings)

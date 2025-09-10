@@ -1,7 +1,9 @@
 /* Table Container */
 .table-container {
   overflow-x: auto;
-  width: 80%;
+  width: 100%;
+  padding: 0px 50px;
+
 }
 
 /* Table */

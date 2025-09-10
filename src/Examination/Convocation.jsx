@@ -251,17 +251,16 @@ export default function Convocation() {
             className="conv-carousel"
           >
             <div>
-              <img
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0lQECEs7e7VwNguCcfr7TdNsFTlQoluADmR1__Xjrhy4orFeqIjuW-RtyLFUrqkI7bojevAWTmj7UTgi3YwtAnTT_0bxwpVemD9SfOwHCRkdO_6nVRdeqMqaimR4eyu_V3swpuuq66yJJxNFGuaN7NhSQKkvybZ_tnDhye3PCf_JEDL9teo8yOnl-IfIhgYIWLPvo-U3texS4srzrIfVI7fYZs934BjL5qEwur1Dx7kko4tnv7dJSrEUCs2SebehfuWhb532Y9T4X"
-                alt="Graduates throwing caps"
+              <img style={{ marginTop: "50px", objectFit: "cover" }}
+ src="/images/IMG_1171.jpeg"                alt="Graduates throwing caps"
               />
             </div>
-            <div>
+            {/* <div>
               <img
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdzRizeSxjTMLnTcO9ijr-DeiRMAt2GTxw4nqvyUHvmxOHwIdR_rYBjUSyucliItp5f8PRxdc6Ft9vAf2qPYg7MZls-ZRSIQwjD4aVQUbTMUUqpcsD8KvJPS1TbK3pAntPpcQRS2q7mNmkuOYw3aKwp7-EgLYxE7BK6BayyUVgFITFSZblR2dcpr8dszD6nusZohHOe3_Va7q0hw9h52nOuLBKLNiahPhekJN6xPbz0-aMBGhmDvWMwGQbuzuJF7-Mr4y_ULjIDfjq"
                 alt="Group photo at convocation"
               />
-            </div>
+            </div> */}
             {/* Add more images as needed */}
           </Carousel>
         </header>

@@ -138,7 +138,7 @@ body {
 /* Desktop CTA container */
 .tims-cta-container {
   position: fixed;
-  top: 75%;
+  top:60%;
   right: 0;
   transform: translateY(-60%);
   display: flex;
@@ -248,7 +248,7 @@ body {
 }
 
 .tims-cta-button.tims-phone {
-  background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%);
+  background: #2196f3;
 }
 
 .tims-cta-button.tims-phone:hover {
@@ -257,12 +257,12 @@ body {
 }
 
 .tims-cta-button.tims-email {
-  background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+  background: #e5aa17;
   color: #333;
 }
 
 .tims-cta-button.tims-email:hover {
-  background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+  background: #e5aa17;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 

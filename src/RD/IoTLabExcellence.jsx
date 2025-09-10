@@ -268,13 +268,6 @@ const IoTLabExcellence = () => {
           </div>
         </section>
 
-
-        {/* CONTACT */}
-        <section className="IoTLabExcellence-contact" id="contact">
-          <h3>Join Our IoT Excellence Journey</h3>
-          <p>Get hands-on training & real-world experience with IoT projects</p>
-          <a href="#programs" className="IoTLabExcellence-cta-button">Get Started</a>
-        </section>
       </div>
       <Footer />
     </>

@@ -796,8 +796,9 @@ body {
 
 .pip-main {
   width: 100%;
-  margin: 2rem 0; /* no auto-centering */
+  margin: 150px auto 40px auto; /* no auto-centering */
   padding: 0 1.5rem;
+  padding: 40px 20px;
 }
 
 .pip-card {
@@ -873,7 +874,9 @@ body {
 }
 /*Guest Lectures*/
 .guest-lectures-page {
-  padding: 10rem; /* overall page padding */
+  padding: 40px 20px;
+  margin: 150px auto 40px auto
+   /* overall page padding */
 }
 
 .conv-table-wrapper {
