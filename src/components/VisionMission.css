@@ -1,6 +1,7 @@
 /* Section shell */
 .vision-mission-section {
-  padding: clamp(16px, 4vw, 48px);
+  padding-top: var(--section-gap-top) !important;
+
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -10,8 +11,6 @@
   display: grid;
   grid-template-columns: 1fr 4px 1fr;        /* vision | divider | mission */
   gap: clamp(16px, 4vw, 48px);
-  padding-inline: clamp(16px, 6vw, 160px);   /* replaces 10rem with fluid value */
-  padding-block: clamp(24px, 5vw, 64px);
   align-items: start;
 } /* grid adapts more smoothly than nowrap flex */ /* [1] */
 

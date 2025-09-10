@@ -1,5 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
+import "./index.css";
+
 import Navbar from "./components/navbar";
 import HeroCarousel from "./components/HeroCarousel";
 import LegacySection from "./components/LegacySection";

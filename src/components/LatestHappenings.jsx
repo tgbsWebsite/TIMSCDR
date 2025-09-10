@@ -10,14 +10,15 @@ function LatestHappenings() {
     { id: 6, image: '/images/event6.png', alt: 'Guest Lecture' }
   ];
 
+  // Prefix: lh- (Latest Happenings)
   return (
-    <section id="hero-carousel-section" className="latest-happenings">
-      <h2 className="section-heading">Latest Happenings / What’s New</h2>
-      <div className="photo-grid">
-        {events.map(event => (
-          <div key={event.id} className="photo-item">
-            <img src={event.image} alt={event.alt} />
-            <div className="photo-caption">{event.alt}</div>
+    <section className="lh-root">
+      <h2 className="lh-heading">Latest Happenings / What’s New</h2>
+      <div className="lh-grid">
+        {events.map((event) => (
+          <div key={event.id} className="lh-item">
+            <img src={event.image} alt={event.alt} className="lh-img" />
+            <div className="lh-caption">{event.alt}</div>
           </div>
         ))}
       </div>

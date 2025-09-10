@@ -552,6 +552,8 @@ function Navbar() {
               <img src="/Website_Assets/Asset 21@4x.webp" alt="AICTE approved" />
               <img src="/Website_Assets/Asset 22@4x.webp" alt="University of Mumbai" />
               <img src="/Website_Assets/Asset 23@4x.webp" alt="UGC autonomous" />
+              <img src="/Website_Assets/Asset 18@4x.webp" alt="UGC autonomous" />
+
             </div>
           </div>
 

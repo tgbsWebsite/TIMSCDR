@@ -318,7 +318,7 @@
   gap: 0.75rem;
   font-size: 1.05rem;
   font-weight: 600;
-  color: #1a0dab; /* classic link blue */
+  color: #231f54 ; /* classic link blue */
   text-decoration: none;
   transition: color 0.3s ease, text-decoration 0.3s ease, transform 0.3s ease;
   padding: 0.5rem 0.75rem;

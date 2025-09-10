@@ -1,8 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+* {
+  font-family: "Roboto", sans-serif !important;
+}
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+button,
+input,
+textarea {
+  font-family: "Roboto", sans-serif !important;
+}
+
+h1,
+h2 {
+  color: #231f54 !important;
+  
+}
+
+h1 {
+  font-weight: 700 !important;
+  font-size: clamp(1.25rem, 2.6vw, 1.75rem);
+}
+
+
+h3 {
+  color: #3f3d9b !important;
+}
+
+.container {
+  margin-top: 23vh !important;
+}
+/* Reset browser defaults */
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+hr {
+  /* thickness; adjust as needed */ /* [17] */
+  background-color: #3f3d9b; /* brand color fill */ /* [5] */
+  color: #3f3d9b; /* legacy engines treat color on hr */ /* [8] */
+}
+
+:root {
+  --section-gap-top: 35px;
+}
+
+:root {
+   --heading-gap-top: 18px;
+}
+
 .main-content {
   margin-top: calc(var(--navbar-height) + var(--flipper-height));
 }
 
-html, body, #root {
+html,
+body,
+#root {
   width: 100%;
   overflow-y: scroll; /* Keep scrolling enabled */
 

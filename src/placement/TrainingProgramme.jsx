@@ -74,7 +74,7 @@ const TrainingProgramme = () => {
           </div>
           <div className="training-text">
             <h2>
-              <span className="highlight">Training</span> Programme
+             Training Programme
             </h2>
 
             <div className="program-card">
