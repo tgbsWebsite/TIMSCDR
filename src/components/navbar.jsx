@@ -544,7 +544,7 @@ function Navbar() {
           </div>
           {/* Honors strip inside navbar */}
           {/* Honors strip inside navbar */}
-          <div className="nav-honors">
+          {/* <div className="nav-honors">
             <div className="nav-honors__track">
               <img src="/Website_Assets/Asset 17@4x.webp" alt="NAAC A+ accreditation" />
               <img src="/Website_Assets/Asset 19@4x.webp" alt="ISO certified" />
@@ -555,7 +555,7 @@ function Navbar() {
               <img src="/Website_Assets/Asset 18@4x.webp" alt="UGC autonomous" />
 
             </div>
-          </div>
+          </div> */}
 
 
 

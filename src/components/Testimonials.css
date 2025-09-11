@@ -1,6 +1,7 @@
 .testimonial-wrapper {
-  padding: 2rem;
-  background-color: #f9fafe;
+ padding-top: 2rem;
+  padding-bottom: 1.75rem;
+  /* background-color: #f9fafe; */
 }
 
 .testimonial-heading {

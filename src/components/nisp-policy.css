@@ -119,7 +119,7 @@ section {
   background: #f9fafb;
   padding: 15px 20px;
   border-radius: 8px;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.03);
+  /* box-shadow: 0 1px 6px rgba(0, 0, 0, 0.03); */
   margin-bottom: 1.5rem;
 }
 

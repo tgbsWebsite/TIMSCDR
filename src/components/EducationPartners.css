@@ -1,8 +1,9 @@
 .edu-circle-logos {
-  padding: 3rem 1.5rem;
+  padding-top: 2rem;
+  padding-bottom: 1.75rem;
   background: #fff;
   text-align: center;
-  margin: var(--section-gap-top);
+
   
 
 }

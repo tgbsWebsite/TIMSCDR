@@ -20,14 +20,34 @@ textarea {
 h1,
 h2 {
   color: #231f54 !important;
-  
 }
 
+h2 {
+  font-size: 30px !important;
+  line-height: 4rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 1.5rem !important;
+}
 h1 {
   font-weight: 700 !important;
-  font-size: clamp(1.25rem, 2.6vw, 1.75rem);
+  font-size: clamp(1.5rem, 4vw, 2.5rem) !important;
 }
 
+/* Put this late in the cascade (e.g., in index.css or App.css loaded last) */
+html,
+body {
+  background-color: #ffffff !important; /* force white across all pages */
+  background: #ffffff !important;
+  /* also override any shorthand background */
+}
+
+/* Load this after other styles to win the cascade */
+p {
+  text-align: justify !important; /* justify the paragraph text */
+  text-justify: inter-word !important;
+  font-size: clamp(1rem, 3vw, 1.2rem) !important;
+  color: #333 !important;
+}
 
 h3 {
   color: #3f3d9b !important;
@@ -57,7 +77,7 @@ hr {
 }
 
 :root {
-   --heading-gap-top: 18px;
+  --heading-gap-top: 18px;
 }
 
 .main-content {

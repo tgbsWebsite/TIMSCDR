@@ -12,7 +12,7 @@ function WelcomeSection() {
         </div>
 
         <div className="welcome-text">
-          <h1>Welcome to TIMSCDR</h1>
+          <h2>Welcome to TIMSCDR</h2>
          <p>Thakur Institute of Management Studies, Career Development & Research (TIMSCDR) is the top MCA college in Mumbai, building tech leaders with vision, skill, and a strong focus on application-oriented learning since 2001.</p>
          <p>TIMSCDR combines rigorous academics with hands-on exposure through advanced labs, smart classrooms, industry interaction, and placement-focused training. Its graduates are equipped to lead, innovate, and solve real-world challenges.</p>
          <p>Backed by the legacy of the Thakur Education Group, TIMSCDR provides a thriving campus environment that fuels ambition, fosters excellence, and prepares students for the evolving tech landscape.</p>

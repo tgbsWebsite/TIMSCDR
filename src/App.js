@@ -34,9 +34,10 @@ function App() {
       <CTAButton />
       <HeroCarousel />
       <LegacySection />
-      <Programs />
-      <VisionMission />
+          <VisionMission />
       <WelcomeSection />
+      <Programs />
+  
       <Recruiters />
       <Testimonials />
       <LatestHappenings />
