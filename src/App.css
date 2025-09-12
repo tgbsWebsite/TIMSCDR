@@ -16,10 +16,41 @@ input,
 textarea {
   font-family: "Roboto", sans-serif !important;
 }
+:root{
+  --page-max: 1300px;
+  --page-pad: clamp(12px, 3vw, 32px);
+}
+
+.App{
+  inline-size: 100%;
+}
+
+.page-container{
+  inline-size: min(var(--page-max), 100%);
+  margin-inline: auto;
+  padding-inline: var(--page-pad);
+}
+/* full-bleed utility */
+.full-bleed {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+.section-alt {
+  width: 100%;
+  background-color: #FBFAFD; /* light pastel (alternate) */
+  padding: 60px 0;           /* vertical breathing space */
+}
+
+.section-base {
+  width: 100%;
+  background-color: #ffffff; /* plain white */
+}
 
 h1,
 h2 {
   color: #231f54 !important;
+
 }
 
 h2 {
@@ -27,6 +58,7 @@ h2 {
   line-height: 4rem !important;
     font-weight: 700 !important;
     margin-bottom: 1.5rem !important;
+      text-align: center !important;
 }
 h1 {
   font-weight: 700 !important;

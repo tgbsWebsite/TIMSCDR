@@ -45,7 +45,7 @@ const allLogos = [...images, ...images];
 function Recruiters() {
   return (
     <section className="recruiters-section">
-      <h2 className="recruiters-heading">Our Recruiters</h2>
+      <h2 className="recruiters-heading">Our Recruiters<hr className="about-us-divider" /></h2>
       <div className="logo-slider" aria-label="Recruiter logos">
         <div className="logo-track">
           {allLogos.map((src, index) => (

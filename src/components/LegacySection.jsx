@@ -10,7 +10,8 @@ const LegacySection = () => {
 
       <div className="fs-container">
         <section className="fs-hero">
-          <h1 className="fs-title">24 Years of Future-First Learning</h1>
+          <h2 className="fs-title">24 Years of Future-First Learning</h2>
+          
           <p className="fs-subtitle">
             Where minds are mentored. Where skills are sharpened.
           </p>

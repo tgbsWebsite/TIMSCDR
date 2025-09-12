@@ -29,19 +29,57 @@ function App() {
     <div className="App">
       <Navbar />
       <Flipper />
-
-      {/* <BrochureForm/> */}
-      <CTAButton />
       <HeroCarousel />
-      <LegacySection />
+
+      {/* Welcome (default page container, no background change) */}
+      <div className="page-container">
+        <CTAButton />
+        <WelcomeSection />
+      </div>
+
+      {/* Alternating backgrounds */}
+      <div className="section-alt">
+        <div className="page-container">
           <VisionMission />
-      <WelcomeSection />
-      <Programs />
-  
-      <Recruiters />
-      <Testimonials />
-      <LatestHappenings />
-      <EducationPartners />
+        </div>
+      </div>
+
+      <div className="section-base">
+        <div className="page-container">
+          <LegacySection />
+        </div>
+      </div>
+
+      <div className="section-alt">
+        <div className="page-container">
+          <Programs />
+        </div>
+      </div>
+
+      <div className="section-base">
+        <div className="page-container">
+          <Recruiters />
+        </div>
+      </div>
+
+      <div className="section-alt">
+        <div className="page-container">
+          <Testimonials />
+        </div>
+      </div>
+
+      <div className="section-base">
+        <div className="page-container">
+          <LatestHappenings />
+        </div>
+      </div>
+
+      <div className="section-alt">
+        <div className="page-container">
+          <EducationPartners />
+        </div>
+      </div>
+
       <Footer />
     </div>
   );

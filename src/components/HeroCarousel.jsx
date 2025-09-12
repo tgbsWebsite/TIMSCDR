@@ -2,20 +2,14 @@ import React from "react";
 import "./HeroCarousel.css";
 
 const HeroCarousel = ({
-  src = "/images/Carasouel/TIMSCDR-head-web-1.mp4",
+  src = "/images/Carasouel/head-511.mp4",
   poster = "/images/hero-poster.jpg",
-  height = "600px",          // override per page if needed
-  children,                   // optional overlay content
+  height = "600px",
 }) => {
   return (
-    <section className="video-container">
-    <section
-      className="hero-video"
-      style={{ "--hero-height": height }}
-      aria-label="Hero video section"
-    >
+    <section className="video-container" style={{ "--hero-height": height }}>
       <video
-        className="hero-video__media"
+        className="video-media"
         src={src}
         poster={poster}
         autoPlay
@@ -23,21 +17,6 @@ const HeroCarousel = ({
         loop
         playsInline
       />
-      <div className="hero-video__overlay">
-        {/* Default content; pass children to customize */}
-        {children ?? (
-          <div className="hero-video__content">
-            <h1 className="hero-video__title"></h1>
-            <p className="hero-video__subtitle">
-            
-            </p>
-            <a className="hero-video__cta" href="/admissions">
-              
-            </a>
-          </div>
-        )}
-      </div>
-    </section>
     </section>
   );
 };

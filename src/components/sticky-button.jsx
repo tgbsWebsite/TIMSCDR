@@ -161,34 +161,34 @@ const CTAButton = () => {
               <img src="/Website_Assets/mail_4175251.png" alt="" width="30" height="30" />            </span>
             <span className="tims-text">Email Us</span>
           </div>
-          {/* 
+          
           <div className="tims-cta-button tims-whatsapp" tabIndex={0}>
             <span className="tims-icon">
-              <div className="tims-icon-placeholder">💬</div>
+              <img src="/Website_Assets/whatsapp_11378621.png" alt="" width="30" height="30" />
             </span>
             <span className="tims-text">WhatsApp</span>
-          </div> */}
+          </div>
 
-          {/* <div className="tims-cta-button tims-linkedin" tabIndex={0}>
+          <div className="tims-cta-button tims-linkedin" tabIndex={0}>
             <span className="tims-icon">
               <div className="tims-icon-placeholder">💼</div>
             </span>
             <span className="tims-text">LinkedIn</span>
-          </div> */}
+          </div>
 
-          {/* <div className="tims-cta-button tims-instagram" tabIndex={0}>
+          <div className="tims-cta-button tims-instagram" tabIndex={0}>
             <span className="tims-icon">
               <div className="tims-icon-placeholder">📷</div>
             </span>
             <span className="tims-text">Instagram</span>
-          </div> */}
-          {/* 
+          </div>
+          
           <div className="tims-cta-button tims-facebook" tabIndex={0}>
             <span className="tims-icon">
               <div className="tims-icon-placeholder">👍</div>
             </span>
             <span className="tims-text">Facebook</span>
-          </div> */}
+          </div>
         </div>
       </div>
     </>

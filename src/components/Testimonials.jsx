@@ -62,7 +62,7 @@ export default function Testimonials() {
 
   return (
     <div className="testimonial-wrapper">
-      <h2 className="testimonial-heading">Our Testimonals</h2>
+      <h2 className="testimonial-heading">Our Testimonals<hr className="about-us-divider" /></h2>
       <div className="testimonial-carousel">
         <button className="arrow left-arrow" onClick={scrollBack}>
           &#10094;

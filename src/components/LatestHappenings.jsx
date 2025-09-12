@@ -1,29 +1,64 @@
-import './LatestHappenings.css';
+import React from "react";
+import "./LatestHappenings.css";
 
-function LatestHappenings() {
-  const events = [
-    { id: 1, image: '/Events/image00108.jpeg', alt: 'Annual Fest' },
-    { id: 2, image: '/Seminar/00002.jpeg', alt: 'Tech Seminar' },
-    { id: 3, image: '/Events/IMG_0649.jpeg', alt: 'Cultural Day' },
-    { id: 4, image: '/Events/IMG20250317111126.jpg', alt: 'Sports Week' },
-    { id: 5, image: '/Events/image00060.jpeg', alt: 'Hackathon' },
-    { id: 6, image: '/Seminar/IMG_9612.jpeg', alt: 'Guest Lecture' }
-  ];
+const events = [
+  {
+    img: "https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?w=400&h=300&fit=crop&crop=entropy",
+    title: "Annual Tech Symposium",
+    date: "September 25, 2025",
+  },
+  {
+    img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop&crop=entropy",
+    title: "International Research Conference",
+    date: "October 5, 2025",
+  },
+  {
+    img: "https://images.unsplash.com/photo-1529390079861-591de354faf5?w=400&h=300&fit=crop&crop=entropy",
+    title: "Cultural Heritage Festival",
+    date: "October 12, 2025",
+  },
+  {
+    img: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=400&h=300&fit=crop&crop=entropy",
+    title: "Innovation & Entrepreneurship Workshop",
+    date: "October 20, 2025",
+  },
+  {
+    img: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop&crop=entropy",
+    title: "Student Science Fair",
+    date: "November 2, 2025",
+  },
+  {
+    img: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400&h=300&fit=crop&crop=entropy",
+    title: "Alumni Homecoming",
+    date: "November 15, 2025",
+  },
+];
 
-  // Prefix: lh- (Latest Happenings)
+const LatestHappenings = () => {
   return (
-    <section className="lh-root">
-      <h2 className="lh-heading">Latest Happenings / What’s New</h2>
-      <div className="lh-grid">
-        {events.map((event) => (
-          <div key={event.id} className="lh-item">
-            <img src={event.image} alt={event.alt} className="lh-img" />
-            <div className="lh-caption">{event.alt}</div>
+    <div className="lh-container">
+      <div className="lh-section-header">
+        <h2 className="lh-section-title">Latest Happenings / What's New</h2>
+        <div className="lh-section-subtitle"></div>
+      </div>
+
+      <div className="lh-events-grid">
+        {events.map((event, index) => (
+          <div className="lh-event-card" key={index}>
+            <img
+              src={event.img}
+              alt={event.title}
+              className="lh-event-image"
+            />
+            <div className="lh-event-overlay">
+              <div className="lh-event-title">{event.title}</div>
+              <div className="lh-event-date">{event.date}</div>
+            </div>
           </div>
         ))}
       </div>
-    </section>
+    </div>
   );
-}
+};
 
 export default LatestHappenings;
