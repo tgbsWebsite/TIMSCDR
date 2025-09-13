@@ -52,7 +52,14 @@ h2 {
   color: #231f54 !important;
 
 }
-
+.about-us-divider {
+  width: 50px;              /* make it shorter than full width */
+  margin: 0 auto 2rem;     /* center it and add spacing */
+  border: 0;
+  height: 2px;
+  background-color: #10bad2; /* same as heading color */
+  opacity: 0.7;            /* subtle look */
+}
 h2 {
   font-size: 30px !important;
   line-height: 4rem !important;
