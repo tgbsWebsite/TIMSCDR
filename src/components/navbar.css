@@ -212,12 +212,16 @@ button {
   text-decoration: none;
 }
 /* Main menu link hover/focus */
+
 .nav-menu li > a:hover,
 .nav-menu li > a:focus {
-  background: #fafafa;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
   color: #f07c39;
   outline: none;
 }
+
 
 /* Honors/awards strip inside navbar */
 .nav-honors {

@@ -19,11 +19,11 @@ export default function LibraryPage() {
             <div className="">
                  <PageHeader
                         title="
-              Divyangjan Facilities Center (DFC)
+              About Library
               "
                         crumbs={[
                           { label: 'Home', href: '/' },
-                          { label: 'DFC' }, // current page (no href)
+                          { label: 'About Library' }, // current page (no href)
                         ]}
                       />
 
