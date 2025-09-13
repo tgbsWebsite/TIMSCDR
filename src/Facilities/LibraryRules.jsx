@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import BrochureForm from "../components/EnquiryForm";
 import CTAButtons from "../components/sticky-button";
 import Navbar from "../components/navbar";
+import PageHeader from "../about/PageHeader";
 
 // Data object
 const libraryStaticData = {
@@ -265,8 +266,14 @@ function LibraryRules() {
       {showForm && <BrochureForm setShowForm={setShowForm} />}
       <CTAButtons />
 
-      <div className="library-container-rules">
-        <h1 className="heading">Library Timing and Rules</h1>
+      <div className="vision-mission-container">
+                                  <PageHeader
+                                                title="Library Timing and Rules"
+                                                crumbs={[
+                                                    { label: 'Home', href: '/' },
+                                                    { label: 'Library Timing and Rules' }, // current page (no href)
+                                                ]}
+                                            />
 
         {/* Material Symbols */}
         <link href={d.site.materialSymbolsHref} rel="stylesheet" />

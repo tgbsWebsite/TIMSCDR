@@ -4,6 +4,7 @@ import BrochureForm from "../components/EnquiryForm";
 import CTAButtons from "../components/sticky-button";
 import Footer from "../components/Footer";
 import "./ResearchCell.css";
+import PageHeader from "../about/PageHeader";
 
 const ResearchCell = () => {
   useEffect(() => {
@@ -62,8 +63,16 @@ const ResearchCell = () => {
       <Navbar setShowForm={setShowForm} />
       {showForm && <BrochureForm setShowForm={setShowForm} />}
       <CTAButtons />
-      <div className="container-fs">
-        <h1 className="heading">Research Cell</h1>
+      <div className="vision-mission-container">
+        <PageHeader
+          title="Research Cell"
+          crumbs={[
+            { label: 'Home', href: '/' },
+            { label: 'Research Cell' }, // current page (no href)
+          ]}
+        />
+
+
         {/* Header */}
 
         {/* Hero */}

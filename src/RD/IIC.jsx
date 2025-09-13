@@ -3,6 +3,7 @@ import Navbar from "../components/navbar";
 import BrochureForm from "../components/EnquiryForm";
 import CTAButtons from "../components/sticky-button";
 import Footer from "../components/Footer";
+import PageHeader from "../about/PageHeader";
 // import "./ResearchCell.css";
 
 
@@ -74,8 +75,15 @@ const IICPage = () => {
       <Navbar setShowForm={setShowForm} />
       {showForm && <BrochureForm setShowForm={setShowForm} />}
       <CTAButtons />
-      <div className="container-fs">
-        <h1 className="heading">Institution Innovation Council (IIC)</h1>
+      <div className="vision-mission-container">
+                    <PageHeader
+                                title="Institution Innovation Council (IIC)"
+                                crumbs={[
+                                  { label: 'Home', href: '/' },
+                                  { label: 'Institution Innovation Council (IIC)' }, // current page (no href)
+                                ]}
+                              />
+  
 
         {/* <section className="iic-hero" id="iic-home">
         <div className="container-fs">

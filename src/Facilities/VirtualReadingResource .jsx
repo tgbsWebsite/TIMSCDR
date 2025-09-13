@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import BrochureForm from "../components/EnquiryForm";
 import CTAButtons from "../components/sticky-button";
 import Navbar from "../components/navbar";
+import PageHeader from "../about/PageHeader";
 
 
 const VirtualReadingResource = () => {
@@ -13,8 +14,14 @@ const VirtualReadingResource = () => {
       <Navbar setShowForm={setShowForm} />
       {showForm && <BrochureForm setShowForm={setShowForm} />}
       <CTAButtons />
-    <section className="library-container-rules">
-      <h1 className="heading">Virtual Reading Resource</h1>
+    <section className="vision-mission-container">
+              <PageHeader
+                title="Virtual Reading Resource"
+                crumbs={[
+                  { label: 'Home', href: '/' },
+                  { label: 'Virtual Reading Resource' }, // current page (no href)
+                ]}
+              />
 
       {/* E-Resources: Subscribed Databases */}
       <h2>E-Resources</h2>

@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import BrochureForm from "../components/EnquiryForm";
 import CTAButtons from "../components/sticky-button";
 import Navbar from "../components/navbar";
+import PageHeader from "../about/PageHeader";
 // import "./Infrastructure.css";
 
 // NOTE: In index.html (public folder), add link:
@@ -21,7 +22,13 @@ export default function LibraryInfrastructure() {
 
                 {/* MAIN */}
                 <main className="infra-main">
-                    <h1 className="infra-title heading">Infrastructure and Facilities</h1>
+                    <PageHeader
+                        title="Infrastructure and Facilities"
+                        crumbs={[
+                            { label: 'Home', href: '/' },
+                            { label: 'Infrastructure and Facilities' }, // current page (no href)
+                        ]}
+                    />
                     {/* Book Stacking Area */}
                     <section className="infra-section">
                         <div className="infra-book-stack">
@@ -134,7 +141,7 @@ export default function LibraryInfrastructure() {
                 </main>
 
                 {/* FOOTER */}
-                <Footer/>
+                <Footer />
             </div>
         </>
     );

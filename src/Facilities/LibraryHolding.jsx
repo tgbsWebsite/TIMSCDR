@@ -4,6 +4,7 @@ import BrochureForm from "../components/EnquiryForm";
 import CTAButtons from "../components/sticky-button";
 import Navbar from "../components/navbar";
 import "./table-styles.css"; // your existing conv-table css
+import PageHeader from "../about/PageHeader";
 
 const growthTable1 = {
     headers: [
@@ -183,8 +184,15 @@ export default function LibraryHolding() {
             <Navbar setShowForm={setShowForm} />
             {showForm && <BrochureForm setShowForm={setShowForm} />}
             <CTAButtons />
-            <div className="infra-main">
-                <h1 className="heading">TIMSCDR Library Holding</h1>
+            <div className="vision-mission-container">
+                          <PageHeader
+                                        title="TIMSCDR Library Holding"
+                                        crumbs={[
+                                            { label: 'Home', href: '/' },
+                                            { label: 'TIMSCDR Library Holding' }, // current page (no href)
+                                        ]}
+                                    />
+
                 <main className="lib-main">
                     <section>
                         <h2 className="infra-heading">Yearwise Growth of Books</h2>

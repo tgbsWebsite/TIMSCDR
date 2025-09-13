@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import CTAButtons from "../components/sticky-button";
 import Navbar from "../components/navbar";
 import "./Consultancy.css";
+import PageHeader from "../about/PageHeader";
 
 const ongoingProjects = [
   {
@@ -157,71 +158,76 @@ const Consultancy = () => (
     <Navbar />
     <CTAButtons />
     <div className="Consultancy-container">
-      <header className="Consultancy-header">
-        <h1 className="Consultancy-title">Consultancy Cell - IgnoVision</h1>
-        <p className="Consultancy-intro">
-          TIMSCDR is offering consultancy services through Consultancy Cell – IgnoVision (Ignite your Vision), serving industries, service sectors, government departments, and more in niche areas of expertise.<br /><br />
-          Consultancy covers feasibility studies, technology assessments, product design, process and software development, skill transfer, corporate training, and more. Selected specialized areas also offer Testing & Evaluation.<br /><br />
-          The Institute is actively engaged in Corporate Trainings, Mobile App & Website Development for local clients.
-        </p>
-      </header>
-      <section className="Consultancy-projects">
-        <h2 className="Consultancy-section-title">Ongoing Projects in Consultancy</h2>
-        <div className="Consultancy-list">
-          {ongoingProjects.map((proj) => (
-            <div className="Consultancy-project-card" key={proj.title}>
-              <div className="Consultancy-project-image">
-                {proj.image ? (
-                  <img src={proj.image} alt={proj.title} />
-                ) : (
-                  <div className="Consultancy-placeholder-img">Image</div>
-                )}
-              </div>
-              <div className="Consultancy-project-content">
-                <h3>{proj.title}</h3>
-                <p>{proj.description}</p>
-                <p className="Consultancy-team">
-                  <strong>Team:</strong>{" "}
-                  {proj.team.map((member, i, arr) => (
-                    <span key={i}>
-                      {member}{i < arr.length - 1 ? ", " : ""}
-                    </span>
-                  ))}
-                </p>
-              </div>
+      <PageHeader
+        title="Consultancy Cell - IgnoVision"
+        crumbs={[
+          { label: 'Home', href: '/' },
+          { label: 'Consultancy Cell - IgnoVision' }, // current page (no href)
+        ]}
+      />
+      <p className="Consultancy-intro">
+        TIMSCDR is offering consultancy services through Consultancy Cell – IgnoVision (Ignite your Vision), serving industries, service sectors, government departments, and more in niche areas of expertise.<br /><br />
+        Consultancy covers feasibility studies, technology assessments, product design, process and software development, skill transfer, corporate training, and more. Selected specialized areas also offer Testing & Evaluation.<br /><br />
+        The Institute is actively engaged in Corporate Trainings, Mobile App & Website Development for local clients.
+      </p>
+ 
+    <section className="Consultancy-projects">
+      <h2 className="Consultancy-section-title">Ongoing Projects in Consultancy</h2>
+      <div className="Consultancy-list">
+        {ongoingProjects.map((proj) => (
+          <div className="Consultancy-project-card" key={proj.title}>
+            <div className="Consultancy-project-image">
+              {proj.image ? (
+                <img src={proj.image} alt={proj.title} />
+              ) : (
+                <div className="Consultancy-placeholder-img">Image</div>
+              )}
             </div>
-          ))}
-        </div>
-      </section>
-      <section className="Consultancy-projects">
-        <h2 className="Consultancy-section-title">Completed Projects in Consultancy</h2>
-        <div className="Consultancy-list">
-          {completedProjects.map((proj) => (
-            <div className="Consultancy-project-card" key={proj.title}>
-              <div className="Consultancy-project-image">
-                {proj.image ? (
-                  <img src={proj.image} alt={proj.title} />
-                ) : (
-                  <div className="Consultancy-placeholder-img">Image</div>
-                )}
-              </div>
-              <div className="Consultancy-project-content">
-                <h3>{proj.title}</h3>
-                <p>{proj.description}</p>
-                <p className="Consultancy-team">
-                  <strong>Team:</strong>{" "}
-                  {proj.team.map((member, i, arr) => (
-                    <span key={i}>
-                      {member}{i < arr.length - 1 ? ", " : ""}
-                    </span>
-                  ))}
-                </p>
-              </div>
+            <div className="Consultancy-project-content">
+              <h3>{proj.title}</h3>
+              <p>{proj.description}</p>
+              <p className="Consultancy-team">
+                <strong>Team:</strong>{" "}
+                {proj.team.map((member, i, arr) => (
+                  <span key={i}>
+                    {member}{i < arr.length - 1 ? ", " : ""}
+                  </span>
+                ))}
+              </p>
             </div>
-          ))}
-        </div>
-      </section>
-    </div>
+          </div>
+        ))}
+      </div>
+    </section>
+    <section className="Consultancy-projects">
+      <h2 className="Consultancy-section-title">Completed Projects in Consultancy</h2>
+      <div className="Consultancy-list">
+        {completedProjects.map((proj) => (
+          <div className="Consultancy-project-card" key={proj.title}>
+            <div className="Consultancy-project-image">
+              {proj.image ? (
+                <img src={proj.image} alt={proj.title} />
+              ) : (
+                <div className="Consultancy-placeholder-img">Image</div>
+              )}
+            </div>
+            <div className="Consultancy-project-content">
+              <h3>{proj.title}</h3>
+              <p>{proj.description}</p>
+              <p className="Consultancy-team">
+                <strong>Team:</strong>{" "}
+                {proj.team.map((member, i, arr) => (
+                  <span key={i}>
+                    {member}{i < arr.length - 1 ? ", " : ""}
+                  </span>
+                ))}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  </div>
     <Footer />
   </>
 );

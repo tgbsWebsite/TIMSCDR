@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import BrochureForm from "../components/EnquiryForm";
 import CTAButtons from "../components/sticky-button";
 import Navbar from "../components/navbar";
+import PageHeader from "../about/PageHeader";
 
 const volumes = [
   { vol: 21, url: "https://www.timscdrmumbai.in/wp-content/uploads/2025/03/Tech-Tonic-Vol.-21-Web.pdf" },
@@ -32,7 +33,7 @@ const volumes = [
 const ZIP_DOWNLOAD_LINK = "https://www.timscdrmumbai.in/wp-content/uploads/2025/03/TechTonics_All_Volumes.zip"; // Replace with actual URL
 
 const TechTonics = () => {
-  
+
   const [showForm, setShowForm] = useState(false);
 
   return (
@@ -43,7 +44,14 @@ const TechTonics = () => {
       <CTAButtons />
       <main className="TechTonics-container">
         <section className="TechTonics-intro">
-          <h1 className="heading">Research Journal – TechTonics</h1>
+          <PageHeader
+            title="Research Journal – TechTonics"
+            crumbs={[
+              { label: 'Home', href: '/' },
+              { label: 'Research Journal – TechTonics' }, // current page (no href)
+            ]}
+          />
+         
           <p className="TechTonics-description">
             TechTonics is a biannual research journal which publishes a collection of scholarly research papers written by students of MCA on various advanced technologies.
             TechTonics is allocated the ISSN 2455-071X by National Science Library (NSL). The research journal aims to inculcate the ability to think and elaborate new ideas amongst the students in the dynamic field of Information Technology.
@@ -51,7 +59,7 @@ const TechTonics = () => {
         </section>
 
         <section className="TechTonics-volumes">
-         
+
 
           <h2 className="TechTonics-subtitle">Available Volumes</h2>
           <ul className="TechTonics-volume-list">
