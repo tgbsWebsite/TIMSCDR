@@ -3,6 +3,7 @@ import Navbar from "../components/navbar";
 import BrochureForm from "../components/EnquiryForm";
 import CTAButtons from "../components/sticky-button";
 import Footer from "../components/Footer";
+import PageHeader from "../about/PageHeader";
 
 const AICTEApproval = () => {
     const [showForm, setShowForm] = useState(false);
@@ -49,7 +50,14 @@ const AICTEApproval = () => {
             {showForm && <BrochureForm setShowForm={setShowForm} />}
             <CTAButtons />
             <main className="main-container">
-                <h1 className="heading">AICTE Approval</h1>
+                <PageHeader
+                    title="AICTE Approval"
+                    crumbs={[
+                        { label: 'Home', href: '/' },
+                        { label: 'AICTE Approval' }, // current page (no href)
+                    ]}
+                />
+
 
                 <div className="grid-container">
                     {/* Left Sidebar Links */}

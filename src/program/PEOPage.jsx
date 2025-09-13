@@ -4,6 +4,7 @@ import Navbar from "../components/navbar";
 import BrochureForm from "../components/EnquiryForm";
 import CTAButtons from "../components/sticky-button";
 import Footer from "../components/Footer";
+import PageHeader from "../about/PageHeader";
 
 export default function PEOPage() {
     const [showForm, setShowForm] = useState(false);
@@ -14,13 +15,18 @@ export default function PEOPage() {
             {showForm && <BrochureForm setShowForm={setShowForm} />}
             <CTAButtons />
             <div className="vision-mission-container">
-                <h2 className="section-title-vs">
-                    Program Educational Objectives (PEO's)
-                </h2>
+                      <PageHeader
+                     title="Program Educational Objectives (PEO’s)"
+                     crumbs={[
+                       { label: 'Home', href: '/' },
+                       { label: 'Program Educational Objectives (PEO’s)' }, // current page (no href)
+                     ]}
+                   />
                 {/* Optional: a horizontal full-width divider if desired */}
                 {/* <hr className="full-width-hr" /> */}
 
                 {/* Two-column grid of PEO cards */}
+                <div className="vision-section">
                 <div className="po-grid">
                     <div className="po-card">
                         <strong>PEO-1</strong>
@@ -111,6 +117,7 @@ export default function PEOPage() {
                         contemporary technologies and ways of working.
                     </div>
                 </div>
+            </div>
             </div>
             <Footer />
         </>

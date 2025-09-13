@@ -3,6 +3,7 @@ import "./Education-Policies.css";
 import Footer from "../components/Footer";
 import Navbar from "../components/navbar";
 import CTAButtons from "../components/sticky-button";
+import PageHeader from "./PageHeader";
 
 const EducationPolicies = () => {
   return (
@@ -10,8 +11,13 @@ const EducationPolicies = () => {
       <Navbar />
       <CTAButtons />
       <div className="Education-Policies-container">
-        <h1 className="page-title">Educational Organization Policy </h1>
-        {/* Content Layout */}
+         <PageHeader
+        title="Educational Organization Policy"
+        crumbs={[
+          { label: 'Home', href: '/' },
+          { label: 'Educational Organization Policy' }, // current page (no href)
+        ]}
+      />        {/* Content Layout */}
         <div className="vision-box">
           <img
             // src={InspiringImage}

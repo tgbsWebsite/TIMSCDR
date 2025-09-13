@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import BrochureForm from "../components/EnquiryForm";
 import CTAButtons from "../components/sticky-button";
 import Navbar from "../components/navbar";
+import PageHeader from "../about/PageHeader";
 
 export default function InfrastructureDFC() {
   const supportItems = [
@@ -88,11 +89,19 @@ export default function InfrastructureDFC() {
       <Navbar setShowForm={setShowForm} />
       {showForm && <BrochureForm setShowForm={setShowForm} />}
       <CTAButtons />
-      <main className="dfc-main dfc-container">
+      <main className="vision-mission-container">
+        <PageHeader
+          title="
+Divyangjan Facilities Center (DFC)
+"
+          crumbs={[
+            { label: 'Home', href: '/' },
+            { label: 'DFC' }, // current page (no href)
+          ]}
+        />
         <section className="dfc-info-section">
-          <h2 className="dfc-section-title text-center">
-            Divyangjan Facilities Center (DFC)
-          </h2>
+
+
 
           <div className="dfc-content-layout">
             <article className="dfc-content-main">

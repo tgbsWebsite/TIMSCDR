@@ -4,8 +4,9 @@ import Footer from '../components/Footer';
 import BrochureForm from "../components/EnquiryForm";
 import CTAButtons from "../components/sticky-button";
 import Navbar from "../components/navbar";
+import PageHeader from '../about/PageHeader';
 
-const  Nonteachingfacult = () => {
+const Nonteachingfacult = () => {
   const staffData = [
     { srNo: 1, name: "Ms. Karishmma V. Singh", designation: "CEO", qualification: "MBA" },
     { srNo: 2, name: "Mr. V. N. Datta", designation: "Advisor", qualification: "B. Sc (Physics)" },
@@ -39,9 +40,16 @@ const  Nonteachingfacult = () => {
       <CTAButtons />
 
       <main className="main-container">
-        <h1 className="heading">List of Staff Members</h1>
+        <PageHeader
+          title="List of Staff Members"
+          crumbs={[
+            { label: 'Home', href: '/' },
+            { label: 'List of Staff Members' }, // current page (no href)
+          ]}
+        />
+
         <div className="tables-container">
-        
+
           <div className="table-container">
             <table className="responsive-table">
               <thead>

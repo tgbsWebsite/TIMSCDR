@@ -154,7 +154,7 @@ function Navbar() {
       { name: "Code Of Conduct For Students", link: "/eligibility-criteria" },
       { name: "Student Mentoring Program", link: "/student-mentoring-program" },
       { name: "Anti Ragging", link: "/anti-ragging" },
-      { name: "Admission Information", link: "/student-handbook" },
+      // { name: "Admission Information", link: "/student-handbook" },
       {
         name: "Candidate Selected Against CAP Vacancy",
         link: "/code-of-conduct-for-students",

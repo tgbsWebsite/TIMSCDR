@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import BrochureForm from "../components/EnquiryForm";
 import CTAButtons from "../components/sticky-button";
 import Navbar from "../components/navbar";
+import PageHeader from "../about/PageHeader";
 
 export default function Infrastructure() {
   const [showForm, setShowForm] = useState(false);
@@ -19,7 +20,14 @@ export default function Infrastructure() {
         <section className="section-padding">
           <div className="">
             <div className="intro-text">
-              <h1 className="heading">Infrastructure</h1>
+                      <PageHeader
+                        title="Infrastructure"
+                        crumbs={[
+                          { label: 'Home', href: '/' },
+                          { label: 'Infrastructure' }, // current page (no href)
+                        ]}
+                      />
+
               <p>
                 TIMSCDR MCA private institute boasts an excellent infrastructure
                 that supports the all-round development of its students. Our

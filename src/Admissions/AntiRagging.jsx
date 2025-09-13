@@ -3,6 +3,7 @@ import Navbar from "../components/navbar";
 import BrochureForm from "../components/EnquiryForm";
 import CTAButtons from "../components/sticky-button";
 import Footer from "../components/Footer";
+import PageHeader from "../about/PageHeader";
 export default function AntiRagging() {
       const [showForm, setShowForm] = useState(false);
 
@@ -21,7 +22,14 @@ export default function AntiRagging() {
 
       {/* Header */}
       <div className="ari-header">
-        <h1>Anti-Ragging Initiative</h1>
+               <PageHeader
+                            title="Anti-Ragging Initiative"
+                            crumbs={[
+                              { label: 'Home', href: '/' },
+                              { label: 'Anti-Ragging Initiative' }, // current page (no href)
+                            ]}
+                          />
+      
         {/* <div className="ari-emergency-contact">
           <h4>Emergency Helpline</h4>
           <p>Report ragging incidents immediately - Your safety is our priority</p>

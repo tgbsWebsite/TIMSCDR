@@ -57,15 +57,14 @@ function App() {
       </div>
 
       <div className="section-base">
-        <div className="page-container">
-          <Recruiters />
-        </div>
+        <Recruiters />
       </div>
 
-      <div className="section-alt">
-        <div className="page-container">
-          <Testimonials />
-        </div>
+      <div
+        className="section-alt"
+        style={{ paddingLeft: "20px", paddingRight: "20px" }}
+      >
+        <Testimonials />
       </div>
 
       <div className="section-base">

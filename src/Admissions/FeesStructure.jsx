@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import BrochureForm from "../components/EnquiryForm";
 import CTAButtons from "../components/sticky-button";
 import Navbar from "../components/navbar";
+import PageHeader from "../about/PageHeader";
 
 const FeesStructure = () => {
   const [showForm, setShowForm] = useState(false);
@@ -14,7 +15,13 @@ const FeesStructure = () => {
       <CTAButtons />
       <div className="container-fs">
         {/* Header */}
-        <h2 className="heading">Fees Structure</h2>
+           <PageHeader
+               title="Fees Structure"
+               crumbs={[
+                 { label: 'Home', href: '/' },
+                 { label: 'Fees Structure' }, // current page (no href)
+               ]}
+             />   
         {/* Main Content */}
         <div className="main-content">
           {/* Left Column */}

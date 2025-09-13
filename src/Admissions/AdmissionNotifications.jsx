@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import BrochureForm from "../components/EnquiryForm";
 import CTAButtons from "../components/sticky-button";
 import Navbar from "../components/navbar";
+import PageHeader from "../about/PageHeader";
 
 export default function AdmissionNotifications() {
   const [showForm, setShowForm] = useState(false);
@@ -13,7 +14,14 @@ export default function AdmissionNotifications() {
       {showForm && <BrochureForm setShowForm={setShowForm} />}
       <CTAButtons />
       <div className="container-fs">
-        <h2 className="heading">Admission Notification</h2>
+                <PageHeader
+                       title="Admission Notification"
+                       crumbs={[
+                         { label: 'Home', href: '/' },
+                         { label: 'Admission Notification' }, // current page (no href)
+                       ]}
+                     /> 
+     
         <div className="adm-floating-elements">
           <div className="adm-floating-circle"></div>
           <div className="adm-floating-circle"></div>

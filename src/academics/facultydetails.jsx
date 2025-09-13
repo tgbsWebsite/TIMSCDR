@@ -5,6 +5,7 @@ import BrochureForm from "../components/EnquiryForm";
 import CTAButtons from "../components/sticky-button";
 import Navbar from "../components/navbar";
 import './faculty.css'
+import PageHeader from '../about/PageHeader';
 
 function Faculty() {
 
@@ -182,16 +183,24 @@ function Faculty() {
 
         <div>
             <Navbar />
-            <div className='faculty-main-container'>
-                
+            <div className='vision-mission-container'>
+                       <PageHeader
+                              title="Meet Our Core Faculty!"
+                              crumbs={[
+                                { label: 'Home', href: '/' },
+                                { label: 'Meet Our Core Faculty!' }, // current page (no href)
+                              ]}
+                            />
                 <div className='faculty-container'>
-                    <h1 className='faculty-header'>Meet Our Core Faculty!</h1>
+              
+                  
+                    <h1 className='faculty-header'></h1>
 
                     {facultyData.map((faculty, index) => (
                         <div className='faculty-box' key={index}>
                             <img src={faculty.image} alt={faculty.name} />
                             <div className='faculty-details'>
-                                <h2>{faculty.name}</h2>
+                                <h3>{faculty.name}</h3>
                                 <p>{faculty.designation}</p>
                                 <a
                                     onClick={() => navigate('/faculty-details', { state: faculty })}

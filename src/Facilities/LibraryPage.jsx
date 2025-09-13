@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import BrochureForm from "../components/EnquiryForm";
 import CTAButtons from "../components/sticky-button";
 import Navbar from "../components/navbar";
+import PageHeader from "../about/PageHeader";
 
 export default function LibraryPage() {
   const [showForm, setShowForm] = useState(false);
@@ -12,11 +13,20 @@ export default function LibraryPage() {
       <Navbar setShowForm={setShowForm} />
       {showForm && <BrochureForm setShowForm={setShowForm} />}
       <CTAButtons />
-      <main className="library-main">
-        <section className="library-intro-section">
-          <div className="library-container-one">
-            <div className="library-title-wrapper">
-              <h2 className="heading">Our Library</h2>
+      <main className="vision-mission-container">
+        <section className="">
+          <div className="">
+            <div className="">
+                 <PageHeader
+                        title="
+              Divyangjan Facilities Center (DFC)
+              "
+                        crumbs={[
+                          { label: 'Home', href: '/' },
+                          { label: 'DFC' }, // current page (no href)
+                        ]}
+                      />
+
             </div>
             <div className="library-info-image-row">
               <div className="library-description-wrapper">

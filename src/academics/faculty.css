@@ -1,7 +1,7 @@
 .faculty-main-container{
     width: 100vw;
     height: 100%;
-    margin: 28vh 0 0 0;
+    margin: 20vh 0 0 0; /* was 28vh, reduce vertical space above section */
 }
 
 .faculty-header {
@@ -19,9 +19,10 @@
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: stretch;
-    gap: 25px;
-    margin: 35px auto;
+    gap: 20px;            /* was 25px */
+    margin: 28px auto;    /* was 35px */
     width: 80%;
+    box-sizing: border-box; /* predictable sizing */
 }
 
 .faculty-box{
@@ -29,13 +30,18 @@
     height: auto;
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
-    gap: 15px;
-    padding: 25px;
+    gap: 10px;            /* was 15px */
+    padding: 14px 16px;   /* was 25px */
     border-radius: 6px;
     background-color: #ffffff4f;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    box-sizing: border-box;
+    /* Optional hard cap:
+    max-height: 420px;
+    overflow: hidden;
+    */
 }
 
 .faculty-box img{
@@ -43,8 +49,9 @@
     height: auto;
     object-fit: cover;
     border-radius: 6px;
-    aspect-ratio: 1/1;
+    aspect-ratio: 4 / 3;  /* was 1 / 1 (square) — reduces card height */
     object-position: top;
+    display: block;
 }
 
 .faculty-details{
@@ -55,23 +62,28 @@
     width: 100%;
     height: auto;
     text-align: center;
+    box-sizing: border-box;
 }
 
 .faculty-details h2{
     font-size: 22px;
     color: #233b77;
     width: 100%;
+    margin: 6px 0 2px;   /* tighten heading margins */
+    line-height: 1.2;    /* slightly tighter line-height */
 }
 
 .faculty-details p{
     font-size: 16px;
     color: #233b77;
     width: 100%;
+    margin: 2px 0;       /* remove default paragraph margins */
+    line-height: 1.35;   /* compact text */
 }
 
 .faculty-details a{
     font-size: 15px;
-    margin: 10px 0 0 0;
+    margin: 6px 0 0 0;   /* was 10px */
     color: #233b77;
     text-decoration: underline;
     cursor: pointer;
@@ -86,13 +98,18 @@
     height: auto;
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
-    gap: 15px;
-    padding: 25px;
+    gap: 10px;            /* was 15px */
+    padding: 14px 16px;   /* was 25px */
     border-radius: 6px;
     background-color: #ffffff4f;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    box-sizing: border-box;
+    /* Optional cap:
+    max-height: 420px;
+    overflow: hidden;
+    */
 }
 
 .faculty-box1 div{
@@ -104,6 +121,8 @@
     color: #233b77;
     text-align: left;
     width: 100%;
+    margin: 6px 0 2px;
+    line-height: 1.2;
 }
 
 .faculty-box1 p{
@@ -111,10 +130,14 @@
     color: #233b77;
     text-align: left;
     width: 100%;
+    margin: 2px 0;
+    line-height: 1.35;
 }
 
 .faculty-box1 h3{
     color: #233b77;
+    margin: 4px 0 2px;
+    line-height: 1.25;
 }
 
 .v-faculty-box{
@@ -123,7 +146,8 @@
 
 @media screen and (max-width: 1100px) {
     .faculty-container{
-        gap: 15px;
+        gap: 14px;     /* was 15px */
+        margin: 24px auto;
     }
 }
 
@@ -137,23 +161,32 @@
 }
 
 @media screen and (max-width: 600px) {
-    
     .faculty-container{
         width: 100%;
+        gap: 12px;
+        margin: 20px auto;
     }
     .faculty-header{
         font-size: 30px;
         padding: 0;
     }
     .faculty-box{
-        padding: 15px;
+        padding: 12px;   /* was 15px */
+        gap: 8px;
+    }
+    .faculty-box1{
+        padding: 12px;
+        gap: 8px;
+    }
+    .faculty-box img{
+        aspect-ratio: 16 / 9; /* even shorter images on small screens */
     }
 }
 
 @media screen and (max-width: 520px) {
     .faculty-box, .faculty-box1{
         width: 100%;
-        padding: 25px;
+        padding: 14px; /* was 25px */
     }
     .faculty-container{
         width: 96%;
@@ -162,7 +195,6 @@
         font-size: 26px;
         padding: 0;
     }
-    
 }
 
 /* Faculty Details */
@@ -170,13 +202,13 @@
 .facultyd-main-container{
     width: 100%;
     height: 100%;
-    margin: 15vh 0 0 0;
+    margin: 12vh 0 0 0; /* was 15vh */
 }
 
 .back-btn{
     width: 30px;
     height: 30px;
-    margin: 25px 0 0 45px;
+    margin: 18px 0 0 30px; /* was 25px 0 0 45px */
     cursor: pointer;
     transform: rotate(180deg);
 }
@@ -187,9 +219,10 @@
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: stretch;
-    gap: 25px;
-    margin: 35px auto;
+    gap: 20px;            /* was 25px */
+    margin: 28px auto;    /* was 35px */
     width: 80%;
+    box-sizing: border-box;
 }
 
 .facultyd-details{
@@ -203,14 +236,16 @@
 
 .facultyd-details h2{
     color: #233b77;
-    font-size: 35px;
-    margin: 15px 0;
+    font-size: 32px;   /* was 35px */
+    margin: 10px 0;    /* was 15px 0 */
+    line-height: 1.2;
 }
 
 .facultyd-details p{
     color: #233b77;
     font-size: 15px;
-    margin: 0;
+    margin: 2px 0;     /* was 0 (normalize rhythm) */
+    line-height: 1.4;
 }
 
 .faculty-image{
@@ -218,14 +253,15 @@
     height: auto;
     object-fit: cover;
     border-radius: 6px;
-    aspect-ratio: 1/1;
+    aspect-ratio: 4 / 3;  /* reduce image height compared to 1/1 */
     object-position: top;
+    display: block;
 }
 
 .linkedin-link{
     width: 35px;
     height: 35px;
-    margin: 10px 0;
+    margin: 8px 0;     /* was 10px */
 }
 
 .social-icon{
@@ -234,12 +270,18 @@
 
 @media screen and (max-width:900px) {
     .faculty-main-container, .facultyd-main-container{
-        margin-top: 12vh;
+        margin-top: 10vh; /* was 12vh for small reduction */
     }
 }
 
 @media screen and (max-width:600px) {
     .faculty-main-container, .facultyd-main-container{
         margin-top: 6vh;
+    }
+    .facultyd-details h2{
+        font-size: 28px;
+    }
+    .faculty-image{
+        aspect-ratio: 16 / 9; /* shorter on small screens */
     }
 }

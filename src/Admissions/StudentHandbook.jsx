@@ -3,6 +3,7 @@ import Navbar from "../components/navbar";
 import BrochureForm from "../components/EnquiryForm";
 import CTAButtons from "../components/sticky-button";
 import Footer from "../components/Footer";
+import PageHeader from "../about/PageHeader";
 
 const StudentHandbook = () => {
   const [showForm, setShowForm] = useState(false);
@@ -16,7 +17,15 @@ const StudentHandbook = () => {
       {showForm && <BrochureForm setShowForm={setShowForm} />}
       <CTAButtons />
       <main className="main-container">
-        <h1 className="heading">Student Handbook</h1>
+        <PageHeader
+          title="Student Handbook"
+          crumbs={[
+            { label: 'Home', href: '/' },
+            { label: 'Student Handbook' }, // current page (no href)
+          ]}
+        />
+
+
 
         <div className="grid-container">
           {/* Left Sidebar Links */}

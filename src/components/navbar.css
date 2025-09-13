@@ -173,7 +173,8 @@ button {
   align-items: center; /* center items vertically */
   min-height: 48px; /* taller strip for visual balance */
   padding: 0;
-  background: #f7f7f7;
+  background: #231f54
+;
   border-top: 1px solid #e0e0e0; /* full-width top line */
   border-bottom: 1px solid #e0e0e0; /* full-width bottom line */
 }
@@ -203,7 +204,7 @@ button {
   border: none; /* no borders on links */
   width: 100%;
   border-radius: 6px;
-  color: #0c2e73;
+  color: white;
   font-size: 14px;
   font-weight: 500;
   white-space: nowrap;

@@ -6,6 +6,7 @@ import CTAButtons from "../components/sticky-button";
 import BrochureForm from "../components/brochure-form";
 import Footer from "../components/Footer";
 import "../components/governing.css";
+import PageHeader from "./PageHeader";
 
 const committeeDataByYear = {
   "A.Y. 2024-25": [
@@ -866,8 +867,13 @@ function Governing() {
         </aside>
 
         <main className="table-area">
-          <h2 className="page-title">Meet the Governing Council</h2>
-
+         <PageHeader
+        title="Members of Governing Council"
+        crumbs={[
+          { label: 'Home', href: '/' },
+          { label: 'Governing Council' }, // current page (no href)
+        ]}
+      />
           <div className="tables-container">
             <h3 className="governing-title">
               Governing Council - {selectedYear}

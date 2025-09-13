@@ -3,6 +3,7 @@ import Navbar from "../components/navbar";
 import BrochureForm from "../components/EnquiryForm";
 import CTAButtons from "../components/sticky-button";
 import Footer from "../components/Footer";
+import PageHeader from "../about/PageHeader";
 
 export default function StudentMentoring() {
   useEffect(() => {
@@ -42,7 +43,14 @@ export default function StudentMentoring() {
       <main className="smp-main-content">
         {/* Program Overview */}
         <div className="smp-content-card">
-          <h2 className="heading">Student Mentoring Program</h2>
+               <PageHeader
+                    title="Student Mentoring Program"
+                    crumbs={[
+                      { label: 'Home', href: '/' },
+                      { label: 'Student Mentoring Program' }, // current page (no href)
+                    ]}
+                  />
+        
         
           <p className="smp-description">
             TIMSCDR offers a comprehensive Student Mentoring Program for students pursuing an MCA master degree. After the admission process is complete, every student is assigned a faculty mentor for the entire duration of the MCA program. These mentors interact with students regularly to assess and identify problem areas in their learning and development processes, guiding them throughout their MCA master degree journey.

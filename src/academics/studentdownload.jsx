@@ -6,6 +6,7 @@ import Navbar from "../components/navbar";
 import BrochureForm from "../components/EnquiryForm";
 import CTAButtons from "../components/sticky-button";
 import Footer from "../components/Footer";
+import PageHeader from "../about/PageHeader";
 
 
 const Studentdownload = () => {
@@ -15,8 +16,15 @@ const Studentdownload = () => {
       <Navbar setShowForm={setShowForm} />
       {showForm && <BrochureForm setShowForm={setShowForm} />}
       <CTAButtons />
-      <main className="main-container">
-        <h1 className="heading">Student Downloads</h1>
+      <main className="vision-mission-container">
+        <PageHeader
+          title="Student Downloads"
+          crumbs={[
+            { label: 'Home', href: '/' },
+            { label: 'Student Downloads' }, // current page (no href)
+          ]}
+        />
+
 
         <div className="grid-container">
           {/* Left Sidebar Links */}
@@ -29,12 +37,12 @@ const Studentdownload = () => {
               >
                 <span className="material-icons icon blue">description</span>
                 <p>
-                  No Dues Certificate 
+                  No Dues Certificate
                 </p>
                 <span className="material-icons arrow">chevron_right</span>
               </a>
 
-             
+
             </div>
           </section>
 

@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import BrochureForm from "../components/EnquiryForm";
 import CTAButtons from "../components/sticky-button";
 import Navbar from "../components/navbar";
+import PageHeader from "../about/PageHeader";
 
 
 // for the rest of the page styles
@@ -27,8 +28,13 @@ export default function SeatDistribution() {
                             {/* Left Side - Inspiration Card */}
 
                             {/* Right Side - Table Section */}
-                            <h1 className="heading">Seat Distribution</h1>
-                            <h2 className="seatPage-title">
+                            <PageHeader
+                                title="Seat Distribution"
+                                crumbs={[
+                                    { label: 'Home', href: '/' },
+                                    { label: 'Seat Distribution' }, // current page (no href)
+                                ]}
+                            />                            <h2 className="seatPage-title">
                                 Allocation of Seats Within Sanctioned Intake
                             </h2>
 

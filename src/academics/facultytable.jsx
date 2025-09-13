@@ -4,6 +4,7 @@ import Footer from '../components/Footer';
 import BrochureForm from "../components/EnquiryForm";
 import CTAButtons from "../components/sticky-button";
 import Navbar from "../components/navbar";
+import PageHeader from '../about/PageHeader';
 
 const FacultyTable = () => {
   const facultyData = [
@@ -228,7 +229,7 @@ const FacultyTable = () => {
       totalExperience: "1 Year"
     }
   ];
-  
+
 
   const [showForm, setShowForm] = useState(false);
 
@@ -238,10 +239,16 @@ const FacultyTable = () => {
       {showForm && <BrochureForm setShowForm={setShowForm} />}
       <CTAButtons />
 
-      <main className="main-container">
+      <main className="vision-mission-container">
 
-        <div className="tables-container">
-          <h1 className="heading">List of Faculty Members</h1>
+        <div className="">
+          <PageHeader
+            title="List of Faculty Members"
+            crumbs={[
+              { label: 'Home', href: '/' },
+              { label: 'List of Faculty Members' }, // current page (no href)
+            ]}
+          />
 
           <div className="table-container">
             <table className="responsive-table">

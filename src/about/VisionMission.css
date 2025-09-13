@@ -1,8 +1,8 @@
 .vision-mission-container {
-  padding: 40px ;
+  padding-top: 40px ;
   font-family: "Segoe UI", sans-serif;
-  max-width: 1200px;
-  margin: 150px auto 40px auto;
+  max-width: 100%;
+  margin: 150px 0 0px 0;
 }
 
 .page-title {
@@ -189,4 +189,28 @@
   /* font-weight: 500; */
   color: #1f2937; /* gray-800 */
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* New outer wrapper to control spacing around the whole section */
+.vision-section {
+  padding-block: clamp(16px, 5vw, 40px);         /* top & bottom */
+  padding-inline: clamp(16px, 5vw, 32px);        /* left & right */
+  max-width: min(1200px, 92vw);                  /* keep readable width */
+  margin-inline: auto;                           /* center the block */
+}
+
+/* Existing grid/layout for inner content remains the same */
+
+/* If you’re not using a middle divider track, default to two columns */
+@media (min-width: 1025px) {
+  .vision-div {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Stack on tablets/phones */
+@media (max-width: 1024px) {
+  .vision-div {
+    grid-template-columns: 1fr;
+  }
 }
