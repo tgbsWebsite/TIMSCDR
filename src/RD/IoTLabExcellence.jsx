@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import BrochureForm from "../components/EnquiryForm";
 import CTAButtons from "../components/sticky-button";
 import Navbar from "../components/navbar";
+import PageHeader from "../about/PageHeader";
 
 const IoTLabExcellence = () => {
   const [showForm, setShowForm] = useState(false);
@@ -63,7 +64,14 @@ const IoTLabExcellence = () => {
         {/* HERO */}
         <section className="IoTLabExcellence-hero fade-in" id="home">
           <div className="IoTLabExcellence-hero-content">
-            <h2>IoT Excellence Lab</h2>
+             <PageHeader
+                    title="IoT Excellence Lab"
+                    crumbs={[
+                      { label: 'Home', href: '/' },
+                      { label: 'IoT Excellence Lab' }, // current page (no href)
+                    ]}
+                  />
+         
             <p>
               The Internet of Things (IoT) is about connecting devices, sensors,
               and systems to exchange real-time data. TIMSCDR’s IoT Excellence
