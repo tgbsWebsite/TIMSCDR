@@ -12,6 +12,28 @@ function Navbar() {
   const closeIcon = "/icons/close.svg";
   const chevronIcon = "/icons/chevron-down.svg";
 
+  // Helper: render label + chevron image if label ends with ">>"
+  const WithChevron = ({ label }) => {
+    const isString = typeof label === "string";
+    const hasArrow = isString && /\s*>>\s*$/.test(label);
+    const text = isString ? label.replace(/\s*>>\s*$/, "") : label;
+
+    return (
+      <span style={{ display: "flex", alignItems: "center" }}>
+        <span>{text}</span>
+        {hasArrow ? (
+          <img
+            src="/images/icons/arrow_8978139.svg"
+            alt=""
+            width={14}
+            height={14}
+            style={{ marginLeft: "auto", opacity: 0.85 }}
+          />
+        ) : null}
+      </span>
+    );
+  };
+
   // Lock body scroll when drawer open
   useEffect(() => {
     const original = document.body.style.overflow;
@@ -55,7 +77,6 @@ function Navbar() {
     };
 
     const listeners = [];
-
     dropdownItems.forEach((item) => {
       const listener = () => adjustDirection(item);
       item.addEventListener("mouseenter", listener);
@@ -71,229 +92,159 @@ function Navbar() {
     };
   }, []);
 
-  // Dropdown content structure (same as you provided)
+  // Dropdown content
   const dropdownContent = {
     Home: [],
     About: [
       { name: "Vision & Mission", link: "/about/Vision-Mission" },
+      { name: "PEOs & POs", link: "/peo-Page" },
+      { name: "Educational Organization Policies", link: "/about/Education-Policies" },
       {
-        name: "Educational Organization Policies",
-        link: "/about/Education-Policies",
-      },
-      { name: "Chairman's Message", link: "/about/chairman-message" },
-      { name: "CEO's Message", link: "/about/ceo-message" },
-      { name: "Director's Message", link: "/about/director-message" },
-      { name: "Governing Council", link: "/about/governing-council" },
-      { name: "Advisory Board", link: "/about/advisory" },
-      { name: "Academic Council", link: "/about/academic-council" },
-      {
-        name: "College Development Committee",
-        link: "/about/development-committee",
-      },
-      { name: "IQAC Committee", link: "/about/iqac-committee" },
-      { name: " Cells And Committees", link: "/about/cells-and-committees" },
-      {
-        name: "Organogram",
-        link: "/pdf/about/TIMSCDR-Organization-Chart-Final-1",
-      },
-            {
-        name: "Our Policies >>",
+        name: "Messages >>",
         link: "",
         submenu: [
-          { name: "Divyangjan Policy", link: "https://timscdrmumbai.in/wp-content/uploads/2022/09/TIMSCDR-DRC-Notice.pdf" },
-          {
-            name: (
-              <>
-                Energy Conservation, <br />
-                Water Management And <br /> Waste Management Policy
-              </>
-            ),
-            link: "https://timscdrmumbai.in/wp-content/uploads/2022/09/TIMSCDR-Energy-Water-Waste-Notice.pdf",
-          },
-          { name: "IPR Policy", link: "https://timscdrmumbai.in/wp-content/uploads/2022/10/IPR-Policy.pdf" },
-          { name: "NISP Policy", link: "https://timscdrmumbai.in/national-innovation-and-startup-policy-2019-for-students-and-faculty/" },
-          { name: "QIP Policy", link: "https://www.timscdrmumbai.in/wp-content/uploads/2025/04/TIMSCDR-QIP-Policy.pdf" },
+          { name: "Chairman's Message", link: "/about/chairman-message" },
+          { name: "CEO's Message", link: "/about/ceo-message" },
+          { name: "Director's Message", link: "/about/director-message" },
         ],
       },
+      {
+        name: "Governance >>",
+        link: "",
+        submenu: [
+          { name: "Governing Council", link: "/about/governing-council" },
+          { name: "Advisory Board", link: "/about/advisory" },
+          { name: "Academic Council", link: "/about/academic-council" },
+          { name: "College Development Committee", link: "/about/development-committee" },],
+      },
+
+
+
+
+      // { name: "IQAC Committee", link: "/about/iqac-committee" },
+      { name: " Cells And Committees", link: "/about/cells-and-committees" },
+      { name: "Organogram", link: "/pdf/about/TIMSCDR-Organization-Chart-Final-1" },
+      { name: "Our Policies", link: "/policies" },
+
     ],
     Programs: [
-      {
-        name: "Program Educational Objectives(PEO's)",
-        link: "/peo-Page",
-      },
-      {
-        name: "Master Of Computer Applications (MCA)",
-        link: "/programs/mca-program",
-      },
-      {
-        name: "MCA For Working Professionals",
-        link: "/programs/mca-working-professionals",
-      },
-      {
-        name: "Integrated MCA",
-        link: "/programs/integrated-mca",
-      },
-      {
-        name: "Ph. D.(Technology)",
-        link: "/programs/ph-d-admission",
-      },
-    ], // About: [ //   { name: "About US", link: "/about-us" }, //   { name: "Chairman's Message", link: "/about/chairman-message" }, //   { name: "CEO's Message", link: "/about/ceo-message" }, //   { name: "CFO's Message", link: "/about/cfo-message" }, //   { name: "Director's Message", link: "/about/director-message" }, //   { //     name: "Deputy Director's Message", //     link: "/about/deputy-director-message", //   }, //   { name: "Advisory Board", link: "/about/advisory-board" }, //   { name: "Governing Council", link: "/about/governing-council" }, //   { name: "Cells & Committee", link: "/about/cells-committee" }, // ],
+      { name: "Master Of Computer Applications (MCA)", link: "/programs/mca-program" },
+      { name: "MCA For Working Professionals", link: "/programs/mca-working-professionals" },
+      { name: "Integrated MCA", link: "/programs/integrated-mca" },
+      { name: "Ph. D.(Technology)", link: "/programs/ph-d-admission" },
+    ],
     Admissions: [
-      { name: "Ph.D. Admission", link: "/programs/ph-d-admission" },
-      {
-        name: "Master Of Computer Applications (MCA)",
-        link: "/master-of-computer-applications-mca",
-      },
-      { name: "MCA Integrated", link: "/imca" },
-      { name: "MCA Working Professional", link: "/mca-working-professional" },
+      { name: "Admission Process", link: "/admission-process" },
       { name: "Seat Distribution", link: "/seat-distribution" },
-      { name: "Fees Structure", link: "/fees-structure" },
-      { name: "Admission Notification", link: "/admission-notification" },
+      // { name: "Fees Structure", link: "/fees-structure" },
       { name: "AICTE Approval", link: "/aicte-approval-2" },
+      { name: "Admission Notification", link: "/admission-notification" },
+
       { name: "Student Handbook", link: "/student-handbook" },
       { name: "Code Of Conduct For Students", link: "/eligibility-criteria" },
       { name: "Student Mentoring Program", link: "/student-mentoring-program" },
       { name: "Anti Ragging", link: "/anti-ragging" },
-      // { name: "Admission Information", link: "/student-handbook" },
-      {
-        name: "Candidate Selected Against CAP Vacancy",
-        link: "/code-of-conduct-for-students",
-      },
+      { name: "Candidate Selected Against CAP Vacancy", link: "/code-of-conduct-for-students" },
+      { name: "Student Grievance Redressal", link: "/contact/student-grievance-redressal" },
     ],
     Academics: [
-      { name: "Faculty List", link: "/faculty-list-2" },
+      // { name: "Faculty List", link: "/faculty-list-2" },
       { name: "Meet Our Faculty", link: "/staff" },
       { name: "Non Teaching Staff", link: "/non-teaching-staff" },
-      { name: "ERP Login", link: "/results" },
-      { name: "Student Downloads", link: "/student-downloads" },
-      {
-        name: "NDML Academic Depository (NAD)",
-        link: "https://timscdrmumbai.in/wp-content/uploads/2022/05/NDML-Academic-Depository-NAD.pdf",
-      },
+      // { name: "ERP Login", link: "/results" },
+      { name: "Academic Calendar", link: "/student-downloads" },
+      { name: "Academic Depository (NAD)", link: "https://timscdrmumbai.in/wp-content/uploads/2022/05/NDML-Academic-Depository-NAD.pdf" },
     ],
     Facilities: [
       { name: "Infrastructure", link: "/facilities/infrastructure" },
-      {
-        name: "Infrastructure Gallery",
-        link: "/facilities/infrastructure-gallery",
-      },
+      // { name: "Infrastructure Gallery", link: "/facilities/infrastructure-gallery" },
       { name: "DRC", link: "/facilities/disability-resource-center" },
       {
         name: "Learning Resource Center (Library) >>",
         link: null,
         submenu: [
           { name: "About Library", link: "/about-library" },
-          {
-            name: "Infrastructure and Facilities",
-            link: "/infrastructure-and-facilities",
-          },
+          { name: "Infrastructure and Facilities", link: "/infrastructure-and-facilities" },
           { name: "TIMSCDR Library Holding", link: "/timscdr-library-holding" },
-          {
-            name: "Library Timing and Rules",
-            link: "/library-timing-and-rules",
-          },
+          { name: "Library Timing and Rules", link: "/library-timing-and-rules" },
           { name: "Library Committee", link: "/library-committee" },
-          {
-            name: "Virtual Reading Resource",
-            link: "/virtual-reading-resources",
-          },
+          { name: "Virtual Reading Resource", link: "/virtual-reading-resources" },
         ],
       },
     ],
     "R&D": [
       { name: "Research Cell", link: "/research-cell" },
-      {
-        name: "Institution Innovation Council (IIC)",
-        link: "/institution-innovation-council-iic",
-      },
+      { name: "Institution Innovation Council (IIC)", link: "/institution-innovation-council-iic" },
       {
         name: "International Conference >>",
         link: null,
         submenu: [
-          {
-            name: "International Conference (ICAIM) 2025",
-            link: "/icaim-2025",
-          },
-          {
-            name: "International Conference (ICAIM) 2024",
-            link: "/facilities/digital-resources",
-          },
-          {
-            name: "International Conference (ICAIM) 2023",
-            link: "/facilities/library-timings",
-          },
-          {
-            name: "International Conference (ICAIM) 2022",
-            link: "/facilities/library-timings",
-          },
-          {
-            name: "International Conference (ICAIM) 2021",
-            link: "/facilities/library-timings",
-          },
-          {
-            name: "International Conference (ICAIM) 2020",
-            link: "/facilities/library-timings",
-          },
-          {
-            name: "International Conference (ICAIM) 2019",
-            link: "/facilities/library-timings",
-          },
-          {
-            name: "International Conference (ICAIM) 2018",
-            link: "/facilities/library-timings",
-          },
-          {
-            name: "International Conference (ICAIM) 2017",
-            link: "/facilities/library-timings",
-          },
-          {
-            name: "International Conference (ICAIM) 2016",
-            link: "/facilities/library-timings",
-          },
-          {
-            name: "International Conference (ICAIM) 2015",
-            link: "/facilities/library-timings",
-          },
+          { name: "International Conference (ICAIM) 2025", link: "/icaim-2025" },
+          { name: "International Conference (ICAIM) 2024", link: "/facilities/digital-resources" },
+          { name: "International Conference (ICAIM) 2023", link: "/facilities/library-timings" },
+          { name: "International Conference (ICAIM) 2022", link: "/facilities/library-timings" },
+          { name: "International Conference (ICAIM) 2021", link: "/facilities/library-timings" },
+          { name: "International Conference (ICAIM) 2020", link: "/facilities/library-timings" },
+          { name: "International Conference (ICAIM) 2019", link: "/facilities/library-timings" },
+          { name: "International Conference (ICAIM) 2018", link: "/facilities/library-timings" },
+          { name: "International Conference (ICAIM) 2017", link: "/facilities/library-timings" },
+          { name: "International Conference (ICAIM) 2016", link: "/facilities/library-timings" },
+          { name: "International Conference (ICAIM) 2015", link: "/facilities/library-timings" },
         ],
       },
+      { name: "Institution Innovation Council (IIC)", link: "/institution-innovation-council-iic" },
       { name: "IPR", link: "/research/collaborations" },
-      { name: "TechTonics", link: "/research/TechTonics" },
-      { name: "Consultancy", link: "/research/consultancy" },
-      { name: "IoT Excellence", link: "/research/iot-excellence" },
+      {
+        name: "Research Publications >>",
+        link: null,
+        submenu: [
+          { name: "Faculty Publications", link: "/icaim-2025" },
+          { name: "Student Publications", link: "/facilities/digital-resources" },
+          { name: "TechTonics", link: "/research/TechTonics" },
+        ],
+      },
+      {
+        name: "Consultancy >>",
+        link: null,
+        submenu: [
+          { name: "Consultancy / Research Projects", link: "/research/consultancy" },
+          { name: "Doctor Booklet", link: "/life/doctors-booklet" },
+        ],
+      },
+
+      { name: "RITL Excellence Lab", link: "/research/iot-excellence" },
     ],
     Placements: [
-      {
-        name: "About Placement",
-        link: "/best-mca-college-in-mumbai-for-placements-about-placement",
-      },
+      { name: "About Placement", link: "/best-mca-college-in-mumbai-for-placements-about-placement" },
       { name: "Training Programme", link: "/training-programme" },
       { name: "Placement Data", link: "/placement-data" },
-      {
-        name: "Training And Placement Policy",
-        link: "https://timscdrmumbai.in/wp-content/uploads/2022/10/Placement-Policy.pdf",
-      },
+      { name: "Training And Placement Policy", link: "https://timscdrmumbai.in/wp-content/uploads/2022/10/Placement-Policy.pdf" },
     ],
+
+
     IQAC: [
+      { name: "IQAC Guidelines", link: "" },
+      { name: "IQAC Committee", link: "https://timscdrmumbai.in/wp-content/uploads/2022/09/Institutional-Information-for-Quality-AssessmentIIQA.pdf" },
       {
-        name: "NAAC-IIQA",
-        link: "https://timscdrmumbai.in/wp-content/uploads/2022/09/Institutional-Information-for-Quality-AssessmentIIQA.pdf",
+        name: "IQAC Committee >>",
+        link: null,
+        submenu: [
+          { name: "IQAC MoM", link: "/" },
+        ],
       },
       {
-        name: "NAAC-SSR",
-        link: "https://timscdrmumbai.in/wp-content/uploads/2022/09/SELF-STUDY-REPORT-SSR.pdf",
+        name: "NAAC >>",
+        link: null,
+        submenu: [
+          { name: "NAAC Certificate", link: "https://timscdrmumbai.in/wp-content/uploads/2023/01/NAAC-Certificate.pdf" },
+          { name: "NAAC-IIQA", link: "https://timscdrmumbai.in/wp-content/uploads/2022/09/Institutional-Information-for-Quality-AssessmentIIQA.pdf" },
+          { name: "NAAC-SSR", link: "https://timscdrmumbai.in/wp-content/uploads/2022/09/SELF-STUDY-REPORT-SSR.pdf" },
+          { name: "NAAC AQAR", link: "/naac-aqar" },
+
+
+        ],
       },
-      {
-        name: "NAAC Certificate",
-        link: "https://timscdrmumbai.in/wp-content/uploads/2023/01/NAAC-Certificate.pdf",
-      },
-      {
-        name: "NAAC AQAR - 2023",
-        link: "https://timscdrmumbai.in/wp-content/uploads/2024/03/AQAR-2023-Submitted-to-NAAC-December-16-2023.pdf",
-      },
-      {
-        name: "NAAC AQAR - 2024",
-        link: "https://www.timscdrmumbai.in/wp-content/uploads/2025/05/AQAR-SUBMITTED-2023-24-Dec-12-2024.pdf",
-      },
+
     ],
     Examination: [
       { name: "Notice", link: "/notice" },
@@ -301,50 +252,31 @@ function Navbar() {
         name: "Result >>",
         link: "",
         submenu: [
-          {
-            name: "University Gazette",
-            link: "/examination/university-gazette",
-          },
-          {
-            name: "Result Analysis",
-            link: "/examination/result-analysis",
-          },
+          { name: "University Gazette", link: "/examination/university-gazette" },
+          { name: "Result Analysis", link: "/examination/result-analysis" },
         ],
       },
-      {
-        name: "Convocation ",
-        link: "/examination/convocation",
-      },
+      { name: "Convocation ", link: "/examination/convocation" },
+    ],
+
+    Faculty: [
+      { name: "Faculty Development Program", link: "/faculty-development-programs" },
+      { name: "Short Term Training Programme", link: "/short-term-training-programme" },
+      { name: "Achievements & Recognitions", link: "/" },
+      { name: "Employee Handbook", link: "/" },
+    
     ],
     "Life@TIMSCDR": [
       {
         name: "Development Program >>",
         link: "/life/activities",
         submenu: [
-          {
-            name: "Faculty Development Program",
-            link: "/faculty-development-programs",
-          },
-          {
-            name: "Short Term Training Programme",
-            link: "/short-term-training-programme",
-          },
-          {
-            name: "Parent Interaction Programme",
-            link: "/parent-interaction-programme",
-          },
-          {
-            name: "Guest Lecture",
-            link: "/guest-lecture-sdp-pre-placement-training",
-          },
-          {
-            name: "SDP – Workshops & Certifications",
-            link: "/student-development-program",
-          },
-          {
-            name: "Pre Placement Training",
-            link: "/pre-placement-training",
-          },
+
+
+          { name: "Parent Interaction Programme", link: "/parent-interaction-programme" },
+          { name: "Guest Lecture", link: "/guest-lecture-sdp-pre-placement-training" },
+          { name: "SDP – Workshops & Certifications", link: "/student-development-program" },
+          { name: "Pre Placement Training", link: "/pre-placement-training" },
         ],
       },
       {
@@ -352,14 +284,8 @@ function Navbar() {
         link: null,
         submenu: [
           { name: "CSI-TIMSCDR", link: "/csi-timscdr" },
-          {
-            name: "IEEE-TIMSCDR",
-            link: "/ieee-timscdr",
-          },
-          {
-            name: "D-Link Academy Lab",
-            link: "/d-link-academy-lab",
-          },
+          { name: "IEEE-TIMSCDR", link: "/ieee-timscdr" },
+          { name: "D-Link Academy Lab", link: "/d-link-academy-lab" },
         ],
       },
       {
@@ -380,18 +306,9 @@ function Navbar() {
         submenu: [
           { name: "Trekking", link: "/facilities/learning-resource-center" },
           { name: "Health & Hygiene", link: "/facilities/library-rules" },
-          {
-            name: "Clean India Campaign",
-            link: "/facilities/digital-resources",
-          },
-          {
-            name: "Social Events",
-            link: "/facilities/library-timings",
-          },
-          {
-            name: "Hackathon",
-            link: "/facilities/library-timings",
-          },
+          { name: "Clean India Campaign", link: "/facilities/digital-resources" },
+          { name: "Social Events", link: "/facilities/library-timings" },
+          { name: "Hackathon", link: "/facilities/library-timings" },
         ],
       },
       { name: "Dasvidaniya", link: "/life/gallery" },
@@ -400,14 +317,8 @@ function Navbar() {
         link: "",
         submenu: [
           { name: "Magazine-Eminence", link: "/life/magazine-eminence" },
-          {
-            name: "News Letter",
-            link: "/life/newsletter",
-          },
-          {
-            name: "Doctor Booklet",
-            link: "/life/doctors-booklet",
-          },
+          { name: "News Letter", link: "/life/newsletter" },
+
         ],
       },
       {
@@ -415,14 +326,8 @@ function Navbar() {
         link: "/life/student-achievements",
         submenu: [
           { name: "Sports Day", link: "/facilities/library-rules" },
-          {
-            name: "Freshers and Farewell",
-            link: "/facilities/digital-resources",
-          },
-          {
-            name: "Cultural Events",
-            link: "/facilities/library-timings",
-          },
+          { name: "Freshers and Farewell", link: "/facilities/digital-resources" },
+          { name: "Cultural Events", link: "/facilities/library-timings" },
         ],
       },
       { name: "Unnat Bharat Abhiyan", link: "/life/student-testimonials" },
@@ -430,18 +335,9 @@ function Navbar() {
         name: "Womens Development Cell >>",
         link: "/life/student-council",
         submenu: [
-          {
-            name: "Women Entrepreneurs Events",
-            link: "/facilities/library-rules",
-          },
-          {
-            name: "Women Health",
-            link: "/facilities/digital-resources",
-          },
-          {
-            name: "Self Defense",
-            link: "/facilities/digital-resources",
-          },
+          { name: "Women Entrepreneurs Events", link: "/facilities/library-rules" },
+          { name: "Women Health", link: "/facilities/digital-resources" },
+          { name: "Self Defense", link: "/facilities/digital-resources" },
         ],
       },
       {
@@ -449,38 +345,14 @@ function Navbar() {
         link: "/life/cells-committee",
         submenu: [
           { name: "2024-25", link: "/facilities/library-rules" },
-          {
-            name: "2023-24",
-            link: "/facilities/digital-resources",
-          },
-          {
-            name: "2022-23",
-            link: "/facilities/library-timings",
-          },
-          {
-            name: "2021-22",
-            link: "/facilities/library-timings",
-          },
-          {
-            name: "2020-21",
-            link: "/facilities/library-timings",
-          },
-          {
-            name: "2019-20",
-            link: "/facilities/library-timings",
-          },
-          {
-            name: "2018-19",
-            link: "/facilities/library-timings",
-          },
-          {
-            name: "2017-18",
-            link: "/facilities/library-timings",
-          },
-          {
-            name: "2016-17",
-            link: "/facilities/library-timings",
-          },
+          { name: "2023-24", link: "/facilities/digital-resources" },
+          { name: "2022-23", link: "/facilities/library-timings" },
+          { name: "2021-22", link: "/facilities/library-timings" },
+          { name: "2020-21", link: "/facilities/library-timings" },
+          { name: "2019-20", link: "/facilities/library-timings" },
+          { name: "2018-19", link: "/facilities/library-timings" },
+          { name: "2017-18", link: "/facilities/library-timings" },
+          { name: "2016-17", link: "/facilities/library-timings" },
         ],
       },
     ],
@@ -493,19 +365,13 @@ function Navbar() {
     ],
     Contact: [
       { name: "Contact Us", link: "/contact" },
-      {
-        name: "Student Grievance Redressal",
-        link: "/contact/student-grievance-redressal",
-      },
+
       {
         name: "Careers >>",
         link: "#",
         submenu: [
           { name: "Recruitment", link: "/contact/recruitment" },
-          {
-            name: "Employee Handbook",
-            link: "/contact/employee-handbook",
-          },
+          { name: "Employee Handbook", link: "/contact/employee-handbook" },
           {
             name: (
               <>
@@ -524,10 +390,7 @@ function Navbar() {
             ),
             link: "/facilities/library-timings",
           },
-          {
-            name: "UoM Qualification Equivalence",
-            link: "/facilities/library-timings",
-          },
+          { name: "UoM Qualification Equivalence", link: "/facilities/library-timings" },
         ],
       },
     ],
@@ -542,22 +405,6 @@ function Navbar() {
           <div className="nav-logo">
             <img src="/Website_Assets/Asset 53@4x.webp" alt="TIMSCDR" />
           </div>
-          {/* Honors strip inside navbar */}
-          {/* Honors strip inside navbar */}
-          {/* <div className="nav-honors">
-            <div className="nav-honors__track">
-              <img src="/Website_Assets/Asset 17@4x.webp" alt="NAAC A+ accreditation" />
-              <img src="/Website_Assets/Asset 19@4x.webp" alt="ISO certified" />
-              <img src="/Website_Assets/Asset 20@4x.webp" alt="Maharashtra State Emblem" />
-              <img src="/Website_Assets/Asset 21@4x.webp" alt="AICTE approved" />
-              <img src="/Website_Assets/Asset 22@4x.webp" alt="University of Mumbai" />
-              <img src="/Website_Assets/Asset 23@4x.webp" alt="UGC autonomous" />
-              <img src="/Website_Assets/Asset 18@4x.webp" alt="UGC autonomous" />
-
-            </div>
-          </div> */}
-
-
 
           <div className="nav-buttons" aria-hidden={false}>
             <div className="nav-button1 button ">
@@ -580,9 +427,7 @@ function Navbar() {
 
         {/* Desktop Navbar */}
         <nav className="navbar-menu" aria-label="Primary">
-
           <ul className="nav-menu">
-
             {categories.map((cat) =>
               cat === "Home" ? (
                 <li key="Home" tabIndex={0}>
@@ -593,35 +438,24 @@ function Navbar() {
                   <a href="#" onClick={(e) => e.preventDefault()}>
                     {cat}
                   </a>
-                  <div
-                    className="dropdown"
-                    role="menu"
-                    aria-label={`${cat} menu`}
-                  >
+                  <div className="dropdown" role="menu" aria-label={`${cat} menu`}>
                     {dropdownContent[cat].map((item, idx) =>
                       item.submenu ? (
-                        <div
-                          className="dropdown-item"
-                          key={`${cat}-sub-${idx}`}
-                          tabIndex={0}
-                        >
-                          <a
-                            href={item.link || "#"}
-                            onClick={(e) => e.preventDefault()}
-                          >
-                            {item.name}
+                        <div className="dropdown-item" key={`${cat}-sub-${idx}`} tabIndex={0}>
+                          <a href={item.link || "#"} onClick={(e) => e.preventDefault()}>
+                            <WithChevron label={item.name} />
                           </a>
                           <div className="submenu" role="menu">
                             {item.submenu.map((sub, sidx) => (
                               <a key={`${cat}-subitem-${sidx}`} href={sub.link}>
-                                {sub.name}
+                                <WithChevron label={sub.name} />
                               </a>
                             ))}
                           </div>
                         </div>
                       ) : (
                         <a key={`${cat}-item-${idx}`} href={item.link}>
-                          {item.name}
+                          <WithChevron label={item.name} />
                         </a>
                       )
                     )}
@@ -629,12 +463,10 @@ function Navbar() {
                 </li>
               )
             )}
-
           </ul>
         </nav>
       </div>
 
-      {/* Mobile Navbar */}
       {/* Mobile Navbar */}
       <aside
         id="mobileMenu"
@@ -678,17 +510,20 @@ function Navbar() {
                   <img className="arrow" src={chevronIcon} alt="" />
                 </button>
                 <div
-                  className={`mobile-dropdown-content${openMobileItem === cat ? " open" : ""}`}
+                  className={`mobile-dropdown-content${openMobileItem === cat ? " open" : ""
+                    }`}
                 >
                   {dropdownContent[cat].map((item, idx) =>
                     item.submenu ? (
                       <div key={`submenu-${cat}-${idx}`}>
                         <button
-                          className={`submenu-toggle${(openSubmenu[cat] ?? null) === idx ? " open" : ""}`}
+                          className={`submenu-toggle${(openSubmenu[cat] ?? null) === idx ? " open" : ""
+                            }`}
                           onClick={() =>
                             setOpenSubmenu((prev) => ({
                               ...prev,
-                              [cat]: (prev[cat] ?? null) === idx ? null : idx,
+                              [cat]:
+                                (prev[cat] ?? null) === idx ? null : idx,
                             }))
                           }
                           aria-expanded={(openSubmenu[cat] ?? null) === idx}
@@ -706,8 +541,9 @@ function Navbar() {
                             alignItems: "center",
                           }}
                         >
-                          {item.name}
+                          <WithChevron label={item.name} />
                         </button>
+
                         {(openSubmenu[cat] ?? null) === idx && (
                           <div
                             className="mobile-dropdown-content open"
@@ -719,7 +555,7 @@ function Navbar() {
                                 href={sub.link}
                                 onClick={() => setMenuOpen(false)}
                               >
-                                {sub.name}
+                                <WithChevron label={sub.name} />
                               </a>
                             ))}
                           </div>
@@ -731,7 +567,7 @@ function Navbar() {
                         href={item.link}
                         onClick={() => setMenuOpen(false)}
                       >
-                        {item.name}
+                        <WithChevron label={item.name} />
                       </a>
                     )
                   )}
@@ -739,7 +575,6 @@ function Navbar() {
               </React.Fragment>
             )
           )}
-
         </div>
       </aside>
     </header>

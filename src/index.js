@@ -99,6 +99,8 @@ import DoctorsBooklet from "./Life/DoctorsBooklet";
 import Admin from "./admin/Admin";
 import AdminLogin from "./admin/AdminLogin";
 import PEOPage from "./program/PEOPage";
+import Policies from "./about/Policies";
+import NAAC from "./IQAC/NAAC";
 
 // import MagazineEminence from "./Life/MagazineEminence";
 
@@ -128,7 +130,8 @@ root.render(
         path="/about/development-committee"
         element={<DevelopmentCommittee />}
       />
-      <Route path="/about/iqac-committee" element={<IqacCommittee />} />
+      {/* <Route path="/about/iqac-committee" element={<IqacCommittee />} /> */}
+      <Route path="/policies" element={<Policies />} />
       <Route path="/about/cells-and-committees" element={<CellCommittee />} />
       <Route path="/about/nisp-policy" element={<NispPolicy />} />
 
@@ -228,6 +231,8 @@ root.render(
       />
       <Route path="/training-programme" element={<TrainingProgramme />} />
       <Route path="/placement-data" element={<PlacementData />} />
+
+      <Route path="/naac-aqar" element={<NAAC />} />
 
       {/* Life @ */}
       <Route

@@ -16,16 +16,19 @@ input,
 textarea {
   font-family: "Roboto", sans-serif !important;
 }
-:root{
-  --page-max: 1300px;
+:root {
+  --page-max: 100%;
   --page-pad: clamp(12px, 3vw, 32px);
 }
+:root {
+  --navbar-height: 154px;
+}
 
-.App{
+.App {
   inline-size: 100%;
 }
 
-.page-container{
+.page-container {
   inline-size: min(var(--page-max), 100%);
   margin-inline: auto;
   padding-inline: var(--page-pad);
@@ -34,8 +37,8 @@ textarea {
 
 .section-alt {
   width: 100%;
-  background-color: #F6F5FB; /* light pastel (alternate) */
-  padding: 60px 0;           /* vertical breathing space */
+  background-color: #f6f5fb; /* light pastel (alternate) */
+  padding: 60px 0; /* vertical breathing space */
 }
 
 .section-base {
@@ -46,22 +49,21 @@ textarea {
 h1,
 h2 {
   color: #231f54 !important;
-
 }
 .about-us-divider {
-  width: 50px;              /* make it shorter than full width */
-  margin: 0 auto 2rem;     /* center it and add spacing */
+  width: 50px; /* make it shorter than full width */
+  margin: 0 auto 2rem; /* center it and add spacing */
   border: 0;
   height: 2px;
   background-color: #10bad2; /* same as heading color */
-  opacity: 0.7;            /* subtle look */
+  opacity: 0.7; /* subtle look */
 }
 h2 {
   font-size: 30px !important;
   line-height: 4rem !important;
-    font-weight: 700 !important;
-    margin-bottom: 1.5rem !important;
-      text-align: center !important;
+  font-weight: 700 !important;
+  margin-bottom: 1.5rem !important;
+  text-align: center !important;
 }
 h1 {
   font-weight: 700 !important;
@@ -115,21 +117,15 @@ hr {
   --heading-gap-top: 18px;
 }
 
-.main-content {
-  margin-top: calc(var(--navbar-height) + var(--flipper-height));
-}
-
 html,
 body,
 #root {
   width: 100%;
-  overflow-y: scroll; /* Keep scrolling enabled */
-
-  /* Hide scrollbar for IE, Edge */
-  -ms-overflow-style: none;
-
-  /* Hide scrollbar for Firefox */
-  scrollbar-width: none;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto; /* allow vertical scroll when needed */
+  overflow-x: hidden; /* block horizontal scroll */
 }
 
 /* Hide scrollbar for Chrome, Safari, Opera */
@@ -142,7 +138,6 @@ body::-webkit-scrollbar,
 /* Full‑bleed: header spans viewport edges inside containers */
 
 /* Header band visuals */
-
 
 /* Breadcrumb */
 .site-breadcrumb {
@@ -169,7 +164,9 @@ body::-webkit-scrollbar,
   color: #0c2e73;
   text-decoration: none;
 }
-.site-breadcrumb a:hover { text-decoration: underline; }
+.site-breadcrumb a:hover {
+  text-decoration: underline;
+}
 .site-breadcrumb [aria-current="page"] {
   color: #111827;
   font-weight: 600;
@@ -198,12 +195,11 @@ body::-webkit-scrollbar,
 .site-headerBand {
   padding-block: clamp(24px, 5vw, 56px);
   /* background: #f7f7f8; */
- padding-top: clamp(24px, 5vw, 56px);     /* was 12–28px */
+  padding-top: clamp(24px, 5vw, 56px); /* was 12–28px */
   padding-bottom: clamp(24px, 5vw, 64px);
 }
 
 /* Ensure the full-bleed band centers its contents */
-
 
 /* Breadcrumb */
 .site-breadcrumb {
@@ -230,7 +226,9 @@ body::-webkit-scrollbar,
   color: #0c2e73;
   text-decoration: none;
 }
-.site-breadcrumb a:hover { text-decoration: underline; }
+.site-breadcrumb a:hover {
+  text-decoration: underline;
+}
 .site-breadcrumb [aria-current="page"] {
   color: #111827;
   font-weight: 600;
@@ -273,7 +271,6 @@ body::-webkit-scrollbar,
   margin-inline: auto;
 }
 
-
 /* Tighter top spacing for breadcrumb (closer to navbar) */
 .site-breadcrumb {
   margin-bottom: clamp(8px, 1.5vw, 16px); /* keep bottom space for the title */
@@ -281,27 +278,30 @@ body::-webkit-scrollbar,
 
 /* If the header band adds extra padding on top, trim it slightly */
 
-
 /* Split the header band into a tight top row (breadcrumb) and a padded title row */
 .site-headerBand {
   display: grid;
-  grid-template-rows: auto 1fr;          /* row 1: breadcrumb, row 2: title */
-  row-gap: clamp(6px, 1.2vw, 14px);      /* space between breadcrumb and title */
-  padding-top: 0;                         /* keep breadcrumb tight to top */
-  padding-bottom: clamp(24px, 5vw, 64px); /* overall height mainly below */           /* requested background */
+  grid-template-rows: auto 1fr; /* row 1: breadcrumb, row 2: title */
+  row-gap: clamp(6px, 1.2vw, 14px); /* space between breadcrumb and title */
+  padding-top: 0; /* keep breadcrumb tight to top */
+  padding-bottom: clamp(
+    24px,
+    5vw,
+    64px
+  ); /* overall height mainly below */ /* requested background */
 }
 
 /* Keep breadcrumb locked to the top with no extra top margin */
 .site-breadcrumb {
   grid-row: 1;
-  margin-top: 0;              /* prevent drop when header grows */
-  padding-top: clamp(4px, 0.6vw, 10px);  /* tiny breathing room by choice */
+  margin-top: 0; /* prevent drop when header grows */
+  padding-top: clamp(4px, 0.6vw, 10px); /* tiny breathing room by choice */
 }
 
 /* Put the vertical padding for height on a title container instead of the band */
 .site-pageTitle {
   grid-row: 2;
-  padding-top: clamp(24px, 5vw, 56px);   /* increase header height here */
+  padding-top: clamp(24px, 5vw, 56px); /* increase header height here */
   padding-bottom: clamp(12px, 2.5vw, 20px);
 }
 
@@ -311,4 +311,61 @@ body::-webkit-scrollbar,
   width: 100%;
   max-width: min(1200px, 92vw);
   margin-inline: auto;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --navbar-height: 70px;
+  }
+}
+
+/* .main-content-nav {
+  margin-top: calc(var(--navbar-height) + var(--flipper-height));
+} */
+
+.navbar-wrapper {
+  box-shadow: none !important;
+}
+
+.navbar-wrapper {
+  width: 100%;
+  position: relative;
+  background: #fff;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+  box-shadow: none !important;
+}
+
+@media (max-width: 1366px) {
+  :root {
+    --navbar-height: 140px;
+  }
+}
+
+/* Tablets and smaller laptops */
+@media (max-width: 992px) {
+  :root {
+    --navbar-height: 110px;
+  }
+}
+
+/* Large mobile phones */
+@media (max-width: 768px) {
+  :root {
+    --navbar-height: 90px;
+  }
+}
+
+/* Small mobile phones */
+@media (max-width: 480px) {
+  :root {
+    --navbar-height: 70px;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 360px) {
+  :root {
+    --navbar-height: 60px;
+  }
 }
