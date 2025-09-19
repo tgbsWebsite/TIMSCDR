@@ -12,6 +12,7 @@ const DoctorsBooklet = () => {
 
 // Now pdfData contains Magazines instead of Newsletters:
 const pdfData = [
+  { name: "Doctor Book 2025", link: "/pdf/Doctor Booklet/Doctor Book-2025 Vol-IX (Web).pdf" },
   { name: "Doctor Book 2024", link: "https://www.timscdrmumbai.in/wp-content/uploads/2024/08/Doctor-Book-2024-Vol-VIII.pdf" },
   { name: "Doctor Book 2023", link: "https://www.timscdrmumbai.in/wp-content/uploads/2023/07/Doctor-Book-2023-Vol-VII.pdf" },
   { name: "Doctor Book 2022", link: "https://timscdrmumbai.in/wp-content/uploads/2021/04/Doctor-Book-2022-Vol-VI-Final.pdf" },

@@ -9,6 +9,7 @@ import Navbar from "../components/navbar";
 // DATA ARRAYS
 
 const convocationCeremonies = [
+
   {
     batch: "Batch 2018-2021",
     ceremony: "16th Degree distribution on Feb 1, 2022, for 177 graduates.",
@@ -35,18 +36,18 @@ const convocationCeremonies = [
 const awards2024 = [
   {
     rank: "First",
-    name: "Mr. Shaikh Ahemad",
-    award: "Smt. Indiradevi Memorial Award",
+    name: "Ms. Jinal Gala",
+    award: "Smt. Nimnadevi Memorial Award",
   },
   {
     rank: "Second",
-    name: "Mr. Mushab Akkad Ali",
-    award: "Smt. Indiradevi Memorial Award",
+    name: "Ms. Muskan Akbar Ali",
+    award: "Smt. Indradevi Memorial Award",
   },
   {
     rank: "Third",
-    name: "Mr. Ritesh Kamble",
-    award: "Smt. Indiradevi Memorial Award",
+    name: "Ms. Neelu Kewat",
+    award: "Smt. Prabhavatidevi S. Singh Memorial Award",
   },
 ];
 
@@ -252,7 +253,7 @@ export default function Convocation() {
           >
             <div>
               <img style={{ marginTop: "50px", objectFit: "cover" }}
- src="/images/IMG_1171.jpeg"                alt="Graduates throwing caps"
+                src="/images/IMG_1171.jpeg" alt="Graduates throwing caps"
               />
             </div>
             {/* <div>
@@ -300,6 +301,59 @@ export default function Convocation() {
             </div>
           </section>
 
+          {/* 2022-2024 Batch */}
+          <section className="conv-card">
+            <h3 className="conv-batch-title">
+              <span className="material-symbols-outlined conv-batch-icon">
+                school
+              </span>
+              Degree Distribution for Batch 2022-2024
+            </h3>
+            <p className="conv-batch-desc">
+              11th Degree distribution for Batch 2022-2024 was conducted on May
+              2, 2025. First three rankers of the Batch 2022-2024 were
+              felicitated with Memento and certificates as per the given list:
+            </p>
+            {/* <div className="conv-guest-box mb-medium">
+              <h4 className="conv-guest-title">
+                <span className="material-symbols-outlined conv-icon">
+                  star
+                </span>{" "}
+                Guest of Honor
+              </h4>
+              <p className="conv-guest-name">
+                Esteemed faculty members and academicians
+              </p>
+              <p className="conv-guest-desc">
+                Presided over the ceremony and conferred the degrees.
+              </p>
+            </div> */}
+            <h4 className="conv-awards-title">Academic Awards AY 2024-25</h4>
+            <div className="conv-table-wrapper">
+              <table className="conv-table">
+                <thead>
+                  <tr>
+                    <th>Rank</th>
+                    <th>Name of the student</th>
+                    <th>Name of Award</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {awards2024.map((a) => (
+                    <tr key={a.rank}>
+                      <td>{a.rank}</td>
+                      <td>{a.name}</td>
+                      <td>{a.award}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="conv-graduates-summary conv-summary-indigo">
+              Total of <strong>131 graduates </strong>received their degree
+              certificates from the Batch 2022-2024.
+            </p>
+          </section>
           {/* 2022-2024 Batch */}
           <section className="conv-card">
             <h3 className="conv-batch-title">
@@ -449,7 +503,7 @@ export default function Convocation() {
             </div>
             <p className="conv-graduates-summary conv-summary-green">
               Total of <strong>297 (113+184) graduates</strong> received their
-              degree certificates from the batch 2019-2022 & batch 2020-2022. 
+              degree certificates from the batch 2019-2022 & batch 2020-2022.
             </p>
           </section>
 

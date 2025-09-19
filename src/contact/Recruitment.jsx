@@ -1,12 +1,14 @@
 import "./recruitment.css";
 
 import React, { useState } from "react";
-// import "./styles.css";
 import Navbar from "../components/navbar";
 import BrochureForm from "../components/EnquiryForm";
 import CTAButtons from "../components/sticky-button";
 import Footer from "../components/Footer";
 
+// Example icon imports (SVGs recommended for crisp scaling)
+import iconDescription from "../assets/file_8208360.svg";
+import iconChevronRight from "../assets/arrow_14090761.svg";
 
 const Recruitment = () => {
   const [showForm, setShowForm] = useState(false);
@@ -16,7 +18,7 @@ const Recruitment = () => {
       {showForm && <BrochureForm setShowForm={setShowForm} />}
       <CTAButtons />
       <main className="main-container">
-        <h1 className="heading">RECRUITMENT</h1>
+        <h1 className="heading">Recruitment</h1>
 
         <div className="grid-container">
           {/* Left Sidebar Links */}
@@ -27,12 +29,12 @@ const Recruitment = () => {
                 target="pdf-viewer"
                 className="link-card blue-border"
               >
-                <span className="material-icons icon blue">description</span>
+                <img className="icon blue" src={iconDescription} alt="" aria-hidden="true" />
                 <p>
                   Applications are invited for the Post of Professor, Associate
                   Professor &amp; Assistant Professor
                 </p>
-                <span className="material-icons arrow">chevron_right</span>
+                <img className="arrow" src={iconChevronRight} alt="" aria-hidden="true" />
               </a>
 
               <a
@@ -40,12 +42,12 @@ const Recruitment = () => {
                 target="pdf-viewer"
                 className="link-card blue-border"
               >
-                <span className="material-icons icon blue">description</span>
+                <img className="icon blue" src={iconDescription} alt="" aria-hidden="true" />
                 <p>
                   Applications are invited for the following posts for the
                   Academic Year 2025 - 2026
                 </p>
-                <span className="material-icons arrow">chevron_right</span>
+                <img className="arrow" src={iconChevronRight} alt="" aria-hidden="true" />
               </a>
             </div>
           </section>

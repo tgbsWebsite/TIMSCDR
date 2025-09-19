@@ -12,6 +12,7 @@ const MagazineEminence = () => {
 
 // Now pdfData contains Magazines instead of Newsletters:
 const pdfData = [
+   { name: "News Letter-April-June 2025", link: "/pdf/newsletters/News Letter-2025-AMJ.pdf" },
   { name: "News Letter-Jan-Mar 2025", link: "/pdf/newsletters/january-march-2025.pdf" },
   { name: "News Letter-Oct-Dec 2024", link: "/pdf/newsletters/october-dec-2024.pdf" },
   { name: "News Letter-Jul-Sept 2024", link: "/pdf/newsletters/july-september-2024.pdf" },

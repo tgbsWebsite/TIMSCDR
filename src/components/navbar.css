@@ -213,14 +213,15 @@ button {
 }
 /* Main menu link hover/focus */
 
-.nav-menu li > a:hover,
-.nav-menu li > a:focus {
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 3px;
-  color: #f07c39;
-  outline: none;
+
+.nav-buttons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* spacing between buttons */
+  margin-left: 20px; /* space from the logo */
 }
+
+
 
 
 /* Honors/awards strip inside navbar */

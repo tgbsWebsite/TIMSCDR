@@ -662,6 +662,18 @@ const NoticeBoard = () => {
     setSections((prev) => ({ ...prev, [name]: !prev[name] }));
   };
 
+  // Icon paths (Freepik images placed in /public/assets/icons/)
+  const icons = {
+    school: "/assets/icons/school.svg",
+    grading: "/assets/icons/grading.svg",
+    personAdd: "/assets/icons/person-add.svg",
+    campaign: "/assets/icons/campaign.svg",
+    archive: "/assets/icons/archive.svg",
+    folderOpen: "/assets/icons/folder-open.svg",
+    arrowRightAlt: "/assets/icons/arrow-right-alt.svg",
+    chevronDown: "/assets/icons/chevron-down.svg",
+  };
+
   return (
     <>
       <Navbar setShowForm={setShowForm} />
@@ -686,16 +698,21 @@ const NoticeBoard = () => {
                   >
                     <h3 className="section-title border-orange">
                       <span className="icon-text orange">
-                        <span className="material-icons mr-3">school</span>{" "}
+                        <img
+                          src={icons.school}
+                          alt="Academics"
+                          className="icon mr-3 orange-icon"
+                        />
                         Academics
                       </span>
-                      <span
-                        className={`material-icons toggle-icon ${
+                      <img
+                        src={icons.chevronDown}
+                        alt=""
+                        aria-hidden="true"
+                        className={`icon toggle-icon ${
                           sections.academics ? "" : "rotated"
                         }`}
-                      >
-                        expand_more
-                      </span>
+                      />
                     </h3>
                   </button>
 
@@ -710,9 +727,12 @@ const NoticeBoard = () => {
                               target="_blank"
                               rel="noopener noreferrer"
                             >
-                              <span className="material-icons mr-3 orange-icon">
-                                arrow_right_alt
-                              </span>
+                              <img
+                                src={icons.arrowRightAlt}
+                                alt=""
+                                aria-hidden="true"
+                                className="icon mr-3 orange-icon"
+                              />
                               <span>{text}</span>
                             </a>
                           </li>
@@ -730,16 +750,21 @@ const NoticeBoard = () => {
                   >
                     <h3 className="section-title border-teal">
                       <span className="icon-text teal">
-                        <span className="material-icons mr-3">grading</span>{" "}
+                        <img
+                          src={icons.grading}
+                          alt="Examinations"
+                          className="icon mr-3 teal-icon"
+                        />
                         Examinations
                       </span>
-                      <span
-                        className={`material-icons toggle-icon ${
+                      <img
+                        src={icons.chevronDown}
+                        alt=""
+                        aria-hidden="true"
+                        className={`icon toggle-icon ${
                           sections.examinations ? "" : "rotated"
                         }`}
-                      >
-                        expand_more
-                      </span>
+                      />
                     </h3>
                   </button>
 
@@ -754,9 +779,12 @@ const NoticeBoard = () => {
                               target="_blank"
                               rel="noopener noreferrer"
                             >
-                              <span className="material-icons mr-3 teal-icon">
-                                arrow_right_alt
-                              </span>
+                              <img
+                                src={icons.arrowRightAlt}
+                                alt=""
+                                aria-hidden="true"
+                                className="icon mr-3 teal-icon"
+                              />
                               <span>{text}</span>
                             </a>
                           </li>
@@ -774,16 +802,21 @@ const NoticeBoard = () => {
                   >
                     <h3 className="section-title border-indigo">
                       <span className="icon-text indigo">
-                        <span className="material-icons mr-3">person_add</span>{" "}
+                        <img
+                          src={icons.personAdd}
+                          alt="Admissions"
+                          className="icon mr-3 indigo-icon"
+                        />
                         Admissions
                       </span>
-                      <span
-                        className={`material-icons toggle-icon ${
+                      <img
+                        src={icons.chevronDown}
+                        alt=""
+                        aria-hidden="true"
+                        className={`icon toggle-icon ${
                           sections.admissions ? "" : "rotated"
                         }`}
-                      >
-                        expand_more
-                      </span>
+                      />
                     </h3>
                   </button>
 
@@ -798,9 +831,12 @@ const NoticeBoard = () => {
                               target="_blank"
                               rel="noopener noreferrer"
                             >
-                              <span className="material-icons mr-3 indigo-icon">
-                                arrow_right_alt
-                              </span>
+                              <img
+                                src={icons.arrowRightAlt}
+                                alt=""
+                                aria-hidden="true"
+                                className="icon mr-3 indigo-icon"
+                              />
                               <span>{text}</span>
                             </a>
                           </li>
@@ -818,16 +854,21 @@ const NoticeBoard = () => {
                   >
                     <h3 className="section-title border-pink">
                       <span className="icon-text pink">
-                        <span className="material-icons mr-3">campaign</span>{" "}
+                        <img
+                          src={icons.campaign}
+                          alt="General"
+                          className="icon mr-3 pink-icon"
+                        />
                         General
                       </span>
-                      <span
-                        className={`material-icons toggle-icon ${
+                      <img
+                        src={icons.chevronDown}
+                        alt=""
+                        aria-hidden="true"
+                        className={`icon toggle-icon ${
                           sections.general ? "" : "rotated"
                         }`}
-                      >
-                        expand_more
-                      </span>
+                      />
                     </h3>
                   </button>
 
@@ -842,9 +883,12 @@ const NoticeBoard = () => {
                               target="_blank"
                               rel="noopener noreferrer"
                             >
-                              <span className="material-icons mr-3 pink-icon">
-                                arrow_right_alt
-                              </span>
+                              <img
+                                src={icons.arrowRightAlt}
+                                alt=""
+                                aria-hidden="true"
+                                className="icon mr-3 pink-icon"
+                              />
                               <span>{text}</span>
                             </a>
                           </li>
@@ -864,16 +908,21 @@ const NoticeBoard = () => {
               >
                 <h3 className="section-title border-green">
                   <span className="icon-text green">
-                    <span className="material-icons mr-3">archive</span>{" "}
+                    <img
+                      src={icons.archive}
+                      alt="Archived"
+                      className="icon mr-3 green-icon"
+                    />
                     Archived Notices
                   </span>
-                  <span
-                    className={`material-icons toggle-icon ${
+                  <img
+                    src={icons.chevronDown}
+                    alt=""
+                    aria-hidden="true"
+                    className={`icon toggle-icon ${
                       sections.archived ? "" : "rotated"
                     }`}
-                  >
-                    expand_more
-                  </span>
+                  />
                 </h3>
               </button>
 
@@ -881,19 +930,20 @@ const NoticeBoard = () => {
                 <ul className="section-list archived-list">
                   {ARCHIVED.map(({ text, href }, idx) => (
                     <li key={`arc-${idx}`}>
-                      {" "}
                       <a
                         href={href || "#"}
                         className="section-link green-hover"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        {" "}
-                        <span className="material-icons mr-3 green-icon small-icon">
-                          folder_open
-                        </span>{" "}
-                        <span className="small-text">{text}</span>{" "}
-                      </a>{" "}
+                        <img
+                          src={icons.folderOpen}
+                          alt=""
+                          aria-hidden="true"
+                          className="icon mr-3 green-icon small-icon"
+                        />
+                        <span className="small-text">{text}</span>
+                      </a>
                     </li>
                   ))}
                 </ul>

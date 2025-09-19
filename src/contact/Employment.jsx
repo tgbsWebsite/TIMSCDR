@@ -7,6 +7,10 @@ import BrochureForm from "../components/EnquiryForm";
 import CTAButtons from "../components/sticky-button";
 import Footer from "../components/Footer";
 
+  import iconDescription from "../assets/file_8208360.svg";
+import iconChevronRight from "../assets/arrow_14090761.svg";
+
+
 const Employment = () => {
   const [showForm, setShowForm] = useState(false);
   return (
@@ -26,9 +30,9 @@ const Employment = () => {
                 target="pdf-viewer"
                 className="link-card blue-border"
               >
-                <span className="material-icons icon blue">description</span>
+                <img className="icon blue" src={iconDescription} alt="" aria-hidden="true" />
                 <p>Employee Handbook(2023)</p>
-                <span className="material-icons arrow">chevron_right</span>
+                <img className="arrow" src={iconChevronRight} alt="" aria-hidden="true" />
               </a>
             </div>
           </section>

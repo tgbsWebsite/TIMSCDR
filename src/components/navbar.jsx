@@ -1,10 +1,21 @@
 import React, { useEffect, useState } from "react";
 import "./navbar.css";
+import BrochureForm from "./EnquiryForm";
+import BrochureForm1 from "./brochure-form";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [openMobileItem, setOpenMobileItem] = useState(null);
   const [openSubmenu, setOpenSubmenu] = useState({});
+    const [showForm, setShowForm] = useState(false);
+    const [showModal, setShowModal] = useState(false);
+
+    const handleDownloadClick = () => setShowModal(true);
+      const handleCloseModal = () => setShowModal(false);
+        const handleEnquireClick = () => {
+    setShowForm(true);
+  };
+
 
   // Example logo sources. Replace with actual.
   const logoSrc = "/logo.svg";
@@ -163,6 +174,7 @@ function Navbar() {
         name: "Learning Resource Center (Library) >>",
         link: null,
         submenu: [
+          { name: "Library", link: "/library" },
           { name: "About Library", link: "/about-library" },
           { name: "Infrastructure and Facilities", link: "/infrastructure-and-facilities" },
           { name: "TIMSCDR Library Holding", link: "/timscdr-library-holding" },
@@ -264,7 +276,7 @@ function Navbar() {
       { name: "Short Term Training Programme", link: "/short-term-training-programme" },
       { name: "Achievements & Recognitions", link: "/" },
       { name: "Employee Handbook", link: "/" },
-    
+
     ],
     "Life@TIMSCDR": [
       {
@@ -406,13 +418,27 @@ function Navbar() {
             <img src="/Website_Assets/Asset 53@4x.webp" alt="TIMSCDR" />
           </div>
 
-          <div className="nav-buttons" aria-hidden={false}>
-            <div className="nav-button1 button ">
-              <a href="/apply">Enquire Now</a>
+          <div className="nav-buttons-container">
+            <div className="nav-button2">
+              <button onClick={handleDownloadClick}>Download Brochure</button>
             </div>
-            <div className="nav-button2 button">
-              <a href="/download-brochure">Download Brochure</a>
+            <div className="nav-button1">
+              <button onClick={handleEnquireClick}>Enquire Now</button>
             </div>
+            {showForm && <BrochureForm setShowForm={setShowForm} />}
+            {showModal && (
+              <div className="modal-overlay" onClick={handleCloseModal}>
+                <div
+                  className="modal-content"
+                  onClick={(e) => e.stopPropagation()} // prevent modal close when clicking inside
+                >
+                  <button className="close-button" onClick={handleCloseModal}>
+                    &times;
+                  </button>
+                  <BrochureForm1 onClose={handleCloseModal} />
+                </div>
+              </div>
+            )}
           </div>
           <button
             className="menu-button"

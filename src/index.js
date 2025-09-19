@@ -101,6 +101,7 @@ import AdminLogin from "./admin/AdminLogin";
 import PEOPage from "./program/PEOPage";
 import Policies from "./about/Policies";
 import NAAC from "./IQAC/NAAC";
+import Library from "./Facilities/Library";
 
 // import MagazineEminence from "./Life/MagazineEminence";
 
@@ -175,6 +176,7 @@ root.render(
       />
 
       {/* Library */}
+      <Route path="/library" element={<Library />} />
       <Route path="/about-library" element={<LibraryPage />} />
       <Route
         path="/infrastructure-and-facilities"

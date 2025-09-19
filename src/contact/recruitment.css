@@ -136,7 +136,9 @@ body {
   color: #ef4444; /* red-500 */
 }
 .icon.blue {
-  color: #3b82f6; /* blue-500 */
+  color: #3b82f6; 
+  height: 30px;
+  width: 30px;
 }
 
 /* Left borders */
@@ -153,6 +155,8 @@ body {
   font-size: 1.5rem;
   margin-left: auto; /* push arrow to far right */
   flex-shrink: 0;
+  height: 40px;
+  width: 40px;
 }
 
 /* ========================
