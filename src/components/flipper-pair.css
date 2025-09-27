@@ -1,43 +1,86 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 
 /* Declare navbar and flipper heights with updated total */
-:root {
-  --navbar-height: 176px; /* Updated navbar height */
-  --flipper-height: 105px; /* Updated flipper bar height */
-}
 
 .main-content {
-  margin-top: calc(
-    var(--navbar-height) + var(--flipper-height)
-  ); /* space for fixed bars */
+  margin-top: var(--navbar-height); /* remove + var(--flipper-height) */
 }
 
-/* Navbar fixed at top */
-.main-container-navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: var(--navbar-height);
-  width: 100%;
-  z-index: 1000;
-  /* Other navbar styles */
-}
 
 /* Flipper container fixed below navbar */
+/* Flipper below navbar */
 .fp-pair-container {
   position: fixed;
-  top: var(--navbar-height);
+  top: var(--navbar-height); /* always directly below navbar */
   left: 0;
-  height: var(--flipper-height);
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.5rem;
+
+  background: #fff;
+  /* z-index: 900; */
+
+  padding: 0.25rem 0.5rem;
+  height: auto; /* grows naturally */
+}
+
+.fp-pair-container {
+  position: sticky;              /* was fixed */
+  top: var(--navbar-height);     /* pins right under navbar */
+  left: 0;
   width: 100%;
   z-index: 900;
-  display: flex;
-  justify-content: center;
-  padding: 0;
-  flex-wrap: wrap;
-  font-family: "Inter", sans-serif;
-  overflow: visible;
-  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .fp-pair-container {
+    display: flex;
+    flex-direction: column; /* stack */
+    align-items: stretch;
+    gap: 0; /* no horizontal gap */
+  }
+
+  .fp-section {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* ===== Large Desktop / 2K / 4K screens ===== */
+@media (min-width: 1920px) {
+  :root {
+    --navbar-height: 120px; /* taller navbar */
+  }
+
+  .main-container-navbar {
+    font-size: 1.1rem; /* bump font sizes slightly */
+  }
+
+  .fp-pair-container {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(200px, 1fr)
+    ); /* wider flipper items */
+    gap: 1rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .fp-title-text {
+    font-size: 2rem; /* scale flipper titles */
+  }
+
+  .fp-message-text-link {
+    font-size: 1.2rem; /* bigger menu text */
+    padding: 0.6rem 1rem;
+  }
+}
+
+/* Remove the mobile overrides */
+@media (max-width: 768px), (max-width: 480px), (max-width: 360px) {
+  .fp-pair-container {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
 }
 
 /* Hide dot indicator on small screens */
@@ -206,7 +249,7 @@
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 0;
-  padding: 0.5rem;
+  /* padding: 0.5rem; */
   transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275),
     box-shadow 0.3s ease;
   backface-visibility: hidden;
@@ -318,7 +361,7 @@
   gap: 0.75rem;
   font-size: 1.05rem;
   font-weight: 600;
-  color: #231f54 ; /* classic link blue */
+  color: #231f54; /* classic link blue */
   text-decoration: none;
   transition: color 0.3s ease, text-decoration 0.3s ease, transform 0.3s ease;
   padding: 0.5rem 0.75rem;
@@ -362,27 +405,22 @@
 @media (max-width: 1175px) {
   :root {
     --navbar-height: 93px;
-    --flipper-height: 70px;
   }
   .fp-pair-container {
-    height: var(--flipper-height);
   }
 }
 
 @media (max-width: 992px) {
   :root {
     --navbar-height: 80px;
-    --flipper-height: 65px;
   }
   .fp-pair-container {
-    height: var(--flipper-height);
   }
 }
 
 @media (max-width: 768px) {
   :root {
     --navbar-height: 70px;
-    --flipper-height: 60px;
   }
   .fp-pair-container {
     flex-direction: column; /* stack vertically */
@@ -412,15 +450,14 @@
   .fp-dot-indicator {
     display: none; /* hide dots */
   }
-  .main-content {
+  /* .main-content {
     margin-top: calc(var(--navbar-height) + var(--flipper-height));
-  }
+  } */
 }
 
 @media (max-width: 480px) {
   :root {
     --navbar-height: 60px;
-    --flipper-height: 55px;
   }
   .fp-pair-container {
     height: auto;
@@ -451,7 +488,6 @@
 @media (max-width: 360px) {
   :root {
     --navbar-height: 55px;
-    --flipper-height: 50px;
   }
   .fp-pair-container {
     height: auto;
@@ -478,3 +514,24 @@
     display: none;
   }
 }
+
+/* flipper-pair.css */
+
+/* Existing flipper styles remain */
+
+/* Independent section below flipper, not part of the grid */
+.fp-independent {
+  width: 100%;
+  position: relative;   /* normal flow */
+  z-index: 1;
+  /* optional spacing */
+  /* margin-top: 0.5rem; */
+}
+
+/* If flipper is sticky under the sticky navbar */
+.fp-pair-container {
+  position: sticky;              
+     top: var(--navbar-height);     
+     z-index: -1;
+}
+

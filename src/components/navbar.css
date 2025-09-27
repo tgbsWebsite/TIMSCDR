@@ -1,4 +1,5 @@
 /* ===== Base / Reset ===== */
+
 :root {
   --nav-bg: #ffffffb1;
   --nav-glass-blur: 6px;
@@ -11,8 +12,6 @@
   --btn2-bg: #002f6c;
   --btn2-text: #ffffff;
   /* Heights */
-  --navbar-height: 176px;
-  --flipper-height: 105px;
 }
 *,
 *::before,
@@ -30,18 +29,7 @@ button {
 }
 
 /* ===== Main Navbar Container ===== */
-.main-container-navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  width: 100%;
-  flex-direction: column;
-  height: var(--navbar-height);
-}
+
 /* Inner wrapper */
 .navbar-wrapper {
   width: 100%;
@@ -173,8 +161,7 @@ button {
   align-items: center; /* center items vertically */
   min-height: 48px; /* taller strip for visual balance */
   padding: 0;
-  background: #231f54
-;
+  background: #231f54;
   border-top: 1px solid #e0e0e0; /* full-width top line */
   border-bottom: 1px solid #e0e0e0; /* full-width bottom line */
 }
@@ -213,16 +200,14 @@ button {
 }
 /* Main menu link hover/focus */
 
-
-.nav-buttons-container {
-  display: flex;
-  flex-direction: column;
-  gap: 10px; /* spacing between buttons */
-  margin-left: 20px; /* space from the logo */
+.nav-menu li > a:hover,
+.nav-menu li > a:focus {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  color: #f07c39;
+  outline: none;
 }
-
-
-
 
 /* Honors/awards strip inside navbar */
 .nav-honors {
@@ -538,9 +523,10 @@ button {
   position: fixed;
   top: 0;
   left: 0;
-  height: var(--navbar-height);
   width: 100%;
+  height: var(--navbar-height); /* only navbar stays fixed height */
   z-index: 1000;
+  background: #fff;
 }
 
 /* Dropdown scroll limit on mobile */
@@ -577,4 +563,21 @@ button {
     padding: 4px 6px;
     font-size: 12px;
   }
+}
+
+
+:root { --navbar-height: 88px; }  /* match your actual value */
+
+.main-content { margin-top: var(--navbar-height); }
+
+/* If the hero should sit directly below too, give it the same offset: */
+.nav-hero-host { margin-top: var(--navbar-height); }
+
+/* Keep the navbar fixed at the top */
+.main-container-navbar {
+  position: fixed;
+  top: 0; left: 0; width: 100%;
+  height: var(--navbar-height);
+  z-index: 1000;
+  background: #fff;
 }

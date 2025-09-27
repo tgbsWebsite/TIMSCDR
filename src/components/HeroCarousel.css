@@ -1,4 +1,20 @@
-/* Root hero wrapper */
+/* Root variables (override per project if needed) */
+:root {
+  --navbar-height: 88px;         /* keep in sync with navbar.css */
+  --hero-min-h: 360px;           /* smallest reasonable height on phones */
+  --hero-max-h: 920px;           /* cap height for ultra-wide desktops */
+  --hero-vh: 85vh;               /* hero uses most of viewport */
+}
+
+/* Host keeps the hero independent from navbar/flipper styles */
+.nav-hero-host {
+  width: 100%;
+  position: relative;
+  z-index: 1;                    /* below sticky navbar layers */
+  background: #111;
+}
+
+/* Full-bleed hero wrapper */
 .hero-video {
   position: relative;
   width: 100%;
@@ -6,115 +22,121 @@
   background: #111;
 }
 
-/* Container: consistent visual height across sizes (desktop/tablet) */
+/* Responsive container:
+   - subtract fixed navbar height so it fits the viewport
+   - clamp between min and max, driven by vh */
 .video-container {
   width: 100%;
-  /* Desktop/tablet: keep original feel */
-  height: clamp(420px, 60vh, 512px);
   margin: 0 auto;
-  margin-top: 256px; /* existing offset under fixed header */
   position: relative;
   border-radius: 0;
   overflow: hidden;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   background: #111;
+
+  /* Height strategy: min .. preferred .. max */
+  height: clamp(
+    var(--hero-min-h),
+    calc(var(--hero-vh) - var(--navbar-height)),
+    var(--hero-max-h)
+  );
 }
 
-/* Full-bleed media */
+/* If a fixed ratio is preferred on some pages, add .is-ratio */
+.video-container.is-ratio {
+  height: auto;
+  aspect-ratio: 16 / 9;          /* adjust if your video is 21:9 or 4:3 */
+}
+
+/* Fill container perfectly (covers, may crop edges) */
 .video-media,
 .hero-video__media {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;        /* fill container; preserve ratio */
-  object-position: center;  /* adjust focal point if needed */
-  pointer-events: none;
+  object-fit: cover;
+  object-position: center;
   display: block;
+  pointer-events: none;
   z-index: 0;
 }
 
-/* Optional: intrinsic aspect-ratio alternative */
-.video-container.is-ratio {
-  height: auto;
-  aspect-ratio: 16 / 9;
-}
-
-/* Readability gradient */
+/* Optional gradient overlay for text readability */
 .hero-video::after {
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(0,0,0,0.30) 0%,
-    rgba(0,0,0,0.05) 40%,
-    rgba(0,0,0,0.35) 100%
+    rgba(0, 0, 0, 0.35) 0%,
+    rgba(0, 0, 0, 0.10) 40%,
+    rgba(0, 0, 0, 0.45) 100%
   );
   z-index: 0;
 }
 
-/* Overlay */
+/* Overlay and content */
 .hero-video__overlay {
   position: relative;
   z-index: 1;
   height: 100%;
   display: grid;
   place-items: center;
-  padding: 24px;
+  padding: clamp(12px, 3vw, 32px);
   text-align: center;
   color: #fff;
 }
 
-/* Content */
-.hero-video__content { max-width: 800px; }
+.hero-video__content { max-width: 960px; padding: 0 1rem; }
 
 .hero-video__title {
-  font-size: clamp(1.75rem, 5vw, 2.75rem);
+  font-size: clamp(1.6rem, 3.6vw, 3rem);
   font-weight: 700;
   line-height: 1.15;
   margin: 0 0 12px 0;
 }
 
 .hero-video__subtitle {
-  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  font-size: clamp(0.95rem, 1.6vw, 1.25rem);
   opacity: 0.95;
   margin: 0 0 20px 0;
 }
 
-/* CTA */
 .hero-video__cta {
   display: inline-block;
-  padding: 12px 24px;
+  padding: clamp(10px, 1.2vw, 14px) clamp(18px, 2vw, 28px);
   border-radius: 999px;
   color: #fff;
   text-decoration: none;
-  background: rgba(255,255,255,0.2);
-  border: 1px solid rgba(255,255,255,0.35);
-  transition: background .2s ease, transform .2s ease;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  transition: background 0.2s ease, transform 0.2s ease;
 }
-.hero-video__cta:hover {
-  background: rgba(255,255,255,0.35);
-  transform: translateY(-2px);
-}
+.hero-video__cta:hover { background: rgba(255, 255, 255, 0.35); transform: translateY(-2px); }
 
-/* Mobile: reduce height so below text is visible; prefer dvh */
-@media (max-width: 768px) {
-  /* Tighten the clamp so the hero is shorter on small screens */
-  .video-container {
-    height: clamp(300px, 38dvh, 420px); /* smaller target on phones */
-    margin-top: 160px;                  /* also reduce offset if header is shorter */
-  }
-
-  /* Keep wrapper aligned with container (optional) */
-  .hero-video {
-    height: auto; /* let container define the height */
-  }
+/* Breakpoints refine min/max heights for common devices */
+@media (max-width: 480px) {
+  :root { --hero-min-h: 320px; --hero-vh: 90vh; }
 }
 
-/* Very small phones: make it even shorter */
-@media (max-width: 400px) {
-  .video-container {
-    height: clamp(260px, 34dvh, 360px);
-  }
+@media (min-width: 768px) and (max-width: 1024px) {
+  :root { --hero-min-h: 420px; --hero-vh: 85vh; }
+}
+
+@media (min-width: 1280px) {
+  :root { --hero-max-h: 960px; }
+}
+
+@media (min-width: 1536px) {          /* 2K / large desktops */
+  :root { --hero-max-h: 1040px; }
+}
+
+@media (min-width: 2048px) {          /* iMac / 4K */
+  :root { --hero-max-h: 1180px; --hero-vh: 80vh; }
+}
+
+/* Accessibility: reduce motion prefers */
+@media (prefers-reduced-motion: reduce) {
+  .video-media { animation: none; }
 }

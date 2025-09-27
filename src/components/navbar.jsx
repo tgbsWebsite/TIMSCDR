@@ -1,21 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom"; // v6 hook
 import "./navbar.css";
-import BrochureForm from "./EnquiryForm";
-import BrochureForm1 from "./brochure-form";
+import FlipperPair from "./Flipper";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [openMobileItem, setOpenMobileItem] = useState(null);
   const [openSubmenu, setOpenSubmenu] = useState({});
-    const [showForm, setShowForm] = useState(false);
-    const [showModal, setShowModal] = useState(false);
-
-    const handleDownloadClick = () => setShowModal(true);
-      const handleCloseModal = () => setShowModal(false);
-        const handleEnquireClick = () => {
-    setShowForm(true);
-  };
-
+  const location = useLocation();
+  const isHome = location.pathname === "/"; // show flipper only on home
 
   // Example logo sources. Replace with actual.
   const logoSrc = "/logo.svg";
@@ -23,35 +16,36 @@ function Navbar() {
   const closeIcon = "/icons/close.svg";
   const chevronIcon = "/icons/chevron-down.svg";
 
-  // Helper: render label + chevron image if label ends with ">>"
-  const WithChevron = ({ label }) => {
-    const isString = typeof label === "string";
-    const hasArrow = isString && /\s*>>\s*$/.test(label);
-    const text = isString ? label.replace(/\s*>>\s*$/, "") : label;
-
-    return (
-      <span style={{ display: "flex", alignItems: "center" }}>
-        <span>{text}</span>
-        {hasArrow ? (
-          <img
-            src="/images/icons/arrow_8978139.svg"
-            alt=""
-            width={14}
-            height={14}
-            style={{ marginLeft: "auto", opacity: 0.85 }}
-          />
-        ) : null}
-      </span>
-    );
-  };
-
   // Lock body scroll when drawer open
   useEffect(() => {
     const original = document.body.style.overflow;
-    if (menuOpen) document.body.style.overflow = "hidden";
-    else document.body.style.overflow = original || "";
+    document.body.style.overflow = menuOpen ? "hidden" : original || "";
     return () => (document.body.style.overflow = original || "");
-  }, [menuOpen]);
+  }, [menuOpen]); // [web:52]
+
+  // Adjust main content offset under navbar (+ flipper only when visible)
+  useEffect(() => {
+    const adjustMargin = () => {
+      const navbar = document.querySelector(".main-container-navbar");
+      const flipper = document.querySelector(".fp-pair-container");
+      const content = document.querySelector(".main-content");
+
+      if (navbar && content) {
+        const flipperH = isHome && flipper ? flipper.offsetHeight : 0;
+        const totalHeight = navbar.offsetHeight + flipperH;
+        content.style.marginTop = `${totalHeight}px`;
+      }
+    };
+
+    // ensure DOM is painted before measuring
+    const id = requestAnimationFrame(adjustMargin);
+    window.addEventListener("resize", adjustMargin);
+
+    return () => {
+      cancelAnimationFrame(id);
+      window.removeEventListener("resize", adjustMargin);
+    };
+  }, [location.pathname, isHome]); // recompute on route change [web:75][web:48]
 
   // Auto flip submenu for desktop dropdown (existing logic)
   useEffect(() => {
@@ -103,78 +97,92 @@ function Navbar() {
     };
   }, []);
 
-  // Dropdown content
+  // Dropdown content structure (unchanged)
   const dropdownContent = {
     Home: [],
     About: [
       { name: "Vision & Mission", link: "/about/Vision-Mission" },
-      { name: "PEOs & POs", link: "/peo-Page" },
       { name: "Educational Organization Policies", link: "/about/Education-Policies" },
-      {
-        name: "Messages >>",
-        link: "",
-        submenu: [
-          { name: "Chairman's Message", link: "/about/chairman-message" },
-          { name: "CEO's Message", link: "/about/ceo-message" },
-          { name: "Director's Message", link: "/about/director-message" },
-        ],
-      },
-      {
-        name: "Governance >>",
-        link: "",
-        submenu: [
-          { name: "Governing Council", link: "/about/governing-council" },
-          { name: "Advisory Board", link: "/about/advisory" },
-          { name: "Academic Council", link: "/about/academic-council" },
-          { name: "College Development Committee", link: "/about/development-committee" },],
-      },
-
-
-
-
-      // { name: "IQAC Committee", link: "/about/iqac-committee" },
+      { name: "Chairman's Message", link: "/about/chairman-message" },
+      { name: "CEO's Message", link: "/about/ceo-message" },
+      { name: "Director's Message", link: "/about/director-message" },
+      { name: "Governing Council", link: "/about/governing-council" },
+      { name: "Advisory Board", link: "/about/advisory" },
+      { name: "Academic Council", link: "/about/academic-council" },
+      { name: "College Development Committee", link: "/about/development-committee" },
+      { name: "IQAC Committee", link: "/about/iqac-committee" },
       { name: " Cells And Committees", link: "/about/cells-and-committees" },
       { name: "Organogram", link: "/pdf/about/TIMSCDR-Organization-Chart-Final-1" },
-      { name: "Our Policies", link: "/policies" },
-
+      {
+        name: "Our Policies >>",
+        link: "",
+        submenu: [
+          {
+            name: "Divyangjan Policy",
+            link: "https://timscdrmumbai.in/wp-content/uploads/2022/09/TIMSCDR-DRC-Notice.pdf",
+          },
+          {
+            name: (
+              <>
+                Energy Conservation, <br />
+                Water Management And <br /> Waste Management Policy
+              </>
+            ),
+            link: "https://timscdrmumbai.in/wp-content/uploads/2022/09/TIMSCDR-Energy-Water-Waste-Notice.pdf",
+          },
+          { name: "IPR Policy", link: "https://timscdrmumbai.in/wp-content/uploads/2022/10/IPR-Policy.pdf" },
+          {
+            name: "NISP Policy",
+            link: "https://timscdrmumbai.in/national-innovation-and-startup-policy-2019-for-students-and-faculty/",
+          },
+          { name: "QIP Policy", link: "https://www.timscdrmumbai.in/wp-content/uploads/2025/04/TIMSCDR-QIP-Policy.pdf" },
+        ],
+      },
     ],
     Programs: [
+      { name: "Program Educational Objectives(PEO's)", link: "/peo-Page" },
       { name: "Master Of Computer Applications (MCA)", link: "/programs/mca-program" },
       { name: "MCA For Working Professionals", link: "/programs/mca-working-professionals" },
       { name: "Integrated MCA", link: "/programs/integrated-mca" },
       { name: "Ph. D.(Technology)", link: "/programs/ph-d-admission" },
     ],
     Admissions: [
-      { name: "Admission Process", link: "/admission-process" },
+      { name: "Ph.D. Admission", link: "/programs/ph-d-admission" },
+      { name: "Master Of Computer Applications (MCA)", link: "/master-of-computer-applications-mca" },
+      { name: "MCA Integrated", link: "/imca" },
+      { name: "MCA Working Professional", link: "/mca-working-professional" },
       { name: "Seat Distribution", link: "/seat-distribution" },
-      // { name: "Fees Structure", link: "/fees-structure" },
-      { name: "AICTE Approval", link: "/aicte-approval-2" },
+      { name: "Fees Structure", link: "/fees-structure" },
       { name: "Admission Notification", link: "/admission-notification" },
-
+      { name: "AICTE Approval", link: "/aicte-approval-2" },
       { name: "Student Handbook", link: "/student-handbook" },
       { name: "Code Of Conduct For Students", link: "/eligibility-criteria" },
       { name: "Student Mentoring Program", link: "/student-mentoring-program" },
       { name: "Anti Ragging", link: "/anti-ragging" },
-      { name: "Candidate Selected Against CAP Vacancy", link: "/code-of-conduct-for-students" },
-      { name: "Student Grievance Redressal", link: "/contact/student-grievance-redressal" },
+      {
+        name: "Candidate Selected Against CAP Vacancy",
+        link: "/code-of-conduct-for-students",
+      },
     ],
     Academics: [
-      // { name: "Faculty List", link: "/faculty-list-2" },
+      { name: "Faculty List", link: "/faculty-list-2" },
       { name: "Meet Our Faculty", link: "/staff" },
       { name: "Non Teaching Staff", link: "/non-teaching-staff" },
-      // { name: "ERP Login", link: "/results" },
-      { name: "Academic Calendar", link: "/student-downloads" },
-      { name: "Academic Depository (NAD)", link: "https://timscdrmumbai.in/wp-content/uploads/2022/05/NDML-Academic-Depository-NAD.pdf" },
+      { name: "ERP Login", link: "/results" },
+      { name: "Student Downloads", link: "/student-downloads" },
+      {
+        name: "NDML Academic Depository (NAD)",
+        link: "https://timscdrmumbai.in/wp-content/uploads/2022/05/NDML-Academic-Depository-NAD.pdf",
+      },
     ],
     Facilities: [
       { name: "Infrastructure", link: "/facilities/infrastructure" },
-      // { name: "Infrastructure Gallery", link: "/facilities/infrastructure-gallery" },
+      { name: "Infrastructure Gallery", link: "/facilities/infrastructure-gallery" },
       { name: "DRC", link: "/facilities/disability-resource-center" },
       {
         name: "Learning Resource Center (Library) >>",
         link: null,
         submenu: [
-          { name: "Library", link: "/library" },
           { name: "About Library", link: "/about-library" },
           { name: "Infrastructure and Facilities", link: "/infrastructure-and-facilities" },
           { name: "TIMSCDR Library Holding", link: "/timscdr-library-holding" },
@@ -204,59 +212,29 @@ function Navbar() {
           { name: "International Conference (ICAIM) 2015", link: "/facilities/library-timings" },
         ],
       },
-      { name: "Institution Innovation Council (IIC)", link: "/institution-innovation-council-iic" },
       { name: "IPR", link: "/research/collaborations" },
-      {
-        name: "Research Publications >>",
-        link: null,
-        submenu: [
-          { name: "Faculty Publications", link: "/icaim-2025" },
-          { name: "Student Publications", link: "/facilities/digital-resources" },
-          { name: "TechTonics", link: "/research/TechTonics" },
-        ],
-      },
-      {
-        name: "Consultancy >>",
-        link: null,
-        submenu: [
-          { name: "Consultancy / Research Projects", link: "/research/consultancy" },
-          { name: "Doctor Booklet", link: "/life/doctors-booklet" },
-        ],
-      },
-
-      { name: "RITL Excellence Lab", link: "/research/iot-excellence" },
+      { name: "TechTonics", link: "/research/TechTonics" },
+      { name: "Consultancy", link: "/research/consultancy" },
+      { name: "IoT Excellence", link: "/research/iot-excellence" },
     ],
     Placements: [
       { name: "About Placement", link: "/best-mca-college-in-mumbai-for-placements-about-placement" },
       { name: "Training Programme", link: "/training-programme" },
       { name: "Placement Data", link: "/placement-data" },
-      { name: "Training And Placement Policy", link: "https://timscdrmumbai.in/wp-content/uploads/2022/10/Placement-Policy.pdf" },
+      {
+        name: "Training And Placement Policy",
+        link: "https://timscdrmumbai.in/wp-content/uploads/2022/10/Placement-Policy.pdf",
+      },
     ],
-
-
     IQAC: [
-      { name: "IQAC Guidelines", link: "" },
-      { name: "IQAC Committee", link: "https://timscdrmumbai.in/wp-content/uploads/2022/09/Institutional-Information-for-Quality-AssessmentIIQA.pdf" },
       {
-        name: "IQAC Committee >>",
-        link: null,
-        submenu: [
-          { name: "IQAC MoM", link: "/" },
-        ],
+        name: "NAAC-IIQA",
+        link: "https://timscdrmumbai.in/wp-content/uploads/2022/09/Institutional-Information-for-Quality-AssessmentIIQA.pdf",
       },
-      {
-        name: "NAAC >>",
-        link: null,
-        submenu: [
-          { name: "NAAC Certificate", link: "https://timscdrmumbai.in/wp-content/uploads/2023/01/NAAC-Certificate.pdf" },
-          { name: "NAAC-IIQA", link: "https://timscdrmumbai.in/wp-content/uploads/2022/09/Institutional-Information-for-Quality-AssessmentIIQA.pdf" },
-          { name: "NAAC-SSR", link: "https://timscdrmumbai.in/wp-content/uploads/2022/09/SELF-STUDY-REPORT-SSR.pdf" },
-          { name: "NAAC AQAR", link: "/naac-aqar" },
-
-
-        ],
-      },
-
+      { name: "NAAC-SSR", link: "https://timscdrmumbai.in/wp-content/uploads/2022/09/SELF-STUDY-REPORT-SSR.pdf" },
+      { name: "NAAC Certificate", link: "https://timscdrmumbai.in/wp-content/uploads/2023/01/NAAC-Certificate.pdf" },
+      { name: "NAAC AQAR - 2023", link: "https://timscdrmumbai.in/wp-content/uploads/2024/03/AQAR-2023-Submitted-to-NAAC-December-16-2023.pdf" },
+      { name: "NAAC AQAR - 2024", link: "https://www.timscdrmumbai.in/wp-content/uploads/2025/05/AQAR-SUBMITTED-2023-24-Dec-12-2024.pdf" },
     ],
     Examination: [
       { name: "Notice", link: "/notice" },
@@ -270,21 +248,13 @@ function Navbar() {
       },
       { name: "Convocation ", link: "/examination/convocation" },
     ],
-
-    Faculty: [
-      { name: "Faculty Development Program", link: "/faculty-development-programs" },
-      { name: "Short Term Training Programme", link: "/short-term-training-programme" },
-      { name: "Achievements & Recognitions", link: "/" },
-      { name: "Employee Handbook", link: "/" },
-
-    ],
     "Life@TIMSCDR": [
       {
         name: "Development Program >>",
         link: "/life/activities",
         submenu: [
-
-
+          { name: "Faculty Development Program", link: "/faculty-development-programs" },
+          { name: "Short Term Training Programme", link: "/short-term-training-programme" },
           { name: "Parent Interaction Programme", link: "/parent-interaction-programme" },
           { name: "Guest Lecture", link: "/guest-lecture-sdp-pre-placement-training" },
           { name: "SDP – Workshops & Certifications", link: "/student-development-program" },
@@ -330,7 +300,7 @@ function Navbar() {
         submenu: [
           { name: "Magazine-Eminence", link: "/life/magazine-eminence" },
           { name: "News Letter", link: "/life/newsletter" },
-
+          { name: "Doctor Booklet", link: "/life/doctors-booklet" },
         ],
       },
       {
@@ -377,7 +347,7 @@ function Navbar() {
     ],
     Contact: [
       { name: "Contact Us", link: "/contact" },
-
+      { name: "Student Grievance Redressal", link: "/contact/student-grievance-redressal" },
       {
         name: "Careers >>",
         link: "#",
@@ -387,8 +357,7 @@ function Navbar() {
           {
             name: (
               <>
-                AICTE-Faculty <br /> Position Qualification <br /> And
-                Experience Eligibility{" "}
+                AICTE-Faculty <br /> Position Qualification <br /> And Experience Eligibility{" "}
               </>
             ),
             link: "/facilities/library-timings",
@@ -396,8 +365,7 @@ function Navbar() {
           {
             name: (
               <>
-                UoM-Faculty Position <br /> Qualification And <br /> Experience
-                Eligibility <br /> CONCOL/ICC/04 Of 2012{" "}
+                UoM-Faculty Position <br /> Qualification And <br /> Experience Eligibility <br /> CONCOL/ICC/04 Of 2012{" "}
               </>
             ),
             link: "/facilities/library-timings",
@@ -418,27 +386,13 @@ function Navbar() {
             <img src="/Website_Assets/Asset 53@4x.webp" alt="TIMSCDR" />
           </div>
 
-          <div className="nav-buttons-container">
-            <div className="nav-button2">
-              <button onClick={handleDownloadClick}>Download Brochure</button>
+          <div className="nav-buttons" aria-hidden={false}>
+            <div className="nav-button1 button ">
+              <a href="/apply">Enquire Now</a>
             </div>
-            <div className="nav-button1">
-              <button onClick={handleEnquireClick}>Enquire Now</button>
+            <div className="nav-button2 button">
+              <a href="/download-brochure">Download Brochure</a>
             </div>
-            {showForm && <BrochureForm setShowForm={setShowForm} />}
-            {showModal && (
-              <div className="modal-overlay" onClick={handleCloseModal}>
-                <div
-                  className="modal-content"
-                  onClick={(e) => e.stopPropagation()} // prevent modal close when clicking inside
-                >
-                  <button className="close-button" onClick={handleCloseModal}>
-                    &times;
-                  </button>
-                  <BrochureForm1 onClose={handleCloseModal} />
-                </div>
-              </div>
-            )}
           </div>
           <button
             className="menu-button"
@@ -469,19 +423,19 @@ function Navbar() {
                       item.submenu ? (
                         <div className="dropdown-item" key={`${cat}-sub-${idx}`} tabIndex={0}>
                           <a href={item.link || "#"} onClick={(e) => e.preventDefault()}>
-                            <WithChevron label={item.name} />
+                            {item.name}
                           </a>
                           <div className="submenu" role="menu">
                             {item.submenu.map((sub, sidx) => (
                               <a key={`${cat}-subitem-${sidx}`} href={sub.link}>
-                                <WithChevron label={sub.name} />
+                                {sub.name}
                               </a>
                             ))}
                           </div>
                         </div>
                       ) : (
                         <a key={`${cat}-item-${idx}`} href={item.link}>
-                          <WithChevron label={item.name} />
+                          {item.name}
                         </a>
                       )
                     )}
@@ -492,6 +446,9 @@ function Navbar() {
           </ul>
         </nav>
       </div>
+
+      {/* Home-only Flipper */}
+      {isHome && <FlipperPair />}
 
       {/* Mobile Navbar */}
       <aside
@@ -536,20 +493,21 @@ function Navbar() {
                   <img className="arrow" src={chevronIcon} alt="" />
                 </button>
                 <div
-                  className={`mobile-dropdown-content${openMobileItem === cat ? " open" : ""
-                    }`}
+                  className={`mobile-dropdown-content${
+                    openMobileItem === cat ? " open" : ""
+                  }`}
                 >
                   {dropdownContent[cat].map((item, idx) =>
                     item.submenu ? (
                       <div key={`submenu-${cat}-${idx}`}>
                         <button
-                          className={`submenu-toggle${(openSubmenu[cat] ?? null) === idx ? " open" : ""
-                            }`}
+                          className={`submenu-toggle${
+                            (openSubmenu[cat] ?? null) === idx ? " open" : ""
+                          }`}
                           onClick={() =>
                             setOpenSubmenu((prev) => ({
                               ...prev,
-                              [cat]:
-                                (prev[cat] ?? null) === idx ? null : idx,
+                              [cat]: (prev[cat] ?? null) === idx ? null : idx,
                             }))
                           }
                           aria-expanded={(openSubmenu[cat] ?? null) === idx}
@@ -567,9 +525,8 @@ function Navbar() {
                             alignItems: "center",
                           }}
                         >
-                          <WithChevron label={item.name} />
+                          {item.name}
                         </button>
-
                         {(openSubmenu[cat] ?? null) === idx && (
                           <div
                             className="mobile-dropdown-content open"
@@ -581,7 +538,7 @@ function Navbar() {
                                 href={sub.link}
                                 onClick={() => setMenuOpen(false)}
                               >
-                                <WithChevron label={sub.name} />
+                                {sub.name}
                               </a>
                             ))}
                           </div>
@@ -593,7 +550,7 @@ function Navbar() {
                         href={item.link}
                         onClick={() => setMenuOpen(false)}
                       >
-                        <WithChevron label={item.name} />
+                        {item.name}
                       </a>
                     )
                   )}

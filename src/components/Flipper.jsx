@@ -1,5 +1,7 @@
+// Flipper.jsx
 import React, { useState, useEffect } from "react";
 import "./flipper-pair.css";
+import HeroCarousel from "./HeroCarousel";
 
 function FlipperCard({
   messages = [],
@@ -11,45 +13,40 @@ function FlipperCard({
   const [flipping, setFlipping] = useState(false);
   const [flipCount, setFlipCount] = useState(0);
 
-  const [remaining, setRemaining] = useState(Math.max(0, messages.length)); // total at mount
+  const [remaining, setRemaining] = useState(Math.max(0, messages.length));
 
-  // When the active flag turns on for a cycle, trigger a flip and decrement remaining
+  // Trigger flips when active
   useEffect(() => {
     if (!active || messages.length === 0) return;
     setFlipping(true);
-
     const flipTimeout = setTimeout(() => {
       setIndex((prev) => (prev + 1) % messages.length);
-      setFlipCount((c) => (c + 1) % 4); // advance dot forward 0→1→2→3→0
+      setFlipCount((c) => (c + 1) % 4);
       setFlipping(false);
-
-      setRemaining((r) => (r > 0 ? r - 1 : 0)); // keep existing decrement if still used elsewhere
+      setRemaining((r) => (r > 0 ? r - 1 : 0));
     }, 600);
-
     return () => clearTimeout(flipTimeout);
   }, [active, messages.length]);
 
-  // Reset remaining if the messages array changes length
+  // Reset when message count changes
   useEffect(() => {
     setRemaining(Math.max(0, messages.length));
     setIndex(0);
   }, [messages.length]);
 
   if (!messages.length) {
+    // Safe fallback UI
     return (
       <div className="fp-card-wrapper" aria-live="polite">
         <div className="fp-card">
           <div className="fp-card-content">
             <div className="fp-message-header">
               <div className="fp-type-badge" aria-hidden="true">
-                <div className="fp-badge-icon">
-                  {current.type === "Bulletin Board" ? "📢" : "💼"}
-                </div>
+                <div className="fp-badge-icon">📢</div>
               </div>
               <div className="fp-pulse-indicator" aria-hidden="true"></div>
             </div>
 
-            {/* New line: forward-moving dots below header */}
             <div
               className="fp-dot-indicator fp-dot-row"
               aria-label={`${label} progress`}
@@ -57,13 +54,11 @@ function FlipperCard({
               aria-live="polite"
             >
               {Array.from({ length: 4 }).map((_, i) => {
-                const activeDot = flipCount % 4; // forward progression
+                const activeDot = flipCount % 4;
                 return (
                   <span
                     key={i}
-                    className={`fp-dot ${
-                      i === activeDot ? "fp-dot-active" : ""
-                    }`}
+                    className={`fp-dot ${i === activeDot ? "fp-dot-active" : ""}`}
                     aria-hidden="true"
                   />
                 );
@@ -77,6 +72,7 @@ function FlipperCard({
           </div>
           <div className="fp-card-glow"></div>
         </div>
+
         <div
           className="fp-dot-indicator fp-dot-row"
           aria-label={`${label} progress`}
@@ -84,7 +80,7 @@ function FlipperCard({
           aria-live="polite"
         >
           {Array.from({ length: 4 }).map((_, i) => {
-            const activeDot = flipCount % 4; // forward progression
+            const activeDot = flipCount % 4;
             return (
               <span
                 key={i}
@@ -109,16 +105,11 @@ function FlipperCard({
       >
         <div className="fp-card-content">
           <div className="fp-message-header">
-            {/* Icon preserved; no visible type text */}
             <div className="fp-type-badge" aria-hidden="true">
               <div className="fp-badge-icon">
                 {current.type === "Bulletin Board" ? "📢" : "💼"}
               </div>
             </div>
-
-            {/* Live decreasing count */}
-            {/* Dot indicator replaces numeric count */}
-
             <div className="fp-pulse-indicator" aria-hidden="true"></div>
           </div>
 
@@ -152,7 +143,7 @@ function FlipperCard({
           aria-live="polite"
         >
           {Array.from({ length: 4 }).map((_, i) => {
-            const activeDot = flipCount % 4; // forward progression
+            const activeDot = flipCount % 4;
             return (
               <span
                 key={i}
@@ -169,39 +160,15 @@ function FlipperCard({
 
 export default function FlipperPair() {
   const leftMessages = [
-    {
-      type: "Bulletin Board",
-      text: "Admissions open till Aug 10",
-      url: "/admissions",
-    },
-    {
-      type: "Bulletin Board",
-      text: "Scholarships available for top scorers ",
-      url: "/scholarships",
-    },
-    {
-      type: "Bulletin Board",
-      text: "AI & Data Science course launched",
-      url: "/courses/ai-data-science",
-    },
+    { type: "Bulletin Board", text: "Admissions open till Aug 10", url: "/admissions" },
+    { type: "Bulletin Board", text: "Scholarships available for top scorers ", url: "/scholarships" },
+    { type: "Bulletin Board", text: "AI & Data Science course launched", url: "/courses/ai-data-science" },
   ];
 
   const rightMessages = [
-    {
-      type: "Message Board",
-      text: "Placement stats 2025 released",
-      url: "/placements",
-    },
-    {
-      type: "Message Board",
-      text: "100+ top recruiters onboard",
-      url: "/recruiters",
-    },
-    {
-      type: "Message Board",
-      text: "Campus hiring starts Sept 5",
-      url: "/campus-hiring",
-    },
+    { type: "Message Board", text: "Placement stats 2025 released", url: "/placements" },
+    { type: "Message Board", text: "100+ top recruiters onboard", url: "/recruiters" },
+    { type: "Message Board", text: "Campus hiring starts Sept 5", url: "/campus-hiring" },
   ];
 
   const [activeSide, setActiveSide] = useState("left");
@@ -215,30 +182,38 @@ export default function FlipperPair() {
   }, []);
 
   return (
-    <div className="fp-pair-container">
-      <div className="fp-animated-bg" aria-hidden="true">
-        <div className="fp-gradient-orb fp-orb-1"></div>
-        <div className="fp-gradient-orb fp-orb-2"></div>
-        <div className="fp-gradient-orb fp-orb-3"></div>
+    <>
+      {/* Flipper grid (can be sticky via CSS) */}
+      <div className="fp-pair-container">
+        <div className="fp-animated-bg" aria-hidden="true">
+          <div className="fp-gradient-orb fp-orb-1"></div>
+          <div className="fp-gradient-orb fp-orb-2"></div>
+          <div className="fp-gradient-orb fp-orb-3"></div>
+        </div>
+
+        <div className="fp-section">
+          <FlipperCard
+            messages={leftMessages}
+            direction="up"
+            active={activeSide === "left"}
+            label="left updates"
+          />
+        </div>
+
+        <div className="fp-section">
+          <FlipperCard
+            messages={rightMessages}
+            direction="down"
+            active={activeSide === "right"}
+            label="right updates"
+          />
+        </div>
       </div>
 
-      <div className="fp-section">
-        <FlipperCard
-          messages={leftMessages}
-          direction="up"
-          active={activeSide === "left"}
-          label="left updates"
-        />
-      </div>
-
-      <div className="fp-section">
-        <FlipperCard
-          messages={rightMessages}
-          direction="down"
-          active={activeSide === "right"}
-          label="right updates"
-        />
-      </div>
-    </div>
+      {/* Independent, full-width section immediately below the flipper */}
+      {/* <section className="fp-independent">
+        <HeroCarousel height="600px" />
+      </section> */}
+    </>
   );
 }

@@ -27,13 +27,12 @@ import CTAButton from "./components/sticky-button";
 function App() {
   return (
     <div className="App">
-      <Navbar />
-      <Flipper />
-      <HeroCarousel />
-
+       <Navbar />
+<HeroCarousel/>
       {/* Welcome (default page container, no background change) */}
       <div className="page-container">
         <CTAButton />
+        
         <WelcomeSection />
       </div>
 
