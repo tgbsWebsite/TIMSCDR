@@ -402,3 +402,319 @@
     flex-direction: column;
   }
 }
+
+/* Root theme tokens */
+
+/* Base text + font */
+.ap-root {
+  background-color: var(--ap-bg-light);
+  color: var(--ap-text-light);
+  min-height: 100%;
+}
+.dark .ap-root {
+  background-color: var(--ap-bg-dark);
+  color: var(--ap-text-dark);
+}
+
+.ap-text {
+  line-height: 1.6;
+}
+
+
+
+/* Container paddings */
+.ap-container {
+  width: 100%;
+  max-width: 90rem; /* similar to max-w-7xl */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;  /* px-4 */
+  padding-right: 1rem;
+  padding-top: 3rem;   /* py-12 */
+  padding-bottom: 3rem;
+}
+@media (min-width: 640px) {
+  .ap-container { padding-left: 1.5rem; padding-right: 1.5rem; } /* sm:px-6 */
+}
+@media (min-width: 1024px) {
+  .ap-container { padding-left: 2rem; padding-right: 2rem; } /* lg:px-8 */
+}
+
+/* Grid helpers */
+.ap-grid-1 {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.ap-col-span-2 { grid-column: 1 / -1; }
+
+.ap-section-title {
+  font-size: 1.5rem; /* text-2xl */
+  font-weight: 700;
+  color: var(--ap-primary);
+  margin-bottom: 1rem;
+}
+.dark .ap-section-title { color: #f87171; } /* red-400 vibe */
+
+.ap-strong {
+  font-weight: 600;
+}
+.ap-p {
+  margin-bottom: 1rem;
+}
+.ap-p-tight {
+  margin-bottom: 0.5rem;
+}
+
+/* Lists */
+.ap-list {
+  list-style: disc;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+.ap-list > li {
+  margin-bottom: 0.5rem;
+}
+
+/* Spacing block */
+.ap-mt-12 { margin-top: 3rem; }
+
+/* Sub-title */
+.ap-subtitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--ap-primary);
+  margin-bottom: 0.5rem;
+}
+.dark .ap-subtitle { color: #f87171; }
+
+/* 2-col grid (responsive) */
+.ap-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 1.5rem; /* mt-6 */
+}
+@media (min-width: 768px) {
+  .ap-grid-2 { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Card */
+.ap-card {
+  background: var(--ap-card-light);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+.dark .ap-card {
+  background: var(--ap-card-dark);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+.ap-img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+}
+
+/* Prominent recruiters */
+.ap-prominent {
+  background: var(--ap-card-light);
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+.dark .ap-prominent {
+  background: var(--ap-card-dark);
+}
+.ap-prominent-title {
+  font-size: 1.875rem; /* text-3xl */
+  font-weight: 700;
+  text-align: center;
+  color: var(--ap-primary);
+  margin-bottom: 2rem;
+}
+.dark .ap-prominent-title { color: #f87171; }
+.ap-logo-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+.ap-logo {
+  height: auto;
+}
+.ap-logo.h8 { height: 2rem; } /* h-8 */
+.ap-logo.h6 { height: 1.5rem; } /* h-6 */
+.ap-brand-logo { height: 4rem; margin-right: 1rem; } /* h-16 */
+
+/* Footer */
+.ap-footer {
+  background: #1f2937; /* gray-800 */
+  color: #ffffff;
+}
+.dark .ap-footer {
+  background: #111827; /* gray-900 */
+}
+.ap-footer-top {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+}
+@media (min-width: 768px) {
+  .ap-footer-top {
+    flex-direction: row;
+    gap: 0;
+  }
+}
+.ap-footer-brand {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+@media (min-width: 768px) {
+  .ap-footer-brand { margin-bottom: 0; }
+}
+.ap-footer-text { color: var(--ap-text-dark); }
+.ap-footer-title { font-weight: 700; font-size: 1.125rem; }
+.ap-footer-line { font-size: 0.875rem; }
+
+.ap-nba-logo { height: 4rem; } /* h-16 */
+
+.ap-footer-nav-wrap {
+  background: #111827; /* gray-900 strip */
+}
+.dark .ap-footer-nav-wrap {
+  background: #374151; /* dark:bg-gray-700 */
+}
+.ap-footer-nav {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.ap-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  column-gap: 0.75rem;
+  row-gap: 0.25rem;
+  font-size: 0.875rem;
+}
+.ap-link {
+  padding: 0.5rem 0.75rem;
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.ap-link:hover {
+  color: var(--ap-primary);
+}
+.dark .ap-link:hover {
+  color: #f87171;
+}
+
+.ap-footer-bottom {
+  background: #1f2937; /* gray-800 */
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+.dark .ap-footer-bottom {
+  background: #111827; /* gray-900 */
+}
+
+.ap-logo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  align-items: center;
+  justify-items: center;
+}
+@media (min-width: 640px) {
+  .ap-logo-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+@media (min-width: 768px) {
+  .ap-logo-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+}
+@media (min-width: 1024px) {
+  .ap-logo-grid { grid-template-columns: repeat(9, minmax(0, 1fr)); }
+}
+
+/* Optional: dark mode background texture (body) */
+.dark body {
+  /* background-image: url('background-texture-dark.png'); */
+  background-repeat: repeat;
+}
+
+/* Headings heavier in dark */
+.dark h1, .dark h2, .dark h3 {
+  font-weight: 700;
+}
+
+/* Composite banner option */
+.ap-recruiters-banner {
+  margin: 1.5rem 0 2rem;
+}
+.ap-recruiters-banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,.08);
+}
+
+/* Dense responsive grid for many logos */
+.ap-logo-grid-dense {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(110px, 1fr));
+  gap: 18px 20px;
+  align-items: center;
+  justify-items: center;
+}
+
+@media (min-width: 480px) {
+  .ap-logo-grid-dense { grid-template-columns: repeat(3, minmax(110px, 1fr)); }
+}
+@media (min-width: 640px) {
+  .ap-logo-grid-dense { grid-template-columns: repeat(4, minmax(120px, 1fr)); }
+}
+@media (min-width: 768px) {
+  .ap-logo-grid-dense { grid-template-columns: repeat(5, minmax(130px, 1fr)); }
+}
+@media (min-width: 1024px) {
+  .ap-logo-grid-dense { grid-template-columns: repeat(6, minmax(140px, 1fr)); }
+}
+@media (min-width: 1280px) {
+  .ap-logo-grid-dense { grid-template-columns: repeat(8, minmax(150px, 1fr)); }
+}
+
+/* Individual logo normalization */
+.ap-logo-i {
+  width: 100%;
+  max-width: 180px;   /* cap very wide logos */
+  height: 56px;       /* unify row height */
+  object-fit: contain;
+  filter: none;
+  transition: transform .15s ease, filter .15s ease;
+  background: transparent;
+}
+.dark .ap-logo-i { filter: brightness(0.95) contrast(1.05); }
+
+.ap-logo-i:hover,
+.ap-logo-i:focus-visible {
+  transform: translateY(-2px);
+}
+
+/* Optional: subtle separators for very dense grids */
+.ap-logo-grid-dense .ap-logo-i {
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.65);
+}
+.dark .ap-logo-grid-dense .ap-logo-i {
+  background: rgba(30,30,30,0.55);
+}
+

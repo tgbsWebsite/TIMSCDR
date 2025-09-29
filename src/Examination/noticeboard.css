@@ -32,28 +32,30 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
 body {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   color: var(--gray-800);
   background-color: #fff;
 }
 
 /* 2) Ensure Material Icons render as icons */
 @font-face {
-  font-family: 'Material Icons';
+  font-family: "Material Icons";
   font-style: normal;
   font-weight: 400;
-  src: url(https://fonts.gstatic.com/s/materialicons/v140/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+  src: url(https://fonts.gstatic.com/s/materialicons/v140/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2)
+    format("woff2");
   font-display: swap;
 }
 
 .material-icons {
-  font-family: 'Material Icons';
+  font-family: "Material Icons";
   font-weight: normal;
   font-style: normal;
   font-size: 24px;
@@ -69,17 +71,13 @@ body {
 }
 
 /* 3) Page container */
-.container {
-  max-width: 1600px;        /* or 1536px, 1600px, etc. */
- margin: 150px auto 40px auto;
+.nb-container {
+  max-width: 1600px; /* or 1536px, 1600px, etc. */
+  margin: 150px auto 40px auto;
   padding: 3rem 1rem;
-  display: flex;
+
   flex-wrap: wrap;
   gap: 2rem;
-  align-items: flex-start;
-
-  
-
 }
 
 /* 4) Header */
@@ -98,16 +96,22 @@ body {
 }
 /* Reusable scroll pane (same look/height as archived if you want) */
 .scroll-pane {
-  max-height: 350px;     /* adjust as needed */
+  max-height: 350px; /* adjust as needed */
   overflow-y: auto;
-  padding-right: 1rem;   /* keeps content from hugging the scrollbar */
+  padding-right: 1rem; /* keeps content from hugging the scrollbar */
 }
 
 /* Optional: nicer scrollbar (WebKit) */
-.scroll-pane::-webkit-scrollbar { width: 8px; }
-.scroll-pane::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 8px; }
-.scroll-pane:hover::-webkit-scrollbar-thumb { background: #cbd5e0; }
-
+.scroll-pane::-webkit-scrollbar {
+  width: 8px;
+}
+.scroll-pane::-webkit-scrollbar-thumb {
+  background: #e2e8f0;
+  border-radius: 8px;
+}
+.scroll-pane:hover::-webkit-scrollbar-thumb {
+  background: #cbd5e0;
+}
 
 /* 5) Card wrapper (the light gray box) */
 .bg-custom-gray {
@@ -115,21 +119,20 @@ body {
   padding: 2rem;
   border-radius: 0.75rem;
   /* box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1); */
-  width: 100%;          /* fills parent */
-  max-width: 1600px; 
+  width: 100%; /* fills parent */
+  max-width: 1600px;
 
-  display: flex;       /* row by default */
-  flex-wrap: wrap;     /* allow wrapping to next line */
-  gap: 2rem;           /* spacing between children */
+  display: flex; /* row by default */
+  flex-wrap: wrap; /* allow wrapping to next line */
+  gap: 2rem; /* spacing between children */
   align-items: flex-start;
 }
 
 /* Optional: width control for children */
 .bg-custom-gray > * {
-  flex: 1 1 48%;       /* ~2 items per row; adjust as needed */
+  flex: 1 1 48%; /* ~2 items per row; adjust as needed */
   min-width: 280px;
 }
-
 
 /* 6) Outer grid: left content (2 columns area) + right archived column */
 .grid-3-cols {
@@ -172,11 +175,21 @@ body {
 }
 
 /* Color borders under section titles */
-.border-orange { border-color: var(--orange-500); }
-.border-teal   { border-color: var(--teal-600); }
-.border-indigo { border-color: var(--indigo-600); }
-.border-pink   { border-color: var(--pink-600); }
-.border-green  { border-color: var(--green-500); }
+.border-orange {
+  border-color: var(--orange-500);
+}
+.border-teal {
+  border-color: var(--teal-600);
+}
+.border-indigo {
+  border-color: var(--indigo-600);
+}
+.border-pink {
+  border-color: var(--pink-600);
+}
+.border-green {
+  border-color: var(--green-500);
+}
 
 /* Left icon + text wrapper in header */
 .icon-text {
@@ -186,11 +199,21 @@ body {
 }
 
 /* Accent colors on header text/icons */
-.orange { color: var(--orange-500); }
-.teal   { color: var(--teal-600); }
-.indigo { color: var(--indigo-600); }
-.pink   { color: var(--pink-600); }
-.green  { color: var(--green-500); }
+.orange {
+  color: var(--orange-500);
+}
+.teal {
+  color: var(--teal-600);
+}
+.indigo {
+  color: var(--indigo-600);
+}
+.pink {
+  color: var(--pink-600);
+}
+.green {
+  color: var(--green-500);
+}
 
 /* Rotating chevron */
 .toggle-icon {
@@ -226,26 +249,58 @@ body {
 }
 
 /* Hover accent colors */
-.orange-hover:hover { color: var(--orange-600); }
-.teal-hover:hover   { color: var(--teal-600); }
-.indigo-hover:hover { color: var(--indigo-600); }
-.pink-hover:hover   { color: var(--pink-600); }
-.green-hover:hover  { color: var(--green-600); }
+.orange-hover:hover {
+  color: var(--orange-600);
+}
+.teal-hover:hover {
+  color: var(--teal-600);
+}
+.indigo-hover:hover {
+  color: var(--indigo-600);
+}
+.pink-hover:hover {
+  color: var(--pink-600);
+}
+.green-hover:hover {
+  color: var(--green-600);
+}
 
 /* Icon tints inside links */
-.orange-icon { color: var(--orange-400); }
-.teal-icon   { color: var(--teal-400); }
-.indigo-icon { color: var(--indigo-400); }
-.pink-icon   { color: var(--pink-400); }
-.green-icon  { color: var(--green-400); }
+.orange-icon {
+  color: var(--orange-400);
+}
+.teal-icon {
+  color: var(--teal-400);
+}
+.indigo-icon {
+  color: var(--indigo-400);
+}
+.pink-icon {
+  color: var(--pink-400);
+}
+.green-icon {
+  color: var(--green-400);
+}
 
-.small-icon { font-size: 18px; line-height: 1; }
-.small-text { font-size: 0.875rem; font-weight: 600; }
+.small-icon {
+  font-size: 18px;
+  line-height: 1;
+}
+.small-text {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
 
 /* 10) CTA button area */
-.text-center { text-align: center; }
-.mt-12 { margin-top: 3rem; }
-.ml-2 { margin-left: 0.5rem; }
+.text-center {
+  text-align: center;
+}
+.mt-12 {
+  margin-top: 3rem;
+}
+.ml-2 {
+  margin-left: 0.5rem;
+}
 
 .button-orange {
   display: inline-flex;
@@ -256,15 +311,16 @@ body {
   font-weight: 600;
   padding: 0.75rem 2rem;
   border-radius: 9999px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   text-decoration: none;
-  transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease,
+    transform 0.2s ease;
 }
 
 .button-orange:hover {
   background-color: var(--orange-600);
-  box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
   transform: translateY(-3px);
 }
 
@@ -273,7 +329,9 @@ body {
   border-left: 2px solid var(--gray-300);
 }
 
-.pl-8 { padding-left: 2rem; }
+.pl-8 {
+  padding-left: 2rem;
+}
 
 /* Archived list scrollable area */
 .archived-list {
@@ -310,4 +368,88 @@ body {
   .grid-2-cols {
     grid-template-columns: 1fr; /* stack sections in one column */
   }
+}
+
+/* Remove Material Icons font face and class since using images now */
+
+/* Generic icon image styles */
+.icon {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+  display: inline-block;
+  object-fit: contain;
+  vertical-align: middle;
+}
+
+/* Size utilities to replace md-18/md-24 etc. */
+.icon-18 {
+  width: 18px;
+  height: 18px;
+}
+.icon-24 {
+  width: 24px;
+  height: 24px;
+}
+.icon-32 {
+  width: 32px;
+  height: 32px;
+}
+.icon-36 {
+  width: 36px;
+  height: 36px;
+}
+.icon-48 {
+  width: 48px;
+  height: 48px;
+}
+
+/* Margin helpers where JSX uses mr-3/small-icon */
+.mr-3 {
+  margin-right: 0.75rem;
+}
+
+/* Optional: monochrome SVG tinting with CSS filters (use only for single-color SVGs) */
+.icon-tint-orange {
+  filter: invert(58%) sepia(68%) saturate(707%) hue-rotate(338deg)
+    brightness(101%) contrast(95%);
+}
+.icon-tint-teal {
+  filter: invert(65%) sepia(32%) saturate(616%) hue-rotate(125deg)
+    brightness(86%) contrast(93%);
+}
+.icon-tint-indigo {
+  filter: invert(34%) sepia(27%) saturate(1534%) hue-rotate(208deg)
+    brightness(93%) contrast(91%);
+}
+.icon-tint-pink {
+  filter: invert(52%) sepia(29%) saturate(1198%) hue-rotate(303deg)
+    brightness(97%) contrast(96%);
+}
+.icon-tint-green {
+  filter: invert(66%) sepia(14%) saturate(1042%) hue-rotate(96deg)
+    brightness(90%) contrast(93%);
+}
+
+/* If using inline SVG or currentColor-capable assets, color tokens still apply */
+.orange {
+  color: var(--orange-500);
+}
+.teal {
+  color: var(--teal-600);
+}
+.indigo {
+  color: var(--indigo-600);
+}
+.pink {
+  color: var(--pink-600);
+}
+.green {
+  color: var(--green-500);
+}
+
+/* Replace old .small-icon with a size utility */
+.small-icon {
+  width: 18px;
+  height: 18px;
 }

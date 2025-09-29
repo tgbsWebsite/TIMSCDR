@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import BrochureForm from "../components/EnquiryForm";
 import CTAButtons from "../components/sticky-button";
 import Navbar from "../components/navbar";
+import PageHeader from "../about/PageHeader";
 
 // 1) Data arrays
 const ACADEMICS = [
@@ -663,16 +664,16 @@ const NoticeBoard = () => {
   };
 
   // Icon paths (Freepik images placed in /public/assets/icons/)
-  const icons = {
-    school: "/assets/icons/school.svg",
-    grading: "/assets/icons/grading.svg",
-    personAdd: "/assets/icons/person-add.svg",
-    campaign: "/assets/icons/campaign.svg",
-    archive: "/assets/icons/archive.svg",
-    folderOpen: "/assets/icons/folder-open.svg",
-    arrowRightAlt: "/assets/icons/arrow-right-alt.svg",
-    chevronDown: "/assets/icons/chevron-down.svg",
-  };
+const icons = {
+  school: '/assets/education.svg',
+  grading: '/assets/planning.svg',
+  personAdd: '/assets/man.svg',
+  campaign: '/assets/marketing.svg',
+  archive: '/assets/archive.svg',
+  folderOpen: '/assets/folder_16202912.svg',
+  arrowRightAlt: '/assets/minus_11916053.svg',
+  chevronDown: '/assets/arrow-down_4655002.svg',
+};
 
   return (
     <>
@@ -680,10 +681,14 @@ const NoticeBoard = () => {
       {showForm && <BrochureForm setShowForm={setShowForm} />}
       <CTAButtons />
 
-      <div className="container">
-        <div className="text-center mb-12">
-          <h1 className="title">Notice Board</h1>
-        </div>
+      <div className="nb-container">
+        <PageHeader
+               title="Notice Board"
+               crumbs={[
+                 { label: 'Home', href: '/' },
+                 { label: 'Notice Board' }, // current page (no href)
+               ]}
+             />
 
         <div className="bg-custom-gray rounded shadow">
           <div className="grid-3-cols">

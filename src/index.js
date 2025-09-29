@@ -161,7 +161,7 @@ root.render(
       {/* Examination */}
       <Route path="/notice" element={<NoticeBoard />} />
       <Route path="/examination/university-gazette" element={<MCAResults />} />
-      <Route path="/examination/result-analysis" element={<ResultAnalysis />} />
+      {/* <Route path="/examination/result-analysis" element={<ResultAnalysis />} /> */}
       <Route path="/examination/convocation" element={<Convocation />} />
 
       {/* Facilities */}

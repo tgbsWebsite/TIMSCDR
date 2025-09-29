@@ -83,7 +83,7 @@ const PlacementData = () => {
                     </section>
                 </div>
             </main>
-            <Footer />
+  
         </>
     );
 };
