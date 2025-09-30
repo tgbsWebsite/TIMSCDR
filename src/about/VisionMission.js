@@ -10,60 +10,60 @@ const VisionMission = () => {
     <>
       <Navbar />
       <CTAButtons />
-      <div className="vision-mission-container">
-        {/* <div className="breadcrumb">HOME / VISION & MISSION</div> */}
-         <PageHeader
-        title="Vision & Mission"
-        crumbs={[
-          { label: 'Home', href: '/' },
-          { label: 'Rules & Guidelines' }, // current page (no href)
-        ]}
-      />
 
-        {/* Vision & Mission Section */}
-      <div className="vision-section">
-  <div className="vision-div">
-    <div className="vision-box">
-      <div>
-        <h3>Our Vision</h3>
-        <hr />
-        <p>
-          Thakur Institute of Management Studies, Career Development &
-          Research will become a premier institute renowned internationally for
-          providing education in software application to graduates from various disciplines.
-        </p>
-      </div>
-      <div>
-        <img
-        // src="/Website_Assets/vision.jpeg"
-          alt="vision - Thakur Institute of Management Studies, Career Development & Research"
+      <main className="vision-mission-container">
+        <PageHeader
+          title="Vision & Mission"
+          crumbs={[
+            { label: "Home", href: "/" },
+            { label: "Rules & Guidelines" },
+          ]}
         />
-      </div>
-    </div>
 
-    <div className="mission-box">
-      <div>
-        <img
-        // src="/Website_Assets/mission.jpeg"
-          alt="Mission - Thakur Institute of Management Studies, Career Development & Research"
-        />
-      </div>
-      <div>
-        <h3>Our Mission</h3>
-        <hr />
-        <p>
-          To achieve excellence in providing software education so that students can grasp
-          existing as well as emerging technologies and to inculcate leadership and
-          managerial qualities in them so that they can deliver results in the organization they join.
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
+        {/* Vision & Mission */}
+        <section className="vm-section">
+          {/* Vision */}
+          <article className="vm-block vm-block--reverse">
+            <div className="vm-media">
+              <img
+                src="/Website_Assets/vision.webp"
+                loading="lazy"
+                alt="Vision illustration for Thakur Institute"
+                className="vm-img"
+              />
+            </div>
+            <div className="vm-content">
+              <h2>Our Vision</h2>
+              <div className="vm-underline" aria-hidden="true" />
+              <p>
+                Thakur Institute of Management Studies, Career Development & Research will become a premier institute renowned internationally for providing education in software application to graduates from various disciplines.
+              </p>
+            </div>
+          </article>
+
+          {/* Mission */}
+          <article className="vm-block">
+            <div className="vm-media">
+              <img
+                src="/Website_Assets/mission.webp"
+                loading="lazy"
+                alt="Mission illustration for Thakur Institute"
+                className="vm-img"
+              />
+            </div>
+            <div className="vm-content">
+              <h2 >Our Mission</h2>
+              <div className="vm-underline" aria-hidden="true" />
+              <p >
+               To achieve excellence in providing software education so that students can grasp existing as well as emerging technologies and to inculcate leadership and managerial qualities in them so that they can deliver results in the organization they join.
+              </p>
+            </div>
+          </article>
+        </section>
 
 
-        {/* PO Section */}
-      </div>
+      </main>
+
       <Footer />
     </>
   );

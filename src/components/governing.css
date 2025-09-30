@@ -1,65 +1,135 @@
+/* Container */
 .governing-layout {
-  display: flex;
-  gap: 2rem;               
-  margin-top: 23vh;        
-  padding: 1rem 5rem 1rem 10rem; /* top right bottom left */
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(16px, 4vw, 28px);
+  margin-top: clamp(12vh, 10vw, 18vh);
+  padding: clamp(12px, 4vw, 24px);
   box-sizing: border-box;
 }
 
-
+/* Left pane: years */
 .year-selector {
-  width: 200px; 
-  border-right: 1px solid #ccc;
-  padding-right: 1rem;
-  margin-top: 18rem;
-
+  width: 100%;
+  border-right: none;
+  padding-right: 0;
+  margin-top: 0;
 }
 
 .year-selector h3 {
-  margin-bottom: 1rem;
-  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  font-size: clamp(1rem, 2.4vw, 1.25rem);
   font-weight: 700;
-   color:  #233b77;
-   text-align: center;
+  color: #233b77;
+  text-align: center;
 }
 
 .year-selector ul {
   list-style: none;
   padding: 0;
-  margin: 0;
-  margin-right: 50px;
+  margin: 0 auto;
+  display: grid;
+  gap: 8px;
+  max-width: 280px; /* keep items tidy on mobile */
 }
 
 .year-selector li {
-  padding: 0.5rem 1rem;
+  padding: 0.6rem 0.9rem;
   cursor: pointer;
-  border-radius: 4px;
-  margin-bottom: 0.5rem;
-  transition: background-color 0.3s ease;
-  width: 150px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease, color 0.2s ease;
   box-sizing: border-box;
-   /* border-bottom: 1px solid #ccc;  */
-  
+  text-align: center;
+  background: #f3f4f7;
+  color: #233b77;
+  font-weight: 600;
 }
 
-.year-selector li:hover {
-  background-color: #e0e0e0;
-}
+.year-selector li:hover { background-color: #e6e8ee; }
 
 .year-selector li.active {
-  background-color:  #3f3d9b;;
-  color: white;
-  font-weight: bold;
-  
+  background-color: #3f3d9b;
+  color: #ffffff;
 }
 
+/* Right pane: table */
 .table-area {
-  flex-grow: 1; 
-  padding-left: 1rem;
+  width: 100%;
+  padding-left: 0;
+  overflow-x: auto;              /* safe horizontal scroll for wide tables */
 }
 
+/* Optional head alignment */
 .advisory-head {
   margin-bottom: 1rem;
   text-align: center;
+  font-size: clamp(1rem, 2.6vw, 1.25rem);
+  font-weight: 700;
+  color: #233b77;
 }
+
+/* ------- Tablet and up ------- */
+@media (min-width: 768px) {
+  .governing-layout {
+    grid-template-columns: 240px 1fr; /* fixed left rail + fluid table */
+    align-items: start;
+    padding: clamp(16px, 4vw, 40px) clamp(24px, 6vw, 80px);
+  }
+
+  .year-selector {
+    width: 100%;
+    border-right: 1px solid #e5e7eb;
+    padding-right: clamp(10px, 2vw, 18px);
+    /* position: sticky; */
+    top: clamp(64px, 8vh, 96px);
+ /* stays visible under a sticky navbar */
+    max-height: calc(100vh - 120px);
+    overflow: auto;
+    scrollbar-width: thin;
+  }
+
+  .year-selector ul {
+    margin-right: 0;
+    max-width: none;
+    display: block;
+  }
+
+  .year-selector li {
+    text-align: left;
+    width: 100%;
+    background: transparent;
+    font-weight: 500;
+  }
+
+  .year-selector li:hover { background-color: #f3f4f7; }
+}
+
+/* ------- Desktop and wide ------- */
+@media (min-width: 1200px) {
+  .governing-layout {
+    grid-template-columns: 280px 1fr;
+    gap: 2rem;
+  }
+}
+
+/* Helpful table responsiveness (example styling) */
+.table-area table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 640px;              /* ensure columns don’t crush on small screens */
+}
+
+.table-area th,
+.table-area td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #e5e7eb;
+  text-wrap: balance;
+}
+
+.table-area thead th {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 1;
+}
+

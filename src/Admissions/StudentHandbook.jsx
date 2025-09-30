@@ -4,6 +4,9 @@ import BrochureForm from "../components/EnquiryForm";
 import CTAButtons from "../components/sticky-button";
 import Footer from "../components/Footer";
 import PageHeader from "../about/PageHeader";
+import iconDescription from "../assets/file_8208360.svg";
+import iconChevronRight from "../assets/arrow_14090761.svg";
+
 
 const StudentHandbook = () => {
   const [showForm, setShowForm] = useState(false);
@@ -36,9 +39,9 @@ const StudentHandbook = () => {
                 onClick={() => setPdfSrc("https://timscdrmumbai.in/wp-content/uploads/2023/06/Student-Handbook.pdf")} // Static PDF URL
                 className="link-card blue-border"
               >
-                <span className="material-icons icon blue">description</span>
+                 <img className="icon blue" src={iconDescription} alt="" aria-hidden="true" />
                 <p>Download Student Handbook</p>
-                <span className="material-icons arrow">chevron_right</span>
+                 <img className="arrow" src={iconChevronRight} alt="" aria-hidden="true" />
               </a>
             </div>
           </section>

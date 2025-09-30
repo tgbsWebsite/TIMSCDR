@@ -842,13 +842,6 @@ function Governing() {
       <Navbar setShowForm={setShowForm} />
       {showForm && <BrochureForm setShowForm={setShowForm} />}
       <CTAButtons />
-      <title>Governing Council | Leadership & Vision at TIMSCDR Mumbai</title>
-      <meta
-        name="description"
-        content="Meet the Governing Council of TGBS Mumbai..."
-      />
-      <meta name="keywords" content="TGBS PGDM Programme" />
-      <link rel="canonical" href="https://tgbsmumbai.in/governing-council" />
 
       <div className="governing-layout">
         <aside className="year-selector">

@@ -13,16 +13,6 @@
   margin-bottom: 35px;
 }
 
-.vm-section::before {
-  content: "";
-  position: absolute;
-  top: 10%;
-  bottom: 10%;
-  left: 50%;
-  width: 2px;
-  background-color: #ccc;
-  transform: translateX(-50%);
-}
 
 .vm-section > div {
   flex: 1;
@@ -31,9 +21,9 @@
 }
 
 .vm-section h2 {
-  font-size: 24px;
+  font-size: 32px !important;
   margin-bottom: 16px;
-  text-align: left;
+  text-align: left !important; 
   color: #231f54;
 }
 
@@ -214,3 +204,160 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ========== Root tokens ========== */
+:root {
+  --vm-primary: #231f54;
+  --vm-accent: #3f3d9b;
+  --vm-brand: #027176;
+  --vm-text: #1f2937;
+  --vm-text-muted: #4b5563;
+  --vm-bg: #ffffff;
+  --vm-bg-soft: #f5f7fb;
+  --vm-card: #ffffff;
+  --vm-radius: 14px;
+  --vm-shadow: 0 10px 22px rgba(0,0,0,0.06);
+  --vm-shadow-lg: 0 16px 36px rgba(0,0,0,0.12);
+}
+
+/* ========== Page wrapper ========== */
+.vm-page {
+  font-family: "Segoe UI", Inter, system-ui, -apple-system, Roboto, Arial, sans-serif;
+  background: var(--vm-bg);
+  color: var(--vm-text);
+  margin: 0;
+  padding: 0;
+}
+
+/* Space below sticky Navbar/CTAs */
+.vm-page > .vm-spacer { height: 72px; }
+
+/* ========== PageHeader (shared component renders itself) ========== */
+/* Nothing needed here, but we keep top spacing consistent via section padding */
+
+/* ========== Section wrapper ========== */
+.vm-section {
+  max-width: 1300px;
+  margin-inline: auto;
+  padding: clamp(16px, 3vw, 24px) clamp(16px, 5vw, 32px);
+  display: grid;
+  gap: clamp(32px, 5vw, 56px);
+}
+
+/* ========== Two-up blocks ========== */
+.vm-block {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(20px, 3.5vw, 36px);
+  align-items: center;
+  background: var(--vm-card);
+
+
+  padding: clamp(18px, 3.5vw, 28px);
+}
+
+@media (min-width: 900px) {
+  .vm-block {
+    grid-template-columns: 1fr 1.05fr;
+    padding: clamp(22px, 2.8vw, 36px);
+  }
+  .vm-block--reverse {
+    direction: rtl;
+  }
+  .vm-block--reverse > * {
+    direction: ltr;
+  }
+}
+
+.vm-media {
+  width: 100%;
+  min-height: 220px;
+  display: grid;
+  place-items: center;
+}
+
+.vm-img {
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.12));
+}
+
+/* ========== Content ========== */
+.vm-content {
+  width: 100%;
+}
+
+.vm-heading {
+  font-size: clamp(22px, 3.2vw, 32px);
+  line-height: 1.2;
+  margin: 0 0 8px 0;
+  color: var(--vm-primary);
+  font-weight: 800;
+}
+
+.vm-underline {
+  width: 72px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--vm-accent);
+  margin: 0 0 14px 0;
+}
+
+.vm-text {
+  font-size: clamp(15px, 1.6vw, 18px);
+  line-height: 1.75;
+  color: var(--vm-text-muted);
+  text-align: left;
+  margin: 0;
+}
+
+/* ========== PEO (optional) ========== */
+.vm-peo {
+  max-width: 1200px;
+  margin: 6px auto 56px auto;
+  padding: 0 clamp(16px, 5vw, 32px);
+}
+
+.vm-subtitle {
+  font-size: clamp(20px, 2.8vw, 28px);
+  color: var(--vm-brand);
+  text-align: center;
+  font-weight: 800;
+  margin: 0 0 16px 0;
+}
+
+.vm-peo-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+
+.vm-peo-item {
+  background: var(--vm-bg-soft);
+  padding: 14px 16px;
+  border-left: 6px solid #2563eb;
+  border-radius: 8px;
+  color: var(--vm-text);
+  line-height: 1.6;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.04);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.vm-peo-item:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.06);
+}
+
+/* ========== Utilities ========== */
+hr.vm-full {
+  width: 100%;
+  height: 1px;
+  background: var(--vm-primary);
+  border: 0;
+  border-radius: 2px;
+}
+

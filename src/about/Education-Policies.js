@@ -1,69 +1,61 @@
 import React from "react";
 import "./Education-Policies.css";
+
 import Footer from "../components/Footer";
 import Navbar from "../components/navbar";
 import CTAButtons from "../components/sticky-button";
 import PageHeader from "./PageHeader";
 
-const EducationPolicies = () => {
+const EducationalPolicy = () => {
   return (
     <>
       <Navbar />
       <CTAButtons />
-      <div className="Education-Policies-container">
-         <PageHeader
-        title="Educational Organization Policy"
-        crumbs={[
-          { label: 'Home', href: '/' },
-          { label: 'Educational Organization Policy' }, // current page (no href)
-        ]}
-      />        {/* Content Layout */}
-        <div className="vision-box">
-          <img
-            // src={InspiringImage}
-            alt="Inspiring Creativity"
-          />
 
-          {/* Right Column - Paragraph */}
-          <div className="policy-text">
-            <p>
-              We, the staff, faculty and management of Thakur Institute of
-              Management Studies, Career Development and Research are committed
-              to offer excellence in software education, in inclusive and
-              conducive academic environment for holistic development of our
-              students. We work as a team and interact with students in
-              pro-active manner to achieve our Educational Organization
-              Objectives and fulfill all academic, statutory and regulatory
-              requirements. We strive for continual improvement of our
-              Educational Organizations Management System.
+
+      <div className="eo-page">
+        {/* Simple nav bar */}
+
+        {/* Main content */}
+        <main className="eo-container eo-main">
+          
+          <section className="eo-section">
+            <h2 className="eo-title"></h2>
+                  <PageHeader
+        title="Educational Organization Policy"
+        crumbs={[{ label: "Home", href: "/" }, { label: "Educational Organization Policy" }]}
+      />
+            <p className="eo-text">
+              We, at Thakur Institute of Management Studies, Career Development
+              &amp; Research are committed to offer excellence in software
+              education, in inclusive and conducive academic environment for
+              holistic development of our students. We work as a team and
+              interact with students in pro-active manner to achieve our
+              Educational Organization Objectives and fulfill all academic,
+              statutory and regulatory requirements. We strive for continual
+              improvement of our Educational Organizations Management System.
             </p>
-          </div>
-        </div>
-        <h1 className="sub-page-title">Strategic Plan</h1>
-        <hr/>
-        <div className="timeline">
-            <div className="timeline-item">
-                Continual improvement in all Institutional processes
-            </div>
-            <div className="timeline-item">
+
+            <h3 className="eo-subtitle">Strategic Plan</h3>
+            <ol className="eo-olist">
+              <li>Continual improvement in all Institutional processes</li>
+              <li>
                 Develop conducive academic environment to inculcate global
                 competencies among students.
-            </div>
-            <div className="timeline-item">
-                Promote culture of research and entrepreneurship
-            </div>
-            <div className="timeline-item">
-                Enhance Industry-Institute interaction via collaboration with
-                National & International organizations.
-            </div>
-            <div className="timeline-item">
-                Develop socially conscientious students.
-            </div>
-          </div>
-        </div>
+              </li>
+              <li>Promote culture of research and entrepreneurship</li>
+              <li>
+                Enhance Industry–Institute Interaction via collaboration with
+                National &amp; International organizations.
+              </li>
+              <li>Develop socially conscientious students.</li>
+            </ol>
+          </section>
+        </main>
+      </div>
       <Footer />
     </>
   );
 };
 
-export default EducationPolicies;
+export default EducationalPolicy;

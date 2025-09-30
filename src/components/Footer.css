@@ -134,7 +134,7 @@
     width: 100%;
     color: #233b77;
     font-size: 12px;
-    text-align: center;
+    text-align: center !important; 
 }
 
 @media screen and (max-width: 768px) {

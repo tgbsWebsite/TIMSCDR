@@ -7,6 +7,9 @@ import BrochureForm from "../components/EnquiryForm";
 import CTAButtons from "../components/sticky-button";
 import Footer from "../components/Footer";
 import PageHeader from "../about/PageHeader";
+import iconDescription from "../assets/file_8208360.svg";
+import iconChevronRight from "../assets/arrow_14090761.svg";
+
 
 
 const Studentdownload = () => {
@@ -35,11 +38,11 @@ const Studentdownload = () => {
                 target="pdf-viewer"
                 className="link-card blue-border"
               >
-                <span className="material-icons icon blue">description</span>
+               <img className="icon blue" src={iconDescription} alt="" aria-hidden="true" />
                 <p>
                   No Dues Certificate
                 </p>
-                <span className="material-icons arrow">chevron_right</span>
+                 <img className="arrow" src={iconChevronRight} alt="" aria-hidden="true" />
               </a>
 
 

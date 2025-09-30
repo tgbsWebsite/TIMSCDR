@@ -1,137 +1,260 @@
-import React, { useState } from "react";
 import "./infrastructure.css";
-
-import Footer from "../components/Footer";
-import BrochureForm from "../components/EnquiryForm";
+import React, { useEffect,  useState } from 'react';
+import Footer from '../components/Footer';
 import CTAButtons from "../components/sticky-button";
 import Navbar from "../components/navbar";
-import PageHeader from "../about/PageHeader";
+import BrochureForm from "../components/EnquiryForm";
+import PageHeader from '../about/PageHeader';
 
-export default function Infrastructure() {
-  const [showForm, setShowForm] = useState(false);
 
+const Infrastructure = () => {
+      const [showForm, setShowForm] = useState(false);
+  
   return (
-    <>
+      <>
       <Navbar setShowForm={setShowForm} />
       {showForm && <BrochureForm setShowForm={setShowForm} />}
       <CTAButtons />
+    <div className="inf-page bg-light dark-bg">
 
-      <main>
-        <section className="section-padding">
-          <div className="">
-            <div className="intro-text">
-                      <PageHeader
-                        title="Infrastructure"
-                        crumbs={[
-                          { label: 'Home', href: '/' },
-                          { label: 'Infrastructure' }, // current page (no href)
-                        ]}
-                      />
 
-              <p>
-                TIMSCDR MCA private institute boasts an excellent infrastructure
-                that supports the all-round development of its students. Our
-                state-of-the-art facilities include well-equipped laboratories,
-                two Computer Centres, a comprehensive Library, a Cafeteria, and
-                a Hostel. The relevant and the sophisticated hardware and
-                software in the Laboratories help the students to sharpen their
-                logical and programming skills. The institute is having
-                Microsoft Software campus agreement and other Licensee software.
+      {/* <section className="inf-hero">
+        <div className="inf-hero-bg">
+          <img
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAO3GAfSONUseYXWj3qvIPw_UZZxYABaRoE9US0IkigLUDdzb4aD9W-Sse9tKlSvp6Pk8YC4zK7hx9UUmnhIQVhKCPvC_Sh6LDJE4yp_9xyGf-4dyzTks_ienhU9VsSLkjYPg0sJY1_cwMYEq1sE6R7MwZ63jDJUCXuw8CSt7B6FRQaQxocTRd1xMRqJhaQvtTFV3t_hJLFQW1zOcjKf1NMz2bs-tSAHL6c3gquNGu0LDBA2ryOyk1lDXRrlaxoYtPEVIYG_HNFdSw"
+            alt="Modern campus buildings and green spaces"
+            className="inf-hero-img"
+          />
+        </div>
+        <div className="inf-hero-content">
+          <h1 className="inf-hero-title">
+            Empowering Futures Through World-Class Infrastructure
+          </h1>
+          <p className="inf-hero-sub">
+            Explore our state-of-the-art facilities designed to foster
+            innovation, learning, and holistic development.
+          </p>
+          <a href="#" className="inf-btn inf-btn-gradient inf-hero-cta">
+            Discover Our Facilities
+          </a>
+        </div>
+      </section> */}
+
+      <main className="inf-container inf-main">
+         <PageHeader
+                title="Infrastructure"
+                crumbs={[
+                  { label: 'Home', href: '/' },
+                  { label: 'Infrastructure' }, // current page (no href)
+                ]}
+              />
+        
+
+        <div className="inf-sections">
+          {/* Computer Labs */}
+          <div className="inf-card inf-row">
+            <div className="inf-col">
+              <img
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtwfE3-OWkIPx4r6afhk5Xzndj_F5JjYV4PS7bvRsquWxFFomIK-Ta-1A2oHQQ_hzYXMS2Sc86QNTcyGsuvSWsznZeqQqSTuPczjHIaNsckW5H2VvZ9tgpVzYhRjyqzfTvad1sOEyqcW_5wiI4fAPSNe3sYKfYH0p8zWkvhstgLj6I13Uzdk2IaKajO0UNX98vvNRg3pq6998K0nO8FBi6gp8jsQzEtldP5PXISmKyJ8bwOTGL4Kc0CmtaTYp9J_mweTnWYsCbUHU"
+                alt="Computer Labs setup"
+                className="inf-card-img"
+              />
+            </div>
+            <div className="inf-col">
+              <h2 className="inf-card-title">Computer Labs</h2>
+              <p className="inf-card-text">
+                The Institute has Four state-of-the-art Laboratories, connected
+                through LAN. Computer Lab 1 &amp; Computer Center 2 are
+                provided with latest software for conducting practical's which
+                are a part of the curriculum such as Python, R, Java
+                Programming. It has Oracle 9i &amp; 11g, IBM Rational Suit, C,
+                C++, Java installed in the client server environment. It has
+                hardware connections for IoT as well.
+              </p>
+              <p className="inf-card-text">
+                The Institute gives greater emphasis towards an experiential and
+                project based learning for the all-round development of its
+                students. Our state-of-the-art facilities include well equipped
+                laboratories, two Computer Centres, a comprehensive Library, a
+                Cafeteria, and a Hostel. The relevant and latest software is
+                made available to the students to be well-versed with the
+                changes taking place in the current day programming world. The
+                Institute is having Microsoft Software campus agreement and
+                other Licenses software.
               </p>
             </div>
-
-            {/* Facility Cards */}
-            {[
-              {
-                title: "Computer Labs",
-                description:
-                  "The Institute has Four state-of-the-art Laboratories and connected in LAN. Computer Lab 1 & Computer Center 2 are i5 machines for a batch size of 30 in each lab are exclusively used for database programming and application programming. It has Oracle 9i & 11g, IBM Rational Suit, C, C++, Java installed in the client server environment. It has Window 7 operating system installed.",
-                imageUrl:
-                  "https://lh3.googleusercontent.com/aida-public/AB6AXuBiBbC39x32J6WuW5hP2q1JY_w3bsIWFkOg484JzkAQwpP8HsU_e4m-PpNtMySr3xmmXQAMm5wEhmMDwhwuPw-W46fCf9M2mkUE8PRpXlxg5Hc9UK9NuXJok2k_HcJCxfdGZn-z0FuGgo-ofLIWJ8gUlGogHOc7csMsGtCwuu3iCtuM-m6bRuTRRl_AbwOnXUonP5VoqlN83mDRYx3EkYos9GZMMNXN8mgvu4hjetJsmcbE7f_6DpNeBnR1yXcT__by8mRGSVZgt3r3",
-                reverse: false,
-              },
-              {
-                title: "Library",
-                description: `The Institute Library is enriched with Books, e-Books, e-Journals, Journals (National & International), Magazine & Newspapers. There are 13483 books related to Computers, 4200 e-book, 6 National Journals and International Journals, 190 IEEE ASPP International (e-journals), 1200 CD’s and students project reports catering to the needs of students in research and project areas.
-
-                The Digital Library is fully air-conditioned with 9 Terminals (Dell opti-plex i3 18.5 inches LCD monitor) 4 access points for Laptops and high-speed internet connection (@ 50 Mbps) to accesses e-resources ie. E-Books – EBSCOhost-e-Book ITCore Collection, e-Journals – IEEE International, NPTEL, Swayam, NDL, Koha – OPAC, soft copy of question papers and syllabus.
-                
-                The Library is fully air-conditioned & well furnished with seating capacity of 100 seats. Journals display rack and tables for study and news paper reading. Library is computerised with Koha software. Book Bank facility is available for all students. Book Exhibition is organized every year to enhance and update Library collection.`,
-                imageUrl:
-                  "https://lh3.googleusercontent.com/aida-public/AB6AXuBzbM_XCFmssTznr-J1dRi7biePuuuEolseIFERuCludS9g-8a-dWN_npcp1dMbHpYG-Ii469V7VfKUMUvcr28OiPtLdYw6JBXlqO94ImAGXKEyYPS33uqyMR6P7eHXdr5Q0lCSR5spWiCKLg_nZ346-kDqX_jLXGfZG9MRP6lyOOUGax9gz0fLluwCBiuGbRdBW29cmSbVwLmpwFB7mZnM7Dw2DQHtmoC04P5u5MBYnW333fI17gPm-tKQ9TjwYhJNCE_xQGn_Z63Y",
-                reverse: true,
-              },
-              {
-                title: "Class Rooms",
-                description:
-                  "The Institute has spacious classrooms, which are fully air-conditioned. They possess all necessary teaching aids like LCD, Overhead Projector, Internet Communication and LAN Supported Systems for teaching purposes. Classrooms are well designed so that teaching can take place in peaceful and comfortable conditions.",
-                imageUrl:
-                  "https://lh3.googleusercontent.com/aida-public/AB6AXuBwxO9VXZ7EUd8xLk4YF3ze4yDCqyQPeW98FtKkIZiY1cqybLvbc9XwD43Bl-oMfCP7hben7u8xLXznd9WbyQxHXzCvx0DNNapigBE2Q3B7WEhc83TQRgZo0s8qQVczeL0huIuwbawGXF0-3L_rEHhj1zYj8iKV_JbAiCDeOHs2hratB9eo9ovjS7rhP2uHGG0P8mMZJ3azdyiKNgE94XOtpZy4BNUH_ywE0V87dtZmeYSmRT1wH3Xn0mI_SQ1qBi1axjrxt_uTLx3s",
-                reverse: false,
-              },
-              {
-                title: "Computer Center",
-                description:
-                  "This Laboratory is used for in-house project development by the students. The computers with Linux and Windows 10 operating system have Visual Studio, Java, Oracle, .Net technology, Crystal Report, J Builder and Macromedia packages installed. The broadband Internet connectivity of 32 Mbps is provided in this laboratory.",
-                imageUrl:
-                  "https://lh3.googleusercontent.com/aida-public/AB6AXuBmFDTYXistgfxrHt8yEzz3ASlHDRgc3aF1a_rZ2vk-jnbSdb7s6V-SFrXzirawNCAT05ZofU2dMM-9beaxJwvBmXu436dxLl-9rA6zcRy3I8TCsc6SRGM7jZLXJKq25s5skWo1FQprN6e_NDjDAmgIOrnjV_d6Y0kyI8Qv0qh6I7FnJu3b5UixL0_LjiZE63sUmMXRFatpRyy6rcfEtAAjPvCafZwfhbb3soaTd5fpZT0L4XGXxom9Fws-us6o1qh_vr_xcW9w9hAF",
-                reverse: true,
-              },
-              {
-                title: "Seminar Hall",
-                description:
-                  "The Institute has spacious Seminar Hall, which is fully air-conditioned. It possess all necessary teaching aids like LCD, Overhead Projector, Internet Communication and LAN Supported Systems for training and teaching purposes. It is well designed so that activities, events, workshops, seminars and teaching can take place in peaceful and comfortable conditions.",
-                imageUrl:
-                  "https://lh3.googleusercontent.com/aida-public/AB6AXuC6MgVPnXbNqzX1W2-LuyzlfdHeIrlu8twAPnkJfLxDXxjemah7uYu_W4y_frGiEugy6-wWPSs5Qzwwjn199oZce4Z4S0ic86x5uoad6nvdwAJm2SmMW8xO-030X-h-LBOB28i1xeccpNQ1xlCFjMiZwxaXzpGC9O-VfHaMroD8mNuLOXSXyFx6RlqA43PEu4xmY09MvedjSM_s4rng7F890M1D0Ygt54oFP3N-Ktp75bDSwnzIH3PKIWMWj6jSFn6qD1sdKdFA2xcu",
-                reverse: false,
-              },
-              {
-                title: "Hostel",
-                description:
-                  "Thakur Institute of Management Studies, Career Development and Research provide the facility of boys hostel. Well furnished, spacious, airy comfortable rooms, water facilities and recreational activities make students feel at home.",
-                imageUrl:
-                  "https://lh3.googleusercontent.com/aida-public/AB6AXuA46HWIJyCTlZ9-hb7dBvlbyBjkn9W38YE_Mz7pUz1gpgRWAKkeFkICVbuuBLweXUetsd56cxGCnxta_uZWnoZktnkXqcEUCKUty7536ncUk_8iHpskhqUVyjGvj2orP6cuALXkPUn-KF1gGE7TWK55cDTtwSz_S-ZYNkw5EFaT25pD2Y_mWk2ltr4K1wSrudJvNXQiPixTVofAaICqcN4inDhj3K1--QcV2wXLnIXK1Y4g1dUa0nYeJxDqkZKs9ucUUL-YeB79cjm0",
-                reverse: true,
-              },
-              {
-                title: "Common Room",
-                description:
-                  "To recharge the students with energy, there is a gymkhana for them. It includes indoor games varying from chess, carom and table tennis.",
-                imageUrl:
-                  "https://lh3.googleusercontent.com/aida-public/AB6AXuAK_bnObP7la8MrFpeKLD22fYIxE5aQLXQtaqpy8Hb_iU65pzAm1vjn7W5fk1rfiJrd1vXCvoPvmyRrlU3mXDWKY3B7uViVFmJTrfE5prGQ8C21e9ldrUGjHYURqSrW4yLQ7IfIpUVvvi40XGW4KMUsr3K1jk5EiN3RzNPNuE4kpJMncTigyziFrf3xrM803dKgOpGtR5B0U2EIMbh6i9m-VIGyXfu4vc_0dL2RlN5mJAVEheShGvjtg32ZX66h4k5CGdaxZuNvdNHO",
-                reverse: false,
-              },
-              {
-                title: "Sick Room",
-                description:
-                  "There is a medical room in the campus where the students can take rest, if they are unwell.",
-                imageUrl:
-                  "https://lh3.googleusercontent.com/aida-public/AB6AXuCA922NSjBTu7U1CqXeT-mB6k8oLJQPHx9dQxlTA1u9kt35JH3GvLZz_dYkuwXjXuByzpdYsrvNjx1UlH_OziJIruN_tUM_HbRN9o23MhtzyDAQUH_K9NqVOxHkpFfC52cGMmdnDb5C6LWS3iIAoIvppOSNlk1GNgbdv4XIAppl2ugnQOkUqYQSbaix6N8mDe44hYOf8gAHf1Jlra0TtIKavOj2DkMlv61P8vKxv9RDEQVAkDGKpya0TZpjkEQ2u8nqwhK2eWd5Mpmx",
-                reverse: true,
-              },
-            ].map(({ title, description, imageUrl, reverse }, i) => (
-              <div
-                key={i}
-                className={`facility-card ${reverse ? "reverse" : ""}`}
-              >
-                <div className="facility-text">
-                  <h2 className="facility-title">{title}</h2>
-                  <p
-                    className="facility-description"
-                    style={{ whiteSpace: "pre-line" }}
-                  >
-                    {description}
-                  </p>
-                </div>
-                <div className="facility-image">
-                  <img src={imageUrl} alt={title} />
-                </div>
-              </div>
-            ))}
           </div>
-        </section>
+
+          {/* Library */}
+          <div className="inf-card inf-row inf-row-reverse">
+            <div className="inf-col">
+              <img
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBu9gz6ONwTM-sOZ5S0K2wUq_lle0TPVRdBP0On8g_RKpNilMWOKFmSC5VJioaN_iN-4Cv7BcX4LaFYFBCUs5AUiOmZoRFN8nyLGXXpRDgGNTatTNU0Ieb6P_WMtq5-NP8wQhtJmNktX3TW_RUx6FTjqIBGXWBCUlCyFcDgPcm557MamErWuzrER4fWCA-EFgQpqGt0VZ4DejXjDOjsH0JpIAvR5rmGVPC9A7-Fc2uwrDpxrLIHLRotTPQnaAJ6LofKWSAyaE_NT9A"
+                alt="Well-stocked library shelves"
+                className="inf-card-img"
+              />
+            </div>
+            <div className="inf-col">
+              <h2 className="inf-card-title">Library</h2>
+              <p className="inf-card-text">
+                The Institute Library is enriched with Books, e-Books,
+                e-Journals, Journals (National &amp; International), Magazine
+                &amp; Newspapers. It has large collection of reference books,
+                text books, professional books and general books. The Institute
+                subscribes to various e-Journals (like J-Gate, Proquest, IEEE),
+                with 1200 CDs and students project reports referring to the
+                needs of students in research and project areas.
+              </p>
+              <p className="inf-card-text">
+                The Institute has provided with internet facilities to the
+                students with a speed of 19 x 2 (leased line). It has more than
+                50 LAN points for Laptops and high speed internet connection (90
+                Mbps) to access e-resources in Library. It also has 50 Wi-Fi
+                points for Laptop and internet connection for accessing
+                e-resources. All areas are under CCTV surveillance.
+              </p>
+              <p className="inf-card-text">
+                The Library is fully air-conditioned &amp; well furnished with
+                seating capacity of 100 seats. Journals display rack and book
+                rack are provided in library. Separate sections for Text books,
+                Reference books, Periodicals and Reading Rooms are provided for
+                all students. Its environment is peaceful and calm which will
+                help the students to study well.
+              </p>
+            </div>
+          </div>
+
+          {/* Class Rooms */}
+          <div className="inf-card inf-row">
+            <div className="inf-col">
+              <img
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8hqHS03Az2ugRGg0KRIeq74SzgaN_xq6zKoA2ZkAz3jOy3WRtcPKea1_isM3LLlE8IouJ2pVX6ubbA3yKZ80AJ6OIFPkOWkKwuAD-74qT31vLDfrhm4cfAiX-GCEAnX0r6ur8s3VX0v5j3V6-ceAVzuoBzTHZHd1f1QbPgeWDrhW3sfAGfjJCqdAh_AcKaFoYS6dOOXndCFKVT4TBcRze77Y97pBECkjr9-8DxszESiFIOAxq0HtVRlu2q7VSDBwuB3h6j4JuKCI"
+                alt="Modern classroom with projector"
+                className="inf-card-img"
+              />
+            </div>
+            <div className="inf-col">
+              <h2 className="inf-card-title">Class Rooms</h2>
+              <p className="inf-card-text">
+                The Institute has spacious classrooms, which are fully
+                air-conditioned. They possess all necessary teaching aids like
+                LCD multimedia projectors, Internet and Intranet connectivity
+                and a public address system for lecture purposes. Classrooms are
+                well designed so that teaching can take place in peaceful and
+                comfortable conditions.
+              </p>
+            </div>
+          </div>
+
+          {/* Computer Center */}
+          <div className="inf-card inf-row inf-row-reverse">
+            <div className="inf-col">
+              <img
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7QxGG-IUzkvzeMS5mpU6cnmDf3awPp37higsoU3uwdmwyqSim6ij8L4HZErT0JZiHFyU8aKaVmdYrsnLkTx8leCBGB6hSqfx-BHRRGMBC1w2CfYkImdzSGQeTEbqextjXWwlnXYUaOD_1z-qa3o1Kewh2aGgN6RgCT4kj0RVzYYsKolA6vNeE8vFzMuiCVN7T-Y7cEz7a_OEgD64IWQJFj3k3yNnu8MVoSLRuyM7Np-lnbpQEJmZS6eHUajDM7f3Wo4M9wyOadOs"
+                alt="Computer center with multiple workstations"
+                className="inf-card-img"
+              />
+            </div>
+            <div className="inf-col">
+              <h2 className="inf-card-title">Computer Center</h2>
+              <p className="inf-card-text">
+                This Laboratory is used for in-house project development by the
+                students. The computers with Linux and Windows Operating System
+                installed in the lab and are connected to Internet through a
+                leased line. It has various Macromedia packages installed. The
+                broadband Internet connectivity of 32 Mbps is provided in this
+                laboratory.
+              </p>
+            </div>
+          </div>
+
+          {/* Seminar Hall */}
+          <div className="inf-card inf-row">
+            <div className="inf-col">
+              <img
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjd7dVCJghQFNO1R2Mu62dCDuelmRhxPuEPH7U9ItNDXsu0tSm0JTvENSpBI_mWFrD_kyUJiDwKaQzJOs9TnnMfSq8pcrKGsTi3wZoKbotacUXtCsbu8pcqowJrPX9hD_caH5OKbowfX9JtCURI5np_1-cuiNXDT2NjfBHdnnPo7YSF86NACVdn7qHG2JLXq6QLqGWGQAmJ17tze1CZjF_La6qYhjGX66qX0UE5CeWIRaXlFfDuz8uzpQlyth4Z9bDkWZ05yO15ck"
+                alt="Spacious seminar hall with seating"
+                className="inf-card-img"
+              />
+            </div>
+            <div className="inf-col">
+              <h2 className="inf-card-title">Seminar Hall</h2>
+              <p className="inf-card-text">
+                The institute has spacious Seminar Hall, which is fully
+                air-conditioned. It possess all necessary teaching aids like LCD
+                multimedia projectors, Internet and Intranet connectivity and a
+                public address system for lecture purposes. It is well designed
+                so that various events like seminars, webinars and meetings can
+                take place in a peaceful and comfortable conditions.
+              </p>
+            </div>
+          </div>
+
+          {/* Hostel */}
+          <div className="inf-card inf-row inf-row-reverse">
+            <div className="inf-col">
+              <img
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYRqzkXdCKicYs2MWWTgVlZ6VF1HP6bUcaqdfE1eu2R_OYgUEtiRNEAWXmZPJvNfid-kqT9p7V5MB0-ch7NW0D2QwXDV3tGbMP5RhPdu2KtoqyHIh8yjjGatn8d9Bpde4D6VZAvh_mTbN4MxeuymMWFK1KwDe6MiqXEu9Z1CcpKLvroLonJiPA4RyHwmrx0XqMFznrtjzg3ZqFNFe3J65qri3yJ7J19w-3eWzFx8m11vsEOospsldreU2X5I9O_09_jZhOdtglGuI"
+                alt="Comfortable hostel room"
+                className="inf-card-img"
+              />
+            </div>
+            <div className="inf-col">
+              <h2 className="inf-card-title">Hostel</h2>
+              <p className="inf-card-text">
+                Thakur Institute of Management Studies, Career Development and
+                Research provide the facility of boys hostel with well
+                furnished, spacious, airy, comfortable rooms, water facilities
+                and recreational activities make students feel at home.
+              </p>
+            </div>
+          </div>
+
+          {/* Common Room */}
+          <div className="inf-card inf-row">
+            <div className="inf-col">
+              <img
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxXZZiYvPS7_UWl9Al3UKt6M5lREYBHimZsdwI5sxzTBZgQRZ5bks_67HzIBImmyC2eHwvR7rsB6T-zVqrGTGVVpKMCIOL2lKRDLRfXDSPuxw8XFAZWQ16FcMUZ84mbvqAWPkSvNN5X5RZ5jrS8j5-X-1SrvcW4pJMkD0OaDDJiYa2QRlXH8ibkXmHyB7cQbyGtlrzK63csdAgfUOYWDlwxwtvVxkdhleVQ82pXwTCuhot2UHpe-gvaJxw9TQJbLfVF2d5Kmy_sLQ"
+                alt="Common room with games table"
+                className="inf-card-img"
+              />
+            </div>
+            <div className="inf-col">
+              <h2 className="inf-card-title">Common Room</h2>
+              <p className="inf-card-text">
+                To recharge the students with energy, there is a common room for
+                them. It includes indoor games varying from chess, carom and
+                table tennis.
+              </p>
+            </div>
+          </div>
+
+          {/* Sick Room */}
+          <div className="inf-card inf-row inf-row-reverse">
+            <div className="inf-col">
+              <img
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjbqLg9e7y7rtQh2TovrzIchqZxVsllGDT4TVwryoevJmyO2eVnDABl1F-U85KQUQtZrslI3WekRYQXMmkg2kyoTfdXzGBeMMTll_E8rJ7vKNzvYAuMg6M0RPkgNcvU4_QRea19OdntgQfuukgtxIsCMc2Jq7srDm1VMVBPx_rHxOkC8OBatlMfspjMQ_zWSY-gxvXBh5-fcwr_P6018YRqxUIdCW5bd82Im18foaPjXzfwLYbn25ZukKHo53OQzwPvc0nodCn9vc"
+                alt="Medical room with a bed"
+                className="inf-card-img"
+              />
+            </div>
+            <div className="inf-col">
+              <h2 className="inf-card-title">Sick Room</h2>
+              <p className="inf-card-text">
+                There is a medical room in the campus where the students can
+                take rest, if they are unwell.
+              </p>
+            </div>
+          </div>
+        </div>
       </main>
-      <Footer />
+
+
+    </div>
+        <Footer/>
     </>
+
   );
-}
+};
+
+export default Infrastructure;
