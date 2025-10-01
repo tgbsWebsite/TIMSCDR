@@ -354,8 +354,8 @@
 @media (min-width: 1024px) {
   .peo-container-6qv {
     padding-inline: 24px;
-    padding-top: 40px;
-    margin-top: 150px; /* matches original intent on large viewports */
+    /* padding-top: 40px; */
+    margin-top: 130px;
   }
 }
 

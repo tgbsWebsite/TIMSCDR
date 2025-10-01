@@ -19,7 +19,7 @@ const EducationalPolicy = () => {
         {/* Main content */}
         <main className="eo-container eo-main">
           
-          <section className="eo-section">
+          <div className="eo-section">
             <h2 className="eo-title"></h2>
                   <PageHeader
         title="Educational Organization Policy"
@@ -50,7 +50,7 @@ const EducationalPolicy = () => {
               </li>
               <li>Develop socially conscientious students.</li>
             </ol>
-          </section>
+          </div>
         </main>
       </div>
       <Footer />

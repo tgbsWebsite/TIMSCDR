@@ -143,14 +143,14 @@ const CTAButton = () => {
         <div className="tims-cta-container">
           <div className="tims-cta-button tims-apply" tabIndex={0}>
             <span className="tims-icon">
-              <div className="tims-icon-placeholder">📝</div>
+              <img src="/Website_Assets/Enquire Now.svg" alt="" width="20" height="20" />
             </span>
             <span className="tims-text">Enquire Now</span>
           </div>
 
           <div className="tims-cta-button tims-phone" role="button" tabIndex={0} aria-label="Call Us">
             <span className="tims-icon" aria-hidden="true">
-              <img src="/Website_Assets/call_3735213.png" alt="" width="30" height="30" />
+              <img src="/Website_Assets/Call.svg" alt="" width="20" height="20" />
             </span>
             <span className="tims-text">Call Us</span>
           </div>
@@ -158,34 +158,34 @@ const CTAButton = () => {
 
           <div className="tims-cta-button tims-email" tabIndex={0}>
             <span className="tims-icon">
-              <img src="/Website_Assets/mail_4175251.png" alt="" width="30" height="30" />            </span>
+              <img src="/Website_Assets/Mail.svg" alt="" width="20" height="20" />            </span>
             <span className="tims-text">Email Us</span>
           </div>
-          
+
           <div className="tims-cta-button tims-whatsapp" tabIndex={0}>
             <span className="tims-icon">
-              <img src="/Website_Assets/whatsapp_11378621.png" alt="" width="30" height="30" />
+              <img src="/Website_Assets/Whatsapp.svg" alt="" width="20" height="20" />
             </span>
             <span className="tims-text">WhatsApp</span>
           </div>
 
           <div className="tims-cta-button tims-linkedin" tabIndex={0}>
             <span className="tims-icon">
-              <div className="tims-icon-placeholder">💼</div>
+              <img src="/Website_Assets/LinkedIn.svg" alt="" width="20" height="20" />
             </span>
             <span className="tims-text">LinkedIn</span>
           </div>
 
           <div className="tims-cta-button tims-instagram" tabIndex={0}>
             <span className="tims-icon">
-              <div className="tims-icon-placeholder">📷</div>
+              <img src="/Website_Assets/Instagram.svg" alt="" width="20" height="20" />
             </span>
             <span className="tims-text">Instagram</span>
           </div>
-          
+
           <div className="tims-cta-button tims-facebook" tabIndex={0}>
             <span className="tims-icon">
-              <div className="tims-icon-placeholder">👍</div>
+              <img src="/Website_Assets/Facebook.svg" alt="" width="20" height="20" />
             </span>
             <span className="tims-text">Facebook</span>
           </div>

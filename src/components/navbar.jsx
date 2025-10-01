@@ -383,17 +383,23 @@ function Navbar() {
       <div className="navbar-wrapper">
         <div className="navbar-top">
           <div className="nav-logo">
-            <img src="/Website_Assets/Asset 53@4x.webp" alt="TIMSCDR" />
+            <img src="/Website_Assets/logo.svg" alt="TIMSCDR" />
           </div>
 
-          <div className="nav-buttons" aria-hidden={false}>
-            <div className="nav-button1 button ">
-              <a href="/apply">Enquire Now</a>
+          <div className="navButtons_uivMadflows" aria-hidden={false}>
+            <div className="navBtn_enquire_uivMadflows">
+              <a href="/apply" className="uivMadflows_button">
+                <span className="uivMadflows_buttonContent">Enquire Now</span>
+              </a>
             </div>
-            <div className="nav-button2 button">
-              <a href="/download-brochure">Download Brochure</a>
+            <div className="navBtn_brochure_uivMadflows orange">
+              <a href="/download-brochure" className="uivMadflows_button">
+                <span className="uivMadflows_buttonContent">Download Brochure</span>
+              </a>
             </div>
           </div>
+
+
           <button
             className="menu-button"
             aria-label="Open menu"
@@ -493,17 +499,15 @@ function Navbar() {
                   <img className="arrow" src={chevronIcon} alt="" />
                 </button>
                 <div
-                  className={`mobile-dropdown-content${
-                    openMobileItem === cat ? " open" : ""
-                  }`}
+                  className={`mobile-dropdown-content${openMobileItem === cat ? " open" : ""
+                    }`}
                 >
                   {dropdownContent[cat].map((item, idx) =>
                     item.submenu ? (
                       <div key={`submenu-${cat}-${idx}`}>
                         <button
-                          className={`submenu-toggle${
-                            (openSubmenu[cat] ?? null) === idx ? " open" : ""
-                          }`}
+                          className={`submenu-toggle${(openSubmenu[cat] ?? null) === idx ? " open" : ""
+                            }`}
                           onClick={() =>
                             setOpenSubmenu((prev) => ({
                               ...prev,

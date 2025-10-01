@@ -1595,7 +1595,7 @@ body,
 .inf-container {
   max-width: 1500px;
 
-  padding-top: 40px;
+  /* padding-top: 40px; */
 
   margin: 150px auto 0px auto;
 }
@@ -1746,7 +1746,7 @@ body,
 
 /* Main */
 .inf-main {
-  padding: 64px 0;
+  /* padding: 64px 0; */
 }
 .inf-breadcrumb {
   text-align: center;

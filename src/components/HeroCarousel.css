@@ -13,7 +13,7 @@
 .video-container {
   position: relative;
 
-  margin-top: 220px;            /* adjust spacing below navbar */
+  margin-top: 205px;            /* adjust spacing below navbar */
   overflow: hidden;
   background: transparent;      /* no black background */
 }

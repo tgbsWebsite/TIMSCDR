@@ -4,7 +4,7 @@
   grid-template-columns: 1fr;
   gap: clamp(16px, 4vw, 28px);
   margin-top: clamp(12vh, 10vw, 18vh);
-  padding: clamp(12px, 4vw, 24px);
+  /* padding: clamp(12px, 4vw, 24px); */
   box-sizing: border-box;
 }
 

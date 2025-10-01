@@ -39,7 +39,7 @@ const Nonteachingfacult = () => {
       {showForm && <BrochureForm setShowForm={setShowForm} />}
       <CTAButtons />
 
-      <main className="main-container">
+      <main className="vision-mission-container">
         <PageHeader
           title="List of Staff Members"
           crumbs={[
