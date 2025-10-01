@@ -9,43 +9,30 @@
 }
 
 /* Container maintains responsive height but prevents layout shift */
+/* Container takes the video’s natural height */
 .video-container {
   position: relative;
-  width: 100%;
-  height: var(--hero-height, 600px);
-  max-width: 100%;
-  margin: 0 auto;
-  padding-left: var(--hero-side-padding);
-  padding-right: var(--hero-side-padding);
+
+  margin-top: 220px;            /* adjust spacing below navbar */
   overflow: hidden;
-  background: #000; /* prevents flash when video not loaded */
-  display: block;
-   box-shadow:
-    0 10px 16px -12px rgba(0, 0, 0, 0.28),
-    0 24px 40px -20px rgba(0, 0, 0, 0.22);
-    margin-top: 280px; /* or padding-top: 80px */
-  z-index: 0;
+  background: transparent;      /* no black background */
 }
+
+/* Video scales by width, keeps full frame, no cropping */
+.video-media {
+  display: block;
+  width: 100%;                  /* scale to container width */
+  height: auto;                 /* keep natural 16:9 height */
+  object-fit: contain;          /* show entire video, no cut */
+  background: transparent;      /* no filler color */
+}
+
 .site-header, .navbar {
   position: sticky; /* or fixed */
   top: 0;
   z-index: 1000;
 }
 /* The video is centered and scales to cover while preserving aspect ratio */
-.video-media {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  /* Fill container while preserving the original video aspect ratio */
-  width: 100%;
-  height: 100%;
-  transform: translate(-50%, -50%);
-  object-fit: cover; /* preserves ratio and fills container */
-  object-position: center center;
-  pointer-events: none; /* video is decorative banner */
-  display: block;
-  background: #000;
-}
 
 /* Poster-only fallback styles if video fails to load in some browsers */
 .video-media::-webkit-media-controls {
@@ -61,19 +48,10 @@
 }
 
 /* Standard desktops/laptops */
-@media (min-width: 1280px) and (max-width: 1920px) {
-  .video-container {
-    height: var(--hero-height, 600px);
-  }
-}
+
 
 /* Tablets landscape and small laptops */
-@media (min-width: 992px) and (max-width: 1279px) {
-  .video-container {
-    /* Respect the provided height but allow a soft clamp for better fit */
-    height: min(var(--hero-height, 600px), 70vh);
-  }
-}
+
 
 /* Tablets portrait */
 @media (min-width: 768px) and (max-width: 991px) {

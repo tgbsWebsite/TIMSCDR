@@ -571,7 +571,7 @@ button {
 .main-content { margin-top: var(--navbar-height); }
 
 /* If the hero should sit directly below too, give it the same offset: */
-.nav-hero-host { margin-top: var(--navbar-height); }
+.nav-hero-host { margin-top: var(--navbar-height, 88px); }
 
 /* Keep the navbar fixed at the top */
 .main-container-navbar {
