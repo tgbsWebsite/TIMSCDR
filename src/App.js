@@ -50,9 +50,9 @@ function App() {
       </div>
 
       <div className="section-alt">
-        <div className="page-container">
+        {/* <div className="page-container"> */}
           <Programs />
-        </div>
+        {/* </div> */}
       </div>
 
       <div className="section-base">

@@ -1,19 +1,112 @@
-.ap-fit {
-  margin: 0;
-  padding: 0;
+.flipcard-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
   width: 100vw;
-padding-top: 2rem;
-  padding-bottom: 1.75rem;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
+  min-width: 0;
+  margin: 0 auto; /* centers container in viewport */
   align-items: center;
-  background-color: white; /* Optional: fills background if image doesn't cover all */
+  justify-content: center; /* centers grid items horizontally */
+  justify-items: center; /* centers content inside each grid cell */
+  padding: 20px 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
-.ap-full-image {
+.flipcard-card {
+  width: 100%;
+  max-width: 400px; 
+  height: 350px;
+  perspective: 1000px;
+  cursor: pointer;
+  display: block;
+  overflow: hidden; /* prevent overflow during flip */
+}
+
+.flipcard-card-inner {
+  position: relative;
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  display: block;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  will-change: transform;
+  transform-origin: center center; /* fix pivot center */
+}
+
+.flipcard-card-front,
+.flipcard-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  backface-visibility: hidden;
+  left: 0;
+  top: 0;
+  transform-origin: center center; /* also on front/back */
+}
+
+
+.flipcard-card:hover .flipcard-card-inner {
+  transform: rotateY(180deg);
+}
+
+
+
+.flipcard-card-front {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.flipcard-card-front::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  z-index: 1;
+}
+
+.flipcard-title {
+  position: relative;
+  z-index: 2;
+  color: #fff !important;
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  padding: 20px;
+
+}
+
+.flipcard-card-back {
+  background: #fff;
+  transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+
+.flipcard-description {
+  color: #333;
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .flipcard-container {
+    grid-template-columns: 1fr;
+  }
+  .flipcard-title {
+    font-size: 28px;
+  }
 }
