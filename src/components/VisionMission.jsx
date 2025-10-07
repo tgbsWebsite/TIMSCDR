@@ -4,7 +4,7 @@ import './VisionMission.css';
 function VisionMission() {
   return (
     <section className="vision-mission-section">
-      <h2 className="about-us-heading">About TIMSCDR <hr className="about-us-divider" /></h2>
+      <h2 className="about-us-heading">About TIMSCDR </h2>
      
 
       <div className="vision-mission-wrapper">

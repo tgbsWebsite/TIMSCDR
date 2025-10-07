@@ -61,17 +61,21 @@
   background: rgba(0,0,0,0.7);    /* darker black backdrop */
   display: grid;                  /* simpler centering */
   place-items: center;            /* center modal */
-  z-index: 999;
+  z-index: 9999;
 }
 
 
 .modal-content {
-  width: min(96vw, 1280px);       /* cap width on huge screens */
-  height: min(96vh, 720px);       /* cap height; keeps some breathing room */
-  aspect-ratio: 16 / 9;           /* maintain video ratio */
+  position: relative;
+  width: min(96vw, 1280px);
+  height: min(96vh, 720px);
+  aspect-ratio: 16 / 9;
   border-radius: 8px;
   overflow: hidden;
+   position: relative;
+  z-index: 10000;  /* ensures video is above overlay elements */
 }
+
 
 .close-button {
   position: absolute;

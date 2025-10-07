@@ -884,10 +884,13 @@ function DevelopmentCommittee() {
         </aside>
 
         <main className="table-area">
-          <h2 className="page-title">Members of College Development Committee</h2>
+                  <h2 className="governing-title">
+            Members of College Development Committee – {selectedYear}
+          </h2>
+      
 
           <div className="tables-container">
-            <h3 className="governing-title">College Development Committee - {selectedYear}</h3>
+       
             <DevelopmentCommitteeTable data={committeeDataByYear[selectedYear]} />
           </div>
         </main>

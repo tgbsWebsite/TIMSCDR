@@ -12,19 +12,20 @@ const EducationalPolicy = () => {
       <Navbar />
       <CTAButtons />
 
-
       <div className="eo-page">
         {/* Simple nav bar */}
 
         {/* Main content */}
         <main className="eo-container eo-main">
-          
           <div className="eo-section">
             <h2 className="eo-title"></h2>
-                  <PageHeader
-        title="Educational Organization Policy"
-        crumbs={[{ label: "Home", href: "/" }, { label: "Educational Organization Policy" }]}
-      />
+            <PageHeader
+              title="Educational Organization Policy"
+              crumbs={[
+                { label: "Home", href: "/" },
+                { label: "Educational Organization Policy" },
+              ]}
+            />
             <p className="eo-text">
               We, at Thakur Institute of Management Studies, Career Development
               &amp; Research are committed to offer excellence in software

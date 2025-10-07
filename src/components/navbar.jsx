@@ -386,18 +386,18 @@ function Navbar() {
             <img src="/Website_Assets/logo.svg" alt="TIMSCDR" />
           </div>
 
-          <div className="navButtons_uivMadflows" aria-hidden={false}>
-            <div className="navBtn_enquire_uivMadflows">
-              <a href="/apply" className="uivMadflows_button">
-                <span className="uivMadflows_buttonContent">Enquire Now</span>
-              </a>
-            </div>
-            <div className="navBtn_brochure_uivMadflows orange">
-              <a href="/download-brochure" className="uivMadflows_button">
-                <span className="uivMadflows_buttonContent">Download Brochure</span>
-              </a>
-            </div>
-          </div>
+    <div className="navButtons_uivMadflows" aria-hidden={false}>
+  <div className="navBtn_enquire_uivMadflows">
+    <a href="/apply" className="uivMadflows_button enquire-btn">
+      <span className="uivMadflows_buttonContent">Enquire Now</span>
+    </a>
+  </div>
+  <div className="navBtn_brochure_uivMadflows">
+    <a href="/download-brochure" className="uivMadflows_button brochure-btn">
+      <span className="uivMadflows_buttonContent">Download Brochure</span>
+    </a>
+  </div>
+</div>
 
 
           <button

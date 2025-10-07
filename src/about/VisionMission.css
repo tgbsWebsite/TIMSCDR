@@ -1,5 +1,4 @@
 .vision-mission-container {
-
   font-family: "Segoe UI", sans-serif;
   max-width: 100%;
   margin: 150px 0 0px 0;
@@ -13,17 +12,15 @@
   margin-bottom: 35px;
 }
 
-
 .vm-section > div {
   flex: 1;
   text-align: center;
-  padding: 0 20px;
 }
 
 .vm-section h2 {
   font-size: 32px !important;
   margin-bottom: 16px;
-  text-align: left !important; 
+  text-align: left !important;
   color: #231f54;
 }
 
@@ -183,10 +180,10 @@
 
 /* New outer wrapper to control spacing around the whole section */
 .vision-section {
-  padding-block: clamp(16px, 5vw, 40px);         /* top & bottom */
-  padding-inline: clamp(16px, 5vw, 32px);        /* left & right */
-  max-width: min(1200px, 92vw);                  /* keep readable width */
-  margin-inline: auto;                           /* center the block */
+  padding-block: clamp(16px, 5vw, 40px); /* top & bottom */
+  padding-inline: clamp(16px, 5vw, 32px); /* left & right */
+  max-width: min(1200px, 92vw); /* keep readable width */
+  margin-inline: auto; /* center the block */
 }
 
 /* Existing grid/layout for inner content remains the same */
@@ -216,13 +213,14 @@
   --vm-bg-soft: #f5f7fb;
   --vm-card: #ffffff;
   --vm-radius: 14px;
-  --vm-shadow: 0 10px 22px rgba(0,0,0,0.06);
-  --vm-shadow-lg: 0 16px 36px rgba(0,0,0,0.12);
+  --vm-shadow: 0 10px 22px rgba(0, 0, 0, 0.06);
+  --vm-shadow-lg: 0 16px 36px rgba(0, 0, 0, 0.12);
 }
 
 /* ========== Page wrapper ========== */
 .vm-page {
-  font-family: "Segoe UI", Inter, system-ui, -apple-system, Roboto, Arial, sans-serif;
+  font-family: "Segoe UI", Inter, system-ui, -apple-system, Roboto, Arial,
+    sans-serif;
   background: var(--vm-bg);
   color: var(--vm-text);
   margin: 0;
@@ -230,7 +228,9 @@
 }
 
 /* Space below sticky Navbar/CTAs */
-.vm-page > .vm-spacer { height: 72px; }
+.vm-page > .vm-spacer {
+  height: 72px;
+}
 
 /* ========== PageHeader (shared component renders itself) ========== */
 /* Nothing needed here, but we keep top spacing consistent via section padding */
@@ -251,7 +251,6 @@
   gap: clamp(20px, 3.5vw, 36px);
   align-items: center;
   background: var(--vm-card);
-
 
   padding: clamp(18px, 3.5vw, 28px);
 }
@@ -281,7 +280,7 @@
   max-width: 220px;
   height: auto;
   object-fit: contain;
-  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.12));
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.12));
 }
 
 /* ========== Content ========== */
@@ -343,13 +342,13 @@
   border-radius: 8px;
   color: var(--vm-text);
   line-height: 1.6;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.04);
-  transition: transform .2s ease, box-shadow .2s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .vm-peo-item:hover {
   transform: translateY(-1px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.06);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
 }
 
 /* ========== Utilities ========== */
@@ -361,3 +360,280 @@ hr.vm-full {
   border-radius: 2px;
 }
 
+/* ===== Design tokens (WCAG‑aware) ===== */
+:root {
+  --vm-primary: #231f54; /* brand navy (AA/AAA with white) */
+  --vm-accent: #3f3d9b; /* decorative underline */
+  --vm-brand: #027176; /* secondary brand */
+  --vm-text: #1f2937; /* gray-800 */
+  --vm-text-muted: #374151; /* darker for 4.5:1 on white */
+  --vm-bg: #ffffff;
+  --vm-bg-soft: #f5f7fb;
+  --vm-card: #ffffff;
+  --vm-radius: 14px;
+  --vm-shadow: 0 10px 22px rgba(0, 0, 0, 0.06);
+  --vm-shadow-lg: 0 16px 36px rgba(0, 0, 0, 0.12);
+  --vm-focus: #ffbf47; /* high-contrast focus */
+}
+
+/* ===== Base ===== */
+.vm-page {
+  font-family: "Segoe UI", Inter, system-ui, -apple-system, Roboto, Arial,
+    sans-serif;
+  color: var(--vm-text);
+  background: var(--vm-bg);
+}
+.vm-spacer {
+  height: 72px;
+}
+
+/* ===== Header/Hero ===== */
+.vm-header {
+  padding: clamp(16px, 5vw, 32px);
+}
+.vm-hero {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  padding: clamp(12px, 4vw, 24px);
+}
+.vm-hero-title {
+  font-size: clamp(28px, 4vw, 40px);
+  color: var(--vm-primary);
+  margin: 0 0 8px 0;
+  font-weight: 800;
+}
+.vm-hero-sub {
+  font-size: clamp(16px, 1.8vw, 18px);
+  color: var(--vm-text-muted);
+  margin: 0 0 18px 0;
+}
+.vm-cta-row {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Buttons */
+.vm-btn {
+  --padY: 10px;
+  --padX: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padY) var(--padX);
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  line-height: 1;
+  transition: transform 0.15s ease, box-shadow 0.15s ease,
+    background-color 0.15s ease, color 0.15s ease;
+  outline: none;
+}
+.vm-btn:focus-visible {
+  box-shadow: 0 0 0 3px #000, 0 0 0 5px var(--vm-focus);
+}
+.vm-btn-primary {
+  background: var(--vm-primary);
+  color: #fff;
+}
+.vm-btn-primary:hover {
+  transform: translateY(-1px);
+}
+.vm-btn-secondary {
+  background: #e6e8fb;
+  color: var(--vm-primary);
+}
+.vm-btn-tertiary {
+  background: var(--vm-brand);
+  color: #fff;
+}
+.vm-btn-line {
+  background: transparent;
+  color: var(--vm-primary);
+  border: 2px solid var(--vm-primary);
+}
+
+/* ===== Sections ===== */
+.vm-section {
+  max-width: 1300px;
+  margin-inline: auto;
+  padding: clamp(18px, 4vw, 36px) clamp(16px, 5vw, 32px);
+  display: grid;
+  gap: clamp(24px, 4vw, 48px);
+}
+
+/* Two-up block */
+.vm-block {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(20px, 3vw, 36px);
+  align-items: center;
+  background: var(--vm-card);
+  border-radius: var(--vm-radius);
+  padding: clamp(18px, 3vw, 28px);
+  box-shadow: var(--vm-shadow);
+  transform: translateY(0);
+  opacity: 1;
+}
+@media (min-width: 900px) {
+  .vm-block {
+    grid-template-columns: 1fr 1.05fr;
+  }
+  .vm-block--reverse {
+    direction: rtl;
+  }
+  .vm-block--reverse > * {
+    direction: ltr;
+  }
+}
+
+/* Media */
+.vm-media {
+  display: grid;
+  place-items: center;
+  min-height: 220px;
+}
+.vm-img {
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.12));
+}
+
+/* Content */
+.vm-content {
+  width: 100%;
+}
+.vm-heading {
+  font-size: clamp(24px, 3.2vw, 34px);
+  line-height: 1.2;
+  margin: 0 0 8px 0;
+  color: var(--vm-primary);
+  font-weight: 800;
+}
+.vm-underline {
+  display: block;
+  width: 72px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--vm-accent);
+  margin: 0 0 14px 0;
+}
+.vm-text {
+  font-size: clamp(16px, 1.6vw, 18px);
+  line-height: 1.75;
+  color: var(--vm-text-muted);
+  margin: 0;
+  text-align: left;
+}
+
+.vm-inline-ctas {
+  display: flex;
+  gap: 14px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+.vm-link {
+  color: var(--vm-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.vm-link:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px #000, 0 0 0 5px var(--vm-focus);
+}
+
+/* Divider */
+.vm-full {
+  width: 100%;
+  height: 1px;
+  background: var(--vm-primary);
+  border: 0;
+  border-radius: 2px;
+}
+
+/* Proof points */
+.vm-peo {
+  max-width: 1200px;
+  margin: 6px auto 56px auto;
+  padding: 0 clamp(16px, 5vw, 32px);
+}
+.vm-subtitle {
+  font-size: clamp(20px, 2.8vw, 28px);
+  color: var(--vm-brand);
+  text-align: center;
+  font-weight: 800;
+  margin: 0 0 16px 0;
+}
+.vm-peo-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+.vm-peo-item {
+  background: var(--vm-bg-soft);
+  padding: 14px 16px;
+  border-left: 6px solid #2563eb;
+  border-radius: 8px;
+  color: var(--vm-text);
+  line-height: 1.6;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.vm-peo-item:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
+}
+
+.vm-peo-ctas {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+/* ===== Reduced motion and entrance animation ===== */
+@media (prefers-reduced-motion: no-preference) {
+  [data-animate] {
+    animation: vmFloatIn 0.4s ease-out both;
+  }
+  .vm-underline {
+    animation: vmUnderline 0.18s ease-out both;
+  }
+}
+@keyframes vmFloatIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes vmUnderline {
+  from {
+    width: 0;
+  }
+  to {
+    width: 72px;
+  }
+}
+
+/* ===== Focus visibility global polyfill for keyboard users ===== */
+:focus-visible {
+  outline: none;
+}
+
+/* ===== Responsive tweaks ===== */
+@media (max-width: 640px) {
+  .vm-cta-row .vm-btn {
+    width: 100%;
+  }
+}

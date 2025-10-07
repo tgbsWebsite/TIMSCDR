@@ -772,10 +772,12 @@ function Advisory() {
         </aside>
 
         <main className="table-area">
-          <h2 className="advisory-head">Members of Advisory Board</h2>
+            <h2 className="governing-title">
+              Members of Advisory Board – {selectedYear}
+            </h2>
 
           <div className="tables-container">
-            <h3 className="governing-title">Advisory Board - {selectedYear}</h3>
+          
             <AdvisoryTable data={committeeDataByYear[selectedYear]} />
           </div>
         </main>

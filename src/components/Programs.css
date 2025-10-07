@@ -1,19 +1,17 @@
 .flipcard-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-  width: 100vw;
-  min-width: 0;
-  margin: 0 auto; /* centers container in viewport */
+   gap: clamp(10px, 2vw, 20px);
+  max-width: 1600px;            /* equal side margins by constraining width */
+  width: 100%;
+  margin: 0 auto;               /* centers container */
+  /* padding: clamp(12px, 3vw, 24px) clamp(12px, 4vw, 32px); */
   align-items: center;
-  justify-content: center; /* centers grid items horizontally */
-  justify-items: center; /* centers content inside each grid cell */
-  padding: 20px 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  justify-items: center;
   box-sizing: border-box;
   overflow-x: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
 .flipcard-card {
   width: 100%;
   max-width: 400px; 
@@ -82,7 +80,7 @@
   font-size: 32px;
   font-weight: bold;
   text-align: center;
-  padding: 20px;
+
 
 }
 

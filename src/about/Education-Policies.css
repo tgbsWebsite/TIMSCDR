@@ -155,17 +155,22 @@
   margin: 0 0 24px 0;
 }
 .eo-subtitle {
-  font-size: 22px;
-  color: var(--eo-primary);
+  font-size: 26px;
+    color: #111827 !important;
+  font-weight: 800;
+  line-height: 1.5;
   font-weight: 800;
   margin: 24px 0 12px 0;
+  
 }
 .eo-olist {
+   padding-left: 2.5ch;  /* room for decimal marker + a bit of gap */
   margin: 0;
-  padding-left: 18px;
   display: grid;
   gap: 10px;
 }
+
+
 .eo-olist li {
   line-height: 1.7;
   font-size: 20px;

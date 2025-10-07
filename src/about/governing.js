@@ -837,11 +837,20 @@ function Governing() {
     setSelectedYear(year);
   };
 
+
+
   return (
     <div>
       <Navbar setShowForm={setShowForm} />
       {showForm && <BrochureForm setShowForm={setShowForm} />}
       <CTAButtons />
+      <title>Governing Council | Leadership & Vision at TIMSCDR Mumbai</title>
+      <meta
+        name="description"
+        content="Meet the Governing Council of TGBS Mumbai..."
+      />
+      <meta name="keywords" content="TGBS PGDM Programme" />
+      <link rel="canonical" href="https://tgbsmumbai.in/governing-council" />
 
       <div className="governing-layout">
         <aside className="year-selector">
@@ -860,17 +869,12 @@ function Governing() {
         </aside>
 
         <main className="table-area">
-         <PageHeader
-        title="Members of Governing Council"
-        crumbs={[
-          { label: 'Home', href: '/' },
-          { label: 'Governing Council' }, // current page (no href)
-        ]}
-      />
+                           <h2 className="governing-title">
+              Members of Governing Council – {selectedYear}
+            </h2>
+
           <div className="tables-container">
-            <h3 className="governing-title">
-              Governing Council - {selectedYear}
-            </h3>
+       
             <CommitteeTable data={committeeDataByYear[selectedYear]} />
           </div>
         </main>

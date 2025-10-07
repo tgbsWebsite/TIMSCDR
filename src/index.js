@@ -131,6 +131,7 @@ root.render(
         path="/about/development-committee"
         element={<DevelopmentCommittee />}
       />
+      
       {/* <Route path="/about/iqac-committee" element={<IqacCommittee />} /> */}
       <Route path="/policies" element={<Policies />} />
       <Route path="/about/cells-and-committees" element={<CellCommittee />} />
