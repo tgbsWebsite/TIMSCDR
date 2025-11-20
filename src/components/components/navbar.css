@@ -1,0 +1,579 @@
+/* ===== Base / Reset ===== */
+:root {
+  --nav-bg: #ffffffb1;
+  --nav-glass-blur: 6px;
+  --nav-text: #0c2e73;
+  --nav-accent: #f07c39;
+  --nav-link: #003366;
+  --nav-border: #cccccc;
+  --btn1-bg: #027176;
+  --btn1-text: #fffd00;
+  --btn2-bg: #002f6c;
+  --btn2-text: #ffffff;
+  /* Heights */
+  --navbar-height: 176px;
+  --flipper-height: 105px;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button {
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+/* ===== Main Navbar Container ===== */
+.main-container-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  flex-direction: column;
+  height: var(--navbar-height);
+}
+/* Inner wrapper */
+.navbar-wrapper {
+  width: 100%;
+  position: relative;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+/* Top row of navbar */
+.navbar-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 clamp(16px, 4vw, 40px);
+  gap: 16px;
+}
+/* Logo styling */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0; /* allow shrink */
+}
+.nav-logo img {
+  width: clamp(220px, 26vw, 420px);
+  height: clamp(64px, 8vw, 132px); /* raise max to 132px */
+  object-fit: contain; /* no cropping */
+  display: block;
+}
+
+/* Right controls */
+.nav-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(6px, 0.8vw, 12px);
+}
+/* Button styles */
+.nav-button,
+.nav-button1,
+.nav-button2 {
+  display: inline-block;
+}
+/* Default nav-button anchor */
+.nav-button a {
+  color: #fff;
+  background: var(--nav-text);
+  padding: 8px 22px;
+  font-size: clamp(12px, 1.2vw, 14px);
+  font-weight: 600;
+  line-height: 1.2;
+}
+/* Button1 */
+.nav-button1 button,
+.nav-button1 a {
+  color: var(--btn1-text);
+  background: var(--btn1-bg);
+  padding: 10px clamp(24px, 3vw, 56px);
+  font-size: clamp(12px, 1.2vw, 15px);
+  font-weight: 700;
+}
+/* Button2 */
+.nav-button2 button,
+.nav-button2 a {
+  color: var(--btn2-text);
+  background: var(--btn2-bg);
+  padding: 10px clamp(18px, 2.4vw, 30px);
+  font-size: clamp(12px, 1.2vw, 15px);
+  font-weight: 700;
+}
+/* Hover effects for buttons */
+.nav-button1 a:hover {
+  background: #fffd00;
+  color: var(--nav-text);
+}
+.nav-button2 a:hover {
+  background: var(--nav-accent);
+  color: #000;
+}
+/* Equal width buttons inside right controls */
+.nav-buttons > .nav-button,
+.nav-buttons > .nav-button1,
+.nav-buttons > .nav-button2 {
+  width: clamp(180px, 22vw, 260px);
+}
+/* Stretch anchors & buttons inside buttons container */
+.nav-buttons > .nav-button a,
+.nav-buttons > .nav-button1 a,
+.nav-buttons > .nav-button2 a,
+.nav-buttons > .nav-button1 button,
+.nav-buttons > .nav-button2 button {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+/* ===== Secondary strip with quick links ===== */
+.nav-links-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  background-color: #f2f2f2;
+  padding: 10px 0;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+.nav-links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: clamp(8px, 1.6vw, 16px);
+}
+.nav-link {
+  color: var(--nav-text);
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(12px, 1.2vw, 14px);
+  font-weight: 500;
+  white-space: nowrap;
+}
+.nav-link:hover {
+  color: var(--nav-accent);
+}
+
+/* ===== Main menu row ===== */
+/* Center items in the menu strip and remove right borders */
+.navbar-menu {
+  display: flex;
+  justify-content: center; /* center list horizontally */
+  align-items: center; /* center items vertically */
+  min-height: 48px; /* taller strip for visual balance */
+  padding: 0;
+  background: #231f54
+;
+  border-top: 1px solid #e0e0e0; /* full-width top line */
+  border-bottom: 1px solid #e0e0e0; /* full-width bottom line */
+}
+/* Make list items match strip height and center content */
+.nav-menu {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  gap: clamp(4px, 0.6vw, 8px);
+  height: 100%;
+  align-items: center; /* vertical centering of li content */
+}
+/* Remove per-item right border */
+.nav-menu li {
+  border-right: none;
+}
+
+/* Make each link a centered clickable box */
+.nav-menu li > a {
+  display: flex;
+  align-items: center; /* vertical centering of text/icon */
+  gap: 6px;
+  padding: 0 12px; /* horizontal padding only */
+  height: 40px; /* box height inside 48px strip */
+  line-height: 1;
+  border: none; /* no borders on links */
+  width: 100%;
+  border-radius: 6px;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  text-decoration: none;
+}
+/* Main menu link hover/focus */
+
+.nav-menu li > a:hover,
+.nav-menu li > a:focus {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  color: #f07c39;
+  outline: none;
+}
+
+
+/* Honors/awards strip inside navbar */
+.nav-honors {
+  width: 100%; /* or use var(--btn2-bg) / var(--nav-bg) */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 0; /* compact vertical padding */
+}
+
+.nav-honors__track {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(8px, 1.2vw, 20px); /* space between badges */
+  padding-inline: clamp(8px, 4vw, 40px);
+}
+
+.nav-honors__track img {
+  height: clamp(22px, 3.5vw, 50px); /* keep badges small and consistent */
+  width: auto;
+  display: block;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.15));
+  object-fit: contain;
+}
+
+/* Optional: on very narrow screens, wrap to two rows */
+@media (max-width: 480px) {
+  .nav-honors__track {
+    flex-wrap: wrap;
+    row-gap: 8px;
+  }
+}
+
+/* Position relative for dropdown items */
+.dropdown-item {
+  position: relative;
+}
+
+/* Dropdown (desktop) */
+.dropdown {
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translate(-50%, 10px);
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
+  padding: 16px;
+  min-width: 240px;
+  display: grid;
+  grid-auto-rows: min-content;
+  gap: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+  z-index: 101;
+}
+.dropdown a {
+  display: block;
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 6px;
+  color: #0c2e73;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.3;
+  white-space: nowrap;
+  border-bottom: 1px solid #f2f2f2; /* bottom border */
+}
+.dropdown a:hover {
+  background: #fafafa;
+  color: #f07c39;
+}
+
+.nav-menu li:hover > .dropdown,
+.nav-menu li:focus-within > .dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
+}
+
+/* Submenu styling */
+.submenu {
+  position: absolute;
+  left: 100%;
+  top: 0;
+  background: #fff;
+  padding: 8px;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  display: none;
+  z-index: 999;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 220px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+}
+/* Show submenu */
+.dropdown-item:hover > .submenu,
+.dropdown-item:focus-within > .submenu {
+  display: flex;
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+/* Flip submenu upward */
+.submenu.submenu-up {
+  top: auto !important;
+  bottom: 0 !important;
+  transform: translateY(-10px) !important;
+}
+/* Flip submenu left if overflowing right side */
+.submenu.submenu-left {
+  left: auto !important;
+  right: 100% !important;
+  transform: translateX(-10px) !important;
+}
+/* Show flipped submenu with transition */
+.dropdown-item:hover > .submenu.submenu-up,
+.dropdown-item:focus-within > .submenu.submenu-up,
+.dropdown-item:hover > .submenu.submenu-left,
+.dropdown-item:focus-within > .submenu.submenu-left {
+  transform: translateX(0) translateY(0) !important;
+}
+
+/* Submenu link styling */
+.submenu a {
+  display: block;
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 6px;
+  color: #0c2e73;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.3;
+  white-space: nowrap;
+  text-align: left;
+}
+.submenu a:hover {
+  background: #fafafa;
+  color: #f07c39;
+}
+
+/* Mobile menu button */
+.menu-button {
+  display: none;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+}
+.menu-button img {
+  width: 28px;
+  height: 28px;
+}
+
+/* Mobile drawer */
+.mobile-menu {
+  position: fixed;
+  inset: 0 0 0 auto;
+  left: -105vw;
+  width: min(92vw, 420px);
+  height: 100vh;
+  background: #fff;
+  box-shadow: 2px 0 18px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  transition: left 0.3s ease-in-out;
+  overflow-y: auto;
+  z-index: 1200;
+}
+.mobile-menu.open {
+  left: 0;
+}
+
+/* Mobile drawer header */
+.mobile-menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-bottom: 1px solid #eee;
+}
+.menu-logo {
+  width: clamp(140px, 40vw, 220px);
+}
+.menu-logo img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+.close-button {
+  width: 32px;
+  height: 32px;
+}
+
+/* Drawer items */
+.mobile-dropdown-container {
+  width: 100%;
+  padding: 12px 8px 28px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+/* Each main menu item in mobile */
+.menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 12px;
+  border-bottom: 1px solid #f0f0f0;
+  color: var(--nav-text);
+  font-size: clamp(14px, 3.5vw, 18px);
+  font-weight: 700;
+}
+.menu-item .arrow {
+  width: 22px;
+  height: 22px;
+  transition: transform 0.2s ease;
+}
+.menu-item.open .arrow {
+  transform: rotate(180deg);
+}
+
+/* Mobile submenu container */
+.mobile-dropdown-content {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  padding-left: 16px;
+  border-left: 2px solid var(--nav-accent);
+  margin-top: 4px;
+  overflow: hidden;
+  background: #fff;
+}
+/* Show submenu when open */
+.mobile-dropdown-content.open {
+  display: flex;
+}
+
+/* Submenu links */
+.mobile-dropdown-content a {
+  color: var(--nav-text);
+  padding: 8px 12px;
+  font-size: clamp(13px, 3.2vw, 15px);
+  font-weight: 500;
+  text-align: left;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+.mobile-dropdown-content a:hover,
+.mobile-dropdown-content a:focus {
+  background-color: var(--nav-accent);
+  color: #000;
+  outline: none;
+}
+
+/* Hide desktop-only strips on mobile */
+@media (max-width: 1175px) {
+  .nav-links-container {
+    display: none;
+  }
+  .nav-buttons {
+    display: none;
+  }
+  .navbar-menu {
+    display: none;
+  }
+  .menu-button {
+    display: inline-flex;
+  }
+}
+
+/* Small device adjustments */
+@media (max-width: 600px) {
+  .navbar-top {
+    padding: 10px 12px;
+  }
+  .menu-button img {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+/* Responsive flipper cards */
+@media (max-width: 768px) {
+  .fp-pair-container {
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+  .fp-section {
+    flex: 1 1 140px;
+    max-width: 180px;
+  }
+  .fp-card {
+    padding: 0.45rem;
+  }
+  .fp-title-text {
+    font-size: 1rem;
+  }
+  .fp-message-text-link {
+    font-size: 0.85rem;
+    padding: 0.3rem 0.5rem;
+  }
+}
+
+/* Navbar fixed adjustment */
+.main-container-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: var(--navbar-height);
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Dropdown scroll limit on mobile */
+@media (max-width: 768px) {
+  .dropdown {
+    max-height: 300px;
+    overflow-y: auto;
+  }
+  .submenu {
+    max-height: 280px;
+    overflow-y: auto;
+  }
+}
+
+/* Reduce font and padding in small screens */
+@media (max-height: 800px), (max-width: 900px) {
+  .dropdown {
+    font-size: 13px;
+    padding: 8px 8px;
+  }
+  .dropdown a {
+    padding: 6px 8px;
+    font-size: 13px;
+  }
+}
+
+/* Extra compact for very small heights */
+@media (max-height: 650px) {
+  .dropdown {
+    font-size: 12px;
+    padding: 6px 6px;
+  }
+  .dropdown a {
+    padding: 4px 6px;
+    font-size: 12px;
+  }
+}

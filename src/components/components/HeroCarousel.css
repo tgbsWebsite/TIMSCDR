@@ -1,0 +1,120 @@
+/* Root hero wrapper */
+.hero-video {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #111;
+}
+
+/* Container: consistent visual height across sizes (desktop/tablet) */
+.video-container {
+  width: 100%;
+  /* Desktop/tablet: keep original feel */
+  height: clamp(420px, 60vh, 512px);
+  margin: 0 auto;
+  margin-top: 256px; /* existing offset under fixed header */
+  position: relative;
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  background: #111;
+}
+
+/* Full-bleed media */
+.video-media,
+.hero-video__media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;        /* fill container; preserve ratio */
+  object-position: center;  /* adjust focal point if needed */
+  pointer-events: none;
+  display: block;
+  z-index: 0;
+}
+
+/* Optional: intrinsic aspect-ratio alternative */
+.video-container.is-ratio {
+  height: auto;
+  aspect-ratio: 16 / 9;
+}
+
+/* Readability gradient */
+.hero-video::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.30) 0%,
+    rgba(0,0,0,0.05) 40%,
+    rgba(0,0,0,0.35) 100%
+  );
+  z-index: 0;
+}
+
+/* Overlay */
+.hero-video__overlay {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  text-align: center;
+  color: #fff;
+}
+
+/* Content */
+.hero-video__content { max-width: 800px; }
+
+.hero-video__title {
+  font-size: clamp(1.75rem, 5vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0 0 12px 0;
+}
+
+.hero-video__subtitle {
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  opacity: 0.95;
+  margin: 0 0 20px 0;
+}
+
+/* CTA */
+.hero-video__cta {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 999px;
+  color: #fff;
+  text-decoration: none;
+  background: rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.35);
+  transition: background .2s ease, transform .2s ease;
+}
+.hero-video__cta:hover {
+  background: rgba(255,255,255,0.35);
+  transform: translateY(-2px);
+}
+
+/* Mobile: reduce height so below text is visible; prefer dvh */
+@media (max-width: 768px) {
+  /* Tighten the clamp so the hero is shorter on small screens */
+  .video-container {
+    height: clamp(300px, 38dvh, 420px); /* smaller target on phones */
+    margin-top: 160px;                  /* also reduce offset if header is shorter */
+  }
+
+  /* Keep wrapper aligned with container (optional) */
+  .hero-video {
+    height: auto; /* let container define the height */
+  }
+}
+
+/* Very small phones: make it even shorter */
+@media (max-width: 400px) {
+  .video-container {
+    height: clamp(260px, 34dvh, 360px);
+  }
+}

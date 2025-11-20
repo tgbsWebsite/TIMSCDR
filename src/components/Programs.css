@@ -1,0 +1,110 @@
+.flipcard-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+   gap: clamp(10px, 2vw, 20px);
+  max-width: 1600px;            /* equal side margins by constraining width */
+  width: 100%;
+  margin: 0 auto;               /* centers container */
+  /* padding: clamp(12px, 3vw, 24px) clamp(12px, 4vw, 32px); */
+  align-items: center;
+  justify-items: center;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.flipcard-card {
+  width: 100%;
+  max-width: 400px; 
+  height: 350px;
+  perspective: 1000px;
+  cursor: pointer;
+  display: block;
+  overflow: hidden; /* prevent overflow during flip */
+}
+
+.flipcard-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  will-change: transform;
+  transform-origin: center center; /* fix pivot center */
+}
+
+.flipcard-card-front,
+.flipcard-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  backface-visibility: hidden;
+  left: 0;
+  top: 0;
+  transform-origin: center center; /* also on front/back */
+}
+
+
+.flipcard-card:hover .flipcard-card-inner {
+  transform: rotateY(180deg);
+}
+
+
+
+.flipcard-card-front {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.flipcard-card-front::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  z-index: 1;
+}
+
+.flipcard-title {
+  position: relative;
+  z-index: 2;
+  color: #fff !important;
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+
+
+}
+
+.flipcard-card-back {
+  background: #fff;
+  transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+
+.flipcard-description {
+  color: #333;
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .flipcard-container {
+    grid-template-columns: 1fr;
+  }
+  .flipcard-title {
+    font-size: 28px;
+  }
+}

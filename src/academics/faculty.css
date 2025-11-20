@@ -1,0 +1,418 @@
+.faculty-main-container {
+  width: 100%;
+  height: auto;
+  margin: 150px auto 80px auto
+}
+
+.faculty-header {
+  font-size: 35px;
+  color: #233b77;
+  text-align: -webkit-center;
+
+  width: 90%;
+  margin: auto;
+}
+
+.faculty-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: left;
+  align-items: stretch;
+  gap: 10px;
+  margin: auto;
+  width: 90%;
+}
+
+.faculty-box {
+  width: 24%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  gap: 15px;
+  padding: 25px;
+  border-radius: 6px;
+  background-color: #ffffff4f;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.faculty-box img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 6px;
+  aspect-ratio: 1/1;
+  object-position: top;
+}
+
+.faculty-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
+  width: 100%;
+  height: auto;
+  text-align: left;
+}
+
+.faculty-name {
+  font-size: 22px;
+  color: #233b77;
+  width: 100%;
+  font-weight: 600;
+}
+
+.faculty-text {
+  font-size: 16px;
+  color: #233b77;
+  width: 100%;
+}
+
+.faculty-details a {
+  font-size: 15px;
+  margin: 10px 0 0 0;
+  color: #233b77;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.faculty-details a:hover {
+  color: #f07c39;
+}
+
+.faculty-box1 {
+  width: 30%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  gap: 15px;
+  padding: 25px;
+  border-radius: 6px;
+  background-color: #ffffff4f;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.faculty-box1 div {
+  width: 100%;
+}
+
+.faculty-box1 h2 {
+  font-size: 22px;
+  color: #233b77;
+  text-align: left;
+  width: 100%;
+}
+
+.faculty-box1 p {
+  font-size: 16px;
+  color: #233b77;
+  text-align: left;
+  width: 100%;
+}
+
+.faculty-box1 h3 {
+  color: #233b77;
+}
+
+.v-faculty-box {
+  text-align: left;
+}
+
+@media screen and (max-width: 1100px) {
+  .faculty-container {
+    gap: 15px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .faculty-box {
+    width: 45%;
+  }
+
+  .faculty-box1 {
+    width: 45%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+
+  .faculty-container {
+    width: 100%;
+  }
+
+  .faculty-header {
+    font-size: 30px;
+    padding: 0;
+  }
+
+  .faculty-box {
+    padding: 15px;
+  }
+}
+
+@media screen and (max-width: 520px) {
+
+  .faculty-box,
+  .faculty-box1 {
+    width: 100%;
+    padding: 25px;
+  }
+
+  .faculty-container {
+    width: 96%;
+  }
+
+  .faculty-header {
+    font-size: 26px;
+    padding: 0;
+  }
+
+}
+
+/* Faculty Details */
+
+.facultyd-main-container {
+  width: 100%;
+  height: 100%;
+  margin: 15vh 0 0 0;
+}
+
+.back-btn {
+  width: 30px;
+  height: 30px;
+  margin: 25px 0 0 45px;
+  cursor: pointer;
+  transform: rotate(180deg);
+}
+
+.facultyd-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 25px;
+  margin: 35px auto;
+  width: 80%;
+}
+
+.facultyd-details {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.facultyd-details h2 {
+  color: #233b77;
+  font-size: 35px;
+  margin: 15px 0;
+}
+
+.facultyd-details p {
+  color: #233b77;
+  font-size: 15px;
+  margin: 0;
+}
+
+.faculty-image {
+  width: 70%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 6px;
+  aspect-ratio: 1/1;
+  object-position: top;
+}
+
+.linkedin-link {
+  width: 35px;
+  height: 35px;
+  margin: 10px 0;
+}
+
+.social-icon {
+  width: 100%;
+}
+
+@media screen and (max-width:900px) {
+
+  .faculty-main-container,
+  .facultyd-main-container {
+    margin-top: 12vh;
+  }
+}
+
+@media screen and (max-width:600px) {
+
+  .faculty-main-container,
+  .facultyd-main-container {
+    margin-top: 6vh;
+  }
+}
+
+/* FacultyProfile.css */
+
+.faculty-details-container {
+  background-color: white;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+  color: #1e293b;
+
+  padding: 2rem 1rem;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.faculty-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .faculty-grid {
+    grid-template-columns: 1fr 2fr;
+  }
+}
+
+.faculty-sidebar {
+  background: #ffffff;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  text-align: center;
+  height: fit-content;
+  top: 3rem;
+}
+
+.faculty-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.faculty-image-wrapper {
+  width: 12rem;
+  height: 12rem;
+  margin-bottom: 1rem;
+}
+
+.faculty-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 4px solid #f59e0b;
+  /* primary color */
+  object-fit: cover;
+}
+
+
+.faculty-position {
+  color: #f59e0b;
+  /* primary color */
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+
+
+.faculty-section {
+  margin-bottom: 2.5rem;
+}
+
+.faculty-section-title {
+  font-weight: 700;
+  font-size: 1.75rem;
+  color: #f59e0b;
+  /* primary color */
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.faculty-subsection {
+  margin-top: 1rem;
+}
+
+.faculty-subtitle {
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: #1e293b;
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.faculty-list {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  color: #64748b;
+}
+
+.faculty-list li {
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+
+
+
+.section-icon,
+.sub-icon {
+  color: #f59e0b;
+  font-size: 28px;
+}
+
+.material-icons {
+  vertical-align: middle;
+}
+
+/* Back Button Styling, optional */
+.back-btn {
+  background-color: transparent;
+  border: none;
+  color: #f59e0b;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+  padding-left: 0;
+}
+
+.back-btn:hover {
+  text-decoration: underline;
+}
+
+.faculty-div-title {
+  font-size: 30px;
+  line-height: 4rem;
+  font-weight: 700;
+  margin-top: 1rem;
+  text-align: left;
+}
+
+hr {
+
+  background-color: #cacaca;
+}
+
+.page-header-container {
+  /* Add any container-specific styles here, e.g. padding or margin */
+  margin-bottom: 20px;
+}
+
+.light-divider {
+  border: none;
+  /* Remove default border */
+  border-top: 1px solid #cac6c6;
+  /* Light gray color line */
+  opacity: 0.5;
+  /* Make it lighter */
+  margin-top: 10px;
+}

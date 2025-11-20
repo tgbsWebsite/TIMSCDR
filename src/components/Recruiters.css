@@ -1,0 +1,67 @@
+.recruiters-section {
+  background-color: white;
+}
+
+.recruiters-heading {
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.logo-slider {
+  overflow: hidden;
+  width: 100%;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+/* spacing and speed tweaks */
+.logo-track {
+  display: flex;
+  align-items: center;
+  gap: 64px;                 /* was 32px -> more space between logos */
+  width: max-content;
+  animation: marquee-left 90s linear infinite;  /* was 30s -> slower */
+}
+
+
+.logo-track:hover {
+  animation-play-state: paused;
+}
+
+.logo-slide {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 140px;
+  height: 80px;
+}
+
+.logo-slide img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: grayscale(20%);
+  transition: filter 0.2s ease;
+}
+
+.logo-slide img:hover {
+  filter: none;
+}
+
+@keyframes marquee-left {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* duplicate content -> shift half width */
+}
+
+/* Optional: responsive tweaks */
+@media (max-width: 768px) {
+  .logo-slide {
+    width: 110px;
+    height: 64px;
+  }
+  .logo-track {
+    gap: 24px;
+    animation-duration: 24s;
+  }
+}

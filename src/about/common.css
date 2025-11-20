@@ -1,0 +1,5 @@
+.common-section {
+  margin: 150px auto 40px auto;
+  max-width: 1200px; /* keeps it nicely centered */
+  width: 90%;
+}

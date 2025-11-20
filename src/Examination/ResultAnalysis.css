@@ -1,0 +1,164 @@
+/* Main container for layout */
+.result-analysis-container {
+  width: 80%;
+
+
+    font-family: "Segoe UI", sans-serif;
+  max-width: 100%;
+  margin: 150px auto 0px auto;
+
+}
+
+/* Header section styles */
+.header-section {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.header-section h1 {
+  font-size: 35px;
+  color: #233b77;
+  margin: 25px 0;
+}
+
+.header-section p {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 40px;
+  line-height: 1.5;
+}
+
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.filter-group label {
+  margin-bottom: 0.5rem;
+}
+
+.filter-select {
+  min-width: 120px;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Stats section for statistics cards */
+.stats-section {
+  background-color: #f8f9fa;
+  margin: 2rem 0;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.stats-section h2 {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.stat-card {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #233b77;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Results section for table and no-results message */
+.results-section {
+  margin: 2rem 2rem;
+}
+
+.results-table-container {
+  overflow-x: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+}
+
+.results-table thead {
+  background: linear-gradient(135deg, #233b77, #1a2b5a);
+  color: #fff;
+}
+
+.results-table thead th {
+  padding: 12px 20px;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-align: left;
+}
+
+.result-row:hover {
+  background-color: #f0f8ff;
+}
+
+.results-table tbody td {
+  padding: 12px 20px;
+  font-size: 14px;
+  color: #333;
+}
+
+.no-results {
+  text-align: center;
+  padding: 2rem;
+  font-style: italic;
+  color: #666;
+}
+
+/* Responsive styles */
+@media(max-width: 768px) {
+  .result-analysis-container {
+    width: 95%;
+    margin-top: 12vh;
+  }
+  .filter-select {
+    min-width: 100px;
+  }
+  .stats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+}
+
+@media(max-width: 480px) {
+  .filter-select {
+    min-width: 80px;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}

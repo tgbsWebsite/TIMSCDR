@@ -1,0 +1,371 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+* {
+  font-family: "Roboto", sans-serif !important;
+}
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+button,
+input,
+textarea {
+  font-family: "Roboto", sans-serif !important;
+}
+:root {
+  --page-max: 100%;
+  --page-pad: clamp(12px, 3vw, 32px);
+}
+:root {
+  --navbar-height: 154px;
+}
+
+.App {
+  inline-size: 100%;
+}
+
+.page-container {
+  inline-size: min(var(--page-max), 100%);
+  margin-inline: auto;
+  padding-inline: var(--page-pad);
+}
+/* full-bleed utility */
+
+.section-alt {
+  width: 100%;
+  background-color: #f6f5fb; /* light pastel (alternate) */
+  padding: 60px 0; /* vertical breathing space */
+}
+
+.section-base {
+  width: 100%;
+  background-color: #ffffff; /* plain white */
+}
+
+h1,
+h2 {
+  color: #231f54 !important;
+}
+.about-us-divider {
+  width: 50px; /* make it shorter than full width */
+  margin: 0 auto 2rem; /* center it and add spacing */
+  border: 0;
+  height: 2px;
+  background-color: #10bad2; /* same as heading color */
+  opacity: 0.7; /* subtle look */
+}
+h2 {
+  font-size: 30px !important;
+  line-height: 4rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 1.5rem !important;
+  text-align: center !important;
+}
+h1 {
+  font-weight: 700 !important;
+  font-size: clamp(1.5rem, 4vw, 2.5rem) !important;
+}
+
+/* Put this late in the cascade (e.g., in index.css or App.css loaded last) */
+html,
+body {
+  background-color: #ffffff !important; /* force white across all pages */
+  background: #ffffff !important;
+  /* also override any shorthand background */
+}
+
+/* Load this after other styles to win the cascade */
+p {
+  text-align: justify !important; /* justify the paragraph text */
+  text-justify: inter-word !important;
+  font-size: clamp(1rem, 3vw, 1.2rem) !important;
+  color: #333 !important;
+}
+
+h3 {
+  color: #3f3d9b !important;
+}
+
+.container {
+  margin-top: 23vh !important;
+}
+/* Reset browser defaults */
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+hr {
+  /* thickness; adjust as needed */ /* [17] */
+  background-color: #3f3d9b; /* brand color fill */ /* [5] */
+  color: #3f3d9b; /* legacy engines treat color on hr */ /* [8] */
+}
+
+:root {
+  --section-gap-top: 35px;
+}
+
+:root {
+  --heading-gap-top: 18px;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto; /* allow vertical scroll when needed */
+  overflow-x: hidden; /* block horizontal scroll */
+}
+
+/* Hide scrollbar for Chrome, Safari, Opera */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+#root::-webkit-scrollbar {
+  display: none;
+}
+
+/* Full‑bleed: header spans viewport edges inside containers */
+
+/* Header band visuals */
+
+/* Breadcrumb */
+.site-breadcrumb {
+  max-width: min(1200px, 92vw);
+  margin: 0 auto clamp(8px, 1.5vw, 16px);
+  font-size: clamp(0.85rem, 0.7rem + 0.4vw, 1rem);
+  color: #6b7280;
+}
+.site-breadcrumb ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.site-breadcrumb li + li::before {
+  content: "/";
+  color: #9aa3b2;
+  margin-inline: 0.5rem;
+}
+.site-breadcrumb a {
+  color: #0c2e73;
+  text-decoration: none;
+}
+.site-breadcrumb a:hover {
+  text-decoration: underline;
+}
+.site-breadcrumb [aria-current="page"] {
+  color: #111827;
+  font-weight: 600;
+}
+
+/* Centered title with short maroon underline */
+.site-pageTitle {
+  max-width: min(1200px, 92vw);
+  margin: 0 auto;
+  text-align: center;
+  color: #111827;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+  font-size: clamp(1.8rem, 1.2rem + 3vw, 3rem);
+  position: relative;
+  padding-block-end: clamp(8px, 1vw, 12px);
+}
+
+/* Optional constrained content wrapper for sections after the header */
+.constrained {
+  max-width: min(1200px, 92vw);
+  margin-inline: auto;
+}
+/* Header band visuals */
+.site-headerBand {
+  padding-block: clamp(24px, 5vw, 56px);
+  /* background: #f7f7f8; */
+  padding-top: clamp(24px, 5vw, 56px); /* was 12–28px */
+  padding-bottom: clamp(24px, 5vw, 64px);
+}
+
+/* Ensure the full-bleed band centers its contents */
+
+/* Breadcrumb */
+.site-breadcrumb {
+  max-width: min(1200px, 92vw);
+  margin: 0 auto clamp(8px, 1.5vw, 16px);
+  font-size: clamp(0.85rem, 0.7rem + 0.4vw, 1rem);
+  color: #6b7280;
+}
+.site-breadcrumb ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.site-breadcrumb li + li::before {
+  content: "/";
+  color: #9aa3b2;
+  margin-inline: 0.5rem;
+}
+.site-breadcrumb a {
+  color: #0c2e73;
+  text-decoration: none;
+}
+.site-breadcrumb a:hover {
+  text-decoration: underline;
+}
+.site-breadcrumb [aria-current="page"] {
+  color: #111827;
+  font-weight: 600;
+}
+
+/* Centered title with short maroon underline */
+.site-pageTitle {
+  max-width: min(1200px, 92vw);
+  margin: 0 auto;
+  text-align: center !important; /* explicitly center */
+  color: #111827;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+  font-size: clamp(1.8rem, 1.2rem + 3vw, 3rem);
+  position: relative;
+  padding-block-end: clamp(8px, 1vw, 12px);
+}
+.site-pageTitle::after {
+  content: "";
+  display: block;
+  inline-size: clamp(40px, 6vw, 72px);
+  block-size: 4px;
+  background: #10bad2;
+  border-radius: 999px;
+  margin: clamp(8px, 1vw, 12px) auto 0;
+}
+
+/* Constrain and center the rails inside the band */
+.site-breadcrumb,
+.site-pageTitle {
+  width: 100%;
+  max-width: min(1200px, 92vw);
+  margin-inline: auto; /* center within the band */
+}
+
+/* Optional constrained content wrapper for sections after the header */
+.constrained {
+  max-width: min(1200px, 92vw);
+  margin-inline: auto;
+}
+
+/* Tighter top spacing for breadcrumb (closer to navbar) */
+.site-breadcrumb {
+  margin-bottom: clamp(8px, 1.5vw, 16px); /* keep bottom space for the title */
+}
+
+/* If the header band adds extra padding on top, trim it slightly */
+
+/* Split the header band into a tight top row (breadcrumb) and a padded title row */
+.site-headerBand {
+  display: grid;
+  grid-template-rows: auto 1fr; /* row 1: breadcrumb, row 2: title */
+  /* row-gap: clamp(6px, 1.2vw, 14px); */
+  padding-top: 0; /* keep breadcrumb tight to top */
+  padding-bottom: clamp(
+    24px,
+    5vw,
+    64px
+  ); /* overall height mainly below */ /* requested background */
+}
+
+/* Keep breadcrumb locked to the top with no extra top margin */
+.site-breadcrumb {
+  grid-row: 1;
+  margin-top: 0; /* prevent drop when header grows */
+  padding-top: clamp(4px, 0.6vw, 10px); /* tiny breathing room by choice */
+}
+
+/* Put the vertical padding for height on a title container instead of the band */
+.site-pageTitle {
+  grid-row: 2;
+  padding-top: clamp(24px, 5vw, 56px); /* increase header height here */
+  padding-bottom: clamp(12px, 2.5vw, 20px);
+}
+
+/* Optional: constrain inner rails as before */
+.site-breadcrumb,
+.site-pageTitle {
+  width: 100%;
+  max-width: min(1200px, 92vw);
+  margin-inline: auto;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --navbar-height: 70px;
+  }
+}
+
+/* .main-content-nav {
+  margin-top: calc(var(--navbar-height) + var(--flipper-height));
+} */
+
+.navbar-wrapper {
+  box-shadow: none !important;
+}
+
+.navbar-wrapper {
+  width: 100%;
+  position: relative;
+  background: #fff;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+  box-shadow: none !important;
+}
+
+@media (max-width: 1366px) {
+  :root {
+    --navbar-height: 140px;
+  }
+}
+
+/* Tablets and smaller laptops */
+@media (max-width: 992px) {
+  :root {
+    --navbar-height: 110px;
+  }
+}
+
+/* Large mobile phones */
+@media (max-width: 768px) {
+  :root {
+    --navbar-height: 90px;
+  }
+}
+
+/* Small mobile phones */
+@media (max-width: 480px) {
+  :root {
+    --navbar-height: 70px;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 360px) {
+  :root {
+    --navbar-height: 60px;
+  }
+}

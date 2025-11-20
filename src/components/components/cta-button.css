@@ -1,0 +1,463 @@
+/* Reset */
+.tims * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body and background */
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    sans-serif;
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Animated particles */
+.tims-particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.tims-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  animation: tims-float 6s ease-in-out infinite;
+}
+
+@keyframes tims-float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+    opacity: 0.8;
+  }
+}
+
+/* Demo container */
+
+/* Mobile static buttons */
+.tims-mobile-static-buttons {
+  position: fixed;
+  right: -82px; /* change from -10px to 0 */
+  top: 35%;
+  transform: rotate(270deg);
+  display: none;
+  flex-direction: row;
+  /* gap: 10px; */
+  z-index: 1010;
+  align-items: flex-end;
+}
+@media (max-width: 768px) {
+  .tims-mobile-static-buttons {
+    right: -82px; /* flush right */
+    display: flex; /* visible */
+    width: auto; /* adjust or set specific width */
+    height: auto; /* adjust or set specific height */
+    transform: rotate(270deg) scale(0.8); /* smaller scale */
+  }
+}
+.tims-cta-static-button {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 25px 25px 0 0;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 15px 25px;
+  border: none;
+  white-space: nowrap;
+  background: linear-gradient(135deg, #027176 0%, #04a1a6 100%);
+  color: #fffd00;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 30px rgba(2, 113, 118, 0.3);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.tims-cta-static-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 253, 0, 0.1),
+    rgba(255, 253, 0, 0.05)
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.tims-cta-static-button:hover::before {
+  opacity: 1;
+}
+
+.tims-cta-static-button:hover {
+  background: linear-gradient(135deg, #fffd00 0%, #f4d03f 100%);
+  color: #027176;
+  transform: scale(1.1);
+  box-shadow: 0 15px 35px rgba(255, 253, 0, 0.3);
+}
+
+.tims-pulse {
+  animation: tims-modernPulse 2s infinite;
+}
+
+@keyframes tims-modernPulse {
+  0% {
+    box-shadow: 0 10px 30px rgba(2, 113, 118, 0.3),
+      0 0 0 0 rgba(255, 253, 0, 0.7);
+  }
+  70% {
+    box-shadow: 0 15px 35px rgba(2, 113, 118, 0.4),
+      0 0 0 15px rgba(255, 253, 0, 0);
+  }
+  100% {
+    box-shadow: 0 10px 30px rgba(2, 113, 118, 0.3), 0 0 0 0 rgba(255, 253, 0, 0);
+  }
+}
+
+/* Desktop CTA container */
+.tims-cta-container {
+  position: fixed;
+  top:60%;
+  right: 0;
+  transform: translateY(-60%);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 1020;
+  align-items: flex-end;
+}
+
+/* Modern Button Styling */
+.tims-cta-button {
+  position: relative;
+  right: 0;
+  display: flex;
+  align-items: center;
+  color: white;
+  padding: 15px;
+  border-radius: 10px 0 0 10px; /* Rounded left corners only */
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  width: 45px;
+  height: 50px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-decoration: none;
+  justify-content: flex-start;
+  border: none;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s;
+}
+
+.tims-cta-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0px;
+  bottom: 0;
+  border-radius: 10px 0 0 10px; /* Top-left & bottom-left rounded, right side no radius */
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.05)
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.tims-cta-button:hover::before {
+  opacity: 1;
+  right: 0px;
+}
+
+.tims-cta-button .tims-icon {
+  display: flex;
+  min-width: 30px;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  position: relative;
+}
+
+.tims-icon-placeholder {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.tims-cta-button .tims-text {
+  opacity: 0;
+  margin-left: 15px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 600;
+  z-index: 2;
+  position: relative;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.tims-cta-button:hover {
+  width: 150px;
+
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  right: 0; /* add this */
+}
+
+.tims-cta-button:hover .tims-text {
+  opacity: 1;
+}
+
+/* Glassmorphism button styles with modern gradients */
+.tims-cta-button.tims-apply {
+  background: linear-gradient(135deg, #027176 0%, #04a1a6 100%);
+  border: 1px solid rgba(255, 253, 0, 0.2);
+}
+
+.tims-cta-button.tims-apply:hover {
+  background: linear-gradient(135deg, #04a1a6 0%, #027176 100%);
+  color: #fffd00;
+  text-shadow: 0 0 10px rgba(255, 253, 0, 0.5);
+  box-shadow: 0 20px 40px rgba(2, 113, 118, 0.4);
+}
+
+.tims-cta-button.tims-phone {
+  background: #2196f3;
+}
+
+.tims-cta-button.tims-phone:hover {
+  background: linear-gradient(135deg, #42a5f5 0%, #2196f3 100%);
+  box-shadow: 0 20px 40px rgba(33, 150, 243, 0.4);
+}
+
+.tims-cta-button.tims-email {
+  background: #e5aa17;
+  color: #333;
+}
+
+.tims-cta-button.tims-email:hover {
+  background: #e5aa17;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.tims-cta-button.tims-email .tims-text {
+  color: #333;
+}
+
+.tims-cta-button.tims-whatsapp {
+  background: linear-gradient(135deg, #4cb051 0%, #388e3c 100%);
+}
+
+.tims-cta-button.tims-whatsapp:hover {
+  background: linear-gradient(135deg, #66bb6a 0%, #4cb051 100%);
+  box-shadow: 0 20px 40px rgba(76, 176, 81, 0.4);
+}
+
+.tims-cta-button.tims-linkedin {
+  background: linear-gradient(135deg, #0288d1 0%, #0277bd 100%);
+}
+
+.tims-cta-button.tims-linkedin:hover {
+  background: linear-gradient(135deg, #039be5 0%, #0288d1 100%);
+  box-shadow: 0 20px 40px rgba(2, 136, 209, 0.4);
+}
+
+.tims-cta-button.tims-instagram {
+  background: linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
+}
+
+.tims-cta-button.tims-instagram:hover {
+  background: linear-gradient(
+    45deg,
+    #f5af5a 0%,
+    #ea7c5c 25%,
+    #e04063 50%,
+    #d03c86 75%,
+    #c738a8 100%
+  );
+  box-shadow: 0 20px 40px rgba(225, 48, 108, 0.4);
+}
+
+.tims-cta-button.tims-facebook {
+  background: linear-gradient(135deg, #229cef 0%, #1877f2 100%);
+}
+
+.tims-cta-button.tims-facebook:hover {
+  background: linear-gradient(135deg, #42a5f5 0%, #229cef 100%);
+  box-shadow: 0 20px 40px rgba(34, 156, 239, 0.4);
+}
+
+/* Status indicators */
+.tims-status-indicator {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(20px);
+  color: white;
+  padding: 12px 25px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 500;
+  z-index: 1000;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: tims-slideUp 0.5s ease;
+}
+
+@keyframes tims-slideUp {
+  from {
+    transform: translateX(-50%) translateY(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+}
+
+.tims-mobile-indicator {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .tims-mobile-indicator {
+    display: block;
+  }
+  .tims-desktop-indicator {
+    display: none;
+  }
+  .tims-cta-container {
+    display: none !important;
+  }
+  .tims-mobile-static-buttons {
+    display: flex !important;
+  }
+}
+
+/* Floating shapes */
+.tims-floating-shapes {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.tims-shape {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  animation: tims-floatShapes 8s ease-in-out infinite;
+}
+
+.tims-shape-1 {
+  width: 80px;
+  height: 80px;
+  top: 20%;
+  left: 10%;
+  animation-delay: -2s;
+}
+
+.tims-shape-2 {
+  width: 120px;
+  height: 120px;
+  top: 60%;
+  left: 80%;
+  animation-delay: -4s;
+}
+
+.tims-shape-3 {
+  width: 60px;
+  height: 60px;
+  top: 80%;
+  left: 20%;
+  animation-delay: -6s;
+}
+
+@keyframes tims-floatShapes {
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-30px) translateX(30px) rotate(120deg);
+  }
+  66% {
+    transform: translateY(30px) translateX(-20px) rotate(240deg);
+  }
+}
+
+/* Notification animations */
+@keyframes tims-slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes tims-slideOutRight {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* Ripple effect */
+@keyframes tims-ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* FadeInUp animation for feature cards */
+@keyframes tims-fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

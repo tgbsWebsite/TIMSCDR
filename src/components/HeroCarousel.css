@@ -1,0 +1,95 @@
+/* Root-level custom properties for easy tuning */
+:root {
+  /* Fallback height if --hero-height not provided from inline style */
+  --hero-height: 600px;
+  /* Max width constraint for ultra-wide layouts (optional) */
+  --hero-max-width: 100%;
+  /* Side padding for mobile safety gutters */
+  --hero-side-padding: 0px;
+}
+
+/* Container maintains responsive height but prevents layout shift */
+/* Container takes the video’s natural height */
+.video-container {
+  position: relative;
+
+  margin-top: 205px;            /* adjust spacing below navbar */
+  overflow: hidden;
+  background: transparent;      /* no black background */
+}
+
+/* Video scales by width, keeps full frame, no cropping */
+.video-media {
+  display: block;
+  width: 100%;                  /* scale to container width */
+  height: auto;                 /* keep natural 16:9 height */
+  object-fit: contain;          /* show entire video, no cut */
+  background: transparent;      /* no filler color */
+}
+
+.site-header, .navbar {
+  position: sticky; /* or fixed */
+  top: 0;
+  z-index: 1000;
+}
+/* The video is centered and scales to cover while preserving aspect ratio */
+
+/* Poster-only fallback styles if video fails to load in some browsers */
+.video-media::-webkit-media-controls {
+  display: none !important;
+}
+
+/* Large desktops / iMac and 4K */
+@media (min-width: 1921px) {
+  .video-container {
+    /* Optionally cap visual width while keeping full-bleed if needed */
+    max-width: var(--hero-max-width);
+  }
+}
+
+/* Standard desktops/laptops */
+
+
+/* Tablets landscape and small laptops */
+
+
+/* Tablets portrait */
+@media (min-width: 768px) and (max-width: 991px) {
+  .video-container {
+    /* Keep aspect ratio visually pleasing without overwhelming viewport */
+    height: min(var(--hero-height, 600px), 60vh);
+  }
+}
+
+/* Large phones */
+@media (min-width: 480px) and (max-width: 767px) {
+  .video-container {
+    /* Constrain to viewport height; maintain ratio via object-fit */
+    height: min(var(--hero-height, 600px), 55vh);
+    --hero-side-padding: 0px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 479px) {
+  .video-container {
+    height: min(var(--hero-height, 600px), 50vh);
+    --hero-side-padding: 0px;
+  }
+}
+
+/* Safe-area support for notched devices */
+@supports (padding: max(0px)) {
+  .video-container {
+    padding-left: max(var(--hero-side-padding), env(safe-area-inset-left));
+    padding-right: max(var(--hero-side-padding), env(safe-area-inset-right));
+  }
+}
+
+/* Accessibility: reduce motion users get a static poster frame */
+@media (prefers-reduced-motion: reduce) {
+  .video-media {
+    animation: none !important;
+  }
+}
+

@@ -1,0 +1,19 @@
+.ap-fit {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+padding-top: 2rem;
+  padding-bottom: 1.75rem;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white; /* Optional: fills background if image doesn't cover all */
+}
+
+.ap-full-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}

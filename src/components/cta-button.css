@@ -1,0 +1,323 @@
+/* ========== Base Reset ========== */
+.tims * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ========== Body ========== */
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif;
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ========== Particles ========== */
+.tims-particles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+.tims-particle {
+  position: absolute;
+  width: 3px; /* was 4px */
+  height: 3px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  animation: tims-float 5s ease-in-out infinite; /* was 6s */
+}
+@keyframes tims-float {
+  0%,
+  100% { transform: translateY(0) rotate(0); opacity: 0.35; }
+  50% { transform: translateY(-14px) rotate(180deg); opacity: 0.7; } /* was 20px */
+}
+
+/* ========== Mobile Static Buttons (rotated tab) ========== */
+.tims-mobile-static-buttons {
+  position: fixed;
+  right: -72px; /* tighter than -82px */
+  top: 38%;
+  transform: rotate(270deg) scale(0.78); /* smaller default */
+  display: none;
+  flex-direction: row;
+  align-items: flex-end;
+  z-index: 1010;
+}
+.tims-cta-static-button {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 20px 20px 0 0; /* tighter radius */
+  font-size: 12px; /* was 14px */
+  font-weight: 600;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 10px 18px; /* was 15px 25px */
+  border: none;
+  white-space: nowrap;
+  background: linear-gradient(135deg, #027176 0%, #04a1a6 100%);
+  color: #fffd00;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 18px rgba(2, 113, 118, 0.28);
+  backdrop-filter: blur(8px);
+  position: relative;
+  overflow: hidden;
+}
+.tims-cta-static-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 253, 0, 0.1), rgba(255, 253, 0, 0.05));
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.tims-cta-static-button:hover::before { opacity: 1; }
+.tims-cta-static-button:hover {
+  background: linear-gradient(135deg, #fffd00 0%, #f4d03f 100%);
+  color: #027176;
+  transform: scale(1.06); /* gentler */
+  box-shadow: 0 10px 24px rgba(255, 253, 0, 0.28);
+}
+.tims-pulse { animation: tims-modernPulse 1.8s infinite; }
+@keyframes tims-modernPulse {
+  0% { box-shadow: 0 8px 20px rgba(2, 113, 118, 0.28), 0 0 0 0 rgba(255, 253, 0, 0.6); }
+  70% { box-shadow: 0 12px 26px rgba(2, 113, 118, 0.35), 0 0 0 12px rgba(255, 253, 0, 0); }
+  100% { box-shadow: 0 8px 20px rgba(2, 113, 118, 0.28), 0 0 0 0 rgba(255, 253, 0, 0); }
+}
+
+/* Show rotated tab on small screens only */
+@media (max-width: 768px) {
+  .tims-mobile-static-buttons {
+    display: flex;
+    right: -70px;
+    transform: rotate(270deg) scale(0.72);
+  }
+}
+
+/* ========== Desktop CTA Rail ========== */
+.tims-cta-container {
+  position: fixed;
+  top: 60%;
+  right: 0;
+  transform: translateY(-60%);
+  display: flex;
+  flex-direction: column;
+  gap: 6px; /* was 8px */
+  z-index: 1020;
+  align-items: flex-end;
+}
+
+/* ========== CTA Button (rail item) ========== */
+.tims-cta-button {
+  position: relative;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: #fff;
+  padding: 12px; /* was 15px */
+  border-radius: 10px 0 0 10px;
+  cursor: pointer;
+  font-size: 14px; /* was 16px */
+  font-weight: 500;
+  width: 40px; /* was 45px */
+  height: 44px; /* was 50px */
+  overflow: hidden;
+  white-space: nowrap;
+  text-decoration: none;
+  border: none;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transition: width 0.32s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.32s;
+}
+.tims-cta-button::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 0 0;
+  border-radius: 10px 0 0 10px;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.tims-cta-button:hover::before { opacity: 1; }
+.tims-cta-button .tims-icon {
+  display: flex;
+  min-width: 26px; /* was 30px */
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  position: relative;
+}
+.tims-icon-placeholder {
+  width: 20px;
+  height: 20px; /* was 24px */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px; /* was 18px */
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+}
+.tims-cta-button .tims-text {
+  opacity: 0;
+  margin-left: 12px; /* was 15px */
+  transition: all 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 600;
+  z-index: 2;
+  position: relative;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3));
+}
+.tims-cta-button:hover {
+  width: 132px; /* was 150px */
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.28);
+  right: 0;
+}
+.tims-cta-button:hover .tims-text { opacity: 1; }
+
+/* Variants */
+.tims-cta-button.tims-apply {
+  background: linear-gradient(135deg, #027176 0%, #04a1a6 100%);
+  border: 1px solid rgba(255, 253, 0, 0.18);
+}
+.tims-cta-button.tims-apply:hover {
+  background: linear-gradient(135deg, #04a1a6 0%, #027176 100%);
+  color: #fffd00;
+  text-shadow: 0 0 8px rgba(255, 253, 0, 0.45);
+  box-shadow: 0 16px 32px rgba(2, 113, 118, 0.38);
+}
+.tims-cta-button.tims-phone { background: #2196f3; }
+.tims-cta-button.tims-phone:hover {
+  background: linear-gradient(135deg, #42a5f5 0%, #2196f3 100%);
+  box-shadow: 0 16px 32px rgba(33, 150, 243, 0.36);
+}
+.tims-cta-button.tims-email { background: #e5aa17; color: #2b2b2b; }
+.tims-cta-button.tims-email:hover { background: #e5aa17; box-shadow: 0 16px 28px rgba(0, 0, 0, 0.1); }
+.tims-cta-button.tims-email .tims-text { color: #2b2b2b; }
+.tims-cta-button.tims-whatsapp {
+  background: linear-gradient(135deg, #4cb051 0%, #388e3c 100%);
+}
+.tims-cta-button.tims-whatsapp:hover {
+  background: linear-gradient(135deg, #66bb6a 0%, #4cb051 100%);
+  box-shadow: 0 16px 32px rgba(76, 176, 81, 0.36);
+}
+.tims-cta-button.tims-linkedin {
+  background: linear-gradient(135deg, #0288d1 0%, #0277bd 100%);
+}
+.tims-cta-button.tims-linkedin:hover {
+  background: linear-gradient(135deg, #039be5 0%, #0288d1 100%);
+  box-shadow: 0 16px 32px rgba(2, 136, 209, 0.36);
+}
+.tims-cta-button.tims-instagram {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+.tims-cta-button.tims-instagram:hover {
+  background: linear-gradient(45deg, #f5af5a 0%, #ea7c5c 25%, #e04063 50%, #d03c86 75%, #c738a8 100%);
+  box-shadow: 0 16px 32px rgba(225, 48, 108, 0.36);
+}
+.tims-cta-button.tims-facebook {
+  background: linear-gradient(135deg, #229cef 0%, #1877f2 100%);
+}
+.tims-cta-button.tims-facebook:hover {
+  background: linear-gradient(135deg, #42a5f5 0%, #229cef 100%);
+  box-shadow: 0 16px 32px rgba(34, 156, 239, 0.36);
+}
+
+/* ========== Status Indicators ========== */
+.tims-status-indicator {
+  position: fixed;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.78);
+  backdrop-filter: blur(16px);
+  color: #fff;
+  padding: 10px 18px; /* was 12px 25px */
+  border-radius: 36px;
+  font-size: 12px; /* was 14px */
+  font-weight: 500;
+  z-index: 1000;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: tims-slideUp 0.45s ease;
+}
+@keyframes tims-slideUp {
+  from { transform: translateX(-50%) translateY(80px); opacity: 0; }
+  to { transform: translateX(-50%) translateY(0); opacity: 1; }
+}
+.tims-mobile-indicator { display: none; }
+
+/* Swap desktop rail for mobile rotated tab */
+@media (max-width: 768px) {
+  .tims-mobile-indicator { display: block; }
+  .tims-desktop-indicator { display: none; }
+  .tims-cta-container { display: none !important; }
+  .tims-mobile-static-buttons { display: flex !important; }
+}
+
+/* ========== Floating Shapes ========== */
+.tims-floating-shapes {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+.tims-shape {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.045);
+  animation: tims-floatShapes 7s ease-in-out infinite; /* was 8s */
+}
+.tims-shape-1 { width: 64px; height: 64px; top: 20%; left: 10%; animation-delay: -1.5s; }
+.tims-shape-2 { width: 96px; height: 96px; top: 60%; left: 80%; animation-delay: -3s; }
+.tims-shape-3 { width: 48px; height: 48px; top: 78%; left: 20%; animation-delay: -4.5s; }
+
+@keyframes tims-floatShapes {
+  0%, 100% { transform: translateY(0) translateX(0) rotate(0); }
+  33% { transform: translateY(-22px) translateX(22px) rotate(120deg); } /* smaller travel */
+  66% { transform: translateY(20px) translateX(-16px) rotate(240deg); }
+}
+
+/* ========== Notifications & Effects ========== */
+@keyframes tims-slideInRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+@keyframes tims-slideOutRight {
+  from { transform: translateX(0); opacity: 1; }
+  to { transform: translateX(100%); opacity: 0; }
+}
+@keyframes tims-ripple { to { transform: scale(3.2); opacity: 0; } } /* smaller ripple */
+@keyframes tims-fadeInUp { to { opacity: 1; transform: translateY(0); } }
+
+/* ========== Responsive Refinements ========== */
+/* xs: up to 480px */
+@media (max-width: 480px) {
+  .tims-cta-static-button { font-size: 11px; padding: 8px 14px; }
+  .tims-mobile-static-buttons { right: -66px; transform: rotate(270deg) scale(0.68); }
+  .tims-status-indicator { font-size: 11px; padding: 8px 14px; }
+  .tims-cta-button { width: 36px; height: 40px; padding: 10px; }
+  .tims-cta-button:hover { width: 120px; }
+}
+
+/* sm: 481–768px */
+@media (min-width: 481px) and (max-width: 768px) {
+  .tims-cta-static-button { font-size: 12px; padding: 9px 16px; }
+  .tims-mobile-static-buttons { right: -70px; transform: rotate(270deg) scale(0.72); }
+}
+
+/* md: 769–1024px */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .tims-cta-button { width: 42px; height: 46px; }
+  .tims-cta-button:hover { width: 140px; }
+  .tims-cta-container { gap: 7px; }
+  .tims-shape-1 { width: 70px; height: 70px; }
+  .tims-shape-2 { width: 106px; height: 106px; }
+  .tims-shape-3 { width: 54px; height: 54px; }
+}
+
+/* lg+: 1025px and up */
+@media (min-width: 1025px) {
+  .tims-cta-button { width: 44px; height: 48px; }
+  .tims-cta-button:hover { width: 148px; }
+}

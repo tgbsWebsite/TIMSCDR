@@ -1,0 +1,136 @@
+/* MastersProgram.css */
+
+.mp-body {
+  font-family: 'Inter', sans-serif;
+  background-color: #ffffff;
+  color: #1f2937;
+  margin: 0;
+  padding: 0;
+  margin: 150px 0 0px 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  .mp-body {
+    background-color: #ffffff ;
+    color: #111827;
+  }
+}
+
+.mp-header {
+  position: relative;
+  height: 20rem; /* 64 */
+  overflow: hidden;
+}
+
+.mp-hero-bg {
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.mp-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.mp-title {
+  font-size: 3rem; /* 5xl approx */
+  font-weight: 700;
+  margin: 0;
+}
+
+.mp-breadcrumbs {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem; /* text-sm */
+}
+
+.mp-link {
+  color: white;
+  text-decoration: none;
+}
+
+.mp-link:hover {
+  text-decoration: underline;
+}
+
+.mp-divider {
+  color: #d1d5db; /* gray-300 */
+}
+
+.mp-current {
+  color: #d1d5db;
+}
+
+.container {
+  max-width: 72rem; /* to mimic max-w-7xl or container mx-auto */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem; /* px-4 */
+  padding-right: 1rem;
+}
+
+@media(min-width: 640px) {
+  .container {
+    padding-left: 1.5rem; /* sm:px-6 */
+    padding-right: 1.5rem;
+  }
+}
+
+@media(min-width: 1024px) {
+  .container {
+    padding-left: 2rem; /* lg:px-8 */
+    padding-right: 2rem;
+  }
+}
+
+.mp-main {
+  padding-top: 4rem; /* py-16 */
+  padding-bottom: 4rem;
+}
+
+.mp-content-wrapper {
+  max-width: 70%; /* max-w-4xl */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mp-heading {
+  font-size: 1.875rem; /* 3xl */
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 1.5rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  .mp-heading {
+    color: #ffffff;
+  }
+}
+
+/* For prose-like content */
+.mp-text-content {
+  font-size: 1.125rem; /* prose-lg */
+  color: #4b5563; /* gray-600 */
+  line-height: 1.75rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  .mp-text-content {
+    color: #9ca3af; /* gray-400 */
+  }
+}
+
+.mp-text-content p {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}

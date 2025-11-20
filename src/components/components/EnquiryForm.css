@@ -1,0 +1,130 @@
+/* Overlay backdrop */
+.popup-form1 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10000;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  overflow-y: auto; /* Allows scroll if modal is taller than viewport */
+}
+
+/* Main form box */
+.form-container {
+  background: white;
+  border-radius: 12px;
+  padding: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  animation: popIn 0.3s ease-out forwards;
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  /* gap: 1rem; */
+}
+
+/* Improve responsiveness on smaller screens */
+@media (max-width: 480px) {
+  .form-container {
+    padding: 1.5rem 1rem;
+    max-width: 95%;
+  }
+}
+
+
+
+/* Entrance animation */
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Heading */
+.form-container h3 {
+  text-align: center;
+  margin-bottom: 0.5rem;
+  color: #231f54;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+/* Input fields */
+.form-container input {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-container input:focus {
+  border-color: #81c241;
+}
+
+/* Buttons */
+.form-container button {
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 0.75rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.form-container button[type="submit"] {
+  background-color: #81c241;
+  color: white;
+}
+
+.form-container button[type="submit"]:hover {
+  background-color: #6ea833;
+}
+
+.form-container button[type="button"] {
+  background-color: #eee;
+  color: #444;
+}
+
+.form-container button[type="button"]:hover {
+  background-color: #ddd;
+}
+
+/* Optional: Close icon in top-right corner */
+.form-container .close-x {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  font-size: 22px;
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+}
+
+.form-container .close-x:hover {
+  color: #111;
+}
+

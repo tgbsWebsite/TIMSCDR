@@ -1,0 +1,289 @@
+.fs-root {
+  /* min-height: 100vh; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* padding-top: 2rem;
+   padding-bottom: 1.75rem;  */
+  position: relative;
+}
+
+.fs-container {
+  max-width: 1400px;
+  width: 100%;
+  position: relative;
+  margin-block: clamp(16px, 3vw, 48px);
+}
+
+.fs-hero {
+  text-align: center;
+  margin-bottom: clamp(24px, 4.5vw, 64px);
+  margin-bottom: 60px;
+}
+
+.fs-title {
+  font-size: 30px !important;
+
+  font-weight: 700 !important;
+  margin-bottom: 1.5rem !important;
+  text-align: center !important;
+
+  font-weight: 300;
+  color: #231f54;
+  margin-bottom: 15px;
+  line-height: 1.2 !important;
+}
+
+.fs-subtitle {
+  font-size: clamp(1rem, 3vw, 1.3rem);
+  font-weight: 300;
+  color: #6b7280;
+  line-height: 1.4;
+  text-align: center !important;
+}
+
+/* Grid */
+.fs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(18px, 3vw, 30px);
+  margin: 0 auto;
+}
+
+/* Down to 2 columns on tablets */
+@media (max-width: 1024px) {
+  .fs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Single column on phones */
+@media (max-width: 640px) {
+  .fs-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Card */
+.fs-card {
+  --bg-color: #fff;
+  --text-color: #3f3d9b;
+  background: var(--bg-color);
+  color: var(--text-color);
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  padding: 18px 22px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+.fs-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background-color: #3f3d9b;
+}
+
+.fs-card--highlight::before {
+  background-color: #3f3d9b;
+}
+
+.fs-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: #3f3d9b;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.fs-card--highlight::after {
+  background-color: #3f3d9b;
+}
+.fs-card:hover::before,
+.fs-card:hover::after,
+.fs-card--highlight:hover::before,
+.fs-card--highlight:hover::after {
+  background-color: #b2b1d7;
+}
+
+.fs-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  --bg-color: #3f3d9b; /* Blue background */
+  --text-color: #fff; /* White text and icons */
+
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+.fs-card::before,
+.fs-card--highlight::before,
+.fs-card::after,
+.fs-card--highlight::after {
+  background-color: var(--text-color);
+}
+
+/* Text and icon colors */
+.fs-number,
+.fs-card--highlight .fs-number,
+.fs-card-title,
+.fs-card--highlight .fs-card-title,
+.fs-icon,
+.fs-card--highlight .fs-icon {
+  color: var(--text-color);
+}
+
+/* Text fill color on highlight number */
+.fs-card--highlight .fs-number {
+  background-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: var(--text-color);
+}
+
+/* Content */
+.fs-card-content {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+/* Number styles */
+.fs-number {
+  font-size: clamp(4rem, 8vw, 6rem);
+  font-weight: 900;
+  line-height: 1;
+  text-shadow: 0 4px 8px rgba(99, 102, 241, 0.1);
+  flex-shrink: 0;
+}
+
+/* Text block */
+.fs-text {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  text-align: left;
+}
+
+/* Card title */
+.fs-card-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Description */
+.fs-desc {
+  font-size: 0.95rem;
+  color: #6b7280;
+  font-weight: 400;
+  line-height: 1.4;
+}
+.fs-card:hover .fs-desc {
+  color: white;
+}
+
+/* Icon */
+.fs-icon {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.6;
+  flex-shrink: 0;
+}
+
+/* Decorative shapes */
+.fs-shape {
+  position: absolute;
+  opacity: 0.03;
+  z-index: 0;
+}
+
+.fs-shape-1 {
+  width: 200px;
+  height: 200px;
+  color: var(--text-color);
+  border-radius: 50%;
+  top: -100px;
+  left: -100px;
+}
+
+.fs-shape-2 {
+  width: 150px;
+  height: 150px;
+  color: var(--text-color);
+  transform: rotate(45deg);
+  bottom: -75px;
+  right: -75px;
+}
+
+.fs-shape-3 {
+  width: 120px;
+  height: 120px;
+  color: var(--text-color);
+  border-radius: 50%;
+  top: 50%;
+  right: 10%;
+  transform: translateY(-50%);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .fs-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 400px;
+  }
+  .fs-card {
+    padding: 30px 25px;
+  }
+  .fs-card-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+  .fs-number {
+    font-size: clamp(5rem, 18vw, 8rem);
+  }
+  .fs-text {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .fs-hero {
+    margin-bottom: 40px;
+  }
+  .fs-badge {
+    padding: 10px 25px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Extra guard so rows don’t “touch” when zoomed far out */
+.fs-card + .fs-card {
+  margin-block-start: clamp(0px, 1vw, 6px);
+}
+
+/* Mobile refinements remain fluid */
+@media (max-width: 768px) {
+  .fs-grid {
+    gap: clamp(16px, 5vw, 20px);
+  }
+  .fs-card {
+    padding-block: clamp(18px, 6vw, 30px);
+  }
+}

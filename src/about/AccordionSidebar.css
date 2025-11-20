@@ -1,0 +1,158 @@
+/* --- Layout container --- */
+.container {
+  display: flex;
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  min-height: 80vh;
+
+  padding: 20px;
+  gap: 24px; /* space between sidebar & panel */
+}
+.container-cs {
+    max-width: 1600px;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+
+/* --- Sidebar modern look --- */
+.sidebar {
+  width: 40%;
+  max-width: 650px;
+  background: #fff;
+  margin: 0 auto;
+  padding: 18px 20px; /* reduced from 25px 32px */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  border-radius: 12px; /* (optional, for a soft card look) */
+}
+
+/* --- Accordion Sections --- */
+.accordion-section {
+  border-bottom: 1px solid #e2e8f0;
+  padding: 16px 0; /* ↑ add vertical space inside each section */
+  
+}
+
+/* --- Accordion headers --- */
+.accordion-title {
+  background: transparent;
+  border: none;
+  color: #15477a;
+  width: 100%;
+  padding: 14px 18px;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-size: 15.5px;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.25s ease;
+}
+
+.accordion-title span {
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+.accordion-title:hover {
+  background-color: #f1f5f9;
+  color: #2563eb;
+}
+
+/* Add rotate effect for active icon */
+.accordion-title.active span {
+  transform: rotate(180deg);
+}
+
+/* --- Accordion content --- */
+.accordion-content {
+  background-color: #f8fafc;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border-left: 3px solid #3b82f6;
+  padding: 10px 0;
+  .accordion-content {
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+}
+
+/* --- Accordion sub-items --- */
+.accordion-item {
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #334155;
+  border-left: 3px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.accordion-item:hover {
+  background-color: #e0f2fe;
+  border-left: 3px solid #0ea5e9;
+  color: #0c4a6e;
+}
+
+.accordion-item.active {
+  background-color: #e0f2fe;
+  border-left: 3px solid #0ea5e9;
+  color: #0c4a6e;
+}
+
+.accordion-item:not(.active):hover {
+  background-color: #e0f2fe;
+  border-left: 3px solid #0ea5e9;
+  color: #0c4a6e;
+}
+
+/* --- Dynamic Panel modern look --- */
+.dynamic-panel {
+  flex: 1;
+  background-color: #ffffff;
+  padding: 28px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.dynamic-panel h2 {
+  color: #15477a;
+  font-size: 26px;
+  font-weight: 700;
+  text-align: center; /* centers the text in its container */
+  width: 100%; /* make sure the heading spans full width */
+  margin: 0 auto 20px; /* center block if needed and add bottom space */
+}
+
+.dynamic-panel p {
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: #475569;
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .sidebar {
+    width: 100%;
+  }
+}
+.section-heading {
+  text-align: center;
+  font-weight: bold;
+  color: #231f54;
+  font-size: 35px;
+  margin-bottom: 35px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  margin-top: 180px;
+  position: relative; /* ensures it stays in flow */
+  z-index: 1;
+}

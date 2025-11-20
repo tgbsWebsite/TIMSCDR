@@ -1,0 +1,505 @@
+:root {
+  --primary-color: #4f46e5;
+  --secondary-color: #10b981;
+  --background-light: #f8f9fa;
+  --background-dark: #111827;
+  --text-dark: #1f2937;
+  --text-light: #f9fafb;
+  --text-muted: #6b7280;
+  --accent-gold: #ffd700;
+}
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
+
+.material-symbols-outlined {
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
+  font-size: 24px; /* adjust size as needed */
+  font-style: normal;
+  font-weight: normal;
+  display: inline-block;
+  white-space: nowrap;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  -webkit-font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Main background */
+.conv-bg-main {
+  /* background: var(--background-light); */
+  color: var(--text-dark);
+  font-family: "Poppins", sans-serif;
+}
+
+/* Header hero */
+.conv-header-img-wrap {
+  position: relative;
+}
+.conv-header-hero-img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  display: block;
+}
+.conv-header-hero-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: center;
+  padding: 2rem 2rem 5rem 2rem;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.7),
+    rgba(0, 0, 0, 0.4),
+    transparent
+  );
+}
+.conv-header-title {
+  font-size: 4rem;
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: -2px;
+}
+.conv-header-desc {
+  margin-top: 1rem;
+  font-size: 1.3rem;
+  color: #e2e8f0;
+  max-width: 700px;
+}
+
+/* Navbar */
+.conv-navbar-bg {
+  background: var(--background-dark);
+  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.12);
+  padding: 1rem 0;
+  color: var(--text-light);
+}
+.conv-sticky-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+.conv-navbar-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+.conv-nav-link {
+  color: #d1d5db;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  position: relative;
+  transition: color 0.3s;
+}
+.conv-nav-link:hover,
+.conv-nav-link:focus {
+  color: var(--accent-gold);
+}
+.conv-nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: var(--accent-gold);
+  transition: width 0.3s;
+}
+.conv-nav-link:hover::after,
+.conv-nav-link:focus::after {
+  width: 100%;
+}
+
+/* Section Grid */
+.convocado-grid {
+  display: grid;
+  grid-template-columns: 1fr 270px;
+  gap: 2.2rem;
+  align-items: center;
+}
+@media (max-width: 900px) {
+  .convocado-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Section Card Base */
+.conv-section-rounded {
+  background: #fff;
+  padding: 2.5rem;
+  border-radius: 2.1rem;
+  box-shadow: 0 12px 48px rgba(92, 99, 105, 0.12);
+}
+/* .mb-large {
+  margin-bottom: 4rem;
+} */
+
+/* Section Title */
+.conv-section-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #111827;
+  margin-bottom: 1.4rem;
+  border-bottom: 4px solid var(--primary-color);
+  padding-bottom: 1rem;
+  position: relative;
+}
+.conv-section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 80px;
+  height: 4px;
+  background: var(--accent-gold);
+}
+.conv-section-desc {
+  color: var(--text-muted);
+  font-size: 1.14rem;
+  margin: 2rem 0 2.2rem 0;
+  line-height: 1.7;
+}
+
+.conv-chief-guest-card {
+  background: #eef2ff;
+  border-left: 4px solid #6366f1;
+  padding: 1.5rem;
+  border-radius: 0.9rem;
+  margin-bottom: 1rem;
+}
+.conv-guest-title {
+  display: flex;
+  gap: 0.6rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  align-items: center;
+}
+.conv-icon {
+  font-size: 1.9rem !important;
+}
+.conv-guest-name {
+  font-size: 1.13rem;
+  font-weight: 600;
+  color: #22223b;
+}
+.conv-guest-desc {
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin-top: 0.1rem;
+}
+
+/* Event img */
+.convocado-event-img {
+  width: 100%;
+  border-radius: 1rem;
+  box-shadow: 0 2px 16px rgba(70, 70, 110, 0.11);
+}
+
+/* Main batch cards */
+.conv-card {
+  background: #fff;
+  padding: 1rem 1rem;
+  border-radius: 1.3rem;
+  box-shadow: 0 4px 24px 0 rgba(60, 58, 89, 0.1);
+  border: 1.5px solid #e5e7eb;
+  margin-bottom: 2rem;
+  
+  width: 99%;          /* responsive width */
+  /* max-width: 1390px;   */
+  margin-left: auto;
+  margin-right: auto;  /* centers card */
+  box-sizing: border-box;
+}
+
+.conv-batch-title {
+  font-size: 28px;
+  color: var(--primary-color);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.conv-batch-icon {
+  font-size: 2.17rem !important;
+  vertical-align: middle;
+}
+.conv-batch-desc {
+  color: var(--text-muted);
+  font-size: 1.09rem;
+  margin-bottom: 1.3rem;
+  line-height: 1.62;
+}
+.conv-guest-box,
+.conv-guest-box-green {
+  border-left: 4px solid #6366f1;
+  background: #eef2ff;
+  padding: 0.3rem 0.8rem; /* reduced padding */
+  padding-bottom: 1.5rem;
+  border-radius: 0.89rem;
+  box-shadow: 0 2px 8px rgba(80, 80, 160, 0.07);
+}
+.conv-guest-box-green {
+  background: #ecfdf5;
+  border-left: 4px solid #10b981;
+  box-shadow: 0 2px 8px rgba(30, 215, 130, 0.05);
+  /* space below the whole box */
+  padding-top: 1rem 0.8rem; /* add padding if needed inside */
+}
+
+/* Reduce bottom margin of all relevant content paragraphs and headings inside the green box */
+.conv-guest-box-green p,
+.conv-guest-box-green h3,
+.conv-guest-box-green h4,
+.conv-guest-box-green .conv-guest-green-name,
+.conv-guest-box-green .conv-guest-green-title {
+  margin-bottom: 0.2rem; /* smaller space between content lines */
+}
+
+.conv-guest-title-green {
+  color: var(--secondary-color);
+  font-size: 1.3rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  /* gap: 1rem; */
+}
+.conv-icon-green {
+  font-size: 1.9rem !important;
+  color: var(--secondary-color);
+}
+.mb-medium {
+  margin-bottom: 1.7rem;
+}
+.conv-guests-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.conv-guest-green-name {
+  font-weight: 600;
+  color: #065f46;
+}
+.conv-guest-green-title {
+  font-size: 0.98rem;
+  color: #166534;
+}
+.conv-directors {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  border-top: 1px solid #bbf7d0;
+  margin-top: 1.5rem;
+  padding-top: 1.2rem;
+}
+.conv-director-name {
+  font-weight: 600;
+  color: #085d83;
+}
+.conv-director-title {
+  font-size: 0.97rem;
+  color: #82a5ba;
+  font-weight: 400;
+}
+
+.conv-awards-title {
+  font-size: 1.29rem;
+  color: #22223b;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+}
+.conv-awards-title.center {
+  text-align: center;
+}
+
+.conv-table-wrapper {
+  overflow-x: auto;
+  border-radius: 1rem;
+  border: 1.5px solid #e5e7eb;
+  margin-bottom: 1.3rem;
+  box-shadow: 0 1px 6px rgba(120, 120, 140, 0.1);
+}
+.conv-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
+}
+.conv-table th,
+.conv-table td {
+  padding: 0.85rem 1.1rem;
+  text-align: center;
+}
+.conv-table th {
+  background: #f3f4f6;
+  color: #374151;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.conv-table td {
+  color: #22223b;
+}
+.conv-table tbody tr:nth-child(even) {
+  background: #f8fafc;
+}
+/* .conv-table tbody tr:hover {
+  background: #eef2ff;
+} */
+.conv-graduates-summary {
+  margin-top: 1.5rem;
+  text-align: center;
+  background: #eef2ff;
+  border-radius: 0.7rem;
+  padding: 1.2rem;
+  font-size: 1.09rem;
+  border-left: 5px solid var(--primary-color);
+  text-align: center !important;
+}
+.conv-summary-indigo {
+  background: #eef2ff;
+  border-left: 5px solid #6366f1;
+}
+.conv-summary-green {
+  background: #ecfdf5;
+  border-left: 5px solid #10b981;
+}
+.conv-twobatches-grid {
+  display: grid;
+  gap: 1.6rem;
+  grid-template-columns: 1fr 1fr;
+}
+@media (max-width: 900px) {
+  .conv-twobatches-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.conv-batch-label {
+  font-weight: 600;
+  font-size: 1.13rem;
+  text-align: center;
+  color: #374151;
+  background: #f3f4f6;
+  border-radius: 0.9rem 0.9rem 0 0;
+  padding: 0.9rem;
+}
+
+.conv-prev-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 1.3rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.conv-ceremony-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem;
+}
+@media (max-width: 1000px) {
+  .conv-ceremony-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 750px) {
+  .conv-ceremony-list {
+    grid-template-columns: 1fr;
+  }
+}
+.conv-ceremony-card {
+  background: #f9fafb;
+  border-radius: 1rem;
+  border: 1.5px solid #e5e7eb;
+  padding: 1.1rem 1.6rem;
+  transition: border 0.2s;
+}
+.conv-ceremony-card:hover {
+  border-color: var(--primary-color);
+}
+.conv-ceremony-card h4 {
+  font-size: 1.12rem;
+  font-weight: 600;
+  color: #22223b;
+  margin-bottom: 0.3rem;
+}
+.conv-chief-guest-last {
+  margin-top: 8px;
+  color: #6b21a8;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 0.98rem;
+}
+.conv-ceremony-star {
+  font-size: 1.02rem !important;
+  margin-right: 0.4rem;
+  vertical-align: middle;
+}
+
+.conv-footer-bg {
+  background: var(--background-dark);
+  color: var(--text-light);
+  padding: 4rem 0 2.5rem 0;
+}
+.conv-footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+.conv-footer-title {
+  font-size: 2.3rem;
+  font-weight: 800;
+  margin-bottom: 0.6rem;
+  letter-spacing: 0.02em;
+}
+.conv-footer-subtitle,
+.conv-footer-affil {
+  font-size: 1.09rem;
+  color: #9ca3af;
+  margin-bottom: 0.3rem;
+}
+.conv-footer-note {
+  font-size: 1rem;
+  color: #bdbdbd;
+  line-height: 1.6;
+  max-width: 760px;
+  margin: 1.7rem auto 0 auto;
+  font-style: italic;
+}
+.conv-footer-copyright {
+  border-top: 1px solid #374151;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  font-size: 1.01rem;
+  color: #7c8799;
+}
+.conv-carousel img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+.legend {
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff !important;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  bottom: 20px !important;
+  border-radius: 0.3rem;
+}

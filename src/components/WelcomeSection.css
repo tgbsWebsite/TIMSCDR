@@ -1,0 +1,161 @@
+.welcome-section {
+ padding: 1rem 4rem 4rem 4rem;
+
+}
+
+.welcome-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.welcome-logo img {
+  width: 250px;
+  height: auto;
+}
+
+.welcome-text {
+  flex: 1;
+  text-align: left;
+}
+
+.welcome-text h1 {
+  font-size: 2rem;
+  color: #231f54;
+  margin-bottom: 1rem;
+}
+
+.welcome-text p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #333;
+  text-align: justify;
+}
+
+.welcome-button-wrapper {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.watch-button {
+  background-color: #81c241;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.watch-button:hover {
+  background-color: #0a265e;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  inset: 0;                       /* shorthand for top/right/bottom/left: 0 */
+  background: rgba(0,0,0,0.7);    /* darker black backdrop */
+  display: grid;                  /* simpler centering */
+  place-items: center;            /* center modal */
+  z-index: 999;
+}
+
+
+.modal-content {
+  width: min(96vw, 1280px);       /* cap width on huge screens */
+  height: min(96vh, 720px);       /* cap height; keeps some breathing room */
+  aspect-ratio: 16 / 9;           /* maintain video ratio */
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.close-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  color: white;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .welcome-section {
+    padding: 3rem 5rem;
+  }
+  .welcome-logo img {
+    width: 200px;
+  }
+  .welcome-text h1 {
+    font-size: 1.75rem;
+  }
+  .welcome-text p {
+    font-size: 1rem;
+  }
+  .watch-button {
+    padding: 0.65rem 1.25rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .welcome-section {
+    padding: 2rem 2rem;
+  }
+  .welcome-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .welcome-logo img {
+    width: 150px;
+  }
+  .welcome-text {
+    text-align: center;
+  }
+  .welcome-text h1 {
+    font-size: 1.5rem;
+  }
+  .welcome-text p {
+    font-size: 0.95rem;
+  }
+  .welcome-button-wrapper {
+    margin-top: 1.5rem;
+  }
+  .watch-button {
+    width: 100%;
+    max-width: 300px;
+    padding: 0.75rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .welcome-section {
+    padding: 1.5rem 1rem;
+  }
+  .welcome-logo img {
+    width: 120px;
+  }
+  .welcome-text h1 {
+    font-size: 1.25rem;
+  }
+  .welcome-text p {
+    font-size: 0.9rem;
+  }
+  .watch-button {
+    max-width: 100%;
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+  .modal-content {
+    width: 95%;
+    max-width: none;
+  }
+}

@@ -1,0 +1,452 @@
+/* 1) Base reset and typography */
+:root {
+  --gray-50: #f8fafc;
+  --gray-100: #f1f5f9;
+  --gray-200: #e2e8f0;
+  --gray-300: #cbd5e0;
+  --gray-600: #718096;
+  --gray-700: #4a5568;
+  --gray-800: #2d3748;
+
+  --orange-400: #f6ad55;
+  --orange-500: #ed8936;
+  --orange-600: #dd6b20;
+
+  --teal-400: #4fd1c5;
+  --teal-600: #319795;
+
+  --indigo-400: #7f9cf5;
+  --indigo-600: #4c51bf;
+
+  --pink-400: #f687b3;
+  --pink-600: #97266d;
+
+  --green-400: #68d391;
+  --green-500: #38a169;
+  --green-600: #2f855a;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  color: var(--gray-800);
+  background-color: #fff;
+}
+
+/* 2) Ensure Material Icons render as icons */
+@font-face {
+  font-family: "Material Icons";
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialicons/v140/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2)
+    format("woff2");
+  font-display: swap;
+}
+
+.material-icons {
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  display: inline-block;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 3) Page container */
+.nb-container {
+  max-width: 1600px; /* or 1536px, 1600px, etc. */
+  margin: 150px auto 40px auto;
+  padding: 3rem 1rem;
+
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+/* 4) Header */
+.title {
+  font-size: 2.25rem; /* 36px */
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  text-align: center;
+}
+
+.subtitle {
+  font-size: 1.125rem; /* 18px */
+  color: var(--gray-600);
+  text-align: center;
+  margin: 0 0 3rem 0;
+}
+/* Reusable scroll pane (same look/height as archived if you want) */
+.scroll-pane {
+  max-height: 350px; /* adjust as needed */
+  overflow-y: auto;
+  padding-right: 1rem; /* keeps content from hugging the scrollbar */
+}
+
+/* Optional: nicer scrollbar (WebKit) */
+.scroll-pane::-webkit-scrollbar {
+  width: 8px;
+}
+.scroll-pane::-webkit-scrollbar-thumb {
+  background: #e2e8f0;
+  border-radius: 8px;
+}
+.scroll-pane:hover::-webkit-scrollbar-thumb {
+  background: #cbd5e0;
+}
+
+/* 5) Card wrapper (the light gray box) */
+.bg-custom-gray {
+  /* background-color: #f8f9fa; */
+  padding: 2rem;
+  border-radius: 0.75rem;
+  /* box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1); */
+  width: 100%; /* fills parent */
+  max-width: 1600px;
+
+  display: flex; /* row by default */
+  flex-wrap: wrap; /* allow wrapping to next line */
+  gap: 2rem; /* spacing between children */
+  align-items: flex-start;
+}
+
+/* Optional: width control for children */
+.bg-custom-gray > * {
+  flex: 1 1 48%; /* ~2 items per row; adjust as needed */
+  min-width: 280px;
+}
+
+/* 6) Outer grid: left content (2 columns area) + right archived column */
+.grid-3-cols {
+  display: grid;
+  /* grid-template-columns: 2fr 1fr;  */
+  gap: 2rem;
+}
+
+
+/* 7) Inner grid for left content: two columns of sections */
+.grid-2-cols {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+/* 8) Section header button */
+.section-header {
+  width: 100%;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+  margin: 0 0 1rem 0;
+}
+
+.section-title {
+  font-size: 1.5rem; /* 24px */
+  font-weight: 600;
+  color: var(--gray-800);
+  margin: 0;
+  padding: 0 0 0.5rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Color borders under section titles */
+.border-orange {
+  border-color: var(--orange-500);
+}
+.border-teal {
+  border-color: var(--teal-600);
+}
+.border-indigo {
+  border-color: var(--indigo-600);
+}
+.border-pink {
+  border-color: var(--pink-600);
+}
+.border-green {
+  border-color: var(--green-500);
+}
+
+/* Left icon + text wrapper in header */
+.icon-text {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Accent colors on header text/icons */
+.orange {
+  color: var(--orange-500);
+}
+.teal {
+  color: var(--teal-600);
+}
+.indigo {
+  color: var(--indigo-600);
+}
+.pink {
+  color: var(--pink-600);
+}
+.green {
+  color: var(--green-500);
+}
+
+/* Rotating chevron */
+.toggle-icon {
+  transition: transform 0.3s ease;
+}
+.rotated {
+  transform: rotate(180deg);
+}
+
+/* 9) Lists */
+.section-list {
+  margin: 1rem 0 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.section-list li + li {
+  margin-top: 0.75rem;
+}
+
+/* Links in lists */
+.section-link {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  color: var(--gray-700);
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+.section-link:hover {
+  text-decoration: none;
+}
+
+/* Hover accent colors */
+.orange-hover:hover {
+  color: var(--orange-600);
+}
+.teal-hover:hover {
+  color: var(--teal-600);
+}
+.indigo-hover:hover {
+  color: var(--indigo-600);
+}
+.pink-hover:hover {
+  color: var(--pink-600);
+}
+.green-hover:hover {
+  color: var(--green-600);
+}
+
+/* Icon tints inside links */
+.orange-icon {
+  color: var(--orange-400);
+}
+.teal-icon {
+  color: var(--teal-400);
+}
+.indigo-icon {
+  color: var(--indigo-400);
+}
+.pink-icon {
+  color: var(--pink-400);
+}
+.green-icon {
+  color: var(--green-400);
+}
+
+.small-icon {
+  font-size: 18px;
+  line-height: 1;
+}
+.small-text {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+/* 10) CTA button area */
+.text-center {
+  text-align: center;
+}
+.mt-12 {
+  margin-top: 3rem;
+}
+.ml-2 {
+  margin-left: 0.5rem;
+}
+
+.button-orange {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--orange-500);
+  color: #fff;
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.button-orange:hover {
+  background-color: var(--orange-600);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+}
+
+/* 11) Right column divider (Archived panel) */
+.border-left {
+  border-left: 2px solid var(--gray-300);
+}
+
+.pl-8 {
+  padding-left: 2rem;
+}
+
+/* Archived list scrollable area */
+.archived-list {
+  max-height: 350px;
+  overflow-y: auto;
+  padding-right: 1rem;
+  margin-top: 1rem;
+}
+
+/* 12) Footer */
+.footer {
+  background-color: var(--gray-800);
+  color: #fff;
+  padding: 1rem 0;
+  text-align: center;
+  font-size: 0.875rem;
+  margin-top: 2rem;
+}
+
+/* 13) Responsive tweaks */
+@media (max-width: 1024px) {
+  .grid-3-cols {
+    grid-template-columns: 1fr; /* stack right column below */
+  }
+  .border-left {
+    border-left: 0;
+    border-top: 2px solid var(--gray-300);
+    padding-left: 0;
+    padding-top: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid-2-cols {
+    grid-template-columns: 1fr; /* stack sections in one column */
+  }
+}
+
+/* Remove Material Icons font face and class since using images now */
+
+/* Generic icon image styles */
+.icon {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+  display: inline-block;
+  object-fit: contain;
+  vertical-align: middle;
+}
+
+/* Size utilities to replace md-18/md-24 etc. */
+.icon-18 {
+  width: 18px;
+  height: 18px;
+}
+.icon-24 {
+  width: 24px;
+  height: 24px;
+}
+.icon-32 {
+  width: 32px;
+  height: 32px;
+}
+.icon-36 {
+  width: 36px;
+  height: 36px;
+}
+.icon-48 {
+  width: 48px;
+  height: 48px;
+}
+
+/* Margin helpers where JSX uses mr-3/small-icon */
+.mr-3 {
+  margin-right: 0.75rem;
+}
+
+/* Optional: monochrome SVG tinting with CSS filters (use only for single-color SVGs) */
+.icon-tint-orange {
+  filter: invert(58%) sepia(68%) saturate(707%) hue-rotate(338deg)
+    brightness(101%) contrast(95%);
+}
+.icon-tint-teal {
+  filter: invert(65%) sepia(32%) saturate(616%) hue-rotate(125deg)
+    brightness(86%) contrast(93%);
+}
+.icon-tint-indigo {
+  filter: invert(34%) sepia(27%) saturate(1534%) hue-rotate(208deg)
+    brightness(93%) contrast(91%);
+}
+.icon-tint-pink {
+  filter: invert(52%) sepia(29%) saturate(1198%) hue-rotate(303deg)
+    brightness(97%) contrast(96%);
+}
+.icon-tint-green {
+  filter: invert(66%) sepia(14%) saturate(1042%) hue-rotate(96deg)
+    brightness(90%) contrast(93%);
+}
+
+/* If using inline SVG or currentColor-capable assets, color tokens still apply */
+.orange {
+  color: var(--orange-500);
+}
+.teal {
+  color: var(--teal-600);
+}
+.indigo {
+  color: var(--indigo-600);
+}
+.pink {
+  color: var(--pink-600);
+}
+.green {
+  color: var(--green-500);
+}
+
+/* Replace old .small-icon with a size utility */
+.small-icon {
+  width: 18px;
+  height: 18px;
+}

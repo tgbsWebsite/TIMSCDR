@@ -1,0 +1,316 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.IoTLabExcellence-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 9%;
+  padding: 0 20px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.6;
+  color: #2c3e50;
+  background: #f8fafc;
+}
+
+/* HERO */
+.IoTLabExcellence-hero {
+  background: linear-gradient(135deg, rgba(102,126,234,0.1), rgba(118,75,162,0.1));
+  padding: 80px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.IoTLabExcellence-hero::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(102,126,234,0.1), transparent 70%);
+  animation: IoTLabExcellence-float 20s ease-in-out infinite;
+}
+@keyframes IoTLabExcellence-float {
+  0%,100% { transform: translateY(0) rotate(0);}
+  50% { transform: translateY(-20px) rotate(180deg);}
+}
+.IoTLabExcellence-hero h2 {
+  font-size: 3rem;
+  text-align: center;
+  font-weight: 800;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg,#667eea,#764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.IoTLabExcellence-hero p {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: auto;
+  opacity: 0.85;
+}
+.IoTLabExcellence-cta-button {
+  background: linear-gradient(135deg,#ff6b6b,#ee5a52);
+  color: white;
+  padding: 15px 35px;
+  border-radius: 50px;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 30px;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+.IoTLabExcellence-cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(255,107,107,0.3);
+}
+
+/* STATS */
+.IoTLabExcellence-stats-counter {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin-top: 40px;
+}
+.IoTLabExcellence-stat-item { text-align: center; }
+.IoTLabExcellence-stat-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #667eea;
+}
+.IoTLabExcellence-stat-label {
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+/* SECTION HEADER */
+.IoTLabExcellence-section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+.IoTLabExcellence-section-header h3 {
+  font-size: 2.2rem;
+  color: #2c3e50;
+}
+.IoTLabExcellence-section-header p {
+  font-size: 1.1rem;
+  opacity: 0.7;
+}
+
+/* OBJECTIVES */
+.IoTLabExcellence-objectives {
+  padding: 80px 0;
+  background: white;
+}
+.IoTLabExcellence-objectives-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+  gap: 30px;
+}
+.IoTLabExcellence-objective-card {
+  background: white;
+  border-left: 5px solid #667eea;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: all .3s;
+}
+.IoTLabExcellence-objective-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+/* LAB INFO */
+.IoTLabExcellence-lab-info {
+  padding: 80px 0;
+  background: #f8fafc;
+}
+.IoTLabExcellence-lab-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: flex-start;
+}
+.IoTLabExcellence-lab-details,
+.IoTLabExcellence-inauguration-info {
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+.IoTLabExcellence-lab-details { background: white; }
+.IoTLabExcellence-inauguration-info {
+  background: linear-gradient(135deg,#667eea,#764ba2);
+  color: white;
+  text-align: center;
+}
+.IoTLabExcellence-inauguration-info .date {
+  font-weight: 700;
+  color:#4ecdc4;
+  font-size: 1.3rem;
+}
+.IoTLabExcellence-equipment-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.IoTLabExcellence-equipment-tag {
+  background: linear-gradient(135deg, #4ecdc4,#44a08d);
+  color:white;
+  padding:6px 14px;
+  border-radius:20px;
+  font-weight:600;
+  font-size:0.85rem;
+}
+
+/* PROTOTYPES */
+.IoTLabExcellence-prototypes {
+  padding: 80px 0;
+  background: white;
+}
+.IoTLabExcellence-prototypes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  gap: 25px;
+}
+.IoTLabExcellence-prototype-card {
+  background: #f8fafc;
+  border-radius: 15px;
+  border: 1px solid #e2e8f0;
+  padding: 25px;
+  position: relative;
+  transition: all .3s;
+}
+.IoTLabExcellence-prototype-card::before {
+  content:"";
+  position:absolute;top:0;left:0;width:100%;height:4px;
+  background: linear-gradient(135deg,#ff6b6b,#4ecdc4);
+}
+.IoTLabExcellence-prototype-card:hover {
+  transform: translateY(-5px);
+  background:white;
+  box-shadow:0 12px 30px rgba(0,0,0,.1);
+}
+
+/* EVENTS */
+.IoTLabExcellence-events {
+  background: #f8fafc;
+  padding:80px 0;
+}
+.IoTLabExcellence-events-timeline { max-width:1000px;margin:auto; }
+.IoTLabExcellence-event-item {
+  display:grid;
+  grid-template-columns:180px 1fr;
+  gap:30px;
+  margin-bottom:40px;
+}
+.IoTLabExcellence-event-date {
+  background: linear-gradient(135deg,#667eea,#764ba2);
+  color:white;
+  text-align:center;
+  border-radius:15px;
+  padding:18px;
+}
+.IoTLabExcellence-event-content {
+  background:white;
+  border-radius:15px;
+  padding:25px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+.IoTLabExcellence-participants {
+  background: #4ecdc4;
+  color:white;
+  padding:5px 12px;
+  border-radius:20px;
+  display:inline-block;
+  margin-top:10px;
+}
+
+
+/* Schools Table */
+.IoTLabExcellence-schools-table-wrapper {
+  overflow-x: auto;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  padding: 20px;
+}
+
+.IoTLabExcellence-schools-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: inherit;
+}
+
+.IoTLabExcellence-schools-table th,
+.IoTLabExcellence-schools-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid #e2e8f0;
+  text-align: left;
+}
+
+.IoTLabExcellence-schools-table th {
+  background: #f8fafc;
+  color: #2c3e50;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.IoTLabExcellence-schools-table td {
+  color: #2c3e50;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.IoTLabExcellence-schools-table tr:hover {
+  background: #f1f5f9;
+  transform: scale(1.01);
+  transition: all 0.25s ease;
+}
+
+.IoTLabExcellence-date-badge {
+  background: linear-gradient(135deg, #4ecdc4, #44a08d);
+  color: white;
+  padding: 5px 12px;
+  font-size: 0.8rem;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.IoTLabExcellence-participants-count-table {
+  background: #ff6b6b;
+  color: white;
+  padding: 5px 12px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+
+
+/* CONTACT */
+.IoTLabExcellence-contact {
+  background: linear-gradient(135deg,#2c3e50,#34495e);
+  color:white;
+  padding:80px 0;
+  text-align:center;
+}
+.IoTLabExcellence-contact h3 { font-size:2.2rem;margin-bottom:20px; }
+.IoTLabExcellence-contact p { font-size:1.1rem;opacity:0.9;margin-bottom:30px; }
+
+/* ANIMATIONS */
+.fade-in {
+  opacity:0;
+  transform:translateY(30px);
+  transition:all 0.8s ease-out;
+}
+.fade-in.visible { opacity:1; transform:translateY(0); }
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .IoTLabExcellence-hero h2 { font-size:2rem; }
+  .IoTLabExcellence-lab-grid { grid-template-columns:1fr;gap:30px; }
+  .IoTLabExcellence-event-item { grid-template-columns:1fr; }
+}

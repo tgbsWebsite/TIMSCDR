@@ -1,0 +1,183 @@
+/* ========================
+   Global Styles
+======================== */
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f9fafb; /* gray-50 */
+  margin: 0;
+  padding: 0;
+}
+
+/* ========================
+   Main Layout
+======================== */
+.main-container {
+  width: 100%;
+  max-width: 100%; /* never exceed screen width */
+  padding: 2rem; /* spacing inside */
+  box-sizing: border-box; /* prevent padding from pushing outside */
+  margin: 150px auto 40px auto;
+}
+
+@media (min-width: 768px) {
+  .main-container {
+    padding: 1rem; 
+  }
+}
+
+/* ========================
+   Heading
+======================== */
+.heading {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.heading h1 {
+  font-size: 2.25rem; /* 36px */
+  font-weight: 700;
+  color: #1f2937; /* gray-800 */
+}
+@media (min-width: 768px) {
+  .heading h1 {
+    font-size: 3rem; /* 48px */
+  }
+}
+
+/* ========================
+   Grid Layout
+======================== */
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr; /* stacked on mobile */
+  align-items: stretch;
+}
+
+@media (min-width: 1024px) {
+  .grid-container {
+    grid-template-columns: minmax(350px, 500px) 1fr;
+    /* Sidebar: min 350, max 500px | PDF: always gets at least 0, usually fills rest */
+    align-items: stretch;
+  }
+}
+
+/* ========================
+   Sidebar (Links)
+======================== */
+.sidebar {
+  min-width: 500px; /* wider base */
+  max-width: 500px; /* cap */
+  flex-grow: 1;
+  border-radius: 0;
+}
+
+.sidebar .link-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* 24px */
+}
+
+.link-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* spacing between icon and text */
+  padding: 1.5rem; /* 24px */
+  background: white;
+  border-radius: 0.5rem; /* 8px */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  text-decoration: none;
+  transition: box-shadow 0.3s ease;
+  border-left: 4px solid transparent;
+}
+
+.link-card:hover {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.link-card p {
+  color: #1f2937; /* gray-800 */
+  font-size: 1.125rem; /* 18px */
+  flex: 1; /* take remaining space */
+  line-height: 1.5;
+  margin: 0;
+  text-align: left; /* align text to left */
+}
+
+/* ========================
+   Material Icons
+======================== */
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialicons/v140/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+  font-display: swap;
+}
+.material-icons {
+  font-family: "Material Icons";
+  font-style: normal;
+  font-weight: normal;
+  font-display: block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  vertical-align: middle;
+  user-select: none;
+}
+
+.icon {
+  font-size: 1.875rem; /* 30px */
+  flex-shrink: 0; /* don't let icon shrink */
+}
+
+.icon.red {
+  color: #ef4444; /* red-500 */
+}
+.icon.blue {
+  color: #3b82f6; /* blue-500 */
+}
+
+/* Left borders */
+.red-border {
+  border-color: #ef4444;
+}
+.blue-border {
+  border-color: #3b82f6;
+}
+
+/* Arrow Icon */
+.arrow {
+  color: #9ca3af; /* gray-400 */
+  font-size: 1.5rem;
+  margin-left: auto; /* push arrow to far right */
+  flex-shrink: 0;
+}
+
+/* ========================
+   PDF Viewer
+======================== */
+.content {
+  margin-left: 1rem; /* shifts PDF further to right */
+  width: 95%;
+  min-width: 0;
+}
+
+.content .pdf-container {
+  background: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  height: 100%;
+  min-height: 900px;
+}
+@media (min-width: 1024px) {
+  .content .pdf-container {
+    min-height: 1000px;
+  }
+}
+.pdf-frame {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
